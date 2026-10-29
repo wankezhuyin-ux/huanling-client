@@ -360,9 +360,9 @@ func _ink_refresh() -> void:
 	if game_manager != null and game_manager.player != null and game_manager.has_method("local_double_exp_count"):
 		var title = get_node_or_null("MainContent/BattleView/BattlePanel/BattleTitle")
 		if title != null:
-			# 原版标题就是「⚔️ 战斗区域」（main_ui.tscn 里原本就是这个字面量），
-			# 左边那个「✕✕」不是按钮、也不是我们多画的，是 ⚔️ 这个符号在原版字体下的长相
-			# —— 原版截图同一位置也是一样的两把交叉剑。之前我误当成缺字方块把它删了，现在还原。
+			# 参考稿标题就是「⚔️ 战斗区域」（main_ui.tscn 里原本就是这个字面量），
+			# 左边那个「✕✕」不是按钮、也不是我们多画的，是 ⚔️ 这个符号在参考稿字体下的长相
+			# —— 参考稿截图同一位置也是一样的两把交叉剑。之前我误当成缺字方块把它删了，现在还原。
 			# 别往标题上再糊经验丹倍数，经验丹状态挂在 tooltip 上就够了。
 			title.text = "⚔ 战斗区域"
 			title.tooltip_text = game_manager.local_double_exp_status()

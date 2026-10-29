@@ -3,7 +3,7 @@ extends SceneTree
 #
 # 目的：本机没有系统级点击权限，没法手动点「登录」，也就没法看到战斗界面，
 # UI 布局核对就变成"只能读代码猜"。这个脚本用代码走一遍真实登录流程，
-# 把弹窗按掉，然后把画面存成 PNG，方便逐像素和原版截图对齐。
+# 把弹窗按掉，然后把画面存成 PNG，方便逐像素和参考稿截图对齐。
 #
 # 用法：
 #   Godot --path . --resolution 496x1280 --script tools/ui_shot.gd -- --out=/tmp/ui_shot.png
@@ -316,7 +316,7 @@ func _start(root_node: Node, user: String, pw: String, out_path: String, extra_w
 		(d as Window).queue_free()
 
 	if sim_offline:
-		# 直接调离线奖励面板的渲染入口，用原版截图那组数字（8 小时 / 733→1052 / 13128480 金币）。
+		# 直接调离线奖励面板的渲染入口，用参考稿截图那组数字（8 小时 / 733→1052 / 13128480 金币）。
 		# 服务端账号的 lastSeen 会被内存态覆盖，改文件造不出 60 秒以上的离线，
 		# 这里只验「面板排版 + 面板背后有没有漏 HUD」。
 		await create_timer(max(1.0, extra_wait)).timeout
@@ -383,7 +383,7 @@ func _start(root_node: Node, user: String, pw: String, out_path: String, extra_w
 		await _probe_chat_dismiss(main_ui)
 
 	# 公屏内容探针：走真实入口（点底栏「主城」）进主城，再打开聊天面板，
-	# 把消息区每一行的文字打出来 —— 用来核对「原游戏旧消息是否还在」。
+	# 把消息区每一行的文字打出来 —— 用来核对「旧工程旧消息是否还在」。
 	if _feed_probe:
 		await _probe_city_feed(main_ui)
 
@@ -887,7 +887,7 @@ func _probe_city_feed(main_ui: Node) -> void:
 		if txt.find("搬砖的") >= 0 or txt.find("立羽") >= 0 or txt.find("化龍") >= 0 or txt.find("思念") >= 0:
 			legacy += 1
 		print("[feedprobe]   |", txt.substr(0, 90))
-	print("[feedprobe] 原游戏旧消息命中=", legacy, " RESULT=", "OK" if legacy == 0 else "FAIL")
+	print("[feedprobe] 旧工程旧消息命中=", legacy, " RESULT=", "OK" if legacy == 0 else "FAIL")
 	var gm = main_ui.get("game_manager")
 	if gm != null and gm.network != null:
 		var snap: Array = await gm.network.fetch_xianmo_broadcast_history_snapshot(0, 15)

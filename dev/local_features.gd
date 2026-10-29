@@ -172,7 +172,7 @@ static func _simulate(gm, kind: String, args: Dictionary) -> Dictionary:
 				return {"success": false, "message": "本地模拟：今日已领取"}
 			state.claims[key] = true
 			gm.player.gold += 10000
-			return {"success": true, "message": "本地模拟：获得测试奖励10000金币，原服奖励表待校准"}
+			return {"success": true, "message": "本地模拟：获得测试奖励10000金币，线上奖励表待校准"}
 		"sim_guild":
 			state.guild = "水墨测试帮派" if str(state.guild).is_empty() else ""
 			return {"success": true, "message": "本地模拟帮派：" + (str(state.guild) if not str(state.guild).is_empty() else "已退出")}

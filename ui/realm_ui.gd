@@ -374,7 +374,7 @@ static func _create_stats_section(player) -> Control:
 
 static func _get_realm_color(realm: String) -> Color:
 	# 境界色阶：凡→散→地→天→大罗→天神 依次抬亮度与色相，
-	# 全部压进墨纸能承受的饱和度（原版是纯绿/纯蓝/纯金，在宣纸上像荧光笔）。
+	# 全部压进墨纸能承受的饱和度（参考稿是纯绿/纯蓝/纯金，在宣纸上像荧光笔）。
 	var colors = {
 		"凡人": Color(0.700, 0.680, 0.630), 
 		"散仙": Color(0.520, 0.720, 0.560), 

@@ -51,10 +51,10 @@ var suppress_battle_character_exp: bool = false
 var battle_log: Array = []
 const MAX_LOG_LINES: int = 500
 const DEBUG_AUTO_BATTLE_COMBO_LOG: bool = false
-# 出手节奏：对齐原版录屏实测值。
-# 原版一次出手 ≈0.25~0.3 秒；3 只怪一场（含「连击追击」再打一次）从「战斗开始」
+# 出手节奏：对齐参考稿录屏实测值。
+# 参考稿一次出手 ≈0.25~0.3 秒；3 只怪一场（含「连击追击」再打一次）从「战斗开始」
 # 到「战斗胜利 + 结算」≈2 秒。原来一次出手窗口 1.0 秒、冲刺动画还要 0.5 秒，
-# 等于每刀有一半时间在干等，玩家体感就是「我们的战斗比原版慢一大截」。
+# 等于每刀有一半时间在干等，玩家体感就是「我们的战斗比参考稿慢一大截」。
 const ROUND_WINDOW_SECONDS: float = 0.32
 const JOINT_TURN_SECONDS: float = 0.6
 const COMBO_TURN_SECONDS: float = 0.24
@@ -404,8 +404,8 @@ func _get_ally_units_sorted() -> Array:
 		var t: String = str(u.get("type", ""))
 		if t == "player" or t == "pet" or t == "coop_player" or t == "coop_pet":
 			out.append(u)
-	# 原版规则：「按敏捷排序依次行动」。旧实现只是按 player → pet 的固定顺序 append，
-	# 所以永远看不到「宠物先手」——原版录屏里就有「黄金龙 先攻击，然后言者 攻击」。
+	# 参考稿规则：「按敏捷排序依次行动」。旧实现只是按 player → pet 的固定顺序 append，
+	# 所以永远看不到「宠物先手」——参考稿录屏里就有「黄金龙 先攻击，然后言者 攻击」。
 	# 这里真按敏捷从高到低排，敏捷相同时人物优先。
 	out.sort_custom(func(a, b):
 		var aa: = int(a.get("agility", 0))
@@ -863,14 +863,14 @@ func _append_local_ally_turn_actions(actions: Array) -> void :
 	var player_alive: = player != null and player.is_alive()
 	var pet_alive: = active_pet != null and active_pet.is_alive()
 	# 合击：人和宠的敏捷都低于全部怪物 → 联手打同一个目标，宠物不再单独行动
-	# （原版说明：「触发合击时宠物不会再独立行动，只在人物回合一起出手」）。
+	# （参考稿说明：「触发合击时宠物不会再独立行动，只在人物回合一起出手」）。
 	if player_alive and pet_alive and _check_joint_attack_condition():
 		actions.append({"kind": "local_joint"})
 		return
-	# 其余情况一律「按敏捷先后依次行动」（原版说明：按敏捷排序依次行动），
-	# 不再把人宠合成 local_pair 同时出手。原版录屏的日志顺序就是：
+	# 其余情况一律「按敏捷先后依次行动」（参考稿说明：按敏捷排序依次行动），
+	# 不再把人宠合成 local_pair 同时出手。参考稿录屏的日志顺序就是：
 	#   宠物攻击 → 言者攻击 → 言者 连击追击 宠物 → 宠物再打一次
-	# 旧写法会变成「人宠同一瞬间两行」，顺序和原版对不上。
+	# 旧写法会变成「人宠同一瞬间两行」，顺序和参考稿对不上。
 	var combo_follow_done: = false
 	for unit in _get_ally_units_sorted():
 		if _should_skip_turn_unit(unit):

@@ -3533,7 +3533,7 @@ class InventoryItem:
 					active_pet.agility = snapped(active_pet.base_stats.agility + (active_pet.level - 1) * active_pet.growth_rates.agility, 0.01)
 
 					active_pet.total_growth = snapped(active_pet.growth_rates.attack + active_pet.growth_rates.defense + active_pet.growth_rates.agility, 0.001)
-					# 生命成长走物种 hp_growth（原版口径）
+					# 生命成长走物种 hp_growth（参考稿口径）
 					active_pet.growth_rates["hp"] = PetClass.resolve_hp_growth(str(active_pet.pet_id), active_pet.total_growth)
 					active_pet.max_hp = snapped(active_pet.base_stats.hp + (active_pet.level - 1) * float(active_pet.growth_rates["hp"]), 0.01)
 					active_pet.hp = active_pet.max_hp

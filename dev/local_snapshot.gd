@@ -1,7 +1,6 @@
 extends RefCounted
 
 # 线上数据快照（只读）。
-# 数据来自 2026-10-23 对线上服 101.42.200.***:3000 的真实抓包响应，
 # 由 local-server/tools/build_snapshot.py 生成 dev/local_snapshot.json。
 # 用途：本地联调时展示与线上一致的内容（排行榜、传闻、七日签到、节日配置），
 # 不用虚构数据冒充真实玩家。快照过期就重新抓一份并重跑生成脚本。

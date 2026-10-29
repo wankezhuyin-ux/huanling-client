@@ -388,7 +388,7 @@ func _level_up_stats():
 	agility = snapped(base_stats.agility + (level - 1) * growth_rates.agility, 0.01)
 
 	total_growth = snapped(growth_rates.attack + growth_rates.defense + growth_rates.agility, 0.001)
-	# 生命成长按物种 hp_growth 走（原版口径），不再拿 total_growth 顶替
+	# 生命成长按物种 hp_growth 走（参考稿口径），不再拿 total_growth 顶替
 	growth_rates.hp = resolve_hp_growth(pet_id, total_growth)
 	max_hp = snapped(base_stats.hp + (level - 1) * growth_rates.hp, 0.01)
 	var _new_final_hp: = get_final_max_hp_with_equipment()
@@ -801,7 +801,7 @@ static func _calculate_growth_rates(base_growth: float, hp_growth: float, ratio:
 	}
 
 
-## 生命成长（原版口径）。
+## 生命成长（参考稿口径）。
 ##
 ## 物种表里 `growth`（攻+防+敏总成长）和 `hp_growth`（生命成长）是两个独立数值：
 ##   雏龙  growth 3.6 / hp_growth 6.0 → 血成长是战斗成长的 1.67 倍（血厚）

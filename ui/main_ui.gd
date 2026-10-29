@@ -67,8 +67,8 @@ var game_manager = null
 @onready var yuanbao_label = $TopBar / HBoxContainer / YuanbaoLabel
 var sync_status_label: Label = null
 const TOP_BAR_VALUE_FONT_SIZE: int = 22
-# 金币/元宝数字：原版 main_ui.tscn 里 GoldLabel / YuanbaoLabel 都是 26 号，照抄。
-# 「同步: 正常」原版是运行期加的 Label，没有字号出处，沿用 22 免得挤掉右边。
+# 金币/元宝数字：参考稿 main_ui.tscn 里 GoldLabel / YuanbaoLabel 都是 26 号，对齐。
+# 「同步: 正常」参考稿是运行期加的 Label，没有字号出处，沿用 22 免得挤掉右边。
 const TOP_BAR_CURRENCY_FONT_SIZE: int = 26
 
 # 启动离线奖励流程的安全网超时（秒）。
@@ -344,7 +344,7 @@ var startup_dialog: Window = null
 # 已经点过「进入游戏」并进过主界面；重连/重登时不该再弹「欢迎回来」面板，
 # 更不该把主界面 HUD 藏起来（上一版就是面板浮在已经显示的游戏画面上）。
 var _game_started: bool = false
-# 原版登录顺序：先进游戏看「离线奖励」→ 点「领取奖励」→ 才是「欢迎回来」名称等级面板。
+# 参考稿登录顺序：先进游戏看「离线奖励」→ 点「领取奖励」→ 才是「欢迎回来」名称等级面板。
 # 这两个标志用来把顺序卡住：离线结算还没回来之前不弹欢迎面板。
 var _startup_offline_pending: bool = false
 var _startup_offline_dialog_shown: bool = false
@@ -523,7 +523,7 @@ func _flush_ink_reskin_pending() -> void:
 
 ## 启动时的「创建角色」面板：定角色名（在线时实时跟服务器核重名）+ 免费任选形象。
 ##
-## 原版这里是「角色名：xxx（注册时填的）」一行 + 开始冒险；现在注册只留账号密码，
+## 参考稿这里是「角色名：xxx（注册时填的）」一行 + 开始冒险；现在注册只留账号密码，
 ## 角色名和形象都放到这里定：名字要跟服务器核验（全服唯一），形象 7 选 1 免费。
 ## 以后想换形象，仍然走头像处的「角色切换」面板（那次要花 5 亿金币）。
 func _show_character_creation_dialog() -> void :
@@ -938,7 +938,7 @@ func _apply_created_character(name: String, character_id: int, data: Dictionary)
 			"currency_slice": true, 
 		})
 		save_applied = true
-	# 离线新档这条路上 game_manager 还没初始化过（原版是等玩家点「开始冒险」才 init），
+	# 离线新档这条路上 game_manager 还没初始化过（参考稿是等玩家点「开始冒险」才 init），
 	# 所以要先 init 再写名字，否则 player 对象还不存在，名字会丢。
 	if game_manager and not game_manager.initialized:
 		game_manager.initialize()
@@ -1258,7 +1258,7 @@ func _update_login_dialog_info():
 func _start_game():
 	_game_started = true
 	# 启动弹窗（离线奖励 / 欢迎回来）还挂着的时候，不要把 HUD 掀出来：
-	# 原版这两块面板背后是一整块干净的场景背景，角色条/金币/飞升投胎/底部导航
+	# 参考稿这两块面板背后是一整块干净的场景背景，角色条/金币/飞升投胎/底部导航
 	# 一露出来玩家就会说「左上角一堆乱七八糟的东西」。
 	var startup_blocked: = _startup_offline_pending or (startup_dialog != null and is_instance_valid(startup_dialog))
 	if not startup_blocked:
@@ -1290,8 +1290,7 @@ func _add_qq_group_label():
 	# 实测（tools/ui_shot.gd --dumpui）：ink_home 那个场景根 Control 的 size 是 (0,0)
 	# （它是被挂在 main.gd 的 Node2D 下面的），于是任何 anchor_right=1 的子节点
 	# 算出来都是 0 宽；HBox 又按自身最小宽度居中到 0 宽的父节点上 → 整行被推到屏幕左边外面，
-	# 截图里左上角只剩「交流群 630273***」的尾巴挂在边缘，看着像乱码。
-	# 原版 TopBar 是 左20/右-20/上10/下55 的一整条，这里直接按 viewport 宽算绝对矩形，
+	# 参考稿 TopBar 是 左20/右-20/上10/下55 的一整条，这里直接按 viewport 宽算绝对矩形，
 	# 父节点多少宽都无所谓。
 	var vp_size: = get_viewport_rect().size
 	top_bar.anchor_left = 0.0
@@ -1305,9 +1304,8 @@ func _add_qq_group_label():
 	if hbox:
 		hbox.add_theme_constant_override("separation", 6)
 		# 顶栏只保留「金币 / 元宝」。
-		# 顶栏按原版摆：左边「交流群 630273***」，中间金币 / 元宝，右边「同步: 正常」。
 		# 上一版我把「交流群」和「同步」当成"玩家说的乱七八糟"给藏了，方向搞错了 ——
-		# 原版战斗截图（言者 Lv.1200 那张）顶栏就是这四项，一个字都不少；
+		# 参考稿战斗截图（言者 Lv.1200 那张）顶栏就是这四项，一个字都不少；
 		# 玩家真正吐槽的那堆信息是启动弹窗背后没藏住的首页皮，已经单独修掉了。
 		var group_label = hbox.get_node_or_null("QQGroupLabel")
 		if group_label and group_label is CanvasItem:
@@ -1338,7 +1336,7 @@ func _add_qq_group_label():
 		if sync_status_label:
 			sync_status_label.add_theme_font_size_override("font_size", TOP_BAR_VALUE_FONT_SIZE)
 			sync_status_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-			# 原版顶栏最右边就是「同步: 正常」，恢复显示（异常时会变红并写 tooltip）。
+			# 参考稿顶栏最右边就是「同步: 正常」，恢复显示（异常时会变红并写 tooltip）。
 			sync_status_label.visible = true
 		_refresh_sync_status_label()
 	_apply_ink_chrome()
@@ -1486,7 +1484,7 @@ func _ink_style_battle_buttons() -> void:
 
 
 ## 战斗页上半部（角色卡 / 灵兽卡 / 地图信息 / 切换地图 / 日志底）。
-## 原版这四块是深灰圆角胶囊 + 橙红渐变按钮，放在水墨战场上面像贴纸；
+## 参考稿这四块是深灰圆角胶囊 + 橙红渐变按钮，放在水墨战场上面像贴纸；
 ## 这里把它们换成半透墨底 + 1 设计像素金线，按钮走统一墨金语言。
 func _ink_style_battle_top() -> void:
 	var s: = _ink_s()
@@ -1538,7 +1536,7 @@ func _ink_style_page_tabs() -> void:
 					(child as Button).size_flags_horizontal = Control.SIZE_EXPAND_FILL
 
 
-## 内页面板：半透墨底 + 1 设计像素金线。原版是 0.76 不透明的墨绿底，
+## 内页面板：半透墨底 + 1 设计像素金线。参考稿是 0.76 不透明的墨绿底，
 ## 会把底板整个闷住，所以这里统一换掉。
 func _apply_ink_page_panels() -> void:
 	var w := maxi(1, int(round(1.0 * _ink_s())))
@@ -5708,7 +5706,7 @@ func set_network(net: Node, user_id: int, nickname: String, character_name: Stri
 
 	if not startup_dialog and not _game_started:
 		if _startup_offline_pending:
-			# 等离线奖励弹窗走完（点了「领取奖励」）再弹「欢迎回来」，顺序和原版一致。
+			# 等离线奖励弹窗走完（点了「领取奖励」）再弹「欢迎回来」，顺序和参考稿一致。
 			_hide_game_hud_for_startup_dialog()
 		elif is_new_game or _needs_character_creation():
 			# 本地新档 / 刚注册还没建角色的账号：都要先创建角色
@@ -5747,7 +5745,7 @@ func _on_post_login_offline_claim_applied(_success: bool) -> void :
 		_maybe_show_startup_welcome_after_offline()
 
 func _maybe_show_startup_welcome_after_offline() -> void :
-	"""离线奖励流程走完（点了「领取奖励」）之后才弹「欢迎回来」——原版就是这个顺序。"""
+	"""离线奖励流程走完（点了「领取奖励」）之后才弹「欢迎回来」——参考稿就是这个顺序。"""
 	_startup_offline_pending = false
 	_startup_offline_dialog_shown = false
 	if _game_started:
@@ -5818,7 +5816,7 @@ func _restore_game_hud_after_startup() -> void :
 		bottom_nav.visible = true
 
 func _on_post_login_offline_rewards_ready(hours_f: float, exp_v: int, gold: int, _pet_offline_exp: Dictionary, pet_gifts: int, is_vip: bool, level_change: Dictionary = {}) -> void :
-	# 原版登录顺序：先弹「离线奖励」→ 点「领取奖励」→ 才到「欢迎回来」名称等级面板。
+	# 参考稿登录顺序：先弹「离线奖励」→ 点「领取奖励」→ 才到「欢迎回来」名称等级面板。
 	# 如果欢迎面板已经先弹出来了（下载存档那条分支），这里先收掉，领完奖励再补回来。
 	if startup_dialog and is_instance_valid(startup_dialog):
 		startup_dialog.queue_free()
@@ -5826,7 +5824,7 @@ func _on_post_login_offline_rewards_ready(hours_f: float, exp_v: int, gold: int,
 	_startup_offline_pending = true
 	_startup_offline_dialog_shown = true
 	# 面板背后不能露出角色条 / 金币 / 飞升投胎按钮 / 底部导航 ——
-	# 原版这个界面就是一块干净的场景背景，只有中间的面板。
+	# 参考稿这个界面就是一块干净的场景背景，只有中间的面板。
 	_hide_game_hud_for_startup_dialog()
 
 	var level_lines: = PackedStringArray()
@@ -5896,8 +5894,8 @@ func _on_post_login_offline_rewards_ready(hours_f: float, exp_v: int, gold: int,
 		vip_label.add_theme_color_override("font_color", Color(1, 0.85, 0.3))
 		vbox.add_child(vip_label)
 
-	# 排版照原版：「获得奖励:」一行，下面逐行「人物 / 宠物: 从 X 级升到 Y 级」「金币: N」，
-	# 数值是绿色。原版**不显示经验数字**（经验已经体现在升级结果里），这里同样不显示。
+	# 排版照参考稿：「获得奖励:」一行，下面逐行「人物 / 宠物: 从 X 级升到 Y 级」「金币: N」，
+	# 数值是绿色。参考稿**不显示经验数字**（经验已经体现在升级结果里），这里同样不显示。
 	var detail: = RichTextLabel.new()
 	detail.bbcode_enabled = true
 	detail.fit_content = true
@@ -5936,7 +5934,7 @@ func _on_post_login_offline_rewards_ready(hours_f: float, exp_v: int, gold: int,
 	ok_btn.pressed.connect( func():
 		if is_instance_valid(dialog):
 			dialog.queue_free()
-		# 领完才进「欢迎回来」面板，顺序和原版一致。
+		# 领完才进「欢迎回来」面板，顺序和参考稿一致。
 		_maybe_show_startup_welcome_after_offline()
 	)
 	vbox.add_child(ok_btn)
@@ -6311,7 +6309,7 @@ func _calc_equip_doll_sizes(available_width: float, slot_side: int = -1) -> Dict
 		center -= 4
 	return {"slot": slot, "center": maxi(center, 120)}
 
-## 弹窗外壳：原版蓝灰 2px 描边 + 亮色渐变，和墨底金线两套语言。
+## 弹窗外壳：参考稿蓝灰 2px 描边 + 亮色渐变，和墨底金线两套语言。
 ## 这里保留 UIStyle 的圆角/内边距，只把底、边、影换成宣纸墨色 + 金线。
 func _make_popup_outer_style() -> StyleBoxFlat:
 	var st: = UIStyle.create_popup_style()
@@ -19068,7 +19066,6 @@ func _update_map_ui():
 				level = db_monster.get("level", 1)
 				element = Monster.element_from_map_monster_entry(monster)
 
-		# 原版源码（wechat-game-stage/ui/main_ui.gd:15725）：
 		#   monster_info += "%s(lv.%d,%s)" % [monster_name, level, element]
 		# 小写 lv.、怪与怪之间**直接拼接不加空格**。上一版我按截图猜成大写 Lv. 加空格，是错的。
 		monster_info += "%s(lv.%d,%s)" % [monster_name, level, element]
@@ -19079,7 +19076,6 @@ func _update_map_ui():
 	var diff_name: = "普通"
 	if game_manager.fabao_manager:
 		diff_name = FabaoConfig.display_name(str(game_manager.fabao_manager.current_difficulty))
-	# 原版源码（wechat-game-stage/ui/main_ui.gd:15732）：
 	#   var raw_text = "%s | %s |[br]等级：%d[br]%s" % [...]
 	# 也就是**三行**：地图 | 难度 | / 等级：N / 怪物列表。
 	# 上一版我把它并成一行用 | 串起来，是错的 —— 面板窄，并成一行会从中间乱折行。
@@ -20650,7 +20646,7 @@ var _feed_lines: Array = []
 const MAX_DISPLAY_LOG_LINES: int = 200
 # 内嵌战报：设计稿（battle.html .feed）是带时间戳的滚动列表 —— 每行 [02:41] 灰
 # 时间 + 正文 + 右侧朱砂伤害（暴击金），系统行金色。实装这里按 9:16 屏的可用
-# 高度给了 10 行（240 设计像素 ≈ 面板高 -290→-52），比原版 5 行更接近设计稿密度。
+# 高度给了 10 行（240 设计像素 ≈ 面板高 -290→-52），比参考稿 5 行更接近设计稿密度。
 const MAX_BATTLE_FEED_LINES: int = 10
 # 战报行配色（对齐设计稿 ink.css：tm #6E6757 / dm #E0775C / crit #F0B24E / sys 金）
 const FEED_TM_COLOR: String = "#6e6757"
@@ -20671,10 +20667,9 @@ var _log_popup_window: Window = null
 
 func _should_skip_battle_feed_line(message: String) -> bool:
 	var stripped: = message.strip_edges()
-	# 只滤掉「└ 属性 攻:8 防:6 …」这种从属行（原版画面日志区里也不占独立一行）。
+	# 只滤掉「└ 属性 攻:8 防:6 …」这种从属行（参考稿画面日志区里也不占独立一行）。
 	# 注意：**不要**顺手把「--- 第 N 回合 ---」「★ 连击触发 ★」「遭遇 X Lv.N!」
-	# 「敏捷：人物…」这些剔掉 —— 核过原版抓包日志（original-live-capture/game-log-redacted.txt），
-	# 这些行原版自己就会打，剔了反而是我们跟原版不一样。
+	# 这些行参考稿自己就会打，剔了反而是我们跟参考稿不一样。
 	return stripped.begins_with("└")
 
 func _apply_battle_feed_style() -> void :
@@ -20858,8 +20853,8 @@ func _resolve_bt_viewer_skill_anchor_from_message(message: String, fallback_anch
 func _add_log(message: String, highlight: Dictionary = {}) -> void :
 	if not message.strip_edges().is_empty():
 		var timestamp = Time.get_time_string_from_system()
-		# 原版战斗日志的时间戳是【00:16:12】这种全角方括号，之前用的是 [00:16:12]，
-		# 截图对比一眼就能看出差别，这里对齐原版写法。
+		# 参考稿战斗日志的时间戳是【00:16:12】这种全角方括号，之前用的是 [00:16:12]，
+		# 截图对比一眼就能看出差别，这里对齐参考稿写法。
 		_log_lines.append("【%s】%s" % [timestamp, message])
 		if _log_lines.size() > MAX_DISPLAY_LOG_LINES:
 			_log_lines = _log_lines.slice( - MAX_DISPLAY_LOG_LINES)
@@ -25503,7 +25498,7 @@ func _battle_grid_row_y(row_index: int) -> float:
 # 但 stretch/aspect = "expand"：竖屏窄机（例如 418x907）逻辑高度会被拉长，
 # 宽屏平板（例如 900x1108）逻辑宽度会变宽（720 → 1039）。
 # 结果是宽屏上「人物 + 宠物 + 怪物」整排挤在左上角、人和宠叠在一起。
-# 这里把设计画布水平居中，保证任何屏幕比例下站位都和原版一致。
+# 这里把设计画布水平居中，保证任何屏幕比例下站位都和参考稿一致。
 const BATTLE_DESIGN_WIDTH: float = 720.0
 
 func _battle_field_layout_offset() -> Vector2:
@@ -26575,7 +26570,7 @@ const ALLY_DEFEATED_STATIC_OFFSET_PET: = Vector2(0.0, 0.0)
 const ALLY_DEFEAT_ANCHOR_BELOW_SLOT_CENTER_Y: = 5.0
 const ALLY_DIZZY_OFFSET_PLAYER: = Vector2(0.0, -6.0)
 const ALLY_DIZZY_OFFSET_PET: = Vector2(0.0, -6.0)
-# 出手动画时长按原版节奏压紧：原版一次出手（冲刺→命中→归位）≈0.3 秒，
+# 出手动画时长按参考稿节奏压紧：参考稿一次出手（冲刺→命中→归位）≈0.3 秒，
 # 战斗系统那边的出手窗口也调成了 0.32 秒，两边对齐才不会出现「动画演完了干等」。
 const PLAYER_ATTACK_DURATION: = 0.3
 const PET_ATTACK_DURATION: = 0.3

@@ -5459,7 +5459,7 @@ func _snake_to_camel_key(k: String) -> String:
 
 func _alias_runtime_module_keys(cfg: Dictionary) -> Dictionary:
 	# 服务端 /gameplay/runtime-config 的模块键是 snake_case（atlas_dungeon…），
-	# 客户端全部按原版 camelCase（atlasDungeon…）读取。这里给 snake 键补一个
+	# 客户端全部按参考稿 camelCase（atlasDungeon…）读取。这里给 snake 键补一个
 	# camel 别名，两种风格都认；否则整块配置读空、客户端静默回落本地默认值，
 	# 曾经导致图鉴天关三档都是 20 波、兄弟天关 50 波对不上服务端 10 波等。
 	for key in cfg.keys():
@@ -6002,7 +6002,7 @@ func _refresh_open_brother_tower_ui() -> void :
 		bt_ui_script.refresh_active_panel_if_open(self)
 
 func _rt_module_key_candidates(module_name: String) -> Array:
-	# 服务端 /gameplay/runtime-config 下发的模块键可能是 camelCase（原版口径）
+	# 服务端 /gameplay/runtime-config 下发的模块键可能是 camelCase（参考稿口径）
 	# 也可能是 snake_case（本服重写后的写法），两种都要认，否则整块配置读不到、
 	# 客户端会静默回落到本地默认值（图鉴天关各档都变 20 波就是这么来的）。
 	var out: Array = [module_name]

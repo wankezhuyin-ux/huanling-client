@@ -103,7 +103,7 @@ func try_adopt_server_granted_pet(pet) -> bool:
 	# 宠物袋是玩家手动存暂存宠的仓库；自动兜底塞袋的结果是挂机一晚上袋里堆满
 	# 十几只 Lv.1 野生宠（玩家看到的「宠物袋里多了很多宠物」就是它）。
 	# 服务端 `/pet/roster/sync` 与捕捉接口现在也会保证主战栏 ≤ 10、
-	# 满员时按原版口径放生/邮件补发，这边保持同口径即可。
+	# 满员时按参考稿口径放生/邮件补发，这边保持同口径即可。
 	push_warning("[PetManager] 主战栏已满（%d/%d），服务端发放的宠物未注入" % [pets.size(), max_pets])
 	return false
 
@@ -729,7 +729,7 @@ func _update_pet_stats(pet):
 	pet.defense = snapped(base["defense"] + g_def * level_diff, 0.01)
 	pet.agility = snapped(base["agility"] + g_agi * level_diff, 0.01)
 	pet.total_growth = snapped(g_atk + g_def + g_agi, 0.001)
-	# 生命成长按物种 hp_growth 走（原版口径）。旧代码拿 total_growth 当血成长，
+	# 生命成长按物种 hp_growth 走（参考稿口径）。旧代码拿 total_growth 当血成长，
 	# 面板上「生命成长 6.0」从来不参与计算。
 	pet.growth_rates["hp"] = PetClass.resolve_hp_growth(str(pet.pet_id), pet.total_growth)
 	pet.max_hp = snapped(base["hp"] + float(pet.growth_rates["hp"]) * level_diff, 0.01)
@@ -2594,7 +2594,7 @@ func apply_active_pet_battle_loot_slice(pet_dict: Dictionary, force_absolute: bo
 
 
 ## 读档后把全部宠物（上阵 + 袋 + 助战）按当前公式重算一遍属性。
-## 目前唯一的用处是把「生命成长」切回原版口径后，让存量宠物的血量立刻跟上。
+## 目前唯一的用处是把「生命成长」切回参考稿口径后，让存量宠物的血量立刻跟上。
 func _refresh_all_pet_stats_after_load() -> void:
 	# 早期加载（GameManager 还没起来）时不碰属性：_update_pet_stats 要读装备加成，
 	# 这时候拿不到会算出偏低的血上限。
@@ -2680,7 +2680,7 @@ func from_dict(data: Dictionary):
 
 	ensure_active_pet_consistent(active_id)
 
-	# 生命成长改回原版口径（血量成长走物种 hp_growth）之后，
+	# 生命成长改回参考稿口径（血量成长走物种 hp_growth）之后，
 	# 老存档里的 max_hp 还是按「总成长」算出来的。读档时统一重算一次，
 	# 否则面板上写着「生命成长 6.0」、血量却仍按 3.6 在长。
 	# _update_pet_stats 会按血量百分比缩放，不会让宠物突然变残血/满血。

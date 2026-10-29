@@ -14,7 +14,7 @@ class_name CityFx
 const DIR := "res://assets/city_fx/"
 const DESIGN := Vector2(1024.0, 1536.0)
 
-# ---- 原型 CFG（逐条照抄，改这里就能调）----
+# ---- 原型 CFG（逐条对齐，改这里就能调）----
 const FALLS_SPEED := 46.0
 const FALLS_ALPHA := 0.30
 const FALLS_ALPHA2 := 0.13

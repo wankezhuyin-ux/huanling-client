@@ -4,7 +4,7 @@ var gm
 var feature := "warehouse"
 var body: VBoxContainer
 var feedback: Label
-const TITLES := {"warehouse": "仓库", "qiankun": "乾坤坊", "forge_main": "打造坊", "martial": "武学堂", "pet_park": "灵兽园", "ranking": "排行榜 · 线上快照", "signin7": "签到 · 线上快照", "gang_hall": "帮派 · 本地模拟", "mail": "邮件 · 本地模拟", "trade": "交易 · 本地模拟", "activity": "活动 · 线上快照", "world": "世界传闻 · 线上快照", "online_rules": "线上数值 · 抓包校准", "online_modules": "玩法配置 · 线上模块"}
+const TITLES := {"warehouse": "仓库", "qiankun": "乾坤坊", "forge_main": "打造坊", "martial": "武学堂", "pet_park": "灵兽园", "ranking": "排行榜 · 线上快照", "signin7": "签到 · 线上快照", "gang_hall": "帮派 · 本地模拟", "mail": "邮件 · 本地模拟", "trade": "交易 · 本地模拟", "activity": "活动 · 线上快照", "world": "世界传闻 · 线上快照", "online_rules": "线上数值 · 日志采样校准", "online_modules": "玩法配置 · 线上模块"}
 
 static func create_fullscreen(manager, key: String) -> Control:
 	var panel = load("res://dev/local_feature_ui.gd").new()
@@ -66,7 +66,7 @@ func _refresh() -> void:
 		button.custom_minimum_size.y = 40
 		button.pressed.connect(func(): feature = key; _refresh())
 		nav.add_child(button)
-	feedback = _label("操作会保存到本地；带‘本地模拟’的奖池、奖励与跨玩家数据不代表原服规则。", 18)
+	feedback = _label("操作会保存到本地；带‘本地模拟’的奖池、奖励与跨玩家数据不代表线上规则。", 18)
 	var inv = gm.inventory_manager
 	match feature:
 		"warehouse":
@@ -101,7 +101,7 @@ func _refresh() -> void:
 				_button("卸下" if equipped else "装备", _operation.bind("martial_unequip" if equipped else "martial_equip", {"id": art.id}))
 		"pet_park":
 			_label("技能书从背包使用；切换出战、锁定在此直接保存。", 18)
-			_label("进化/幻化为本地模拟：进化重置为1级、保留成长；幻化消耗副宠、主宠代数+1并回到1级，保留主宠成长技能。原服增益/概率待校准。", 18)
+			_label("进化/幻化为本地模拟：进化重置为1级、保留成长；幻化消耗副宠、主宠代数+1并回到1级，保留主宠成长技能。线上增益/概率待校准。", 18)
 			for pet in gm.pet_manager.pets:
 				var evolution_check: Dictionary = gm.pet_manager.can_evolve(pet)
 				_button("进化：" + str(pet.pet_name), _operation.bind("pet_evolve", {"id": pet.id}))
@@ -141,7 +141,7 @@ func _refresh() -> void:
 			if online.is_empty():
 				_label("快照缺失，无法显示全服排行。", 18)
 			else:
-				_label("以下是线上服真实返回的榜单（共%d条，按原服顺序显示前50条，未做虚构补全）。" % online.size(), 16)
+				_label("以下是线上服真实返回的榜单（共%d条，按线上顺序显示前50条，未做虚构补全）。" % online.size(), 16)
 				for i in range(mini(50, online.size())):
 					var row: Dictionary = online[i]
 					_label("%d. %s · Lv.%d · %s · 修为%d · 投胎%d" % [i + 1, str(row.get("nickname", "")), int(row.get("level", 0)), str(row.get("realm", "")), int(row.get("cultivation", 0)), int(row.get("reincarnation", 0))], 18)

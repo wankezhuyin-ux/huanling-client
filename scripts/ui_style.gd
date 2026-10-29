@@ -55,7 +55,7 @@ static func create_panel_style() -> StyleBoxFlat:
 const POPUP_BUTTON_SIZE: = Vector2(120, 44)
 
 ## 弹窗外壳：水墨宣纸语言 —— 墨底、1px 金线、直角、纯黑投影。
-## 原版是蓝灰 3px 描边 + 15px 大圆角，和整包水墨皮不是一套东西。
+## 参考稿是蓝灰 3px 描边 + 15px 大圆角，和整包水墨皮不是一套东西。
 ## 这里改默认值就等于全项目弹窗一起换皮（31 处调用点都走这个工厂）。
 static func create_popup_style() -> StyleBoxFlat:
 	var style = StyleBoxFlat.new()

@@ -2524,7 +2524,7 @@ func _ink_finish() -> void:
 		if n is Control:
 			(n as Control).mouse_filter = Control.MOUSE_FILTER_IGNORE
 
-	# 功能页容器从流式布局里解放出来，铺满整个主城（原版是挤在左列按钮旁边的）
+	# 功能页容器从流式布局里解放出来，铺满整个主城（参考稿是挤在左列按钮旁边的）
 	if content_container and is_instance_valid(content_container):
 		content_container.reparent(self)
 		content_container.set_anchors_preset(Control.PRESET_FULL_RECT)

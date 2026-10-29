@@ -45,7 +45,7 @@ static func _apply_one(gm, item) -> Dictionary:
 	if item.item_type in ["chest", "treasure_chest"]:
 		var gold: int = {"青铜宝箱": 10000, "白银宝箱": 50000, "黄金宝箱": 100000}.get(name, 100000)
 		p.gold += gold
-		return {"success": true, "message": "本地模拟宝箱奖励：金币+%d；原服奖池待校准" % gold}
+		return {"success": true, "message": "本地模拟宝箱奖励：金币+%d；线上奖池待校准" % gold}
 	if item.item_type == "pet_skill_book":
 		return gm.pet_manager.learn_skill_book_from_active_pet(name)
 	if item.item_type == "martial_skill_book":
@@ -184,4 +184,4 @@ static func _apply_one(gm, item) -> Dictionary:
 		p.hp = mini(p.get_max_hp(), p.hp + int(cfg.get("hp_restore", 0)))
 		p.mp = mini(p.get_max_mp(), p.mp + int(cfg.get("mp_restore", 0)))
 		return {"success": true, "message": "已恢复生命/内力"}
-	return {"success": false, "message": "此道具的奖励或使用规则由原服务器提供，当前缺少可核实配置；本次未消耗道具。材料请到对应锻造/洗练功能使用。"}
+	return {"success": false, "message": "此道具的奖励或使用规则由线上务器提供，当前缺少可核实配置；本次未消耗道具。材料请到对应锻造/洗练功能使用。"}

@@ -79,7 +79,7 @@ var vip_expire_time_str: String = ""
 var double_exp_until: int = 0
 
 # 三种双倍经验丹各自独立计时（服务端权威）：{"双倍经验丹": ts, "双倍经验丹(周)": ts, "双倍经验丹(月)": ts}
-# 原版是「三种可以同时生效、时效分开算」，每多一种生效再加 100% 经验。
+# 参考稿是「三种可以同时生效、时效分开算」，每多一种生效再加 100% 经验。
 # 老存档 / 老服务端没有这个字段时回退到 double_exp_until 的单通道口径。
 var double_exp_channels: Dictionary = {}
 
