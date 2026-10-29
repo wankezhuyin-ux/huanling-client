@@ -95,9 +95,13 @@ def build(src, kind, frames, size=256, height=150):
     if kind == "idle":
         # 呼吸：上下浮动 + 极轻微缩放 + 微幅摇摆，脚底不动
         plan = []
-        for i in range(frames):
-            ph = math.sin(2 * math.pi * i / frames)
-            plan.append((0.0, -2.0 * abs(ph), 1.0 + 0.020 * ph, 1.0 * ph))
+        if frames == 2:
+            # 两帧时 sin(2πi/n) 恒为 0，会生成两张一模一样的图，改成「吸/呼」两个极端
+            plan = [(0.0, -2.0, 1.022, 0.8), (0.0, 0.0, 0.986, -0.8)]
+        else:
+            for i in range(frames):
+                ph = math.sin(2 * math.pi * i / frames)
+                plan.append((0.0, -2.0 * abs(ph), 1.0 + 0.020 * ph, 1.0 * ph))
         plan = [(0, dx, dy, sc, rt) for dx, dy, sc, rt in plan]
     else:
         # 蓄力 → 前冲 → 出手 → 回位

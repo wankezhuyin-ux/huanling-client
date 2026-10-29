@@ -1973,6 +1973,7 @@ func _relayout_battle_units_keep_playback() -> void :
 			monster_ui.z_index = 20
 		else:
 			monster_ui.z_index = _battle_monster_ui_z_index_for_pos(new_home)
+			_apply_battle_slot_perspective(monster_ui)
 	if is_instance_valid(_battle_player_wrap) and not _is_battle_ally_wrap_slot_layout(_battle_player_wrap):
 		_shift_battle_wrap_to_new_home(_battle_player_wrap, _get_player_battle_wrap_pos())
 	if is_instance_valid(_battle_pet_wrap) and not _is_battle_ally_wrap_slot_layout(_battle_pet_wrap):
@@ -19328,6 +19329,7 @@ func _rebuild_monster_ui(monsters: Array) -> void :
 			else:
 				monster_ui.position = _battle_grid_monster_slot_pos_formed(slot_index, total_count)
 				monster_ui.z_index = _battle_monster_ui_z_index_for_pos(monster_ui.position)
+				_apply_battle_slot_perspective(monster_ui)
 		monster_ui.set_meta("_battle_home_pos", monster_ui.position)
 		monster_container.add_child(monster_ui)
 		monster_ui_nodes.append(monster_ui)
@@ -19365,6 +19367,7 @@ func _reset_monster_ui_for_new_battle(monsters: Array) -> void :
 				else:
 					monster_ui.position = _battle_grid_monster_slot_pos_formed(i, total_count)
 					monster_ui.z_index = _battle_monster_ui_z_index_for_pos(monster_ui.position)
+					_apply_battle_slot_perspective(monster_ui)
 			monster_ui.set_meta("_battle_home_pos", monster_ui.position)
 		var monster_hp = _get_monster_property(monster, "hp", 100)
 		var monster_max_hp = _get_monster_property(monster, "max_hp", 100)
@@ -24942,9 +24945,9 @@ func _get_ally_head_pos_in_field_for_wrap(wrap: Control, sprite: CanvasItem = nu
 		return origin + Vector2(BATTLE_GRID_CELL_SIZE.x * 0.5, BT_SLOT_SPRITE_OFFSET.y + 40.0)
 	return origin + Vector2(BATTLE_GRID_CELL_SIZE.x * 0.5, BT_SLOT_SPRITE_OFFSET.y + 40.0)
 
-func _get_sprite_visual_head_in_field(sprite: AnimatedSprite2D, origin_in_field: Vector2) -> Vector2:
+func _get_sprite_visual_head_in_field(sprite: AnimatedSprite2D, origin_in_field: Vector2, visual_scale: float = 1.0) -> Vector2:
 	var rect: = _get_animated_sprite_visual_rect(sprite)
-	return origin_in_field + rect.position + Vector2(rect.size.x * 0.5, 0.0)
+	return origin_in_field + rect.position * visual_scale + Vector2(rect.size.x * visual_scale * 0.5, 0.0)
 
 func _get_player_sprite_origin_in_field() -> Vector2:
 	if is_instance_valid(_battle_player_wrap):
@@ -24977,33 +24980,49 @@ func _get_coop_pet_head_pos_in_field() -> Vector2:
 		return pos + Vector2(BATTLE_GRID_CELL_SIZE.x * 0.5, _bt_pet_sprite_offset().y + _ally_pet_battle_slot_size().y * 0.5)
 	return _get_ally_head_pos_in_field_for_wrap(_battle_coop_pet_wrap, _safe_battle_canvas_item(_battle_coop_pet_sprite))
 
+func _battle_slot_visual_scale(slot: Control) -> float:
+	var s: float = slot.scale.x
+	return s if absf(s) > 0.001 else 1.0
+
+
+func _battle_slot_scaled_origin_in_field(monster_ui: Control, slot: Control) -> Vector2:
+	# 精灵槽是按「底部中心」缩放的，缩放后左上角会往右下让开一点；
+	# 飘字、受击特效都从这个原点算，不修正的话远处的怪会偏十几像素。
+	var s: = _battle_slot_visual_scale(slot)
+	if absf(s - 1.0) < 0.001:
+		return monster_ui.position + slot.position
+	return monster_ui.position + slot.position + Vector2(slot.size.x * (1.0 - s) * 0.5, slot.size.y * (1.0 - s))
+
+
 func _get_monster_head_pos_in_field(monster_ui: Control) -> Vector2:
 	var slot: = monster_ui.get_node_or_null("MonsterSpriteSlot") as Control
 	if slot:
 		var sprite = slot.find_child("MonsterSprite", true, false)
-		var origin: Vector2 = monster_ui.position + slot.position
+		var origin: Vector2 = _battle_slot_scaled_origin_in_field(monster_ui, slot)
+		var s: = _battle_slot_visual_scale(slot)
 		if is_instance_valid(sprite) and sprite is AnimatedSprite2D:
-			return _get_sprite_visual_head_in_field(sprite, origin)
+			return _get_sprite_visual_head_in_field(sprite, origin, s)
 		if is_instance_valid(sprite) and sprite is TextureRect:
 			var tr: = sprite as TextureRect
-			var display_size: Vector2 = tr.size * tr.scale
-			return origin + tr.position + Vector2(display_size.x * 0.5, 0.0)
-		return origin + Vector2(slot.size.x * 0.5, 0.0)
+			var display_size: Vector2 = tr.size * tr.scale * s
+			return origin + tr.position * s + Vector2(display_size.x * 0.5, 0.0)
+		return origin + Vector2(slot.size.x * s * 0.5, 0.0)
 	return monster_ui.position + Vector2(MONSTER_BATTLE_GRID_CELL_SIZE.x * 0.5, 8.0)
 
 func _get_monster_sprite_center_in_field(monster_ui: Control) -> Vector2:
 	var slot: = monster_ui.get_node_or_null("MonsterSpriteSlot") as Control
 	if slot:
 		var sprite = slot.find_child("MonsterSprite", true, false)
-		var origin: Vector2 = monster_ui.position + slot.position
+		var origin: Vector2 = _battle_slot_scaled_origin_in_field(monster_ui, slot)
+		var s: = _battle_slot_visual_scale(slot)
 		if is_instance_valid(sprite) and sprite is AnimatedSprite2D:
 			var rect: = _get_animated_sprite_visual_rect(sprite)
-			return origin + rect.position + rect.size * 0.5
+			return origin + rect.position * s + rect.size * s * 0.5
 		if is_instance_valid(sprite) and sprite is TextureRect:
 			var tr: = sprite as TextureRect
-			var display_size: Vector2 = tr.size * tr.scale
-			return origin + tr.position + display_size * 0.5
-		return origin + slot.size * 0.5
+			var display_size: Vector2 = tr.size * tr.scale * s
+			return origin + tr.position * s + display_size * 0.5
+		return origin + slot.size * s * 0.5
 	return monster_ui.position + MONSTER_BATTLE_GRID_CELL_SIZE * 0.5
 
 func _get_player_sprite_center_in_field() -> Vector2:
@@ -25455,6 +25474,18 @@ const BATTLE_GRID_MONSTER_COL0_X: = 415.0
 
 const BATTLE_GRID_MONSTER_COL0_X_PACKED: = 295.0
 const BATTLE_GRID_MONSTER_COL_STEP_PACKED: = 98.0
+
+# 斜阵：敌方每往右一列，格子同时往下压一点，读起来就是斜着排开的队列，
+# 而不是一排贴在同一水平线上。配合下面的近大远小和脚下墨影，构成伪等距纵深。
+const BATTLE_GRID_SLANT_Y_STEP: = 34.0
+const BATTLE_GRID_SLANT_X_PULL: = 14.0
+const BATTLE_GRID_SLANT_ROW_X_STEP: = 22.0
+const BATTLE_ALLY_SLANT_Y_STEP: = 8.0
+# 近大远小：y 越大离镜头越近。远端收到 0.86，近端满格，差值别太大否则像换了个怪物。
+const BATTLE_PERSPECTIVE_SCALE_NEAR: = 1.0
+const BATTLE_PERSPECTIVE_SCALE_FAR: = 0.86
+const BATTLE_PERSPECTIVE_Y_NEAR: = 440.0
+const BATTLE_PERSPECTIVE_Y_FAR: = 40.0
 const BATTLE_GRID_ALLY_PLAYER_COL_X: = -5.0
 const BATTLE_GRID_ALLY_PET_COL_X: = 120.0
 const BATTLE_GRID_ALLY_COL_SHIFT_X: = 30.0
@@ -25555,10 +25586,15 @@ func _battle_grid_monster_slot_pos(index: int, total_count: int) -> Vector2:
 
 	var member_y: = _battle_grid_row_y(BATTLE_GRID_ROW_MEMBER)
 	var y: = member_y + float(row - BATTLE_GRID_ROW_MEMBER) * BATTLE_GRID_MONSTER_ROW_STEP
+	# 斜阵：我方在左下，敌方阵列朝右上铺开——列每右移一格往上抬一点（更远更小），
+	# 同一列里越靠上的怪也往右让一点，两条轴合起来才是一条斜线而不是一竖排。
+	y -= float(col) * BATTLE_GRID_SLANT_Y_STEP
 
 	if _is_wild_field_battle_ui():
 		y += BT_SLOT_HP_BAR_POS.y - MONSTER_BATTLE_HP_BAR_POS.y + WILD_MONSTER_HP_ALIGN_EXTRA_Y
-	return Vector2(_battle_grid_monster_col_x(col, total_count), y) + _battle_field_layout_offset()
+	var x: = _battle_grid_monster_col_x(col, total_count) - float(col) * BATTLE_GRID_SLANT_X_PULL
+	x -= float(row - BATTLE_GRID_ROW_MEMBER) * BATTLE_GRID_SLANT_ROW_X_STEP
+	return Vector2(x, y) + _battle_field_layout_offset()
 
 func _is_wild_field_battle_ui() -> bool:
 	return game_manager != null\
@@ -25582,6 +25618,25 @@ func _pick_battle_monster_formation(force: bool = false) -> void :
 func _battle_monster_ui_z_index_for_pos(pos: Vector2) -> int:
 
 	return 20 + int(pos.y / 20.0)
+
+
+func _battle_perspective_scale_at(unit_y: float) -> float:
+	# 伪等距的「近大远小」：只按脚底 y 算，不碰逻辑，纯表现层。
+	var span: float = maxf(BATTLE_PERSPECTIVE_Y_NEAR - BATTLE_PERSPECTIVE_Y_FAR, 1.0)
+	var t: float = clampf((unit_y - BATTLE_PERSPECTIVE_Y_FAR) / span, 0.0, 1.0)
+	return lerpf(BATTLE_PERSPECTIVE_SCALE_FAR, BATTLE_PERSPECTIVE_SCALE_NEAR, t)
+
+
+func _apply_battle_slot_perspective(unit_ui: Control, slot_name: String = "MonsterSpriteSlot") -> void:
+	# 只缩放精灵槽，血条和名字保持原尺寸，否则远处的怪看不清血量。
+	if not is_instance_valid(unit_ui):
+		return
+	var slot = unit_ui.get_node_or_null(slot_name) as Control
+	if slot == null:
+		return
+	var s: = _battle_perspective_scale_at(unit_ui.position.y)
+	slot.pivot_offset = Vector2(slot.size.x * 0.5, slot.size.y)
+	slot.scale = Vector2(s, s)
 
 
 func _battle_grid_monster_formation_offset(index: int, total_count: int, formation_id: int) -> Vector2:
@@ -25834,7 +25889,11 @@ func _world_boss_monster_ui_position(cell_width: float) -> Vector2:
 
 func _battle_grid_ally_slot_pos(row_index: int, is_pet: bool) -> Vector2:
 	var col_x: = BATTLE_GRID_ALLY_PET_COL_X if is_pet else BATTLE_GRID_ALLY_PLAYER_COL_X
-	return Vector2(col_x + BATTLE_GRID_ALLY_COL_SHIFT_X, _battle_grid_row_y(row_index))
+	var y: = _battle_grid_row_y(row_index)
+	# 宠物站在主角斜后方半个身位，避免人与宠叠成一条直线
+	if is_pet:
+		y += BATTLE_ALLY_SLANT_Y_STEP
+	return Vector2(col_x + BATTLE_GRID_ALLY_COL_SHIFT_X, y)
 
 func _bt_local_on_leader_row() -> bool:
 	if _is_shengsi_replay():
