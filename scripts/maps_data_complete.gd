@@ -23,7 +23,7 @@ const MAPS_DATA = {
 			}, 
 			{
 				"id": "20002", 
-				"name": "琳琳", 
+				"name": "赤翅蛾", 
 				"pet_id": "linlin", 
 				"level": 4, 
 				"attack": 7, 
@@ -42,7 +42,7 @@ const MAPS_DATA = {
 		"monsters": [
 			{
 				"id": "74012", 
-				"name": "独行", 
+				"name": "铁嘴鸦", 
 				"pet_id": "duxing", 
 				"level": 4, 
 				"attack": 7, 
@@ -53,7 +53,7 @@ const MAPS_DATA = {
 			}, 
 			{
 				"id": "76023", 
-				"name": "御林兔", 
+				"name": "沙耳兔", 
 				"pet_id": "yùlíntù", 
 				"level": 5, 
 				"attack": 8, 
@@ -72,7 +72,7 @@ const MAPS_DATA = {
 		"monsters": [
 			{
 				"id": "76023", 
-				"name": "御林兔", 
+				"name": "沙耳兔", 
 				"pet_id": "yùlíntù", 
 				"level": 4, 
 				"attack": 7, 
@@ -83,7 +83,7 @@ const MAPS_DATA = {
 			}, 
 			{
 				"id": "76023", 
-				"name": "御林兔", 
+				"name": "沙耳兔", 
 				"pet_id": "yùlíntù", 
 				"level": 5, 
 				"attack": 8, 
@@ -132,7 +132,7 @@ const MAPS_DATA = {
 		"monsters": [
 			{
 				"id": "76033", 
-				"name": "小叮咚", 
+				"name": "滴水蛙", 
 				"pet_id": "xiǎodīngdōng", 
 				"level": 10, 
 				"attack": 14, 
@@ -143,7 +143,7 @@ const MAPS_DATA = {
 			}, 
 			{
 				"id": "72023", 
-				"name": "愣头青", 
+				"name": "苔背兽", 
 				"pet_id": "lèngtóuqīng", 
 				"level": 12, 
 				"attack": 11, 
@@ -162,7 +162,7 @@ const MAPS_DATA = {
 		"monsters": [
 			{
 				"id": "76033", 
-				"name": "小叮咚", 
+				"name": "滴水蛙", 
 				"pet_id": "xiǎodīngdōng", 
 				"level": 10, 
 				"attack": 14, 
@@ -173,7 +173,7 @@ const MAPS_DATA = {
 			}, 
 			{
 				"id": "76033", 
-				"name": "小叮咚", 
+				"name": "滴水蛙", 
 				"pet_id": "xiǎodīngdōng", 
 				"level": 12, 
 				"attack": 16, 
@@ -713,7 +713,7 @@ const MAPS_DATA = {
 			}, 
 			{
 				"id": "74012", 
-				"name": "独行", 
+				"name": "铁嘴鸦", 
 				"pet_id": "duxing", 
 				"level": 60, 
 				"attack": 63, 
@@ -732,7 +732,7 @@ const MAPS_DATA = {
 		"monsters": [
 			{
 				"id": "74012", 
-				"name": "独行", 
+				"name": "铁嘴鸦", 
 				"pet_id": "duxing", 
 				"level": 50, 
 				"attack": 53, 
@@ -743,7 +743,7 @@ const MAPS_DATA = {
 			}, 
 			{
 				"id": "74012", 
-				"name": "独行", 
+				"name": "铁嘴鸦", 
 				"pet_id": "duxing", 
 				"level": 60, 
 				"attack": 63, 
@@ -1223,7 +1223,7 @@ const MAPS_DATA = {
 			}, 
 			{
 				"id": "74012", 
-				"name": "独行", 
+				"name": "铁嘴鸦", 
 				"pet_id": "duxing", 
 				"level": 97, 
 				"attack": 101, 
@@ -1343,7 +1343,7 @@ const MAPS_DATA = {
 			}, 
 			{
 				"id": "74012", 
-				"name": "独行", 
+				"name": "铁嘴鸦", 
 				"pet_id": "duxing", 
 				"level": 110, 
 				"attack": 114, 
@@ -1463,7 +1463,7 @@ const MAPS_DATA = {
 			}, 
 			{
 				"id": "20002", 
-				"name": "琳琳", 
+				"name": "赤翅蛾", 
 				"pet_id": "linlin", 
 				"level": 120, 
 				"attack": 117, 
@@ -1523,7 +1523,7 @@ const MAPS_DATA = {
 			}, 
 			{
 				"id": "20002", 
-				"name": "琳琳", 
+				"name": "赤翅蛾", 
 				"pet_id": "linlin", 
 				"level": 150, 
 				"attack": 146, 
@@ -1542,7 +1542,7 @@ const MAPS_DATA = {
 		"monsters": [
 			{
 				"id": "20002", 
-				"name": "琳琳", 
+				"name": "赤翅蛾", 
 				"pet_id": "linlin", 
 				"level": 150, 
 				"attack": 146, 
@@ -1553,7 +1553,7 @@ const MAPS_DATA = {
 			}, 
 			{
 				"id": "20002", 
-				"name": "琳琳", 
+				"name": "赤翅蛾", 
 				"pet_id": "linlin", 
 				"level": 160, 
 				"attack": 155, 
@@ -1673,7 +1673,7 @@ const MAPS_DATA = {
 			}, 
 			{
 				"id": "74012", 
-				"name": "独行", 
+				"name": "铁嘴鸦", 
 				"pet_id": "duxing", 
 				"level": 160, 
 				"attack": 164, 
@@ -1913,7 +1913,7 @@ const MAPS_DATA = {
 			}, 
 			{
 				"id": "72023", 
-				"name": "愣头青", 
+				"name": "苔背兽", 
 				"pet_id": "lèngtóuqīng", 
 				"level": 210, 
 				"attack": 150, 
@@ -2112,7 +2112,7 @@ const MAPS_DATA = {
 		"monsters": [
 			{
 				"id": "74012", 
-				"name": "独行", 
+				"name": "铁嘴鸦", 
 				"pet_id": "duxing", 
 				"level": 220, 
 				"attack": 224, 
@@ -2213,7 +2213,7 @@ const MAPS_DATA = {
 			}, 
 			{
 				"id": "20002", 
-				"name": "琳琳", 
+				"name": "赤翅蛾", 
 				"pet_id": "linlin", 
 				"level": 240, 
 				"attack": 231, 
@@ -2633,7 +2633,7 @@ const MAPS_DATA = {
 			}, 
 			{
 				"id": "20002", 
-				"name": "琳琳", 
+				"name": "赤翅蛾", 
 				"pet_id": "linlin", 
 				"level": 280, 
 				"attack": 269, 
@@ -3762,7 +3762,7 @@ const MAPS_DATA = {
 		"monsters": [
 			{
 				"id": "76023", 
-				"name": "御林兔", 
+				"name": "沙耳兔", 
 				"pet_id": "yùlíntù", 
 				"level": 350, 
 				"attack": 373, 
@@ -6143,7 +6143,7 @@ const MAPS_DATA = {
 			}, 
 			{
 				"id": "20002", 
-				"name": "琳琳", 
+				"name": "赤翅蛾", 
 				"pet_id": "linlin", 
 				"level": 415, 
 				"attack": 398, 
@@ -6342,7 +6342,7 @@ const MAPS_DATA = {
 		"monsters": [
 			{
 				"id": "76033", 
-				"name": "小叮咚", 
+				"name": "滴水蛙", 
 				"pet_id": "xiǎodīngdōng", 
 				"level": 400, 
 				"attack": 438, 
@@ -6353,7 +6353,7 @@ const MAPS_DATA = {
 			}, 
 			{
 				"id": "72023", 
-				"name": "愣头青", 
+				"name": "苔背兽", 
 				"pet_id": "lèngtóuqīng", 
 				"level": 420, 
 				"attack": 296, 
@@ -6552,7 +6552,7 @@ const MAPS_DATA = {
 		"monsters": [
 			{
 				"id": "76023", 
-				"name": "御林兔", 
+				"name": "沙耳兔", 
 				"pet_id": "yùlíntù", 
 				"level": 410, 
 				"attack": 436, 
@@ -7013,7 +7013,7 @@ const MAPS_DATA = {
 			}, 
 			{
 				"id": "76023", 
-				"name": "御林兔", 
+				"name": "沙耳兔", 
 				"pet_id": "yùlíntù", 
 				"level": 480, 
 				"attack": 510, 
@@ -7043,7 +7043,7 @@ const MAPS_DATA = {
 			}, 
 			{
 				"id": "20002", 
-				"name": "琳琳", 
+				"name": "赤翅蛾", 
 				"pet_id": "linlin", 
 				"level": 485, 
 				"attack": 465, 
@@ -7362,7 +7362,7 @@ const MAPS_DATA = {
 		"monsters": [
 			{
 				"id": "74012", 
-				"name": "独行", 
+				"name": "铁嘴鸦", 
 				"pet_id": "duxing", 
 				"level": 510, 
 				"attack": 515, 
@@ -7463,7 +7463,7 @@ const MAPS_DATA = {
 			}, 
 			{
 				"id": "20002", 
-				"name": "琳琳", 
+				"name": "赤翅蛾", 
 				"pet_id": "linlin", 
 				"level": 540, 
 				"attack": 517, 
@@ -7553,7 +7553,7 @@ const MAPS_DATA = {
 			}, 
 			{
 				"id": "20002", 
-				"name": "琳琳", 
+				"name": "赤翅蛾", 
 				"pet_id": "linlin", 
 				"level": 570, 
 				"attack": 545, 
@@ -7602,7 +7602,7 @@ const MAPS_DATA = {
 		"monsters": [
 			{
 				"id": "72023", 
-				"name": "愣头青", 
+				"name": "苔背兽", 
 				"pet_id": "lèngtóuqīng", 
 				"level": 560, 
 				"attack": 394, 
@@ -7932,7 +7932,7 @@ const MAPS_DATA = {
 		"monsters": [
 			{
 				"id": "72023", 
-				"name": "愣头青", 
+				"name": "苔背兽", 
 				"pet_id": "lèngtóuqīng", 
 				"level": 600, 
 				"attack": 422, 
@@ -8022,7 +8022,7 @@ const MAPS_DATA = {
 		"monsters": [
 			{
 				"id": "72023", 
-				"name": "愣头青", 
+				"name": "苔背兽", 
 				"pet_id": "lèngtóuqīng", 
 				"level": 630, 
 				"attack": 444, 
@@ -8052,7 +8052,7 @@ const MAPS_DATA = {
 		"monsters": [
 			{
 				"id": "72023", 
-				"name": "愣头青", 
+				"name": "苔背兽", 
 				"pet_id": "lèngtóuqīng", 
 				"level": 600, 
 				"attack": 422, 
@@ -8292,7 +8292,7 @@ const MAPS_DATA = {
 		"monsters": [
 			{
 				"id": "72023", 
-				"name": "愣头青", 
+				"name": "苔背兽", 
 				"pet_id": "lèngtóuqīng", 
 				"level": 720, 
 				"attack": 506, 
@@ -8952,7 +8952,7 @@ const MAPS_DATA = {
 		"monsters": [
 			{
 				"id": "20002", 
-				"name": "琳琳", 
+				"name": "赤翅蛾", 
 				"pet_id": "linlin", 
 				"level": 1020, 
 				"attack": 974, 
@@ -9042,7 +9042,7 @@ const MAPS_DATA = {
 		"monsters": [
 			{
 				"id": "74012", 
-				"name": "独行", 
+				"name": "铁嘴鸦", 
 				"pet_id": "duxing", 
 				"level": 1020, 
 				"attack": 1026, 
@@ -9203,7 +9203,7 @@ const MAPS_DATA = {
 			}, 
 			{
 				"id": "20002", 
-				"name": "琳琳", 
+				"name": "赤翅蛾", 
 				"pet_id": "linlin", 
 				"level": 1120, 
 				"attack": 1069, 
@@ -9222,7 +9222,7 @@ const MAPS_DATA = {
 		"monsters": [
 			{
 				"id": "20002", 
-				"name": "琳琳", 
+				"name": "赤翅蛾", 
 				"pet_id": "linlin", 
 				"level": 1150, 
 				"attack": 1098, 
@@ -9342,7 +9342,7 @@ const MAPS_DATA = {
 		"monsters": [
 			{
 				"id": "72023", 
-				"name": "愣头青", 
+				"name": "苔背兽", 
 				"pet_id": "lèngtóuqīng", 
 				"level": 1130, 
 				"attack": 794, 
@@ -9432,7 +9432,7 @@ const MAPS_DATA = {
 		"monsters": [
 			{
 				"id": "74012", 
-				"name": "独行", 
+				"name": "铁嘴鸦", 
 				"pet_id": "duxing", 
 				"level": 1220, 
 				"attack": 1227, 
@@ -10291,7 +10291,7 @@ const MAPS_DATA = {
 		"monsters": [
 			{
 				"id": "72023", 
-				"name": "愣头青", 
+				"name": "苔背兽", 
 				"pet_id": "lèngtóuqīng", 
 				"level": 3600, 
 				"attack": 2522, 

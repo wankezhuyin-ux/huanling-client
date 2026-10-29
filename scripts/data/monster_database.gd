@@ -64,7 +64,7 @@ const MONSTER_DATA = {
 		"hp_growth": 3.5
 	}, 
 	"linlin": {
-		"name": "琳琳", 
+		"name": "赤翅蛾", 
 		"pet_id": "linlin", 
 		"level": 4, 
 		"element": "水", 
@@ -78,7 +78,7 @@ const MONSTER_DATA = {
 		"hp_growth": 2.7
 	}, 
 	"duxing": {
-		"name": "独行", 
+		"name": "铁嘴鸦", 
 		"pet_id": "duxing", 
 		"level": 4, 
 		"element": "金", 
@@ -92,7 +92,7 @@ const MONSTER_DATA = {
 		"hp_growth": 2.9
 	}, 
 	"yùlíntù": {
-		"name": "御林兔", 
+		"name": "沙耳兔", 
 		"pet_id": "yùlíntù", 
 		"level": 5, 
 		"element": "土", 
@@ -161,15 +161,15 @@ static func get_all_monster_ids() -> Array:
 const MAPS = {
 	"墨影城郊（0,0）": {
 		"min_level": 4, 
-		"monsters": ["纳瓦霍", "琳琳"]
+		"monsters": ["纳瓦霍", "赤翅蛾"]
 	}, 
 	"迷踪林（0,0）": {
 		"min_level": 5, 
-		"monsters": ["独行", "御林兔"]
+		"monsters": ["铁嘴鸦", "沙耳兔"]
 	}, 
 	"迷踪林（39,54）": {
 		"min_level": 5, 
-		"monsters": ["御林兔"]
+		"monsters": ["沙耳兔"]
 	}, 
 	"墨影城郊（48,44）": {
 		"min_level": 10, 
@@ -191,15 +191,15 @@ const MONSTERS = {
 		"level": 1, 
 		"element": "火"
 	}, 
-	"琳琳": {
+	"赤翅蛾": {
 		"level": 4, 
 		"element": "水"
 	}, 
-	"独行": {
+	"铁嘴鸦": {
 		"level": 4, 
 		"element": "金"
 	}, 
-	"御林兔": {
+	"沙耳兔": {
 		"level": 5, 
 		"element": "土"
 	}, 

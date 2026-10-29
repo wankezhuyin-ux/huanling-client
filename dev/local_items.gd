@@ -69,13 +69,13 @@ static func _apply_one(gm, item) -> Dictionary:
 		var capacity: Dictionary = inv._check_gift_capacity(gm, name, 5, 1, [])
 		if not bool(capacity.get("ok", false)):
 			return {"success": false, "message": str(capacity.get("message", "空间不足"))}
-		var result: Dictionary = gm.pet_manager.create_pet_from_tower("linlin", "琳琳", 6.0)
+		var result: Dictionary = gm.pet_manager.create_pet_from_tower("linlin", "赤翅蛾", 6.0)
 		if not bool(result.get("success", false)):
 			return result
 		var messages: Array = []
 		inv._grant_single_attr_set(gm.equipment_manager, "扶持·", 100, messages)
 		p.gold += 100000000
-		return {"success": true, "message": "获得1亿金币、成长6.0琳琳、单属性+100装备一套（原道具说明）"}
+		return {"success": true, "message": "获得1亿金币、成长6.0赤翅蛾、单属性+100装备一套（原道具说明）"}
 	if name == "极限装备锦囊":
 		for material in ["极限武器", "极限衣服", "极限鞋子", "极限血佩", "极限内带"]:
 			var added: Dictionary = inv.add_item(material, 1)
@@ -147,11 +147,11 @@ static func _apply_one(gm, item) -> Dictionary:
 		inv._grant_single_attr_set(gm.equipment_manager, "开荒·" if needed_pets > 0 else "新手·", 400 if needed_pets > 0 else 50, messages)
 		if needed_pets > 0:
 			for i in range(needed_pets):
-				var pet_result: Dictionary = gm.pet_manager.create_pet_from_tower("linlin", "琳琳", 6.0)
+				var pet_result: Dictionary = gm.pet_manager.create_pet_from_tower("linlin", "赤翅蛾", 6.0)
 				if not bool(pet_result.get("success", false)):
 					return {"success": false, "message": str(pet_result.get("message", "发放宠物失败"))}
 			p.gold += 500000000
-			messages.append("金币+500000000，获得7只成长6.0的琳琳")
+			messages.append("金币+500000000，获得7只成长6.0的赤翅蛾")
 		return {"success": true, "message": "\n".join(messages)}
 	if name == "开荒宠装锦囊":
 		if inv.pet_equipment_items.size() + 5 > inv.MAX_PET_EQUIPMENT_INVENTORY:

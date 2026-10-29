@@ -5662,7 +5662,7 @@ func _hydrate_wild_replay_monsters(raw: Array) -> Array:
 		if not pet_id.is_empty():
 			m.monster_id = pet_id
 		m.level = maxi(1, int(d.get("level", m.level)))
-		# 野怪五行以宠物图鉴为准：服端怪物池曾经把水系（琳琳/珍珍/盈盈）标成火、
+		# 野怪五行以宠物图鉴为准：服端怪物池曾经把水系（赤翅蛾/珍珍/盈盈）标成火、
 		# 金系鸟标成木，导致「金打水」这种不存在的克制。图鉴里有元素就以图鉴为准，
 		# 只有图鉴查不到的通用怪才用服端下发的元素。
 		var catalog_el: = ""

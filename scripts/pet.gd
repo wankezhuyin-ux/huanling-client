@@ -915,6 +915,8 @@ func from_dict(data: Variant = {}):
 	pet_name = str(nm_raw).strip_edges() if nm_raw != null else ""
 	if pet_name.is_empty():
 		pet_name = str(data.get("petName", data.get("displayName", UNKNOWN_PET_NAME)))
+	# 图鉴改过名的话老存档里还是旧名，先归一；缺 pet_id 时还要靠这个名字反查图鉴键
+	pet_name = GameData.migrate_pet_name(pet_name)
 	pet_id = str(data.get("pet_id", data.get("petId", "")))
 	if pet_id == "":
 		pet_id = _find_pet_id_by_name(pet_name)

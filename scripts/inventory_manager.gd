@@ -3165,15 +3165,15 @@ class InventoryItem:
 							granted_items.append({"name": str(equip.name)})
 				if granted_pets.is_empty() and game_manager and game_manager.pet_manager:
 					for pet_inst in game_manager.pet_manager.pets:
-						if pet_inst and str(pet_inst.pet_name) == "琳琳" and int(pet_inst.level) == 1 and int(pet_inst.generation) == 0:
+						if pet_inst and str(pet_inst.pet_name) == "赤翅蛾" and int(pet_inst.level) == 1 and int(pet_inst.generation) == 0:
 							granted_pets.append({"name": str(pet_inst.pet_name)})
 				for granted in granted_items:
 					if granted is Dictionary:
 						messages.append("获得【%s】" % str(granted.get("name", "人物装备")))
 				if granted_pets.size() > 0:
-					messages.append("获得%d只【琳琳】（成长6.0）" % granted_pets.size())
+					messages.append("获得%d只【赤翅蛾】（成长6.0）" % granted_pets.size())
 				if mailed_pets.size() > 0:
-					messages.append("%d只【琳琳】因宠物栏已满，已发送到邮件" % mailed_pets.size())
+					messages.append("%d只【赤翅蛾】因宠物栏已满，已发送到邮件" % mailed_pets.size())
 				count -= 1
 				result["authoritative_save_applied"] = true
 				result["reward_sync_policy"] = REWARD_SYNC_NONE
@@ -4944,7 +4944,7 @@ func open_test_gift(player: Node, game_manager) -> Dictionary:
 	var pet_manager = game_manager.pet_manager
 	var available_pet_slots = GameData.MAX_PETS - pet_manager.get_pet_count()
 	if available_pet_slots < 8:
-		result.message = "宠物栏空位不足！需要8个空位存放琳琳，当前只有%d个空位。\n\n请先清理宠物栏，然后再打开测试锦囊。" % available_pet_slots
+		result.message = "宠物栏空位不足！需要8个空位存放赤翅蛾，当前只有%d个空位。\n\n请先清理宠物栏，然后再打开测试锦囊。" % available_pet_slots
 		return result
 
 
@@ -4979,8 +4979,8 @@ func open_test_gift(player: Node, game_manager) -> Dictionary:
 		print("[TestGift] 添加装备: ", equip_data.name, ", 装备背包数量: ", equipment_manager.inventory.size())
 
 	for i in range(8):
-		pet_manager.create_pet_from_tower("linlin", "琳琳", 6.0)
-	messages.append("获得8只【琳琳】（成长6.0）")
+		pet_manager.create_pet_from_tower("linlin", "赤翅蛾", 6.0)
+	messages.append("获得8只【赤翅蛾】（成长6.0）")
 
 	result.success = true
 	result.message = "\n".join(messages)

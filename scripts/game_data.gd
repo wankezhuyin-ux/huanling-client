@@ -5701,7 +5701,7 @@ const PET_DATA = {
 		"ratio": [38, 17, 45]
 	}, 
 	"duxing": {
-		"name": "独行", 
+		"name": "铁嘴鸦", 
 		"type": "敏攻型", 
 		"element": "金", 
 		"attack": 5.3, 
@@ -6097,7 +6097,7 @@ const PET_DATA = {
 		"ratio": [34, 35, 31]
 	}, 
 	"linlin": {
-		"name": "琳琳", 
+		"name": "赤翅蛾", 
 		"type": "平均型", 
 		"element": "水", 
 		"attack": 4.8, 
@@ -6217,7 +6217,7 @@ const PET_DATA = {
 		"ratio": [25, 45, 30]
 	}, 
 	"lèngtóuqīng": {
-		"name": "愣头青", 
+		"name": "苔背兽", 
 		"type": "敏防型", 
 		"element": "水", 
 		"attack": 4.0, 
@@ -6613,7 +6613,7 @@ const PET_DATA = {
 		"ratio": [33, 22, 45]
 	}, 
 	"yùlíntù": {
-		"name": "御林兔", 
+		"name": "沙耳兔", 
 		"type": "敏防型", 
 		"element": "土", 
 		"attack": 5.3, 
@@ -6649,7 +6649,7 @@ const PET_DATA = {
 		"ratio": [34, 35, 31]
 	}, 
 	"xiǎodīngdōng": {
-		"name": "小叮咚", 
+		"name": "滴水蛙", 
 		"type": "平均型", 
 		"element": "土", 
 		"attack": 5.4, 
@@ -8058,6 +8058,28 @@ static func migrate_map_id(map_id: String) -> String:
 	return str(hit) + tail
 
 
+# 宠物图鉴改名表。老存档里宠物存的是显示名（pet_name），名字一换就会变成未知宠物，
+# 而且 pet_id 缺失时还要靠名字反查图鉴键 —— 两头都会断，所以读档时先过这道归一。
+# 键同样是 md5 前 8 位，磁盘与包内不留旧名明文。
+const PET_NAME_MIGRATION: = {
+	"37591cf9": "苔背兽",
+	"434a1f53": "赤翅蛾",
+	"4edbc283": "铁嘴鸦",
+	"89d23793": "滴水蛙",
+	"e8cbf1fc": "沙耳兔",
+}
+
+
+static func migrate_pet_name(pet_name: String) -> String:
+	var n: = str(pet_name).strip_edges()
+	if n.is_empty():
+		return n
+	var hit: Variant = PET_NAME_MIGRATION.get(n.md5_text().substr(0, 8), null)
+	if hit == null:
+		return n
+	return str(hit)
+
+
 const ALL_ITEMS = {
 	"小还墨": {"name": "小还墨", "type": "pill", "rarity": "common", "mp_restore": 10, "hp_restore": 0, "desc": "恢复10点内力", "drop_rate": 0}, 
 	"中还墨": {"name": "中还墨", "type": "pill", "rarity": "uncommon", "mp_restore": 30, "hp_restore": 0, "desc": "恢复30点内力", "drop_rate": 0}, 
@@ -8114,9 +8136,9 @@ const ALL_ITEMS = {
 	"套装强化石": {"name": "套装强化石", "type": "material", "rarity": "legendary", "desc": "套装强化道具", "drop_rate": 0}, 
 	"新手锦囊": {"name": "新手锦囊", "type": "gift", "rarity": "rare", "desc": "打开后获得一套单属性+50装备", "drop_rate": 0}, 
 	"钱币袋": {"name": "钱币袋", "type": "gift", "rarity": "rare", "desc": "打开获得10万金币。所有赞助钱袋已合并为这一种。", "drop_rate": 0.13}, 
-	"先锋锦囊": {"name": "先锋锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后获得1亿金币、1只成长6.0琳琳和一套单属性+100装备", "drop_rate": 0}, 
-	"新人扶持锦囊": {"name": "新人扶持锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后获得1亿金币、1只成长6.0琳琳和一套单属性+100装备", "drop_rate": 0}, 
-	"开荒锦囊": {"name": "开荒锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后获得5亿金币、7只成长6.0琳琳和一套单属性+400装备", "drop_rate": 0}, 
+	"先锋锦囊": {"name": "先锋锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后获得1亿金币、1只成长6.0赤翅蛾和一套单属性+100装备", "drop_rate": 0}, 
+	"新人扶持锦囊": {"name": "新人扶持锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后获得1亿金币、1只成长6.0赤翅蛾和一套单属性+100装备", "drop_rate": 0}, 
+	"开荒锦囊": {"name": "开荒锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后获得5亿金币、7只成长6.0赤翅蛾和一套单属性+400装备", "drop_rate": 0}, 
 	"五一锦囊": {"name": "五一锦囊", "type": "gift", "rarity": "legendary", "desc": "2026五一活动限定礼包，打开后随机获得节日奖励。", "drop_rate": 0}, 
 	"端午锦囊": {"name": "端午锦囊", "type": "gift", "rarity": "legendary", "desc": "2026端午节活动限定礼包，打开后随机获得节日奖励。", "drop_rate": 0}, 
 	"七夕锦囊": {"name": "七夕锦囊", "type": "gift", "rarity": "legendary", "desc": "2026七夕节活动限定礼包，打开后随机获得节日奖励。", "drop_rate": 0},               
@@ -8205,7 +8227,7 @@ const ALL_ITEMS = {
 	"极限血佩": {"name": "极限血佩", "type": "material", "rarity": "legendary", "desc": "可用于锻造属性转移的极限装备材料", "drop_rate": 0}, 
 	"极限血配": {"name": "极限血佩", "type": "material", "rarity": "legendary", "desc": "可用于锻造属性转移的极限装备材料", "drop_rate": 0}, 
 	"极限内带": {"name": "极限内带", "type": "material", "rarity": "legendary", "desc": "可用于锻造属性转移的极限装备材料", "drop_rate": 0}, 
-	"测试锦囊": {"name": "测试锦囊", "type": "gift", "rarity": "divine", "desc": "GM测试专用礼包，打开获得测试装备、8只琳琳和1亿金币", "drop_rate": 0}, 
+	"测试锦囊": {"name": "测试锦囊", "type": "gift", "rarity": "divine", "desc": "GM测试专用礼包，打开获得测试装备、8只赤翅蛾和1亿金币", "drop_rate": 0}, 
 	"开荒宠装锦囊": {"name": "开荒宠装锦囊", "type": "gift", "rarity": "legendary", "desc": "打开获得一套各单属性+500的宠物装备（开荒武器/护甲等，带宠字后缀）", "drop_rate": 0}, 
 
 	"仙魔灵兽锦囊": {"name": "仙魔灵兽锦囊", "type": "gift", "rarity": "epic", "desc": "仙魔战场获得的灵兽礼包，打开后随机获得一只宠物库中的宠物，成长5.0-6.0", "drop_rate": 0}, 

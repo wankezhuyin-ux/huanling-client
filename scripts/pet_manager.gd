@@ -716,7 +716,7 @@ func _update_pet_stats(pet):
 	var base = pet.base_stats
 	var growth = pet.growth_rates
 	var level_diff = pet.level - 1
-	# 礼包直发的一类宠（琳琳等）没有 growth_rates，缺键时按 0 处理，
+	# 礼包直发的一类宠（赤翅蛾等）没有 growth_rates，缺键时按 0 处理，
 	# 绝不能直接 growth["attack"] —— 会 KeyError 把宠物面板打断。
 	var g_atk: float = float(growth.get("attack", 0.0))
 	var g_def: float = float(growth.get("defense", 0.0))
