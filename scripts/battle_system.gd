@@ -1795,7 +1795,7 @@ func _resolve_joint_player_strike(p: Player, pet: Variant, target: Variant) -> v
 		total_dealt += player_damage
 		var player_msg: = ""
 		if triple_ratio > 0.0 and ti > 0:
-			player_msg = "%s【一箭三雕】攻击 %s, 造成 [color=red]%d[/color] 点伤害" % [p.player_name, target_name, player_damage]
+			player_msg = "%s【三锋齐下】攻击 %s, 造成 [color=red]%d[/color] 点伤害" % [p.player_name, target_name, player_damage]
 		else:
 			player_msg = "%s 攻击 %s, 造成 [color=red]%d[/color] 点伤害" % [p.player_name, target_name, player_damage]
 		if is_crit:
@@ -1804,7 +1804,7 @@ func _resolve_joint_player_strike(p: Player, pet: Variant, target: Variant) -> v
 			player_msg += _format_element_effect_message(player_element_result.message)
 		var log_hl: Dictionary = {}
 		if triple_ratio > 0.0 and not triple_banner_shown:
-			log_hl = _skill_highlight("一箭三雕", "player")
+			log_hl = _skill_highlight("三锋齐下", "player")
 			triple_banner_shown = true
 		add_log(player_msg, log_hl)
 		_emit_damage_dealt(p.player_name, target_name, player_damage, is_crit, "monster", _monster_index_of(strike_target), wild_el, target_element)
@@ -1920,7 +1920,7 @@ func _resolve_coop_joint_player_strike(cp, cpet, target) -> void :
 		total_dealt += player_damage
 		var player_msg: = ""
 		if triple_ratio > 0.0 and ti > 0:
-			player_msg = "%s【一箭三雕】攻击 %s, 造成 [color=red]%d[/color] 点伤害" % [cp_name, target_name, player_damage]
+			player_msg = "%s【三锋齐下】攻击 %s, 造成 [color=red]%d[/color] 点伤害" % [cp_name, target_name, player_damage]
 		else:
 			player_msg = "%s 攻击 %s, 造成 [color=red]%d[/color] 点伤害" % [cp_name, target_name, player_damage]
 		if is_crit:
@@ -1929,7 +1929,7 @@ func _resolve_coop_joint_player_strike(cp, cpet, target) -> void :
 			player_msg += _format_element_effect_message(player_element_result.message)
 		var log_hl: Dictionary = {}
 		if triple_ratio > 0.0 and not triple_banner_shown:
-			log_hl = _skill_highlight("一箭三雕", "coop_player")
+			log_hl = _skill_highlight("三锋齐下", "coop_player")
 			triple_banner_shown = true
 		add_log(player_msg, log_hl)
 		_emit_damage_dealt(cp_name, target_name, player_damage, is_crit, "monster", _monster_index_of(strike_target), cp_element, target_element)
@@ -2191,7 +2191,7 @@ func _resolve_coop_player_attack(unit, pre_picked_target = null, pre_picked_targ
 		total_dealt += damage
 		var msg: = ""
 		if triple_ratio > 0.0:
-			msg = "%s【一箭三雕】攻击 %s, 造成 [color=red]%d[/color] 点伤害" % [unit.display_name, target_name, damage]
+			msg = "%s【三锋齐下】攻击 %s, 造成 [color=red]%d[/color] 点伤害" % [unit.display_name, target_name, damage]
 		else:
 			msg = "%s 攻击 %s, 造成 [color=red]%d[/color] 点伤害" % [unit.display_name, target_name, damage]
 		if is_crit:
@@ -2201,7 +2201,7 @@ func _resolve_coop_player_attack(unit, pre_picked_target = null, pre_picked_targ
 		var skill_anchor: = str(unit.unit_type) if "unit_type" in unit else "coop_player"
 		var log_hl: Dictionary = {}
 		if triple_ratio > 0.0 and not triple_banner_shown:
-			log_hl = _skill_highlight("一箭三雕", skill_anchor)
+			log_hl = _skill_highlight("三锋齐下", skill_anchor)
 			triple_banner_shown = true
 		add_log(msg, log_hl)
 		_emit_damage_dealt(unit.display_name, target_name, damage, is_crit, "monster", _monster_index_of(target), str(unit.element), target_element)
@@ -2320,7 +2320,7 @@ func _resolve_player_attack(p: Player, pre_picked_targets: Array = []) -> void :
 		total_dealt += damage
 		var msg: = ""
 		if triple_ratio > 0.0 and ti > 0:
-			msg = "%s【一箭三雕】攻击 %s, 造成 [color=red]%d[/color] 点伤害" % [p.player_name, target_name, damage]
+			msg = "%s【三锋齐下】攻击 %s, 造成 [color=red]%d[/color] 点伤害" % [p.player_name, target_name, damage]
 		else:
 			msg = "%s 攻击 %s, 造成 [color=red]%d[/color] 点伤害" % [p.player_name, target_name, damage]
 		if is_crit:
@@ -2329,7 +2329,7 @@ func _resolve_player_attack(p: Player, pre_picked_targets: Array = []) -> void :
 			msg += _format_element_effect_message(element_result.message)
 		var log_hl: Dictionary = {}
 		if triple_ratio > 0.0 and not triple_banner_shown:
-			log_hl = _skill_highlight("一箭三雕", "player")
+			log_hl = _skill_highlight("三锋齐下", "player")
 			triple_banner_shown = true
 		add_log(msg, log_hl)
 		_emit_damage_dealt(p.player_name, target_name, damage, is_crit, "monster", _monster_index_of(target), wild_el, target_element)
@@ -3333,7 +3333,7 @@ func _try_trigger_player_life_steal(attacker: Player, total_damage: int) -> void
 	var ratio: float = clampf(art.get_life_steal_ratio(), 0.0, 1.0)
 	var heal_amount: int = maxi(1, int(floor(float(total_damage) * ratio)))
 	attacker.heal(heal_amount)
-	add_log("%s%s【以战养战】吸血回复 [color=#69db7c]%d[/color] 点生命[/color]" % [BATTLE_SKILL_LOG, attacker.player_name, heal_amount], _skill_highlight("以战养战", "player", heal_amount))
+	add_log("%s%s【以墨养墨】吸血回复 [color=#69db7c]%d[/color] 点生命[/color]" % [BATTLE_SKILL_LOG, attacker.player_name, heal_amount], _skill_highlight("以墨养墨", "player", heal_amount))
 	_emit_unit_hp_synced("player", 0)
 
 func _try_trigger_coop_life_steal(unit, total_damage: int) -> void :
@@ -3354,7 +3354,7 @@ func _try_trigger_coop_life_steal(unit, total_damage: int) -> void :
 		unit.hp = mini(int(unit.max_hp), int(unit.hp) + heal_amount)
 	var uname: = str(unit.display_name if "display_name" in unit else "队友")
 	var skill_anchor: = str(unit.unit_type) if "unit_type" in unit else "coop_player"
-	add_log("%s%s【以战养战】吸血回复 [color=#69db7c]%d[/color] 点生命[/color]" % [BATTLE_SKILL_LOG, uname, heal_amount], _skill_highlight("以战养战", skill_anchor, heal_amount))
+	add_log("%s%s【以墨养墨】吸血回复 [color=#69db7c]%d[/color] 点生命[/color]" % [BATTLE_SKILL_LOG, uname, heal_amount], _skill_highlight("以墨养墨", skill_anchor, heal_amount))
 	if skill_anchor in ["coop_player", "coop_pet"]:
 		_emit_unit_hp_synced(skill_anchor, _coop_unit_index(unit))
 

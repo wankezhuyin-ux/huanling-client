@@ -535,7 +535,7 @@ func _create_battle_replay_popup() -> Control:
 				var joint_text = " 合击！" if entry.get("isJointAttack", false) else ""
 				var skill_name: = str(entry.get("skillName", entry.get("skill_name", ""))).strip_edges()
 				if skill_name.is_empty() and str(entry.get("type", "")) == "triple_shot_hit":
-					skill_name = "一箭三雕"
+					skill_name = "三锋齐下"
 				elif skill_name.is_empty() and str(entry.get("type", "")) == "kuihua_hit":
 					skill_name = "葵花点穴"
 				var skill_text: = ("【%s】" % skill_name) if not skill_name.is_empty() else ""

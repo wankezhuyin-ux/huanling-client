@@ -976,7 +976,7 @@ func _highlight_for_entry(entry: Dictionary, slot: Dictionary = {}) -> Dictionar
 func _should_show_triple_shot_banner(entry: Dictionary) -> bool:
 	if str(entry.get("type", "")) == "triple_shot_hit":
 		return false
-	if str(entry.get("skillName", entry.get("skill_name", ""))) == "一箭三雕":
+	if str(entry.get("skillName", entry.get("skill_name", ""))) == "三锋齐下":
 		return true
 	return str(entry.get("skill", "")).to_lower() == "triple_shot"
 
@@ -1347,7 +1347,7 @@ func _apply_attack_damage(entry: Dictionary, show_skill_highlight: bool = true, 
 		var t_anchor: = str(atk.get("type", "player"))
 		if t_anchor not in ["player", "pet", "coop_player", "coop_pet", "monster"]:
 			t_anchor = "player"
-		var triple_hl: Dictionary = BattleSystem._skill_highlight("一箭三雕", t_anchor, 0, int(atk.get("index", -1)))
+		var triple_hl: Dictionary = BattleSystem._skill_highlight("三锋齐下", t_anchor, 0, int(atk.get("index", -1)))
 		for k in triple_hl.keys():
 			hl[k] = triple_hl[k]
 	if not log_msg.is_empty() or not hl.is_empty():
@@ -1644,7 +1644,7 @@ func format_message(entry: Dictionary) -> String:
 				var arrow_n: = int(entry.get("hitIndex", entry.get("hit_index", 0)))
 				if arrow_n <= 0:
 					arrow_n = 1
-				return "[color=%s]  💨 【一箭三雕】第 %d 箭【%s】攻击【%s】，%s！[/color]" % [
+				return "[color=%s]  💨 【三锋齐下】第 %d 箭【%s】攻击【%s】，%s！[/color]" % [
 					color, arrow_n, str(entry.get("attacker", "?")), str(entry.get("target", "?")), action
 				]
 			return "[color=%s]  💨 【%s】攻击【%s】，%s！[/color]" % [color, str(entry.get("attacker", "?")), str(entry.get("target", "?")), action]
@@ -1741,8 +1741,8 @@ func _format_life_steal_line(entry: Dictionary) -> String:
 	var who: = str(entry.get("attacker", entry.get("target", "修士")))
 	var amt: = int(entry.get("hpRestored", entry.get("hp_restored", 0)))
 	var skill_name: = str(entry.get("skillName", entry.get("skill_name", "")))
-	if skill_name == "以战养战":
-		return "[color=#69db7c]%s【以战养战】吸血回复 %d 点生命[/color]" % [who, amt]
+	if skill_name == "以墨养墨":
+		return "[color=#69db7c]%s【以墨养墨】吸血回复 %d 点生命[/color]" % [who, amt]
 	return "[color=#69db7c]✦吸血触发![/color] %s 回复 %d 点生命" % [who, amt]
 
 func _wild_crit_suffix(entry: Dictionary) -> String:
@@ -1773,7 +1773,7 @@ func _format_wild_attack_line(entry: Dictionary) -> String:
 	elif kuihua:
 		msg = "%s【葵花点穴】攻击 %s, 造成 [color=red]%d[/color] 点伤害" % [attacker, target, damage]
 	elif show_triple:
-		msg = "%s【一箭三雕】攻击 %s, 造成 [color=red]%d[/color] 点伤害" % [attacker, target, damage]
+		msg = "%s【三锋齐下】攻击 %s, 造成 [color=red]%d[/color] 点伤害" % [attacker, target, damage]
 	elif is_pet:
 		msg = "[color=green]%s[/color] 攻击 %s, 造成 [color=red]%d[/color] 点伤害" % [attacker, target, damage]
 	else:

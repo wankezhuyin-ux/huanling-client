@@ -15,3 +15,6 @@ local_server_override.json
 
 # 换皮施工中间产物
 .restyle-backup/
+
+# 工具中间产物
+build/

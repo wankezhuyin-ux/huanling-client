@@ -20800,7 +20800,7 @@ func _apply_battle_highlight(highlight: Dictionary, log_message: String = "") ->
 			color = BATTLE_BANNER_COLORS.joint
 		"skill":
 			anchor = str(highlight.get("anchor", "pet"))
-			if _is_bt_viewer() and hl_text == "一箭三雕" and not log_message.is_empty():
+			if _is_bt_viewer() and hl_text == "三锋齐下" and not log_message.is_empty():
 				anchor = _resolve_bt_viewer_skill_anchor_from_message(log_message, anchor)
 			color = BATTLE_BANNER_COLORS.skill
 		_:
@@ -20824,7 +20824,7 @@ func _extract_log_attacker_name_plain(message: String) -> String:
 		if end < 0:
 			break
 		plain = plain.substr(0, start) + plain.substr(end + 1)
-	var skill_idx: = plain.find("【一箭三雕】")
+	var skill_idx: = plain.find("【三锋齐下】")
 	var atk_idx: = plain.find(" 攻击")
 	var cut: = plain.length()
 	if skill_idx >= 0:
@@ -25176,7 +25176,7 @@ func _show_battle_floating_text(anchor: String, text: String, color: Color, larg
 		return
 	if moment_type == "":
 		moment_type = anchor
-	if text == "一箭三雕":
+	if text == "三锋齐下":
 		if anchor == "pet":
 			anchor = "player"
 		elif anchor == "coop_pet":
@@ -25197,7 +25197,7 @@ func _show_battle_floating_text(anchor: String, text: String, color: Color, larg
 	var center_pos: Vector2
 	var end_pos: Vector2
 	var on_unit: = anchor == "player" or anchor == "pet" or anchor == "coop_player" or anchor == "coop_pet" or (anchor == "monster" and anchor_index >= 0)
-	var spread_idx: = 0 if text == "一箭三雕" else stack_idx
+	var spread_idx: = 0 if text == "三锋齐下" else stack_idx
 	if on_unit:
 		var stack_off: = Vector2(0.0, - float(stack_idx) * 20.0)
 		if moment_type == "skill":

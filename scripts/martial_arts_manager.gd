@@ -19,7 +19,7 @@ const BASE_CRIT_RATE: = 0.05
 const LIFE_STEAL_TRIGGER_RATE: = 0.5
 
 const TRIPLE_SHOT_BOOK_TEMPLATE: = {
-	"name": "一箭三雕", 
+	"name": "三锋齐下", 
 	"effect_type": "triple_shot", 
 	"base_value": 80.0, 
 	"desc": "装备后普攻最多同时攻击3个目标；每箭伤害1层80%、9层120%", 
@@ -27,7 +27,7 @@ const TRIPLE_SHOT_BOOK_TEMPLATE: = {
 }
 
 const LIFE_STEAL_BOOK_TEMPLATE: = {
-	"name": "以战养战", 
+	"name": "以墨养墨", 
 	"effect_type": "life_steal", 
 	"base_value": 5.0, 
 	"desc": "装备后普攻有50%概率按伤害吸血回血（1层5%，9层20%）", 
@@ -46,8 +46,8 @@ const MARTIAL_EFFECT_TYPE_LABEL_ZH: = {
 	"all_stats": "全属性", 
 	"exp": "经验获取", 
 	"acupoint_seal": "点穴成功率", 
-	"triple_shot": "一箭三雕", 
-	"life_steal": "以战养战", 
+	"triple_shot": "三锋齐下", 
+	"life_steal": "以墨养墨", 
 }
 
 static func is_active_effect_type(effect_type: String) -> bool:
@@ -316,10 +316,12 @@ func get_martial_art_by_id(art_id: String) -> MartialArt:
 			return art
 	return null
 
+# book_name 传的是 ALL_ITEMS 的物品键（不是显示名）。键是背包存档里存的东西，
+# 换皮只换 "name" 显示字段，键一律不动，否则老背包里的书会变成未知物品。
 func create_art_from_skill_book_template(layer: int, book_name: String = "一箭三雕") -> MartialArt:
 	var tpl: Dictionary = TRIPLE_SHOT_BOOK_TEMPLATE
 	var bn: = String(book_name).strip_edges()
-	if bn == "以战养战":
+	if bn == "以战养战":  # 吸血类技能书的物品键
 		tpl = LIFE_STEAL_BOOK_TEMPLATE
 	elif GameData.MARTIAL_SKILL_BOOKS.has(bn):
 		var cfg: Dictionary = GameData.MARTIAL_SKILL_BOOKS[bn]
@@ -331,7 +333,7 @@ func create_art_from_skill_book_template(layer: int, book_name: String = "一箭
 			"realm": str(cfg.get("realm", "技能书")), 
 		}
 	return MartialArt.new(
-		str(tpl.get("name", "一箭三雕")), 
+		str(tpl.get("name", "自创武学")), 
 		str(tpl.get("effect_type", "triple_shot")), 
 		float(tpl.get("base_value", 80.0)), 
 		str(tpl.get("desc", "")), 
