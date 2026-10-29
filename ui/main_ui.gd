@@ -4424,11 +4424,11 @@ func _sync_double_exp_privilege_checkbox_state(show_tip_when_invalid: bool) -> v
 	_updating_double_exp_privilege_checkbox = false
 
 	if is_active:
-		double_exp_privilege_checkbox.tooltip_text = "双倍经验丹生效中：达到飞升/投胎条件后自动执行（结果弹窗自动关闭）"
+		double_exp_privilege_checkbox.tooltip_text = "双倍经验符生效中：达到飞升/投胎条件后自动执行（结果弹窗自动关闭）"
 	else:
-		double_exp_privilege_checkbox.tooltip_text = "设置会被保存；仅在双倍经验丹生效期间自动执行"
+		double_exp_privilege_checkbox.tooltip_text = "设置会被保存；仅在双倍经验符生效期间自动执行"
 		if show_tip_when_invalid and want_enabled:
-			_show_error_tip("已开启。双倍经验丹生效期间，达到条件会自动飞升/投胎")
+			_show_error_tip("已开启。双倍经验符生效期间，达到条件会自动飞升/投胎")
 	_refresh_double_exp_privilege_checkbox_text()
 	# 面板重建时补一次判定：勾着、丹在生效、等级也够了就直接执行，
 	# 不用等下一次升级信号。
@@ -4462,20 +4462,20 @@ func _try_auto_realm_transition() -> void :
 	_auto_realm_transition_in_progress = true
 	_dismiss_realm_transition_ui_chrome()
 	if can_reincarnate:
-		_add_log("[color=#f6d06a]双倍经验丹权益触发：检测到满足投胎条件，正在自动投胎...[/color]")
-		_show_auto_realm_transition_tip("双倍经验丹权益触发\n检测到满足投胎条件，正在自动投胎...")
+		_add_log("[color=#f6d06a]双倍经验符权益触发：检测到满足投胎条件，正在自动投胎...[/color]")
+		_show_auto_realm_transition_tip("双倍经验符权益触发\n检测到满足投胎条件，正在自动投胎...")
 		await _on_character_realm_reincarnate_pressed()
 		if player.reincarnation > previous_reincarnation:
-			_add_log("[color=#7dff9b]双倍经验丹权益触发：已自动投胎（第%d次）。[/color]" % player.reincarnation)
-			_show_auto_realm_transition_tip("双倍经验丹权益触发\n已自动投胎（第%d次）" % player.reincarnation)
+			_add_log("[color=#7dff9b]双倍经验符权益触发：已自动投胎（第%d次）。[/color]" % player.reincarnation)
+			_show_auto_realm_transition_tip("双倍经验符权益触发\n已自动投胎（第%d次）" % player.reincarnation)
 			await _try_player_attr_auto_allocate_after_level_up()
 	elif can_ascend:
-		_add_log("[color=#f6d06a]双倍经验丹权益触发：检测到满足飞升条件，正在自动飞升...[/color]")
-		_show_auto_realm_transition_tip("双倍经验丹权益触发\n检测到满足飞升条件，正在自动飞升...")
+		_add_log("[color=#f6d06a]双倍经验符权益触发：检测到满足飞升条件，正在自动飞升...[/color]")
+		_show_auto_realm_transition_tip("双倍经验符权益触发\n检测到满足飞升条件，正在自动飞升...")
 		await _on_character_realm_ascend_pressed()
 		if player.realm != previous_realm:
-			_add_log("[color=#7dff9b]双倍经验丹权益触发：已自动飞升至【%s】。[/color]" % player.realm)
-			_show_auto_realm_transition_tip("双倍经验丹权益触发\n已自动飞升至【%s】" % player.realm)
+			_add_log("[color=#7dff9b]双倍经验符权益触发：已自动飞升至【%s】。[/color]" % player.realm)
+			_show_auto_realm_transition_tip("双倍经验符权益触发\n已自动飞升至【%s】" % player.realm)
 			await _try_player_attr_auto_allocate_after_level_up()
 	_auto_realm_transition_in_progress = false
 	_dismiss_realm_transition_ui_chrome()
@@ -4485,7 +4485,7 @@ func _refresh_double_exp_privilege_checkbox_text() -> void :
 	if not is_instance_valid(double_exp_privilege_checkbox):
 		return
 	# 右栏只有约 400px，原来那串 30 字的说明会被裁掉一半，压短但语义不变
-	double_exp_privilege_checkbox.text = "启用双倍经验丹权益（自动飞升/投胎）"
+	double_exp_privilege_checkbox.text = "启用双倍经验符权益（自动飞升/投胎）"
 
 func _build_talent_view():
 	if character_talent_container == null:
@@ -5907,7 +5907,7 @@ func _on_post_login_offline_rewards_ready(hours_f: float, exp_v: int, gold: int,
 		body += "[color=%s]%s[/color]\n" % [value_color, line]
 	body += "[color=%s]金币: [/color][color=%s]%d[/color]" % [label_color, value_color, gold]
 	if pet_gifts > 0:
-		body += "\n[color=%s]离线宠物礼包: [/color][color=%s]%d 个[/color]" % [label_color, value_color, pet_gifts]
+		body += "\n[color=%s]离线宠物锦囊: [/color][color=%s]%d 个[/color]" % [label_color, value_color, pet_gifts]
 	body += "[/center]"
 	detail.text = body
 	vbox.add_child(detail)
@@ -6807,7 +6807,7 @@ func _inventory_item_disallows_batch_use(item: Variant) -> bool:
 	if item == null:
 		return true
 	var n: = str(item.name).strip_edges()
-	return n == "人物升级丹" or n == "宠物升级丹"
+	return n == "人物经验丹" or n == "宠物经验丹"
 
 const PET_FRAGMENT_SYNTHESIZE_BATCH_MAX: = 50
 
@@ -6966,7 +6966,7 @@ func _request_bag_seal_stone_synthesize(stone_count: int, close_item_popup_cb: C
 	var need: = count * per
 	var have_normal: int = game_manager.inventory_manager.get_item_count(InventoryManager.NORMAL_SEAL_STONE_ITEM)
 	if have_normal < need:
-		_show_simple_dialog("合成失败", "普通解封石不足（需要%d个）" % need)
+		_show_simple_dialog("合成失败", "解封石不足（需要%d个）" % need)
 		if on_finished.is_valid():
 			on_finished.call(false)
 		return
@@ -7003,7 +7003,7 @@ func _show_seal_stone_batch_synthesize_dialog(close_item_popup_cb: Callable = Ca
 	var have_normal: int = game_manager.inventory_manager.get_item_count(InventoryManager.NORMAL_SEAL_STONE_ITEM)
 	var max_count: int = mini(have_normal / per, PET_FRAGMENT_SYNTHESIZE_BATCH_MAX)
 	if max_count <= 0:
-		_show_simple_dialog("无法合成", "普通解封石不足（需要%d个）" % per)
+		_show_simple_dialog("无法合成", "解封石不足（需要%d个）" % per)
 		return
 	var dialog = Window.new()
 	dialog.title = "批量合成 %s" % InventoryManager.ADVANCED_SEAL_STONE_ITEM
@@ -7028,7 +7028,7 @@ func _show_seal_stone_batch_synthesize_dialog(close_item_popup_cb: Callable = Ca
 	title_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vbox.add_child(title_label)
 	var hint_label = Label.new()
-	hint_label.text = "每颗消耗%d普通解封石，最多可合成%d个" % [per, max_count]
+	hint_label.text = "每颗消耗%d解封石，最多可合成%d个" % [per, max_count]
 	hint_label.add_theme_font_size_override("font_size", 14)
 	hint_label.add_theme_color_override("font_color", Color(0.6, 0.6, 0.6))
 	hint_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -7305,11 +7305,11 @@ func _show_batch_use_dialog(item):
 				var pet_batch_result: Dictionary = {}
 				if InventoryManager.SERVER_AUTH_PET_EGG_NAMES.has(item_name_s):
 					pet_batch_result = await game_manager.inventory_manager.use_pet_egg_batch(item.id, game_manager.player, count)
-				elif item_name_s == "离线宠物礼包":
+				elif item_name_s == "离线宠物锦囊":
 					pet_batch_result = await game_manager.inventory_manager.use_offline_pet_gift_batch(item.id, game_manager.player, count)
 				elif FestivalGiftManager.is_festival_gift(item_name_s):
 					pet_batch_result = await FestivalGiftManager.use_festival_gift_batch(item.id, game_manager.player, count, item_name_s)
-				elif item_name_s == "天关礼包" or (item_name_s.ends_with("关礼包") and item_name_s != InventoryManager.BROTHER_TOWER_GIFT_NAME):
+				elif item_name_s == "天关锦囊" or (item_name_s.ends_with("关礼包") and item_name_s != InventoryManager.BROTHER_TOWER_GIFT_NAME):
 					pet_batch_result = await game_manager.inventory_manager.use_tower_gift_batch(item.id, game_manager.player, count)
 				else:
 					pet_batch_result = await game_manager.inventory_manager.use_server_gift_batch(item.id, game_manager.player, count)
@@ -7318,7 +7318,7 @@ func _show_batch_use_dialog(item):
 					batch_authoritative_applied = true
 				if bool(pbres.get("success", false)):
 					custom_summary_lines = pbres.get("summary_lines", []) if pbres.get("summary_lines", []) is Array else []
-					if FestivalGiftManager.is_festival_gift(item_name_s) or item_name_s == "天关礼包" or item_name_s.ends_with("关礼包"):
+					if FestivalGiftManager.is_festival_gift(item_name_s) or item_name_s == "天关锦囊" or item_name_s.ends_with("关礼包"):
 						total_gold += int(pbres.get("total_gold", 0))
 					total_results.append(str(pbres.get("message", "")))
 				else:
@@ -20483,7 +20483,7 @@ func _format_brother_tower_complete_rewards(data: Dictionary) -> String:
 		"gift_mail":
 			if bool(normalized.get("mailSent", false)):
 				var gift_count: = maxi(1, int(normalized.get("giftCount", 1)))
-				return "兄弟天关礼包 ×%d（请查收邮件「兄弟天关奖励」）" % gift_count
+				return "天关组队锦囊 ×%d（请查收邮件「兄弟天关奖励」）" % gift_count
 			var fallback_friendship: = maxi(0, int(normalized.get("friendshipGain", 0)))
 			if fallback_friendship > 0:
 				return "今日礼包已领，获得友情点 ×%d" % fallback_friendship
@@ -20800,7 +20800,7 @@ func _apply_battle_highlight(highlight: Dictionary, log_message: String = "") ->
 			color = BATTLE_BANNER_COLORS.joint
 		"skill":
 			anchor = str(highlight.get("anchor", "pet"))
-			if _is_bt_viewer() and hl_text == "三锋齐下" and not log_message.is_empty():
+			if _is_bt_viewer() and hl_text == "一击三伤" and not log_message.is_empty():
 				anchor = _resolve_bt_viewer_skill_anchor_from_message(log_message, anchor)
 			color = BATTLE_BANNER_COLORS.skill
 		_:
@@ -20824,7 +20824,7 @@ func _extract_log_attacker_name_plain(message: String) -> String:
 		if end < 0:
 			break
 		plain = plain.substr(0, start) + plain.substr(end + 1)
-	var skill_idx: = plain.find("【三锋齐下】")
+	var skill_idx: = plain.find("【一击三伤】")
 	var atk_idx: = plain.find(" 攻击")
 	var cut: = plain.length()
 	if skill_idx >= 0:
@@ -25176,7 +25176,7 @@ func _show_battle_floating_text(anchor: String, text: String, color: Color, larg
 		return
 	if moment_type == "":
 		moment_type = anchor
-	if text == "三锋齐下":
+	if text == "一击三伤":
 		if anchor == "pet":
 			anchor = "player"
 		elif anchor == "coop_pet":
@@ -25197,7 +25197,7 @@ func _show_battle_floating_text(anchor: String, text: String, color: Color, larg
 	var center_pos: Vector2
 	var end_pos: Vector2
 	var on_unit: = anchor == "player" or anchor == "pet" or anchor == "coop_player" or anchor == "coop_pet" or (anchor == "monster" and anchor_index >= 0)
-	var spread_idx: = 0 if text == "三锋齐下" else stack_idx
+	var spread_idx: = 0 if text == "一击三伤" else stack_idx
 	if on_unit:
 		var stack_off: = Vector2(0.0, - float(stack_idx) * 20.0)
 		if moment_type == "skill":

@@ -165,7 +165,7 @@ const EXPLORATION_SCENES = {
 	"inheritance_memory": {
 		"stage1": "探险中...", 
 		"stage2": "前方出现一处古老的遗址遗迹……", 
-		"stage3": "兄弟天关遗址！发现尘封已久的【兄弟天关令牌】！"
+		"stage3": "兄弟天关遗址！发现尘封已久的【天关令牌】！"
 	}, 
 	"spirit_vein_training": {
 		"stage1": "探险中...", 

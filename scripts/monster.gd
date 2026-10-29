@@ -301,7 +301,7 @@ static func get_festival_gift_drop_from_defeated(defeated_monsters: Array) -> St
 	return ""
 
 static func create_mayday_mutant_anu() -> Monster:
-	return create_festival_wild_monster("bianyianu", 1, MAYDAY_EVENT_TAG_META, "五一活动礼包")
+	return create_festival_wild_monster("bianyianu", 1, MAYDAY_EVENT_TAG_META, "五一锦囊")
 
 
 static func element_from_map_monster_entry(entry: Dictionary) -> String:

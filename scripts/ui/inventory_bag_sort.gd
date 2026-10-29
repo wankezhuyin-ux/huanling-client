@@ -7,7 +7,7 @@ const GameData = preload("res://scripts/game_data.gd")
 
 
 const RARE_PET_SKILL_NAMES: = [
-	"溅墨", "逆锋", "护墨", "连笔", "吮墨", "破纸", "收锋", "断锋", "引锋", 
+	"溅墨", "反打", "护主", "连击", "饮血", "破防", "挡伤", "致命", "挑衅", 
 ]
 
 
@@ -100,12 +100,12 @@ static func _is_pet_related_gift_name(item_name: String) -> bool:
 
 static func _is_level_up_pill_name(item_name: String) -> bool:
 	var name_s: = item_name.strip_edges()
-	return name_s == "人物升级丹" or name_s == "宠物升级丹" or name_s.ends_with("升级丹")
+	return name_s == "人物经验丹" or name_s == "宠物经验丹" or name_s.ends_with("升级丹")
 
 
 static func _is_double_exp_pill_name(item_name: String) -> bool:
 
-	return item_name.strip_edges().begins_with("双倍经验丹")
+	return item_name.strip_edges().begins_with("双倍经验符")
 
 
 static func _is_pet_medal_tool_name(item_name: String) -> bool:
@@ -196,12 +196,12 @@ static func _is_tower_family_gift_name(item_name: String) -> bool:
 	if name_s.is_empty():
 		return false
 
-	return name_s == "天关礼包" or (name_s.ends_with("关礼包") and name_s != "兄弟天关礼包")
+	return name_s == "天关锦囊" or (name_s.ends_with("关礼包") and name_s != "天关组队锦囊")
 
 
 static func _tower_gift_floor_order(item_name: String) -> int:
 	var name_s: = item_name.strip_edges()
-	if name_s == "天关礼包":
+	if name_s == "天关锦囊":
 		return 0
 
 	var digits: = ""
@@ -217,11 +217,11 @@ static func _tower_gift_floor_order(item_name: String) -> int:
 
 
 static func _is_arena_gift_name(item_name: String) -> bool:
-	return item_name in ["冠军礼包", "亚军礼包", "季军礼包", "十强礼包"]
+	return item_name in ["冠军锦囊", "亚军锦囊", "季军锦囊", "十强锦囊"]
 
 
 static func _is_starter_special_gift_name(item_name: String) -> bool:
-	return item_name in ["新手礼包", "内测先锋礼包", "新人扶持礼包", "开荒礼包", "开荒宠装礼包", "测试礼包", "测试宠物装备礼包"]
+	return item_name in ["新手锦囊", "先锋锦囊", "新人扶持锦囊", "开荒锦囊", "开荒宠装锦囊", "测试锦囊", "测试宠物装备礼包"]
 
 
 static func _is_limit_or_wudao_gift_name(item_name: String) -> bool:
@@ -246,9 +246,9 @@ static func _is_pet_gift_family_name(item_name: String) -> bool:
 static func _gift_family_pri(item_name: String) -> int:
 	if _is_tower_family_gift_name(item_name):
 		return 0
-	if item_name == "兄弟天关礼包":
+	if item_name == "天关组队锦囊":
 		return 1
-	if item_name == "世界boss礼包":
+	if item_name == "世界首领锦囊":
 		return 2
 	if _is_arena_gift_name(item_name):
 		return 3
@@ -296,13 +296,13 @@ static func _item_sort_key(item) -> Array:
 		elif family == 3:
 
 			match name_s:
-				"冠军礼包":
+				"冠军锦囊":
 					family_order = 0
-				"亚军礼包":
+				"亚军锦囊":
 					family_order = 1
-				"季军礼包":
+				"季军锦囊":
 					family_order = 2
-				"十强礼包":
+				"十强锦囊":
 					family_order = 3
 				_:
 					family_order = 9

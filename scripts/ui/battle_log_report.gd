@@ -422,7 +422,7 @@ static func format_log_line(entry: Dictionary, side_map: Dictionary = {}) -> Str
 				atk_color = enemy_color
 			elif entry.get("isPetAttack", entry.get("is_pet_attack", false)) or side_map.get(attacker, "") == "ally":
 				atk_color = ally_color
-			var skill_prefix: = "【点苔封穴】" if str(entry.get("type", "")) == "kuihua_hit" else ""
+			var skill_prefix: = "【点穴手】" if str(entry.get("type", "")) == "kuihua_hit" else ""
 			var line: = "[color=%s]%s【%s】攻【%s】造成 %s 伤害" % [atk_color, skill_prefix, bbcode_escape(attacker), bbcode_escape(target), dmg]
 			if entry.has("targetHp") or entry.has("target_hp"):
 				var thp = entry.get("targetHp", entry.get("target_hp"))

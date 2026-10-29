@@ -12,7 +12,7 @@ static func run(ui, gm) -> void:
 	var rows: Array = []
 	for count in range(4):
 		if count > 0:
-			gm.local_extend_double_exp(["双倍经验丹", "双倍经验丹(周)", "双倍经验丹(月)"][count - 1])
+			gm.local_extend_double_exp(["双倍经验符", "双倍经验符·周", "双倍经验符·月"][count - 1])
 		p.level = 1
 		p.experience = 0
 		pet.level = 1
@@ -42,11 +42,11 @@ static func run(ui, gm) -> void:
 	for i in range(5):
 		pet.recalculate_stats()
 	checks.pet_recalculation_no_extra_growth = pet.growth_rates == growth
-	var added: Dictionary = gm.inventory_manager.add_item("11+可进化宠礼包", 1)
+	var added: Dictionary = gm.inventory_manager.add_item("十一阶可进化宠锦囊", 1)
 	var before: int = gm.pet_manager.pets.size()
 	var gift: Dictionary = await gm.local_use_item(str(added.item.id), 1)
 	var new_pet = gm.pet_manager.pets.back()
-	checks.evolution_gift = {"success": gift.get("success", false), "message": gift.get("message", ""), "one_pet": gm.pet_manager.pets.size() == before + 1, "growth": new_pet.total_growth, "range_ok": new_pet.total_growth >= 11.0 and new_pet.total_growth <= 11.9, "consumed_once": gm.inventory_manager.get_item_count("11+可进化宠礼包") == 0}
+	checks.evolution_gift = {"success": gift.get("success", false), "message": gift.get("message", ""), "one_pet": gm.pet_manager.pets.size() == before + 1, "growth": new_pet.total_growth, "range_ok": new_pet.total_growth >= 11.0 and new_pet.total_growth <= 11.9, "consumed_once": gm.inventory_manager.get_item_count("十一阶可进化宠锦囊") == 0}
 	gm.prepare_local_encounter()
 	var enemies: Array = gm.battle_system.monsters
 	checks.shared_primary_target = not enemies.is_empty() and gm.battle_system._pick_pair_pet_target([enemies[0]], pet) == enemies[0]
@@ -111,12 +111,12 @@ static func run(ui, gm) -> void:
 
 static func _services(ui, gm) -> Dictionary:
 	var checks: Dictionary = {}
-	var added: Dictionary = gm.inventory_manager.add_item("回血丹", 3)
+	var added: Dictionary = gm.inventory_manager.add_item("回血墨", 3)
 	var store: Dictionary = gm.local_feature_action("store_item", {"id": str(added.item.id)})
 	var warehouse_item = gm.inventory_manager.warehouse_items.back()
 	var take: Dictionary = gm.local_feature_action("withdraw_item", {"id": str(warehouse_item.id)})
-	checks.warehouse_roundtrip = store.get("success", false) and take.get("success", false) and gm.inventory_manager.get_item_count("回血丹") == 3
-	added = gm.inventory_manager.add_item("一箭三雕", 1)
+	checks.warehouse_roundtrip = store.get("success", false) and take.get("success", false) and gm.inventory_manager.get_item_count("回血墨") == 3
+	added = gm.inventory_manager.add_item("一击三伤", 1)
 	var learned: Dictionary = await gm.local_use_item(str(added.item.id), 1)
 	checks.martial_book = learned.get("success", false)
 	if checks.martial_book:
@@ -124,7 +124,7 @@ static func _services(ui, gm) -> Dictionary:
 		var equip: Dictionary = gm.local_feature_action("martial_equip", {"id": art.id})
 		var unequip: Dictionary = gm.local_feature_action("martial_unequip", {"id": art.id})
 		checks.martial_equipment = equip.get("success", false) and unequip.get("success", false)
-	added = gm.inventory_manager.add_item("壮笔lv1技能书", 1)
+	added = gm.inventory_manager.add_item("力壮lv1技能书", 1)
 	var skill: Dictionary = await gm.local_use_item(str(added.item.id), 1)
 	checks.pet_skill_book = skill.get("success", false)
 	gm._local_metadata.simulation = {"claims": {}, "mail": [], "listings": [], "guild": ""}
@@ -138,16 +138,16 @@ static func _services(ui, gm) -> Dictionary:
 	claim = gm.local_feature_action("sim_mail_claim", {"id": mail_id})
 	repeat = gm.local_feature_action("sim_mail_claim", {"id": mail_id})
 	checks.mail_once = claim.get("success", false) and not repeat.get("success", false) and gm.player.gold == gold + 1000
-	added = gm.inventory_manager.add_item("回血丹", 1)
-	var count: int = gm.inventory_manager.get_item_count("回血丹")
+	added = gm.inventory_manager.add_item("回血墨", 1)
+	var count: int = gm.inventory_manager.get_item_count("回血墨")
 	var listing: Dictionary = gm.local_feature_action("sim_trade_list", {"id": str(added.item.id), "price": 10000})
 	var listing_id: String = gm._local_metadata.simulation.listings[0].id
-	var escrow: bool = gm.inventory_manager.get_item_count("回血丹") == count - 1
+	var escrow: bool = gm.inventory_manager.get_item_count("回血墨") == count - 1
 	var cancel: Dictionary = gm.local_feature_action("sim_trade_cancel", {"id": listing_id})
-	checks.trade_escrow_cancel = listing.get("success", false) and escrow and cancel.get("success", false) and gm.inventory_manager.get_item_count("回血丹") == count
-	var gift_add: Dictionary = gm.inventory_manager.add_item("新手礼包", 1)
+	checks.trade_escrow_cancel = listing.get("success", false) and escrow and cancel.get("success", false) and gm.inventory_manager.get_item_count("回血墨") == count
+	var gift_add: Dictionary = gm.inventory_manager.add_item("新手锦囊", 1)
 	var gift_used: Dictionary = await gm.local_use_item(str(gift_add.item.id), 1)
-	var non_evo_add: Dictionary = gm.inventory_manager.add_item("7+不可进化宠礼包", 1)
+	var non_evo_add: Dictionary = gm.inventory_manager.add_item("七阶不可进化宠锦囊", 1)
 	var non_evo: Dictionary = await gm.local_use_item(str(non_evo_add.item.id), 1)
 	checks.non_evolution_gift = non_evo.get("success", false)
 	checks.body_equipment = false
@@ -156,7 +156,7 @@ static func _services(ui, gm) -> Dictionary:
 		var equip: Dictionary = gm.local_equipment_op(false, "equip", str(equipment.id))
 		var unequip: Dictionary = gm.local_equipment_op(false, "unequip", str(equipment.id), str(equipment.slot))
 		checks.body_equipment = equip.get("success", false) and unequip.get("success", false)
-	gift_add = gm.inventory_manager.add_item("开荒宠装礼包", 1)
+	gift_add = gm.inventory_manager.add_item("开荒宠装锦囊", 1)
 	gift_used = await gm.local_use_item(str(gift_add.item.id), 1)
 	checks.pet_equipment = false
 	if bool(gift_used.get("success", false)):
@@ -168,9 +168,9 @@ static func _services(ui, gm) -> Dictionary:
 	var pet_count: int = gm.pet_manager.pets.size()
 	var max_pets: int = gm.pet_manager.max_pets
 	gm.pet_manager.max_pets = pet_count
-	gift_add = gm.inventory_manager.add_item("11+可进化宠礼包", 1)
+	gift_add = gm.inventory_manager.add_item("十一阶可进化宠锦囊", 1)
 	gift_used = await gm.local_use_item(str(gift_add.item.id), 1)
-	checks.full_pet_bag_no_consumption = not gift_used.get("success", false) and gm.inventory_manager.get_item_count("11+可进化宠礼包") == 1 and gm.pet_manager.pets.size() == pet_count
+	checks.full_pet_bag_no_consumption = not gift_used.get("success", false) and gm.inventory_manager.get_item_count("十一阶可进化宠锦囊") == 1 and gm.pet_manager.pets.size() == pet_count
 	gm.pet_manager.max_pets = max_pets
 	gm.pet_manager.create_pet_from_tower("wen_di_long", "纹地龙", 7.0)
 	var dragon = gm.pet_manager.pets.back()

@@ -630,7 +630,7 @@ func _show_server_event_result(event: Dictionary):
 	if result.message.is_empty():
 		var event_id: = str(event.get("event_id", ""))
 		if event_id == "inheritance_memory":
-			result.message = "你在遗址中找到了尘封已久的【兄弟天关令牌】×1！（已发送到邮件）"
+			result.message = "你在遗址中找到了尘封已久的【天关令牌】×1！（已发送到邮件）"
 		elif event_id == "spirit_beast_market":
 			result.message = "获得【建设材料】×1！（已发送到邮件）"
 		var event_type = event.get("type", "")
@@ -1419,10 +1419,10 @@ func _create_shop_panel() -> Control:
 	scroll.add_child(items_container)
 
 	var shop_items = [
-		{"id": "bronze_chest", "name": "青铜宝箱", "cost": 150, "desc": "随机获得一件青铜套装部件"}, 
-		{"id": "silver_chest", "name": "白银宝箱", "cost": 300, "desc": "随机获得一件白银套装部件"}, 
-		{"id": "gold_chest", "name": "黄金宝箱", "cost": 450, "desc": "随机获得一件黄金套装部件"}, 
-		{"id": "fortify_lv1_book", "name": "固色lv1技能书", "cost": 5000, "desc": "宠物技能书，可学习固色lv1技能，提升宠物基础防御70%"}
+		{"id": "bronze_chest", "name": "青铜匣", "cost": 150, "desc": "随机获得一件青铜套装部件"}, 
+		{"id": "silver_chest", "name": "白银匣", "cost": 300, "desc": "随机获得一件白银套装部件"}, 
+		{"id": "gold_chest", "name": "黄金匣", "cost": 450, "desc": "随机获得一件黄金套装部件"}, 
+		{"id": "fortify_lv1_book", "name": "硬皮lv1技能书", "cost": 5000, "desc": "宠物技能书，可学习硬皮lv1技能，提升宠物基础防御70%"}
 	]
 
 	for item in shop_items:

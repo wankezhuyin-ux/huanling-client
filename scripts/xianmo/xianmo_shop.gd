@@ -2,10 +2,10 @@ extends Node
 class_name XianMoShop
 
 const SHOP_ITEMS = {
-	"bronze_chest": {"cost": 150, "name": "青铜宝箱", "description": "随机获得一件青铜套装部件"}, 
-	"silver_chest": {"cost": 300, "name": "白银宝箱", "description": "随机获得一件白银套装部件"}, 
-	"gold_chest": {"cost": 450, "name": "黄金宝箱", "description": "随机获得一件黄金套装部件"}, 
-	"fortify_lv1_book": {"cost": 5000, "name": "固色lv1技能书", "description": "宠物技能书，可学习固色lv1技能，提升宠物基础防御70%"}
+	"bronze_chest": {"cost": 150, "name": "青铜匣", "description": "随机获得一件青铜套装部件"}, 
+	"silver_chest": {"cost": 300, "name": "白银匣", "description": "随机获得一件白银套装部件"}, 
+	"gold_chest": {"cost": 450, "name": "黄金匣", "description": "随机获得一件黄金套装部件"}, 
+	"fortify_lv1_book": {"cost": 5000, "name": "硬皮lv1技能书", "description": "宠物技能书，可学习硬皮lv1技能，提升宠物基础防御70%"}
 }
 
 var game_manager = null

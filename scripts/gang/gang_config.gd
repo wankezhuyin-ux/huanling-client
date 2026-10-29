@@ -1,7 +1,7 @@
 extends RefCounted
 class_name GangConfig
 
-const DOUBLE_EXP_ITEM: = "双倍经验丹"
+const DOUBLE_EXP_ITEM: = "双倍经验符"
 const MATERIAL_ITEM: = "建设材料"
 
 
@@ -97,8 +97,8 @@ static func build_territory_siege_rules_text(cfg: Dictionary = {}) -> String:
 		+ "6. 占领收益：占领后每日产出建设材料与帮派资金。\n\n"
 		+ "【占领等级】\n"
 		+ "· 帮派达到 Lv.5 即可参与领地战；不同档位领地所需帮派等级不同：\n"
-		+ "· 初级领地（敕勒川、栖月谷、回首亭、华山顶、凰之谷、东码头）：需帮派 Lv.5\n"
-		+ "· 中级领地（瑞天雪城、深蓝海城、卧佛沙城、剑池谷、不归海岸）：需帮派 Lv.7\n"
+		+ "· 初级领地（敕勒川、宿月谷、回望亭、云顶、石卵谷、东渡口）：需帮派 Lv.5\n"
+		+ "· 中级领地（瑞天雪城、沉海城、卧佛沙城、断剑潭、断桨滩）：需帮派 Lv.7\n"
 		+ "· 高级领地（浮影水城、榕树之城、凝露山城）：需帮派 Lv.8\n"
 		+ "· 天空之城：需帮派 Lv.10\n"
 		+ "· 等级不足时不可申请/竞价对应档位领地。\n\n"

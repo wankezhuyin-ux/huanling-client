@@ -404,10 +404,10 @@ func _migrate_old_quest_data():
 func _migrate_element_owned_pet_quests():
 	var element_quest_migrations = {
 		"fire_002": {"old_key": "collect_烈火石", "new_key": "has_pet_火"}, 
-		"water_002": {"old_key": "collect_寒冰精", "new_key": "has_pet_水"}, 
-		"wood_002": {"old_key": "collect_灵木", "new_key": "has_pet_木"}, 
+		"water_002": {"old_key": "collect_寒冰石", "new_key": "has_pet_水"}, 
+		"wood_002": {"old_key": "collect_墨木", "new_key": "has_pet_木"}, 
 		"earth_002": {"old_key": "collect_金刚石", "new_key": "has_pet_土"}, 
-		"metal_002": {"old_key": "collect_玄铁", "new_key": "has_pet_金"}
+		"metal_002": {"old_key": "collect_黑铁", "new_key": "has_pet_金"}
 	}
 
 	for quest_id in element_quest_migrations.keys():

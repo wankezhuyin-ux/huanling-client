@@ -3494,9 +3494,9 @@ func _full_rules_text() -> String:
 		range_text = "以后台配置为准"
 	var daily: = int(cfg.get("dailyLimitPerUser", 1))
 	var participate_fp: = int(cfg.get("participateFriendshipPoints", 5))
-	var participate_gift: = str(cfg.get("participateGiftItem", "生死塔参与礼包")).strip_edges()
+	var participate_gift: = str(cfg.get("participateGiftItem", "生死塔参与锦囊")).strip_edges()
 	if participate_gift.is_empty():
-		participate_gift = "生死塔参与礼包"
+		participate_gift = "生死塔参与锦囊"
 	var participate_gift_on: = bool(cfg.get("participateGiftEnabled", true))
 	var cap_parts: Array = []
 	var floor_lines: Array = []
@@ -3513,11 +3513,11 @@ func _full_rules_text() -> String:
 			floor_lines.append("第%d层（%s）：塔主队两人各获 %s（开箱随机）" % [fl, _reinc_hint_text(f), gift])
 	if floor_lines.is_empty():
 		floor_lines = [
-			"第1层（投胎数:0-99）：塔1礼包", 
-			"第2层（投胎数:100-199）：塔2礼包", 
-			"第3层（投胎数:200-299）：塔3礼包", 
-			"第4层（投胎数:300-399）：塔4礼包", 
-			"第5层（投胎数:400以上）：塔5礼包", 
+			"第1层（投胎数:0-99）：试炼塔锦囊·一", 
+			"第2层（投胎数:100-199）：试炼塔锦囊·二", 
+			"第3层（投胎数:200-299）：试炼塔锦囊·三", 
+			"第4层（投胎数:300-399）：试炼塔锦囊·四", 
+			"第5层（投胎数:400以上）：试炼塔锦囊·五", 
 		]
 	var cap_text: = "/".join(cap_parts) if not cap_parts.is_empty() else "8"
 	var reward_body: = "开赛时仍在场的每人获得%d友情点。塔主队两人另各获得该层礼包（开箱随机）。" % participate_fp

@@ -9088,7 +9088,7 @@ func treasure_open(token: String, operation_id: String):
 		return
 	if treasure_open_request.get_http_client_status() != HTTPClient.STATUS_DISCONNECTED:
 
-		treasure_open_failed.emit("藏宝箱正在开启中，请稍候")
+		treasure_open_failed.emit("藏宝匣正在开启中，请稍候")
 		return
 	_treasure_open_defer_attempts = 0
 	call_deferred("_treasure_open_try_request_deferred", token, operation_id)
@@ -9101,7 +9101,7 @@ func _treasure_open_try_request_deferred(token: String, operation_id: String) ->
 		_treasure_open_defer_attempts += 1
 		if _treasure_open_defer_attempts > 45:
 			_treasure_open_defer_attempts = 0
-			treasure_open_failed.emit("开启藏宝箱请求繁忙，请稍后重试")
+			treasure_open_failed.emit("开启藏宝匣请求繁忙，请稍后重试")
 			return
 		call_deferred("_treasure_open_try_request_deferred", token, operation_id)
 		return

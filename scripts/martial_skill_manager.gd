@@ -63,7 +63,7 @@ func _broadcast_skill_book_success(gm: GameManager, data: Dictionary) -> void :
 	if not (art_raw is Dictionary):
 		return
 	var art_dict: Dictionary = art_raw as Dictionary
-	var martial_name: String = str(art_dict.get("name", "一箭三雕"))
+	var martial_name: String = str(art_dict.get("name", "一击三伤"))
 	var martial_effect: String = str(art_dict.get("effect_type", "triple_shot"))
 	var martial_layer: int = int(art_dict.get("layer", data.get("layer", 1)))
 	var poem: String = MARTIAL_SKILL_BOOK_BROADCAST_POEMS[randi() % MARTIAL_SKILL_BOOK_BROADCAST_POEMS.size()]

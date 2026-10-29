@@ -201,7 +201,7 @@ const EVENTS = {
 		"weight": 2, 
 		"score": 2, 
 		"broadcast": true, 
-		"item_reward": {"name": "兄弟天关令牌", "count": 1}
+		"item_reward": {"name": "天关令牌", "count": 1}
 	}, 
 	"spirit_vein_training": {
 		"type": "training", 

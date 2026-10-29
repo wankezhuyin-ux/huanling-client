@@ -62,16 +62,16 @@ const QUESTS = {
 	"quest_001": {
 		"id": "quest_001", 
 		"name": "初入幻灵", 
-		"description": "欢迎来到幻灵世界！在浮影水城外郊进行战斗，熟悉战斗系统。", 
+		"description": "欢迎来到幻灵世界！在墨影城郊进行战斗，熟悉战斗系统。", 
 		"type": QuestType.MAIN, 
 		"unlock_level": 1, 
 		"objectives": [
 			{
 				"type": QuestConditionType.KILL_MONSTER, 
-				"description": "在浮影水城外郊战斗", 
+				"description": "在墨影城郊战斗", 
 				"target": 3, 
 				"current": 0, 
-				"map": "浮影水城外郊（0,0）"
+				"map": "墨影城郊（0,0）"
 			}
 		], 
 		"rewards": {
@@ -125,17 +125,17 @@ const QUESTS = {
 	}, 
 	"quest_004": {
 		"id": "quest_004", 
-		"name": "探索徘徊林", 
-		"description": "前往徘徊林，挑战更强的怪物。", 
+		"name": "探索迷踪林", 
+		"description": "前往迷踪林，挑战更强的怪物。", 
 		"type": QuestType.MAIN, 
 		"unlock_level": 5, 
 		"objectives": [
 			{
 				"type": QuestConditionType.KILL_MONSTER, 
-				"description": "在徘徊林战斗", 
+				"description": "在迷踪林战斗", 
 				"target": 5, 
 				"current": 0, 
-				"map": "徘徊林（0,0）"
+				"map": "迷踪林（0,0）"
 			}
 		], 
 		"rewards": {
@@ -183,7 +183,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 3000, 
 			"gold": 80000, 
-			"items": ["悟道仙丹 x1"]
+			"items": ["开悟丹 x1"]
 		}, 
 		"next_quest": "quest_007"
 	}, 
@@ -225,7 +225,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 8000, 
 			"gold": 200000, 
-			"items": ["天关礼包 x1"]
+			"items": ["天关锦囊 x1"]
 		}, 
 		"next_quest": "quest_011"
 	}, 
@@ -246,7 +246,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 10000, 
 			"gold": 300000, 
-			"items": ["普通解封石 x2"]
+			"items": ["解封石 x2"]
 		}, 
 		"next_quest": null
 	}, 
@@ -267,7 +267,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 15000, 
 			"gold": 400000, 
-			"items": ["青铜宝箱 x1"]
+			"items": ["青铜匣 x1"]
 		}, 
 		"next_quest": "quest_009"
 	}, 
@@ -297,11 +297,11 @@ const QUESTS = {
 	"fire_001": {
 		"id": "fire_001", 
 		"name": "火焰初现", 
-		"description": "火之试炼开始！在暮归道击败20只火系怪物，感受火焰的力量。", 
+		"description": "火之试炼开始！在暮归路击败20只火系怪物，感受火焰的力量。", 
 		"type": QuestType.ELEMENT, 
 		"element": ElementType.FIRE, 
 		"unlock_realm": "散仙", 
-		"teleport_map": "暮归道（14,42）", 
+		"teleport_map": "暮归路（14,42）", 
 		"objectives": [
 			{
 				"type": QuestConditionType.KILL_MONSTER_TYPE, 
@@ -359,7 +359,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 20000, 
 			"gold": 100000, 
-			"items": ["火属性宠物蛋 x1"]
+			"items": ["火纹蛋 x1"]
 		}, 
 		"next_quest": "fire_004"
 	}, 
@@ -381,7 +381,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 30000, 
 			"gold": 150000, 
-			"items": ["火属性宠物蛋 x1"]
+			"items": ["火纹蛋 x1"]
 		}, 
 		"next_quest": null
 	}, 
@@ -390,11 +390,11 @@ const QUESTS = {
 	"water_001": {
 		"id": "water_001", 
 		"name": "流水初现", 
-		"description": "水之试炼开始！在明月桥击败20只水系怪物，感受流水的柔和。", 
+		"description": "水之试炼开始！在月影桥击败20只水系怪物，感受流水的柔和。", 
 		"type": QuestType.ELEMENT, 
 		"element": ElementType.WATER, 
 		"unlock_tower": 50, 
-		"teleport_map": "明月桥（0,0）", 
+		"teleport_map": "月影桥（0,0）", 
 		"objectives": [
 			{
 				"type": QuestConditionType.KILL_MONSTER_TYPE, 
@@ -452,7 +452,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 30000, 
 			"gold": 150000, 
-			"items": ["水属性宠物蛋 x1"]
+			"items": ["水纹蛋 x1"]
 		}, 
 		"next_quest": "water_004"
 	}, 
@@ -474,7 +474,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 50000, 
 			"gold": 250000, 
-			"items": ["水属性宠物蛋 x1"]
+			"items": ["水纹蛋 x1"]
 		}, 
 		"next_quest": null
 	}, 
@@ -483,11 +483,11 @@ const QUESTS = {
 	"wood_001": {
 		"id": "wood_001", 
 		"name": "翠木初现", 
-		"description": "木之试炼开始！在青风原击败20只木系怪物，感受翠木的生机。", 
+		"description": "木之试炼开始！在青风野击败20只木系怪物，感受翠木的生机。", 
 		"type": QuestType.ELEMENT, 
 		"element": ElementType.WOOD, 
 		"unlock_realm": "地仙", 
-		"teleport_map": "青风原（52,36）", 
+		"teleport_map": "青风野（52,36）", 
 		"objectives": [
 			{
 				"type": QuestConditionType.KILL_MONSTER_TYPE, 
@@ -506,7 +506,7 @@ const QUESTS = {
 	}, 
 	"wood_002": {
 		"id": "wood_002", 
-		"name": "灵木收集", 
+		"name": "墨木收集", 
 		"description": "拥有一只木系宠物，这是修炼木系功法的关键助力。", 
 		"type": QuestType.ELEMENT, 
 		"element": ElementType.WOOD, 
@@ -545,7 +545,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 50000, 
 			"gold": 250000, 
-			"items": ["木属性宠物蛋 x1"]
+			"items": ["木纹蛋 x1"]
 		}, 
 		"next_quest": "wood_004"
 	}, 
@@ -567,7 +567,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 80000, 
 			"gold": 400000, 
-			"items": ["木属性宠物蛋 x1"]
+			"items": ["木纹蛋 x1"]
 		}, 
 		"next_quest": null
 	}, 
@@ -576,11 +576,11 @@ const QUESTS = {
 	"earth_001": {
 		"id": "earth_001", 
 		"name": "大地初现", 
-		"description": "土之试炼开始！在枯井原击败20只土系怪物，感受大地的厚重。", 
+		"description": "土之试炼开始！在枯井野击败20只土系怪物，感受大地的厚重。", 
 		"type": QuestType.ELEMENT, 
 		"element": ElementType.EARTH, 
 		"unlock_suit_dungeon": 1, 
-		"teleport_map": "枯井原（13,22）", 
+		"teleport_map": "枯井野（13,22）", 
 		"objectives": [
 			{
 				"type": QuestConditionType.KILL_MONSTER_TYPE, 
@@ -638,7 +638,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 60000, 
 			"gold": 300000, 
-			"items": ["土属性宠物蛋 x1"]
+			"items": ["土纹蛋 x1"]
 		}, 
 		"next_quest": "earth_004"
 	}, 
@@ -660,7 +660,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 100000, 
 			"gold": 500000, 
-			"items": ["土属性宠物蛋 x1"]
+			"items": ["土纹蛋 x1"]
 		}, 
 		"next_quest": null
 	}, 
@@ -669,11 +669,11 @@ const QUESTS = {
 	"metal_001": {
 		"id": "metal_001", 
 		"name": "金铁初现", 
-		"description": "金之试炼开始！在观日桥头击败20只金系怪物，感受金铁的坚硬。", 
+		"description": "金之试炼开始！在望日桥头击败20只金系怪物，感受金铁的坚硬。", 
 		"type": QuestType.ELEMENT, 
 		"element": ElementType.METAL, 
 		"unlock_realm": "天仙", 
-		"teleport_map": "观日桥头（37,51）", 
+		"teleport_map": "望日桥头（37,51）", 
 		"objectives": [
 			{
 				"type": QuestConditionType.KILL_MONSTER_TYPE, 
@@ -692,7 +692,7 @@ const QUESTS = {
 	}, 
 	"metal_002": {
 		"id": "metal_002", 
-		"name": "玄铁收集", 
+		"name": "黑铁收集", 
 		"description": "拥有一只金系宠物，这是修炼金系功法的关键助力。", 
 		"type": QuestType.ELEMENT, 
 		"element": ElementType.METAL, 
@@ -731,7 +731,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 80000, 
 			"gold": 400000, 
-			"items": ["金属性宠物蛋 x1"]
+			"items": ["金纹蛋 x1"]
 		}, 
 		"next_quest": "metal_004"
 	}, 
@@ -753,7 +753,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 150000, 
 			"gold": 800000, 
-			"items": ["金属性宠物蛋 x1"]
+			"items": ["金纹蛋 x1"]
 		}, 
 		"next_quest": null
 	}, 
@@ -777,7 +777,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 50000, 
 			"gold": 1000000, 
-			"items": ["悟道仙丹 x5"]
+			"items": ["开悟丹 x5"]
 		}, 
 		"next_quest": "realm_002"
 	}, 
@@ -799,7 +799,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 100000, 
 			"gold": 2000000, 
-			"items": ["悟道仙丹 x5"]
+			"items": ["开悟丹 x5"]
 		}, 
 		"next_quest": "realm_003"
 	}, 
@@ -821,7 +821,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 200000, 
 			"gold": 5000000, 
-			"items": ["悟道仙丹 x5"]
+			"items": ["开悟丹 x5"]
 		}, 
 		"next_quest": "realm_004"
 	}, 
@@ -843,7 +843,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 500000, 
 			"gold": 10000000, 
-			"items": ["悟道仙丹 x5"]
+			"items": ["开悟丹 x5"]
 		}, 
 		"next_quest": "realm_005"
 	}, 
@@ -865,7 +865,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 1000000, 
 			"gold": 20000000, 
-			"items": ["悟道仙丹 x5", "100关礼包 x1"]
+			"items": ["开悟丹 x5", "百关锦囊·一 x1"]
 		}, 
 		"next_quest": null
 	}, 
@@ -888,7 +888,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 0, 
 			"gold": 20000000, 
-			"items": ["天关礼包 x1"]
+			"items": ["天关锦囊 x1"]
 		}
 	}, 
 	"daily_002": {
@@ -909,7 +909,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 0, 
 			"gold": 20000000, 
-			"items": ["天关礼包 x1"]
+			"items": ["天关锦囊 x1"]
 		}
 	}, 
 	"daily_003": {
@@ -929,7 +929,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 0, 
 			"gold": 20000000, 
-			"items": ["天关礼包 x1"]
+			"items": ["天关锦囊 x1"]
 		}
 	}, 
 	"daily_004": {
@@ -950,7 +950,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 0, 
 			"gold": 20000000, 
-			"items": ["天关礼包 x1"]
+			"items": ["天关锦囊 x1"]
 		}
 	}, 
 
@@ -992,7 +992,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 15000, 
 			"gold": 300000, 
-			"items": ["天关礼包 x5"]
+			"items": ["天关锦囊 x5"]
 		}
 	}, 
 	"achievement_003": {
@@ -1012,7 +1012,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 50000, 
 			"gold": 1000000, 
-			"items": ["100关礼包 x1"]
+			"items": ["百关锦囊·一 x1"]
 		}
 	}, 
 	"achievement_005": {
@@ -1054,7 +1054,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 5000, 
 			"gold": 10000, 
-			"items": ["天关礼包 x1"]
+			"items": ["天关锦囊 x1"]
 		}, 
 		"next_quest": "tower_002"
 	}, 
@@ -1074,7 +1074,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 15000, 
 			"gold": 30000, 
-			"items": ["天关礼包 x1"]
+			"items": ["天关锦囊 x1"]
 		}, 
 		"next_quest": "tower_003"
 	}, 
@@ -1094,7 +1094,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 30000, 
 			"gold": 50000, 
-			"items": ["100关礼包 x1"]
+			"items": ["百关锦囊·一 x1"]
 		}, 
 		"next_quest": "tower_004"
 	}, 
@@ -1114,7 +1114,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 45000, 
 			"gold": 75000, 
-			"items": ["天关礼包 x1"]
+			"items": ["天关锦囊 x1"]
 		}, 
 		"next_quest": "tower_005"
 	}, 
@@ -1134,7 +1134,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 60000, 
 			"gold": 100000, 
-			"items": ["200关礼包 x1"]
+			"items": ["百关锦囊·二 x1"]
 		}, 
 		"next_quest": "tower_006"
 	}, 
@@ -1154,7 +1154,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 75000, 
 			"gold": 125000, 
-			"items": ["天关礼包 x1"]
+			"items": ["天关锦囊 x1"]
 		}, 
 		"next_quest": "tower_007"
 	}, 
@@ -1174,7 +1174,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 90000, 
 			"gold": 150000, 
-			"items": ["300关礼包 x1"]
+			"items": ["百关锦囊·三 x1"]
 		}, 
 		"next_quest": "tower_008"
 	}, 
@@ -1194,7 +1194,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 105000, 
 			"gold": 175000, 
-			"items": ["天关礼包 x1"]
+			"items": ["天关锦囊 x1"]
 		}, 
 		"next_quest": "tower_009"
 	}, 
@@ -1214,7 +1214,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 120000, 
 			"gold": 200000, 
-			"items": ["400关礼包 x1"]
+			"items": ["百关锦囊·四 x1"]
 		}, 
 		"next_quest": "tower_010"
 	}, 
@@ -1234,7 +1234,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 135000, 
 			"gold": 225000, 
-			"items": ["天关礼包 x1"]
+			"items": ["天关锦囊 x1"]
 		}, 
 		"next_quest": "tower_011"
 	}, 
@@ -1254,7 +1254,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 150000, 
 			"gold": 250000, 
-			"items": ["500关礼包 x1"]
+			"items": ["百关锦囊·五 x1"]
 		}, 
 		"next_quest": "tower_012"
 	}, 
@@ -1274,7 +1274,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 165000, 
 			"gold": 275000, 
-			"items": ["天关礼包 x1"]
+			"items": ["天关锦囊 x1"]
 		}, 
 		"next_quest": "tower_013"
 	}, 
@@ -1294,7 +1294,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 180000, 
 			"gold": 300000, 
-			"items": ["600关礼包 x1"]
+			"items": ["百关锦囊·六 x1"]
 		}, 
 		"next_quest": "tower_014"
 	}, 
@@ -1314,7 +1314,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 195000, 
 			"gold": 325000, 
-			"items": ["天关礼包 x1"]
+			"items": ["天关锦囊 x1"]
 		}, 
 		"next_quest": "tower_015"
 	}, 
@@ -1334,7 +1334,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 210000, 
 			"gold": 350000, 
-			"items": ["700关礼包 x1"]
+			"items": ["百关锦囊·七 x1"]
 		}, 
 		"next_quest": "tower_016"
 	}, 
@@ -1354,7 +1354,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 225000, 
 			"gold": 375000, 
-			"items": ["天关礼包 x1"]
+			"items": ["天关锦囊 x1"]
 		}, 
 		"next_quest": "tower_017"
 	}, 
@@ -1374,7 +1374,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 240000, 
 			"gold": 400000, 
-			"items": ["800关礼包 x1"]
+			"items": ["百关锦囊·八 x1"]
 		}, 
 		"next_quest": "tower_018"
 	}, 
@@ -1394,7 +1394,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 255000, 
 			"gold": 425000, 
-			"items": ["天关礼包 x1"]
+			"items": ["天关锦囊 x1"]
 		}, 
 		"next_quest": "tower_019"
 	}, 
@@ -1414,7 +1414,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 270000, 
 			"gold": 450000, 
-			"items": ["900关礼包 x1"]
+			"items": ["百关锦囊·九 x1"]
 		}, 
 		"next_quest": "tower_020"
 	}, 
@@ -1434,7 +1434,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 285000, 
 			"gold": 475000, 
-			"items": ["天关礼包 x1"]
+			"items": ["天关锦囊 x1"]
 		}, 
 		"next_quest": "tower_021"
 	}, 
@@ -1454,7 +1454,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 300000, 
 			"gold": 500000, 
-			"items": ["2000关礼包 x1"]
+			"items": ["百关锦囊·二十 x1"]
 		}
 	}, 
 
@@ -1476,7 +1476,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 10000, 
 			"gold": 20000, 
-			"items": ["天关礼包 x1"]
+			"items": ["天关锦囊 x1"]
 		}, 
 		"next_quest": "pet_002"
 	}, 
@@ -1497,7 +1497,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 20000, 
 			"gold": 40000, 
-			"items": ["天关礼包 x1"]
+			"items": ["天关锦囊 x1"]
 		}
 	}, 
 
@@ -1517,7 +1517,7 @@ const QUESTS = {
 		], 
 		"rewards": {
 			"gold": 1500000, 
-			"items": ["普通解封石 x1"]
+			"items": ["解封石 x1"]
 		}, 
 		"next_quest": "suit_002"
 	}, 
@@ -1536,7 +1536,7 @@ const QUESTS = {
 		], 
 		"rewards": {
 			"gold": 1950000, 
-			"items": ["普通解封石 x1"]
+			"items": ["解封石 x1"]
 		}, 
 		"next_quest": "suit_003"
 	}, 
@@ -1555,7 +1555,7 @@ const QUESTS = {
 		], 
 		"rewards": {
 			"gold": 2400000, 
-			"items": ["普通解封石 x1"]
+			"items": ["解封石 x1"]
 		}, 
 		"next_quest": "suit_004"
 	}, 
@@ -1574,7 +1574,7 @@ const QUESTS = {
 		], 
 		"rewards": {
 			"gold": 2850000, 
-			"items": ["普通解封石 x1"]
+			"items": ["解封石 x1"]
 		}, 
 		"next_quest": "suit_005"
 	}, 
@@ -1593,7 +1593,7 @@ const QUESTS = {
 		], 
 		"rewards": {
 			"gold": 3300000, 
-			"items": ["普通解封石 x1"]
+			"items": ["解封石 x1"]
 		}, 
 		"next_quest": "suit_006"
 	}, 
@@ -1612,7 +1612,7 @@ const QUESTS = {
 		], 
 		"rewards": {
 			"gold": 3750000, 
-			"items": ["普通解封石 x1"]
+			"items": ["解封石 x1"]
 		}, 
 		"next_quest": "suit_007"
 	}, 
@@ -1631,7 +1631,7 @@ const QUESTS = {
 		], 
 		"rewards": {
 			"gold": 4200000, 
-			"items": ["普通解封石 x1"]
+			"items": ["解封石 x1"]
 		}, 
 		"next_quest": "suit_008"
 	}, 
@@ -1650,7 +1650,7 @@ const QUESTS = {
 		], 
 		"rewards": {
 			"gold": 4650000, 
-			"items": ["普通解封石 x1"]
+			"items": ["解封石 x1"]
 		}, 
 		"next_quest": "suit_009"
 	}, 
@@ -1669,7 +1669,7 @@ const QUESTS = {
 		], 
 		"rewards": {
 			"gold": 5100000, 
-			"items": ["普通解封石 x1"]
+			"items": ["解封石 x1"]
 		}, 
 		"next_quest": "suit_010"
 	}, 
@@ -1688,7 +1688,7 @@ const QUESTS = {
 		], 
 		"rewards": {
 			"gold": 5550000, 
-			"items": ["普通解封石 x2"]
+			"items": ["解封石 x2"]
 		}, 
 		"next_quest": "suit_011"
 	}, 

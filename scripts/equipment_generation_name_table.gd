@@ -9,7 +9,7 @@ static func get_table() -> Dictionary:
 	return {
 		"weapon": {
 			"common": ["新手木剑", "铁剑", "铜剑"], 
-			"uncommon": ["玄铁剑", "寒冰剑", "烈火剑"], 
+			"uncommon": ["黑铁剑", "寒冰剑", "烈火剑"], 
 			"rare": ["天雷剑", "星辰剑", "破军剑"], 
 			"epic": ["龙鳞剑", "凤羽剑", "神威剑"], 
 			"legendary": ["混沌神剑", "仙灵剑", "天道剑"], 
@@ -18,7 +18,7 @@ static func get_table() -> Dictionary:
 		}, 
 		"armor": {
 			"common": ["布衣", "皮甲", "铁甲"], 
-			"uncommon": ["玄铁甲", "寒冰甲", "烈火甲"], 
+			"uncommon": ["黑铁甲", "寒冰甲", "烈火甲"], 
 			"rare": ["天雷甲", "星辰甲", "破军甲"], 
 			"epic": ["龙鳞甲", "凤羽甲", "神威甲"], 
 			"legendary": ["混沌神甲", "仙灵甲", "天道甲"], 
@@ -27,7 +27,7 @@ static func get_table() -> Dictionary:
 		}, 
 		"helmet": {
 			"common": ["布帽", "皮帽", "铁盔"], 
-			"uncommon": ["玄铁盔", "寒冰盔", "烈火盔"], 
+			"uncommon": ["黑铁盔", "寒冰盔", "烈火盔"], 
 			"rare": ["天雷盔", "星辰盔", "破军盔"], 
 			"epic": ["龙鳞盔", "凤羽盔", "神威盔"], 
 			"legendary": ["混沌神盔", "仙灵盔", "天道盔"], 
@@ -36,7 +36,7 @@ static func get_table() -> Dictionary:
 		}, 
 		"boots": {
 			"common": ["布鞋", "皮靴", "铁靴"], 
-			"uncommon": ["玄铁靴", "寒冰靴", "烈火靴"], 
+			"uncommon": ["黑铁靴", "寒冰靴", "烈火靴"], 
 			"rare": ["天雷靴", "星辰靴", "破军靴"], 
 			"epic": ["龙鳞靴", "凤羽靴", "神威靴"], 
 			"legendary": ["混沌神靴", "仙灵靴", "天道靴"], 
@@ -45,7 +45,7 @@ static func get_table() -> Dictionary:
 		}, 
 		"accessory": {
 			"common": ["铜戒指", "铁戒指", "木项链"], 
-			"uncommon": ["玄铁戒指", "寒冰玉佩", "烈火项链"], 
+			"uncommon": ["黑铁戒指", "寒冰玉佩", "烈火项链"], 
 			"rare": ["天雷戒指", "星辰项链", "破军玉佩"], 
 			"epic": ["凤羽项链", "神威玉佩", "天罚戒指"], 
 			"legendary": ["混沌戒指", "仙灵项链", "天道玉佩"], 

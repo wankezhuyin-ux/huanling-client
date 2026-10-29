@@ -674,9 +674,9 @@ static func _on_suit_convert_pressed(panel: Control, game_manager, trigger_btn: 
 static func _build_pill_tab(panel: Control, scroll_content: VBoxContainer, player, game_manager):
 	var pill_section = _create_section_vbox("丹药炼制")
 	scroll_content.add_child(pill_section)
-	_add_craft_recipe_ui_adapted(panel, pill_section, "juling_pill", "聚灵丹 (+100修为)", player.realm, player.level, player.cultivation, game_manager)
-	_add_craft_recipe_ui_adapted(panel, pill_section, "ningshen_pill", "凝神丹 (+200修为)", player.realm, player.level, player.cultivation, game_manager)
-	_add_craft_recipe_ui_adapted(panel, pill_section, "wudao_pill", "悟道仙丹 (+500修为)", player.realm, player.level, player.cultivation, game_manager)
+	_add_craft_recipe_ui_adapted(panel, pill_section, "juling_pill", "蓄灵丹 (+100修为)", player.realm, player.level, player.cultivation, game_manager)
+	_add_craft_recipe_ui_adapted(panel, pill_section, "ningshen_pill", "定神丹 (+200修为)", player.realm, player.level, player.cultivation, game_manager)
+	_add_craft_recipe_ui_adapted(panel, pill_section, "wudao_pill", "开悟丹 (+500修为)", player.realm, player.level, player.cultivation, game_manager)
 
 static func _build_pet_refine_tab(panel: Control, scroll_content: VBoxContainer, game_manager):
 	var section = _create_section_vbox("宠物炼化")

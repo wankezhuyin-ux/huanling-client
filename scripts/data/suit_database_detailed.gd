@@ -224,7 +224,7 @@ const SUIT_DATA = {
 		}
 	}, 
 	12: {
-		"name": "鸿蒙套装", 
+		"name": "玄黄套装", 
 		"required_cultivation": 550000, 
 		"base_stats": {"attack": 8995, "defense": 4760, "agility": 3045, "hp": 30660, "mp": 4760}, 
 		"set_bonus_percent": 0.3, 
@@ -498,7 +498,7 @@ static func get_suit_piece_stats(suit_level: int, slot: String) -> int:
 
 const SEALED_STONES = {
 	"normal": {
-		"name": "普通解封石", 
+		"name": "解封石", 
 		"description": "可用于解封1-10层的封印套装", 
 		"min_level": 1, 
 		"max_level": 10

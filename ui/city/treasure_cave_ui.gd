@@ -634,7 +634,7 @@ func _build_chest_card(chest: Dictionary, joined_id: int) -> PanelContainer:
 	var remain_sec = _treasure_safe_int(chest.get("remain_sec", _seconds_to_next_round()), 0)
 
 	var title: = Label.new()
-	title.text = "藏宝箱 #%d" % chest_no
+	title.text = "藏宝匣 #%d" % chest_no
 	title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title.add_theme_font_size_override("font_size", 16)
@@ -834,7 +834,7 @@ func _show_participants(chest_id: int, chest_no: int) -> void :
 		if lines.is_empty():
 			lines.append("暂无修士入列此箱")
 		_show_message("第%d号宝箱争夺名册：\n%s" % [chest_no, "\n".join(lines)])
-		_add_log("查看了藏宝箱 #%d 参与名单（%d人）" % [chest_no, rows.size()])
+		_add_log("查看了藏宝匣 #%d 参与名单（%d人）" % [chest_no, rows.size()])
 	, CONNECT_ONE_SHOT)
 	game_manager.network.treasure_get_participants(chest_id)
 
@@ -929,9 +929,9 @@ func _format_treasure_battle_log_line(entry: Dictionary, side_map: Dictionary = 
 			var side_color: = _battle_side_color(str(entry.get("attackerRole", "")), attacker, ally_color, enemy_color, side_map)
 			var skill_name: = str(entry.get("skillName", entry.get("skill_name", ""))).strip_edges()
 			if skill_name.is_empty() and t == "triple_shot_hit":
-				skill_name = "三锋齐下"
+				skill_name = "一击三伤"
 			elif skill_name.is_empty() and t == "kuihua_hit":
-				skill_name = "点苔封穴"
+				skill_name = "点穴手"
 			var skill_prefix: = ("【%s】" % _bbcode_escape(skill_name)) if not skill_name.is_empty() else ""
 			var line: = "[color=%s]%s【%s】攻【%s】造成 %s 伤害" % [side_color, skill_prefix, _bbcode_escape(attacker), _bbcode_escape(target), dmg]
 			if entry.has("targetHp"):
@@ -990,7 +990,7 @@ func _format_treasure_battle_log_line(entry: Dictionary, side_map: Dictionary = 
 			var md: = str(entry.get("message", "")).strip_edges()
 			if not md.is_empty():
 				return "[color=#FFD27A]%s[/color]" % _bbcode_escape(md)
-			return "[color=#FFD27A]【连笔】第 %s 段 [color=#E8E8E8]%s[/color] → [color=#E8E8E8]%s[/color]，伤害 [color=#FFB86B]%s[/color]（剩余 HP %s/%s）[/color]" % [
+			return "[color=#FFD27A]【连击】第 %s 段 [color=#E8E8E8]%s[/color] → [color=#E8E8E8]%s[/color]，伤害 [color=#FFB86B]%s[/color]（剩余 HP %s/%s）[/color]" % [
 				_bbcode_escape(str(entry.get("hitIndex", "?"))), 
 				_bbcode_escape(str(entry.get("attacker", "?"))), 
 				_bbcode_escape(str(entry.get("target", "?"))), 
@@ -1002,7 +1002,7 @@ func _format_treasure_battle_log_line(entry: Dictionary, side_map: Dictionary = 
 			var mdv: = str(entry.get("message", "")).strip_edges()
 			if not mdv.is_empty():
 				return "[color=#B8F28A]%s[/color]" % _bbcode_escape(mdv)
-			return "[color=#B8F28A]【护墨】[color=#E8E8E8]%s[/color] 触发，恢复后生命约 [color=#FFB86B]%s[/color][/color]" % [
+			return "[color=#B8F28A]【护主】[color=#E8E8E8]%s[/color] 触发，恢复后生命约 [color=#FFB86B]%s[/color][/color]" % [
 				_bbcode_escape(str(entry.get("target", "?"))), 
 				_fmt_battle_int(entry.get("hpRestored", "?")), 
 			]
@@ -1010,7 +1010,7 @@ func _format_treasure_battle_log_line(entry: Dictionary, side_map: Dictionary = 
 			var mc: = str(entry.get("message", "")).strip_edges()
 			if not mc.is_empty():
 				return "[color=#FFB86B]%s[/color]" % _bbcode_escape(mc)
-			return "[color=#FFB86B]【逆锋】[color=#E8E8E8]%s[/color] 反击 [color=#E8E8E8]%s[/color]，伤害 [color=#FF9F7A]%s[/color]（目标剩余 HP %s/%s）[/color]" % [
+			return "[color=#FFB86B]【反打】[color=#E8E8E8]%s[/color] 反击 [color=#E8E8E8]%s[/color]，伤害 [color=#FF9F7A]%s[/color]（目标剩余 HP %s/%s）[/color]" % [
 				_bbcode_escape(str(entry.get("attacker", "?"))), 
 				_bbcode_escape(str(entry.get("target", "?"))), 
 				_fmt_battle_int(entry.get("damage", 0)), 
@@ -1389,10 +1389,10 @@ func _show_battle_log(chest_id: int, chest_no: int) -> void :
 		var matches: Array = payload.get("matches", [])
 		if matches.is_empty():
 			_show_message("暂无战斗日志")
-			_add_log("藏宝箱 #%d 暂无战斗日志" % chest_no)
+			_add_log("藏宝匣 #%d 暂无战斗日志" % chest_no)
 			return
 		_show_battle_log_list_dialog(chest_no, payload)
-		_add_log("查看了藏宝箱 #%d 战斗日志（%d场）" % [chest_no, matches.size()])
+		_add_log("查看了藏宝匣 #%d 战斗日志（%d场）" % [chest_no, matches.size()])
 	, CONNECT_ONE_SHOT)
 	game_manager.network.treasure_get_battle_log(chest_id, 1, 50)
 
@@ -1417,26 +1417,26 @@ func _show_rules() -> void :
 		rules_text = (
 			"藏宝洞规则说明：\n"
 			+ "1. 每日开放时段为 9:00-24:00（北京时间），每个整点开启一轮（9:00~23:00 共15轮）。\n"
-			+ "2. 每轮固定3个藏宝箱，互不影响。\n"
+			+ "2. 每轮固定3个藏宝匣，互不影响。\n"
 			+ "3. 每轮前10分钟可选箱入阵，后10分钟为争夺阶段；每轮总时长约20分钟。\n"
 			+ "4. 每名玩家每轮只能参加其中一个箱子。\n"
 			+ "5. 每日参与次数：非VIP2次、青铜VIP4次、白银VIP5次、黄金VIP8次（按成功入阵计数）。\n"
 			+ "6. 须先点「更新镜像」，争夺用该镜像互打；入阵后本轮不再随你改阵容。\n"
-			+ "7. 结算后若你获胜，系统会发邮件，附件为【藏宝箱】道具，在背包中使用即可开奖。\n"
+			+ "7. 结算后若你获胜，系统会发邮件，附件为【藏宝匣】道具，在背包中使用即可开奖。\n"
 			+ "8. 开箱奖励随机发放，越稀有的东西概率越低。\n"
 			+ "\n【开箱奖励与概率】\n"
-			+ "5+宠物礼包 31.58%\n"
+			+ "五阶宠物锦囊 31.58%\n"
 			+ "极限装备池 21.05%（池内5件均分，各4.21%）\n"
-			+ "6+可进化宠礼包 14.79%\n"
+			+ "六阶可进化宠锦囊 14.79%\n"
 			+ "1亿金币 10.53%\n"
 			+ "五行属性宠物蛋 7.27%（金木水火土各1.45%）\n"
 			+ "5亿金币 5.26%\n"
-			+ "宠物升级丹 3.51%\n"
-			+ "人物升级丹 2.76%\n"
+			+ "宠物经验丹 3.51%\n"
+			+ "人物经验丹 2.76%\n"
 			+ "10亿金币 1.50%\n"
-			+ "7+可进化宠礼包 1.00%\n"
-			+ "8+可进化宠礼包 0.50%\n"
-			+ "固色lv1技能书 0.25%"
+			+ "七阶可进化宠锦囊 1.00%\n"
+			+ "八阶可进化宠锦囊 0.50%\n"
+			+ "硬皮lv1技能书 0.25%"
 		)
 	_show_message(rules_text)
 

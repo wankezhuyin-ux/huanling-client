@@ -212,7 +212,7 @@ static func get_benefit_list(level: int) -> Array[Dictionary]:
 	if benefits["extremeEquip"] > 0:
 		items.append({
 			"icon": "🎁", 
-			"text": "极限装备礼包 x%d" % benefits["extremeEquip"], 
+			"text": "极限装备锦囊 x%d" % benefits["extremeEquip"], 
 			"type": "equip"
 		})
 

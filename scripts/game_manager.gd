@@ -160,7 +160,7 @@ const BGM_LUCKY_DRAW = "res://Music/幸运抽奖.mp3"
 const ALLOW_LEGACY_PLAINTEXT_JSON_SAVE: bool = false
 
 
-var current_map: String = "浮影水城外郊（0,0）"
+var current_map: String = "墨影城郊（0,0）"
 var in_battle: bool = false
 var _wild_replay_busy: bool = false
 var _wild_replay_token: String = ""
@@ -1697,10 +1697,10 @@ func broadcast_event(event_type: String, player_name: String, details: Dictionar
 				var floor = details.get("floor", 1)
 				message = "🏆 恭喜玩家【%s】通关天关第%d层！" % [player_name, floor]
 			"tower_gift_pet_egg":
-				message = "🎊 恭喜玩家【%s】打开天关礼包，幸运获得【5+宠物蛋】！" % player_name
+				message = "🎊 恭喜玩家【%s】打开天关锦囊，幸运获得【五阶宠物蛋】！" % player_name
 			"tower_gift_egg":
 				var floor = details.get("floor", 100)
-				message = "🥚 恭喜【%s】打开%d关礼包，获得【5+宠物蛋】！" % [player_name, floor]
+				message = "🥚 恭喜【%s】打开%d关礼包，获得【五阶宠物蛋】！" % [player_name, floor]
 			"tower_gift_element_egg":
 				var floor = details.get("floor", 100)
 				var egg = details.get("egg", "属性宠物蛋")
@@ -1751,7 +1751,7 @@ func broadcast_event(event_type: String, player_name: String, details: Dictionar
 			"xianmo_mutant_pet":
 				message = "🌀【%s】在仙魔界捕获了一只变异灵兽！" % player_name
 			"xianmo_gold_chest":
-				message = "🏆【%s】在仙魔界发现了天宫遗址，获得黄金宝箱！" % player_name
+				message = "🏆【%s】在仙魔界发现了天宫遗址，获得黄金匣！" % player_name
 			"xianmo_pet_master":
 				message = "💕【%s】在仙魔界获得灵兽认主！" % player_name
 			"treasure_map_jackpot":
@@ -2098,7 +2098,7 @@ func wait_treasure_token_validation(tokens: Array) -> Dictionary:
 	if network == null:
 		return {"ok": false, "data": {}, "err": "网络未初始化"}
 	# lambda 按值捕获局部变量：done/ok/data/err 必须放 Dictionary，否则闭包里改了外面读不到，
-	# 每次都要等满超时才返回（表现为「藏宝箱校验超时」）。
+	# 每次都要等满超时才返回（表现为「藏宝匣校验超时」）。
 	var st: = {"done": false, "ok": false, "data": {}, "err": ""}
 	var on_ok: = func(d: Dictionary):
 		st.ok = true
@@ -2119,7 +2119,7 @@ func wait_treasure_token_validation(tokens: Array) -> Dictionary:
 	if network.treasure_tokens_validate_failed.is_connected(on_fail):
 		network.treasure_tokens_validate_failed.disconnect(on_fail)
 	if not bool(st.done):
-		return {"ok": false, "data": {}, "err": "藏宝箱状态校验超时"}
+		return {"ok": false, "data": {}, "err": "藏宝匣状态校验超时"}
 	if not bool(st.ok):
 		return {"ok": false, "data": {}, "err": str(st.err) if not str(st.err).is_empty() else "校验失败"}
 	return {"ok": true, "data": st.data}
@@ -2129,7 +2129,7 @@ func _reconcile_treasure_chests_after_cloud_apply() -> void :
 		return
 	var rs: Dictionary = await inventory_manager.reconcile_treasure_chests_with_server(self)
 	if bool(rs.get("ok", false)) and int(rs.get("removed", 0)) > 0:
-		print("[TreasureSync] 已自动清理本地无效藏宝箱条目 count=%d" % int(rs.get("removed", 0)))
+		print("[TreasureSync] 已自动清理本地无效藏宝匣条目 count=%d" % int(rs.get("removed", 0)))
 		save_game(true)
 
 
@@ -2196,7 +2196,7 @@ func _fallback_treasure_open_state_by_token(token: String) -> Dictionary:
 					"data": {
 						"success": true, 
 						"alreadyOpened": true, 
-						"message": "藏宝箱已开启（超时后已与服务器对账）", 
+						"message": "藏宝匣已开启（超时后已与服务器对账）", 
 						"token": token
 					}
 				}
@@ -4114,7 +4114,7 @@ func _roll_fe_reward_name(difficulty: String, element: String) -> String:
 	roll -= 0.4
 	if roll < 0.42: return "5亿金币"
 	roll -= 0.42
-	var skills: = ["溅墨lv1技能书", "连笔lv1技能书", "逆锋lv1技能书", "护墨lv1技能书"]
+	var skills: = ["溅墨lv1技能书", "连击lv1技能书", "反打lv1技能书", "护主lv1技能书"]
 	return skills[randi() % 4]
 
 func _fe_default_levels(difficulty: String) -> Array:
@@ -4554,7 +4554,7 @@ const SAVE_FILE_BACKUP_TEMPLATE = "user://save_game_backup_u%d.dat"
 const SAVE_FILE_TEMP_TEMPLATE = "user://save_game_temp_u%d.dat"
 
 const DEFAULT_VALUES = {
-	"current_map": "浮影水城外郊（0,0）", 
+	"current_map": "墨影城郊（0,0）", 
 	"auto_capture_enabled": true, 
 	"min_growth_threshold": 0.0, 
 	"auto_change_map_enabled": false, 
@@ -5052,11 +5052,11 @@ func load_game() -> bool:
 
 
 
-	current_map = save_data.get("current_map", DEFAULT_VALUES.current_map)
+	current_map = GameData.migrate_map_id(str(save_data.get("current_map", DEFAULT_VALUES.current_map)))
 	auto_capture_enabled = save_data.get("auto_capture_enabled", DEFAULT_VALUES.auto_capture_enabled)
 	min_growth_threshold = save_data.get("min_growth_threshold", DEFAULT_VALUES.min_growth_threshold)
 	auto_change_map_enabled = save_data.get("auto_change_map_enabled", DEFAULT_VALUES.auto_change_map_enabled)
-	previous_map = save_data.get("previous_map", DEFAULT_VALUES.previous_map)
+	previous_map = GameData.migrate_map_id(str(save_data.get("previous_map", DEFAULT_VALUES.previous_map)))
 	auto_change_map_consecutive_wins = save_data.get("auto_change_map_consecutive_wins", DEFAULT_VALUES.auto_change_map_consecutive_wins)
 	auto_change_map_consecutive_deaths = save_data.get("auto_change_map_consecutive_deaths", DEFAULT_VALUES.auto_change_map_consecutive_deaths)
 	auto_change_map_upgrade_cooldown = save_data.get("auto_change_map_upgrade_cooldown", DEFAULT_VALUES.auto_change_map_upgrade_cooldown)
@@ -9129,7 +9129,7 @@ func _log_double_exp_field_bonus_once(server_count: int = -1) -> void :
 	var suffix: = ""
 	if count > 1:
 		suffix = "（%d种叠加）" % count
-	battle_system.add_log("[color=orange]双倍经验丹生效：经验 +%d%%!%s[/color]" % [count * 100, suffix])
+	battle_system.add_log("[color=orange]双倍经验符生效：经验 +%d%%!%s[/color]" % [count * 100, suffix])
 
 func _log_gang_field_battle_bonus_once() -> void :
 	if _field_gang_bonus_logged_in_window or battle_system == null:
@@ -10882,7 +10882,7 @@ func _format_arena_battle_log_message(entry: Dictionary) -> String:
 				var base_chance: = float(entry.get("baseChance", 0.0)) * 100.0
 				var bonus_pct: = float(entry.get("bonusPct", 0.0))
 				var final_chance: = float(entry.get("finalChance", 0.0)) * 100.0
-				preset = "点苔封穴得手！%s 接下来两回合无法行动（基础%.1f%% + 加成%.1f%% = %.1f%%）" % [
+				preset = "点穴手得手！%s 接下来两回合无法行动（基础%.1f%% + 加成%.1f%% = %.1f%%）" % [
 					str(entry.get("target", "敌人")), base_chance, bonus_pct, final_chance
 				]
 			return "[color=#e6f35a]  ✨ 【%s】对【%s】施展点穴成功！%s[/color]" % [
@@ -10895,7 +10895,7 @@ func _format_arena_battle_log_message(entry: Dictionary) -> String:
 				var base_chance2: = float(entry.get("baseChance", 0.0)) * 100.0
 				var bonus_pct2: = float(entry.get("bonusPct", 0.0))
 				var final_chance2: = float(entry.get("finalChance", 0.0)) * 100.0
-				preset = "点苔封穴未生效（基础%.1f%% + 加成%.1f%% = %.1f%%）" % [base_chance2, bonus_pct2, final_chance2]
+				preset = "点穴手未生效（基础%.1f%% + 加成%.1f%% = %.1f%%）" % [base_chance2, bonus_pct2, final_chance2]
 			return "[color=#bfbfcc]  ⚪ 【%s】对【%s】施展点穴失败。%s[/color]" % [
 				str(entry.get("attacker", "我方")), 
 				str(entry.get("target", "敌人")), 
@@ -10939,7 +10939,7 @@ func _format_arena_battle_log_message(entry: Dictionary) -> String:
 			if entry_type == "triple_shot_hit":
 				prefix = "  🏹 "
 			elif entry_type == "kuihua_hit":
-				prefix = "  【点苔封穴】"
+				prefix = "  【点穴手】"
 			var crit_text: = " %s" % crit_mark if not crit_mark.is_empty() else ""
 			var base_text: = "%s【%s】攻击【%s】，造成 %d 伤害！%s%s%s(HP: %d/%d %.1f%%)" % [
 				prefix, attacker, target, damage, combo_text, joint_text, crit_text, target_hp, target_max_hp, hp_percent
@@ -10972,13 +10972,13 @@ func _format_arena_battle_log_message(entry: Dictionary) -> String:
 			var dd: = int(entry.get("damage", 0))
 			var di: = int(entry.get("hitIndex", entry.get("hit_index", 0)))
 			var ds_crit: = " %s" % crit_mark if not crit_mark.is_empty() else ""
-			return "[color=#ffd173]  🎯 【连笔】第 %d 段：【%s】命中【%s】，%d 伤害%s[/color]" % [di, da, dt, dd, ds_crit]
+			return "[color=#ffd173]  🎯 【连击】第 %d 段：【%s】命中【%s】，%d 伤害%s[/color]" % [di, da, dt, dd, ds_crit]
 		"skill_divine_protect":
 			if not preset.is_empty():
 				return "[color=#bfff8c]  ✨ %s[/color]" % preset
 			var dname: = str(entry.get("target", "灵兽"))
 			var dh: = int(entry.get("hpRestored", entry.get("hp_restored", 0)))
-			return "[color=#bfff8c]  ✨ 【护墨】【%s】触发，恢复生命约 %d[/color]" % [dname, dh]
+			return "[color=#bfff8c]  ✨ 【护主】【%s】触发，恢复生命约 %d[/color]" % [dname, dh]
 		"skill_counter_attack":
 			if not preset.is_empty():
 				if not crit_mark.is_empty() and preset.find("暴击") < 0:
@@ -10988,7 +10988,7 @@ func _format_arena_battle_log_message(entry: Dictionary) -> String:
 			var ct: = str(entry.get("target", "?"))
 			var cd: = int(entry.get("damage", 0))
 			var ca_crit: = " %s" % crit_mark if not crit_mark.is_empty() else ""
-			return "[color=#ffa673]  ⚡ 【逆锋】【%s】反击【%s】，%d 伤害%s[/color]" % [ca, ct, cd, ca_crit]
+			return "[color=#ffa673]  ⚡ 【反打】【%s】反击【%s】，%d 伤害%s[/color]" % [ca, ct, cd, ca_crit]
 		"skill_chase":
 			if not preset.is_empty():
 				if not crit_mark.is_empty() and preset.find("暴击") < 0:
@@ -10998,17 +10998,17 @@ func _format_arena_battle_log_message(entry: Dictionary) -> String:
 			var cht: = str(entry.get("target", "?"))
 			var chd: = int(entry.get("damage", 0))
 			var ch_crit: = " %s" % crit_mark if not crit_mark.is_empty() else ""
-			return "[color=#ffa673]  ⚡ 【续笔】【%s】追击【%s】，%d 伤害%s[/color]" % [cha, cht, chd, ch_crit]
+			return "[color=#ffa673]  ⚡ 【追杀】【%s】追击【%s】，%d 伤害%s[/color]" % [cha, cht, chd, ch_crit]
 		"skill_armor_pierce":
 			if not preset.is_empty():
 				return "[color=#ffd173]  ⚔ %s[/color]" % preset
 			var ap_name: = str(entry.get("attacker", entry.get("petName", "灵兽")))
-			return "[color=#ffd173]  ⚔ 【破纸】【%s】本下忽视对方一半防御[/color]" % ap_name
+			return "[color=#ffd173]  ⚔ 【破防】【%s】本下忽视对方一半防御[/color]" % ap_name
 		"skill_guard":
 			if not preset.is_empty():
 				return "[color=#74c0fc]  🛡 %s[/color]" % preset
 			var gd_name: = str(entry.get("target", entry.get("petName", "灵兽")))
-			return "[color=#74c0fc]  🛡 【收锋】【%s】减免部分伤害[/color]" % gd_name
+			return "[color=#74c0fc]  🛡 【挡伤】【%s】减免部分伤害[/color]" % gd_name
 		"enemy_dead", "pet_dead", "player_dead":
 			return "[color=#ffd43b]  💀 【%s】被击败！[/color]" % str(entry.get("name", "单位"))
 		"victory":

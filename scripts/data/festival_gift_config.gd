@@ -5,7 +5,7 @@ extends RefCounted
 
 
 const FESTIVAL_FIVE_ELEMENT_EGGS: = [
-	"金属性宠物蛋", "木属性宠物蛋", "水属性宠物蛋", "火属性宠物蛋", "土属性宠物蛋"
+	"金纹蛋", "木纹蛋", "水纹蛋", "火纹蛋", "土纹蛋"
 ]
 
 const FESTIVAL_GOLD_REWARDS: = {
@@ -38,7 +38,7 @@ static func _get_festival_gift_event_bases() -> Array:
 	return [
 	{
 		"id": "mayday_2026", 
-		"gift_name": "五一活动礼包", 
+		"gift_name": "五一锦囊", 
 		"broadcast_event": "mayday_gift_open", 
 		"reward_pool": _build_reward_pool("pet_mutant_anu"), 
 		"pet_reward": {
@@ -63,11 +63,11 @@ static func _get_festival_gift_event_bases() -> Array:
 			"event_tag": "event_mayday_mutant_anu", 
 		}, 
 		"battle_gift_drop_rate": 1.0, 
-		"high_value_priority": ["变异阿努", "10亿金币", "5亿金币", "极限装备", "五行属性宠物蛋", "7+可进化宠礼包"], 
+		"high_value_priority": ["变异阿努", "10亿金币", "5亿金币", "极限装备", "五行属性宠物蛋", "七阶可进化宠锦囊"], 
 	}, 
 	{
 		"id": "duanwu_2026", 
-		"gift_name": "端午节礼包", 
+		"gift_name": "端午锦囊", 
 		"broadcast_event": "duanwu_gift_open", 
 		"reward_pool": _build_reward_pool("pet_feicuilong"), 
 		"pet_reward": {
@@ -92,11 +92,11 @@ static func _get_festival_gift_event_bases() -> Array:
 			"event_tag": "event_duanwu_feicuilong", 
 		}, 
 		"battle_gift_drop_rate": 1.0, 
-		"high_value_priority": ["翡翠龙", "10亿金币", "5亿金币", "极限装备", "五行属性宠物蛋", "7+可进化宠礼包"], 
+		"high_value_priority": ["翡翠龙", "10亿金币", "5亿金币", "极限装备", "五行属性宠物蛋", "七阶可进化宠锦囊"], 
 	}, 
 	{
 		"id": "qixi_2026", 
-		"gift_name": "七夕节礼包", 
+		"gift_name": "七夕锦囊", 
 		"broadcast_event": "qixi_gift_open", 
 		"reward_pool": _build_reward_pool("pet_qixitu"), 
 		"pet_reward": {
@@ -121,7 +121,7 @@ static func _get_festival_gift_event_bases() -> Array:
 			"event_tag": "event_qixi_qixitu", 
 		}, 
 		"battle_gift_drop_rate": 1.0, 
-		"high_value_priority": ["七夕兔", "10亿金币", "5亿金币", "极限装备", "五行属性宠物蛋", "7+可进化宠礼包"], 
+		"high_value_priority": ["七夕兔", "10亿金币", "5亿金币", "极限装备", "五行属性宠物蛋", "七阶可进化宠锦囊"], 
 	}, 
 	]
 

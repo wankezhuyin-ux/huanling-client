@@ -1,7 +1,7 @@
 extends RefCounted
 
 const GameData = preload("res://scripts/game_data.gd")
-const DOUBLE_HOURS := {"双倍经验丹": 24, "双倍经验丹(周)": 168, "双倍经验丹(月)": 720}
+const DOUBLE_HOURS := {"双倍经验符": 24, "双倍经验符·周": 168, "双倍经验符·月": 720}
 
 static func use_item(gm, item_id: String, quantity: int = 1) -> Dictionary:
 	var inv = gm.inventory_manager
@@ -43,7 +43,7 @@ static func _apply_one(gm, item) -> Dictionary:
 	var name: String = str(item.name)
 	var cfg: Dictionary = GameData.resolve_item_def(name)
 	if item.item_type in ["chest", "treasure_chest"]:
-		var gold: int = {"青铜宝箱": 10000, "白银宝箱": 50000, "黄金宝箱": 100000}.get(name, 100000)
+		var gold: int = {"青铜匣": 10000, "白银匣": 50000, "黄金匣": 100000}.get(name, 100000)
 		p.gold += gold
 		return {"success": true, "message": "本地模拟宝箱奖励：金币+%d；线上奖池待校准" % gold}
 	if item.item_type == "pet_skill_book":
@@ -55,7 +55,7 @@ static func _apply_one(gm, item) -> Dictionary:
 		# Client describes 1–9 layers but does not preserve the server distribution.
 		var art = gm.martial_arts_manager.learn_from_skill_book_local(randi_range(1, 9), name)
 		return {"success": true, "message": "本地模拟层数（1–9层均匀抽取）：%s，第%d层；效果使用原客户端公式" % [art.name, art.layer]}
-	if name == "人物升级丹":
+	if name == "人物经验丹":
 		if p.level >= GameData.MAX_LEVEL_EVOLUTION:
 			return {"success": false, "message": "人物已满级，道具未消耗"}
 		var required := -int(p.experience)
@@ -65,7 +65,7 @@ static func _apply_one(gm, item) -> Dictionary:
 		p.add_exp(required, true, false, 1, false)
 		gm.local_auto_allocate()
 		return {"success": true, "message": "已按原升级经验表升至%d级，属性点已生效" % p.level}
-	if name in ["内测先锋礼包", "新人扶持礼包"]:
+	if name in ["先锋锦囊", "新人扶持锦囊"]:
 		var capacity: Dictionary = inv._check_gift_capacity(gm, name, 5, 1, [])
 		if not bool(capacity.get("ok", false)):
 			return {"success": false, "message": str(capacity.get("message", "空间不足"))}
@@ -76,7 +76,7 @@ static func _apply_one(gm, item) -> Dictionary:
 		inv._grant_single_attr_set(gm.equipment_manager, "扶持·", 100, messages)
 		p.gold += 100000000
 		return {"success": true, "message": "获得1亿金币、成长6.0琳琳、单属性+100装备一套（原道具说明）"}
-	if name == "极限装备礼包":
+	if name == "极限装备锦囊":
 		for material in ["极限武器", "极限衣服", "极限鞋子", "极限血佩", "极限内带"]:
 			var added: Dictionary = inv.add_item(material, 1)
 			if not bool(added.get("success", false)):
@@ -102,15 +102,15 @@ static func _apply_one(gm, item) -> Dictionary:
 		if gm.pet_manager.get_available_slots() < 1:
 			return {"success": false, "message": "宠物栏已满，道具未消耗"}
 		return item._open_evolution_pet_gift(name)
-	if name in ["7-9水晶儿礼包", "7-9梦晶儿礼包", "7-9阿弟达斯礼包"]:
+	if name in ["七至九阶晶儿锦囊", "七至九阶梦晶锦囊", "七至九阶阿弟锦囊"]:
 		if gm.pet_manager.get_available_slots() < 1:
 			return {"success": false, "message": "宠物栏已满，道具未消耗"}
 		return item._open_fixed_pet_gift(name)
-	if item.item_type == "pet_egg" and (name.ends_with("属性宠物蛋") or name == "5+宠物蛋"):
+	if item.item_type == "pet_egg" and (name.ends_with("属性宠物蛋") or name == "五阶宠物蛋"):
 		if gm.pet_manager.get_available_slots() < 1:
 			return {"success": false, "message": "宠物栏已满，道具未消耗"}
-		return item._open_pet_egg(gm.pet_manager, name.trim_suffix("属性宠物蛋") if name != "5+宠物蛋" else "")
-	if name == "5+宠物礼包":
+		return item._open_pet_egg(gm.pet_manager, name.trim_suffix("属性宠物蛋") if name != "五阶宠物蛋" else "")
+	if name == "五阶宠物锦囊":
 		if gm.pet_manager.get_available_slots() < 1:
 			return {"success": false, "message": "宠物栏已满，道具未消耗"}
 		return item._open_pet_egg(gm.pet_manager, "")
@@ -136,10 +136,10 @@ static func _apply_one(gm, item) -> Dictionary:
 			return {"success": false, "message": "魂魄配置缺失，道具未消耗"}
 		gm.pet_soul_manager.add_points(element, points)
 		return {"success": true, "message": "%s魂魄+%d" % [element, points]}
-	if name == "悟道仙丹礼包":
-		return inv.add_item("悟道仙丹", 50)
-	if name == "新手礼包" or name == "开荒礼包":
-		var needed_pets := 7 if name == "开荒礼包" else 0
+	if name == "开悟丹锦囊":
+		return inv.add_item("开悟丹", 50)
+	if name == "新手锦囊" or name == "开荒锦囊":
+		var needed_pets := 7 if name == "开荒锦囊" else 0
 		var capacity: Dictionary = inv._check_gift_capacity(gm, name, 5, needed_pets, [])
 		if not bool(capacity.get("ok", false)):
 			return {"success": false, "message": str(capacity.get("message", "背包空间不足"))}
@@ -153,7 +153,7 @@ static func _apply_one(gm, item) -> Dictionary:
 			p.gold += 500000000
 			messages.append("金币+500000000，获得7只成长6.0的琳琳")
 		return {"success": true, "message": "\n".join(messages)}
-	if name == "开荒宠装礼包":
+	if name == "开荒宠装锦囊":
 		if inv.pet_equipment_items.size() + 5 > inv.MAX_PET_EQUIPMENT_INVENTORY:
 			return {"success": false, "message": "宠装背包需要5个空位，道具未消耗"}
 		for row in [["weapon", "开荒武器"], ["armor", "开荒护甲"], ["boots", "开荒鞋子"], ["helmet", "开荒头盔"], ["accessory", "开荒饰品"]]:
@@ -162,7 +162,7 @@ static func _apply_one(gm, item) -> Dictionary:
 		return {"success": true, "message": "获得一套单属性+500的开荒宠物装备"}
 	if name == "宠物补章器":
 		return gm.pet_manager.grant_random_medal_from_active_pet()
-	if name == "宠物升级丹":
+	if name == "宠物经验丹":
 		var pet = gm.pet_manager.get_active_pet()
 		if pet == null or pet.is_at_max_level():
 			return {"success": false, "message": "没有出战宠物或宠物已满级，道具未消耗"}

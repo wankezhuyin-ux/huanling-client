@@ -283,7 +283,7 @@ func initialize(_skip_local_disk: bool = false) -> bool:
 func local_use_item(item_id: String, quantity: int = 1) -> Dictionary:
 	return await load("res://dev/local_items.gd").use_item(self, item_id, quantity)
 
-const LOCAL_DOUBLE_HOURS := {"双倍经验丹": 24, "双倍经验丹(周)": 168, "双倍经验丹(月)": 720}
+const LOCAL_DOUBLE_HOURS := {"双倍经验符": 24, "双倍经验符·周": 168, "双倍经验符·月": 720}
 
 func _migrate_local_double_exp() -> bool:
 	if _local_metadata.has("double_exp_channels"):

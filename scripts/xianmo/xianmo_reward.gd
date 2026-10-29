@@ -109,7 +109,7 @@ func send_rewards_via_mail(player_id: String, rewards: Dictionary):
 	for chest in rewards.chests:
 		content += "- %s宝箱×1\n" % _get_chest_name(chest)
 	if rewards.cultivation_pills > 0:
-		content += "- 悟道仙丹×%d\n" % rewards.cultivation_pills
+		content += "- 开悟丹×%d\n" % rewards.cultivation_pills
 
 	content += "\n请在7天内领取，过期作废。"
 
@@ -139,7 +139,7 @@ func apply_rewards_to_player(rewards: Dictionary):
 
 	if rewards.cultivation_pills > 0:
 		if game_manager.inventory_manager:
-			game_manager.inventory_manager.add_item("悟道仙丹", rewards.cultivation_pills)
+			game_manager.inventory_manager.add_item("开悟丹", rewards.cultivation_pills)
 
 	for chest in rewards.chests:
 		if game_manager.xianmo_chest_manager:

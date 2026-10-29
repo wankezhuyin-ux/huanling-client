@@ -76,7 +76,7 @@ func try_trigger_life_steal(pet: Pet, total_damage: int) -> Dictionary:
 	var heal_amount: int = maxi(1, int(floor(float(total_damage) * ratio)))
 	return {
 		"skill_key": skill.get("skill_key", ""), 
-		"skill_name": config.get("skill_name", "吮墨"), 
+		"skill_name": config.get("skill_name", "饮血"), 
 		"skill_id": "life_steal", 
 		"config": config, 
 		"heal_amount": heal_amount, 
@@ -92,7 +92,7 @@ func try_trigger_chase(pet: Pet) -> Dictionary:
 		return {}
 	return {
 		"skill_key": skill.get("skill_key", ""), 
-		"skill_name": config.get("skill_name", "续笔"), 
+		"skill_name": config.get("skill_name", "追杀"), 
 		"skill_id": "chase", 
 		"config": config, 
 		"chase_ratio": float(config.get("chase_ratio", 1.0)), 
@@ -107,7 +107,7 @@ func try_trigger_taunt(pet: Pet) -> Dictionary:
 		return {}
 	return {
 		"skill_key": skill.get("skill_key", ""), 
-		"skill_name": config.get("skill_name", "引锋"), 
+		"skill_name": config.get("skill_name", "挑衅"), 
 		"skill_id": "taunt", 
 		"config": config, 
 	}
@@ -121,7 +121,7 @@ func try_trigger_loyal(pet: Pet) -> Dictionary:
 		return {}
 	return {
 		"skill_key": skill.get("skill_key", ""), 
-		"skill_name": config.get("skill_name", "守纸"), 
+		"skill_name": config.get("skill_name", "守主"), 
 		"skill_id": "loyal", 
 		"config": config, 
 	}
@@ -138,7 +138,7 @@ func try_trigger_armor_pierce(pet: Pet, extra_rate: float = 0.0) -> Dictionary:
 		return {}
 	return {
 		"skill_key": skill.get("skill_key", ""), 
-		"skill_name": config.get("skill_name", "破纸"), 
+		"skill_name": config.get("skill_name", "破防"), 
 		"skill_id": "armor_pierce", 
 		"config": config, 
 	}
@@ -153,7 +153,7 @@ func try_trigger_guard(pet: Pet) -> Dictionary:
 	var reduction: float = clampf(float(config.get("damage_reduction_ratio", 0.5)), 0.0, 1.0)
 	return {
 		"skill_key": skill.get("skill_key", ""), 
-		"skill_name": config.get("skill_name", "收锋"), 
+		"skill_name": config.get("skill_name", "挡伤"), 
 		"skill_id": "guard", 
 		"config": config, 
 		"damage_reduction_ratio": reduction, 
@@ -173,7 +173,7 @@ func try_trigger_self_heal(pet: Pet) -> Dictionary:
 	var heal_amount: int = maxi(1, int(floor(max_hp * ratio)))
 	return {
 		"skill_key": skill.get("skill_key", ""), 
-		"skill_name": config.get("skill_name", "回润"), 
+		"skill_name": config.get("skill_name", "自复"), 
 		"skill_id": "self_heal", 
 		"config": config, 
 		"heal_amount": heal_amount, 

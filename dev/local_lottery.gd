@@ -1,8 +1,8 @@
 extends RefCounted
 
-const RARE_BOOKS := ["溅墨lv1技能书", "逆锋lv1技能书", "护墨lv1技能书", "连笔lv1技能书", "吮墨lv1技能书"]
-const COMMON_BOOKS := ["回润lv1技能书", "疾笔lv1技能书", "固色lv1技能书", "寿墨lv1技能书", "壮笔lv1技能书", "烈墨lv1技能书", "断锋lv1技能书", "续笔lv1技能书", "守纸lv1技能书", "引锋lv1技能书"]
-const ELEMENT_EGGS := ["金属性宠物蛋", "木属性宠物蛋", "水属性宠物蛋", "火属性宠物蛋", "土属性宠物蛋"]
+const RARE_BOOKS := ["溅墨lv1技能书", "反打lv1技能书", "护主lv1技能书", "连击lv1技能书", "饮血lv1技能书"]
+const COMMON_BOOKS := ["自复lv1技能书", "轻身lv1技能书", "硬皮lv1技能书", "长命lv1技能书", "力壮lv1技能书", "凶性lv1技能书", "致命lv1技能书", "追杀lv1技能书", "守主lv1技能书", "挑衅lv1技能书"]
+const ELEMENT_EGGS := ["金纹蛋", "木纹蛋", "水纹蛋", "火纹蛋", "土纹蛋"]
 const LIMIT_ITEMS := ["极限武器", "极限衣服", "极限血佩", "极限鞋子", "极限内带"]
 
 static func pool_entries(pool: String) -> Array:

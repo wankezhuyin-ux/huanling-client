@@ -424,7 +424,7 @@ func _fix_viewer_log_highlight_anchor(highlight: Dictionary, payload: Dictionary
 
 func _infer_log_attacker_type_from_message(message: String) -> String:
 	var plain: = _strip_bbcode_for_log_match(message)
-	var skill_idx: = plain.find("【一箭三雕】")
+	var skill_idx: = plain.find("【一击三伤】")
 	var atk_idx: = plain.find(" 攻击")
 	var cut: = plain.length()
 	if skill_idx >= 0:

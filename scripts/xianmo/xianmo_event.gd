@@ -54,7 +54,7 @@ func process_pet_event(event: Dictionary, choice: String = "") -> Dictionary:
 			var score = event.get("score", 2)
 			result.rewards.append({"type": "score", "amount": score})
 			if event.has("growth"):
-				result.rewards.append({"type": "pet_gift", "giftName": event.get("giftName", "仙魔变异礼包"), "growth": event.growth})
+				result.rewards.append({"type": "pet_gift", "giftName": event.get("giftName", "仙魔变异锦囊"), "growth": event.growth})
 		return result
 
 	if event.get("no_capture_roll", false):
@@ -94,7 +94,7 @@ func create_pet_from_event(min_growth: float, max_growth: float) -> Dictionary:
 
 	var pet_names = {
 		"金": ["金灵", "玄金兽", "金翅雕", "金刚狮"], 
-		"木": ["木灵", "青木猿", "翠竹蛇", "灵木鹿"], 
+		"木": ["木灵", "青木猿", "翠竹蛇", "墨木鹿"], 
 		"水": ["水灵", "玄冰龟", "碧波鱼", "水月狐"], 
 		"火": ["火灵", "烈焰虎", "赤焰鸟", "火云豹"], 
 		"土": ["土灵", "岩石熊", "大地龟", "山岳象"]
@@ -213,7 +213,7 @@ func process_fortune_event(event: Dictionary) -> Dictionary:
 		var item = items[randi() % items.size()]
 		if item == "gold_chest":
 			result.rewards.append({"type": "chest", "chest_type": "gold"})
-			result.message = "天降祥瑞！获得黄金宝箱！"
+			result.message = "天降祥瑞！获得黄金匣！"
 		else:
 			result.rewards.append({"type": "item", "item_id": item, "count": 1})
 			result.message = "天降祥瑞！获得%s！" % _get_item_name(item)
@@ -389,7 +389,7 @@ func _get_chest_name(chest_type: String) -> String:
 
 func _get_item_name(item_id: String) -> String:
 	match item_id:
-		"cultivation_pill": return "悟道仙丹"
+		"cultivation_pill": return "开悟丹"
 		_: return item_id
 
 func broadcast_event(event_type: String, details: Dictionary):
