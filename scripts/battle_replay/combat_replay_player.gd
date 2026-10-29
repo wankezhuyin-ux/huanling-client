@@ -940,31 +940,31 @@ func _highlight_for_entry(entry: Dictionary, slot: Dictionary = {}) -> Dictionar
 	var idx: = int(slot.get("index", -1))
 	match t:
 		"skill_splash":
-			return BattleSystem._skill_highlight("溅射", anchor, 0, idx)
+			return BattleSystem._skill_highlight("溅墨", anchor, 0, idx)
 		"skill_double_shot":
-			return BattleSystem._skill_highlight("连射", anchor, 0, idx)
+			return BattleSystem._skill_highlight("连笔", anchor, 0, idx)
 		"triple_shot_hit":
 			return {}
 		"skill_counter_attack":
-			return BattleSystem._skill_highlight("反击", anchor, 0, idx)
+			return BattleSystem._skill_highlight("逆锋", anchor, 0, idx)
 		"skill_chase":
-			return BattleSystem._skill_highlight("追击", anchor, 0, idx)
+			return BattleSystem._skill_highlight("续笔", anchor, 0, idx)
 		"skill_armor_pierce":
-			return BattleSystem._skill_highlight("破甲", anchor, 0, idx)
+			return BattleSystem._skill_highlight("破纸", anchor, 0, idx)
 		"skill_guard":
-			return BattleSystem._skill_highlight("格挡", anchor, 0, idx)
+			return BattleSystem._skill_highlight("收锋", anchor, 0, idx)
 		"skill_divine_protect":
-			return BattleSystem._skill_highlight("神佑", anchor, 0, idx)
+			return BattleSystem._skill_highlight("护墨", anchor, 0, idx)
 		"skill_self_heal":
 			var heal_amt: = int(entry.get("hpRestored", entry.get("hp_restored", entry.get("heal", 0))))
 			var heal_anchor: = str(slot.get("type", ""))
 			if heal_anchor not in ["player", "pet", "coop_player", "coop_pet", "monster"]:
 				heal_anchor = "pet"
-			return BattleSystem._skill_highlight("自愈", heal_anchor, heal_amt, idx)
+			return BattleSystem._skill_highlight("回润", heal_anchor, heal_amt, idx)
 		"kuihua_point_success", "kuihua_point_fail":
 			return {}
 		"skill_life_steal":
-			var steal_name: = str(entry.get("skillName", entry.get("skill_name", "吸血")))
+			var steal_name: = str(entry.get("skillName", entry.get("skill_name", "吮墨")))
 			var steal_heal: = int(entry.get("hpRestored", entry.get("hp_restored", 0)))
 			var steal_anchor: = str(slot.get("type", ""))
 			if steal_anchor not in ["player", "pet", "coop_player", "coop_pet"]:
@@ -1239,7 +1239,7 @@ func _apply_miss_float(entry: Dictionary) -> void :
 			var kuihua_anchor: = str(kuihua_atk.get("type", "player"))
 			if kuihua_anchor not in ["player", "pet", "coop_player", "coop_pet", "monster"]:
 				kuihua_anchor = "player"
-			miss_hl = BattleSystem._skill_highlight("葵花点穴", kuihua_anchor, 0, int(kuihua_atk.get("index", -1)))
+			miss_hl = BattleSystem._skill_highlight("点苔封穴", kuihua_anchor, 0, int(kuihua_atk.get("index", -1)))
 		bs.apply_replay_log(miss_msg, miss_hl)
 	var target_name: = str(entry.get("target", ""))
 	var hit: = _resolve_living_swing_target(entry, _combo_living_hit_slot(entry, _resolve_unit_slot(entry, true)))
@@ -1339,7 +1339,7 @@ func _apply_attack_damage(entry: Dictionary, show_skill_highlight: bool = true, 
 		var kuihua_anchor: = str(kuihua_atk.get("type", "player"))
 		if kuihua_anchor not in ["player", "pet", "coop_player", "coop_pet", "monster"]:
 			kuihua_anchor = "player"
-		var kuihua_hl: Dictionary = BattleSystem._skill_highlight("葵花点穴", kuihua_anchor, 0, int(kuihua_atk.get("index", -1)))
+		var kuihua_hl: Dictionary = BattleSystem._skill_highlight("点苔封穴", kuihua_anchor, 0, int(kuihua_atk.get("index", -1)))
 		for k in kuihua_hl.keys():
 			hl[k] = kuihua_hl[k]
 	if force_triple_banner or (show_skill_highlight and _should_show_triple_shot_banner(entry)):
@@ -1662,7 +1662,7 @@ func format_message(entry: Dictionary) -> String:
 			if entry_type == "triple_shot_hit":
 				prefix = "  🏹 "
 			elif entry_type == "kuihua_hit":
-				prefix = "  【葵花点穴】"
+				prefix = "  【点苔封穴】"
 			var crit_text: = " %s" % crit_mark if not crit_mark.is_empty() else ""
 			var combo_text: = " 连击！" if bool(entry.get("isCombo", entry.get("is_combo", false))) else ""
 			var joint_text: = " 合击！" if bool(entry.get("isJointAttack", entry.get("is_joint_attack", false))) else ""
@@ -1675,43 +1675,43 @@ func format_message(entry: Dictionary) -> String:
 		"skill_splash":
 			var sthp: = int(entry.get("targetHp", 0))
 			var stmh: = int(entry.get("targetMaxHp", 1))
-			return "[color=#8ce0ff]  💧 【溅射】【%s】波及【%s】，造成 %d 伤害%s（目标剩余 HP %d/%d，约 %.0f%%）[/color]" % [
+			return "[color=#8ce0ff]  💧 【溅墨】【%s】波及【%s】，造成 %d 伤害%s（目标剩余 HP %d/%d，约 %.0f%%）[/color]" % [
 				str(entry.get("attacker", "?")), str(entry.get("target", "?")), int(entry.get("damage", 0)), 
 				(" %s" % crit_mark) if not crit_mark.is_empty() else "", sthp, stmh, 
 				float(sthp) / float(maxi(stmh, 1)) * 100.0
 			]
 		"skill_double_shot":
-			return "[color=#ffd173]  🎯 【连射】第 %d 段：【%s】命中【%s】，%d 伤害%s[/color]" % [
+			return "[color=#ffd173]  🎯 【连笔】第 %d 段：【%s】命中【%s】，%d 伤害%s[/color]" % [
 				int(entry.get("hitIndex", 0)), str(entry.get("attacker", "?")), str(entry.get("target", "?")), 
 				int(entry.get("damage", 0)), (" %s" % crit_mark) if not crit_mark.is_empty() else ""
 			]
 		"skill_divine_protect":
-			return "[color=#bfff8c]  ✨ 【神佑】【%s】触发，恢复生命约 %d[/color]" % [str(entry.get("target", "灵兽")), int(entry.get("hpRestored", 0))]
+			return "[color=#bfff8c]  ✨ 【护墨】【%s】触发，恢复生命约 %d[/color]" % [str(entry.get("target", "灵兽")), int(entry.get("hpRestored", 0))]
 		"skill_self_heal":
-			return "[color=#69db7c]  ✦ 【自愈】【%s】回复 %d 点生命[/color]" % [
+			return "[color=#69db7c]  ✦ 【回润】【%s】回复 %d 点生命[/color]" % [
 				str(entry.get("attacker", entry.get("target", "灵兽"))), 
 				int(entry.get("hpRestored", entry.get("heal", 0)))
 			]
 		"skill_taunt":
-			return "[color=yellow]  【嘲讽】【%s】吸引敌方攻击[/color]" % str(entry.get("attacker", entry.get("target", "灵兽")))
+			return "[color=yellow]  【引锋】【%s】吸引敌方攻击[/color]" % str(entry.get("attacker", entry.get("target", "灵兽")))
 		"skill_loyal":
-			return "[color=yellow]  【忠心】【%s】替主人承受攻击[/color]" % str(entry.get("attacker", entry.get("target", "灵兽")))
+			return "[color=yellow]  【守纸】【%s】替主人承受攻击[/color]" % str(entry.get("attacker", entry.get("target", "灵兽")))
 		"skill_life_steal":
 			return _format_life_steal_line(entry)
 		"skill_counter_attack":
-			return "[color=#ffa673]  ⚡ 【反击】【%s】反击【%s】，%d 伤害%s[/color]" % [
+			return "[color=#ffa673]  ⚡ 【逆锋】【%s】反击【%s】，%d 伤害%s[/color]" % [
 				str(entry.get("attacker", "?")), str(entry.get("target", "?")), int(entry.get("damage", 0)), 
 				(" %s" % crit_mark) if not crit_mark.is_empty() else ""
 			]
 		"skill_chase":
-			return "[color=#ffa673]  ⚡ 【追击】【%s】追击【%s】，%d 伤害%s[/color]" % [
+			return "[color=#ffa673]  ⚡ 【续笔】【%s】追击【%s】，%d 伤害%s[/color]" % [
 				str(entry.get("attacker", "?")), str(entry.get("target", "?")), int(entry.get("damage", 0)), 
 				(" %s" % crit_mark) if not crit_mark.is_empty() else ""
 			]
 		"skill_armor_pierce":
-			return "[color=#ffd173]  ⚔ 【破甲】【%s】本下忽视对方一半防御[/color]" % str(entry.get("attacker", "灵兽"))
+			return "[color=#ffd173]  ⚔ 【破纸】【%s】本下忽视对方一半防御[/color]" % str(entry.get("attacker", "灵兽"))
 		"skill_guard":
-			return "[color=#74c0fc]  🛡 【格挡】【%s】减免部分伤害[/color]" % str(entry.get("target", "灵兽"))
+			return "[color=#74c0fc]  🛡 【收锋】【%s】减免部分伤害[/color]" % str(entry.get("target", "灵兽"))
 		"enemy_dead", "pet_dead", "player_dead":
 			return "[color=#ffd43b]  💀 【%s】被击败！[/color]" % str(entry.get("name", "单位"))
 		"start", "info":
@@ -1743,7 +1743,7 @@ func _format_life_steal_line(entry: Dictionary) -> String:
 	var skill_name: = str(entry.get("skillName", entry.get("skill_name", "")))
 	if skill_name == "以墨养墨":
 		return "[color=#69db7c]%s【以墨养墨】吸血回复 %d 点生命[/color]" % [who, amt]
-	return "[color=#69db7c]✦吸血触发![/color] %s 回复 %d 点生命" % [who, amt]
+	return "[color=#69db7c]✦吮墨触发![/color] %s 回复 %d 点生命" % [who, amt]
 
 func _wild_crit_suffix(entry: Dictionary) -> String:
 	if bool(entry.get("isCritical", entry.get("is_critical", false))):
@@ -1771,7 +1771,7 @@ func _format_wild_attack_line(entry: Dictionary) -> String:
 	if is_enemy:
 		msg = "[color=orange]%s[/color] 攻击 %s, 造成 [color=red]%d[/color] 点伤害" % [attacker, target, damage]
 	elif kuihua:
-		msg = "%s【葵花点穴】攻击 %s, 造成 [color=red]%d[/color] 点伤害" % [attacker, target, damage]
+		msg = "%s【点苔封穴】攻击 %s, 造成 [color=red]%d[/color] 点伤害" % [attacker, target, damage]
 	elif show_triple:
 		msg = "%s【三锋齐下】攻击 %s, 造成 [color=red]%d[/color] 点伤害" % [attacker, target, damage]
 	elif is_pet:
@@ -1821,7 +1821,7 @@ func _format_message_wild(entry: Dictionary) -> String:
 		"attack", "triple_shot_hit", "kuihua_hit":
 			return _format_wild_attack_line(entry)
 		"skill_splash":
-			return "[color=yellow]✦溅射触发![/color] %s 对 %s 造成 [color=red]%d[/color] 点溅射伤害%s%s" % [
+			return "[color=yellow]✦溅墨触发![/color] %s 对 %s 造成 [color=red]%d[/color] 点溅射伤害%s%s" % [
 				str(entry.get("attacker", "?")), str(entry.get("target", "?")), int(entry.get("damage", 0)), 
 				_wild_crit_suffix(entry), _wild_element_suffix(entry)
 			]
@@ -1831,30 +1831,30 @@ func _format_message_wild(entry: Dictionary) -> String:
 				_wild_crit_suffix(entry), _wild_element_suffix(entry)
 			]
 		"skill_divine_protect":
-			return "[color=#bfff8c]✨ 【神佑】%s 触发，恢复生命[/color]" % str(entry.get("target", "灵兽"))
+			return "[color=#bfff8c]✨ 【护墨】%s 触发，恢复生命[/color]" % str(entry.get("target", "灵兽"))
 		"skill_self_heal":
-			return "[color=#69db7c]✦自愈触发![/color] %s 回复 %d 点生命" % [
+			return "[color=#69db7c]✦回润触发![/color] %s 回复 %d 点生命" % [
 				str(entry.get("attacker", entry.get("target", "灵兽"))), 
 				int(entry.get("hpRestored", entry.get("heal", 0)))
 			]
 		"skill_taunt":
-			return "[color=yellow]%s 触发【嘲讽】，吸引了怪物注意![/color]" % str(entry.get("attacker", entry.get("target", "灵兽")))
+			return "[color=yellow]%s 触发【引锋】，吸引了怪物注意![/color]" % str(entry.get("attacker", entry.get("target", "灵兽")))
 		"skill_loyal":
-			return "[color=yellow]%s 触发【忠心】，替主人承受攻击![/color]" % str(entry.get("attacker", entry.get("target", "灵兽")))
+			return "[color=yellow]%s 触发【守纸】，替主人承受攻击![/color]" % str(entry.get("attacker", entry.get("target", "灵兽")))
 		"skill_counter_attack":
-			return "[color=yellow]%s[/color] 触发【反击】，对 %s 造成 [color=red]%d[/color] 点伤害!%s%s" % [
+			return "[color=yellow]%s[/color] 触发【逆锋】，对 %s 造成 [color=red]%d[/color] 点伤害!%s%s" % [
 				str(entry.get("attacker", "?")), str(entry.get("target", "?")), int(entry.get("damage", 0)), 
 				_wild_crit_suffix(entry), _wild_element_suffix(entry)
 			]
 		"skill_chase":
-			return "[color=yellow]✦追击触发![/color] %s 对 %s 造成 [color=red]%d[/color] 点追击伤害%s%s" % [
+			return "[color=yellow]✦续笔触发![/color] %s 对 %s 造成 [color=red]%d[/color] 点追击伤害%s%s" % [
 				str(entry.get("attacker", "?")), str(entry.get("target", "?")), int(entry.get("damage", 0)), 
 				_wild_crit_suffix(entry), _wild_element_suffix(entry)
 			]
 		"skill_armor_pierce":
 			return "[color=yellow]%s[/color] 本下忽视对方一半防御" % str(entry.get("attacker", "灵兽"))
 		"skill_guard":
-			return "[color=#74c0fc]【格挡】%s 减免部分伤害[/color]" % str(entry.get("target", "灵兽"))
+			return "[color=#74c0fc]【收锋】%s 减免部分伤害[/color]" % str(entry.get("target", "灵兽"))
 		"enemy_dead", "pet_dead":
 			return "[color=#ffd43b]%s 被击败了![/color]" % str(entry.get("name", entry.get("target", "单位")))
 		"player_dead":
@@ -1866,9 +1866,9 @@ func _format_message_wild(entry: Dictionary) -> String:
 		"start", "info":
 			return preset
 		"kuihua_point_success":
-			return "[color=#e6f35a]✨ %s 施展【葵花点穴】得手！%s 接下来两回合无法行动[/color]" % [str(entry.get("attacker", "我方")), str(entry.get("target", "敌人"))]
+			return "[color=#e6f35a]✨ %s 施展【点苔封穴】得手！%s 接下来两回合无法行动[/color]" % [str(entry.get("attacker", "我方")), str(entry.get("target", "敌人"))]
 		"kuihua_point_fail":
-			return "[color=#bfbfcc]%s 施展【葵花点穴】未能封住 %s 经脉[/color]" % [str(entry.get("attacker", "我方")), str(entry.get("target", "敌人"))]
+			return "[color=#bfbfcc]%s 施展【点苔封穴】未能封住 %s 经脉[/color]" % [str(entry.get("attacker", "我方")), str(entry.get("target", "敌人"))]
 		"skill_life_steal":
 			return _format_life_steal_line(entry)
 		"acupoint_skip":

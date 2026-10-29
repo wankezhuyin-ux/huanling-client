@@ -2036,7 +2036,7 @@ func _build_splash_lv1_skill_slot() -> Dictionary:
 		"slot": 1, 
 		"skill_key": "splash_lv1", 
 		"skill_id": str(skill_cfg.get("skill_id", "splash")), 
-		"skill_name": str(skill_cfg.get("name", "溅射")), 
+		"skill_name": str(skill_cfg.get("name", "溅墨")), 
 		"level": int(skill_cfg.get("level", 1))
 	}
 
@@ -2082,7 +2082,7 @@ func create_mayday_mutant_anu_reward_pet() -> Dictionary:
 	add_pet(pet)
 	result.success = true
 	result.growth = growth
-	result.message = "获得活动宠物【变异阿努】（成长 %.3f，1级0代，自带技能【溅射lv1】）。" % growth
+	result.message = "获得活动宠物【变异阿努】（成长 %.3f，1级0代，自带技能【溅墨lv1】）。" % growth
 	return result
 
 func _resolve_mail_pet_evolution_stage(pet_id: String, pet_evolution_stage: int, is_mutant: bool) -> int:

@@ -474,7 +474,7 @@ func _create_battle_replay_popup() -> Control:
 					var base_chance = float(entry.get("baseChance", 0.0)) * 100.0
 					var bonus_pct = float(entry.get("bonusPct", 0.0))
 					var final_chance = float(entry.get("finalChance", 0.0)) * 100.0
-					message = "葵花点穴得手！%s 接下来两回合无法行动（基础%.1f%% + 加成%.1f%% = %.1f%%）" % [target, base_chance, bonus_pct, final_chance]
+					message = "点苔封穴得手！%s 接下来两回合无法行动（基础%.1f%% + 加成%.1f%% = %.1f%%）" % [target, base_chance, bonus_pct, final_chance]
 				entry_label.text = "  ✨ 【%s】对【%s】施展点穴成功！%s" % [attacker, target, message]
 				entry_label.add_theme_color_override("font_color", Color(0.9, 0.95, 0.35))
 			"kuihua_point_fail":
@@ -485,7 +485,7 @@ func _create_battle_replay_popup() -> Control:
 					var base_chance = float(entry.get("baseChance", 0.0)) * 100.0
 					var bonus_pct = float(entry.get("bonusPct", 0.0))
 					var final_chance = float(entry.get("finalChance", 0.0)) * 100.0
-					message = "葵花点穴未生效（基础%.1f%% + 加成%.1f%% = %.1f%%）" % [base_chance, bonus_pct, final_chance]
+					message = "点苔封穴未生效（基础%.1f%% + 加成%.1f%% = %.1f%%）" % [base_chance, bonus_pct, final_chance]
 				entry_label.text = "  ⚪ 【%s】对【%s】施展点穴失败。%s" % [attacker, target, message]
 				entry_label.add_theme_color_override("font_color", Color(0.75, 0.75, 0.8))
 			"acupoint_skip":
@@ -537,7 +537,7 @@ func _create_battle_replay_popup() -> Control:
 				if skill_name.is_empty() and str(entry.get("type", "")) == "triple_shot_hit":
 					skill_name = "三锋齐下"
 				elif skill_name.is_empty() and str(entry.get("type", "")) == "kuihua_hit":
-					skill_name = "葵花点穴"
+					skill_name = "点苔封穴"
 				var skill_text: = ("【%s】" % skill_name) if not skill_name.is_empty() else ""
 
 				var base_text = ""

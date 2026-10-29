@@ -1425,7 +1425,7 @@ func _add_attachments_to_game(attachments: Dictionary, skip_server_currency: boo
 			var item_name = item_data.get("name", item_data.get("id", item_data.get("item_id", "")))
 
 			var item_name_compat: = {
-				"神佑lv1": "神佑lv1技能书", 
+				"护墨lv1": "护墨lv1技能书", 
 			}
 			if item_name in item_name_compat:
 				item_name = item_name_compat[item_name]
@@ -1696,7 +1696,7 @@ func _build_mail_pet_skill_slots(pet_data: Dictionary) -> Array:
 			skill_key = str(sd.get("key", "")).strip_edges()
 		if skill_key.is_empty():
 			var n: String = str(sd.get("name", sd.get("skill_name", ""))).strip_edges()
-			if n == "溅射":
+			if n == "溅墨":
 				skill_key = "splash_lv2" if lv >= 2 else "splash_lv1"
 		var cfg: Dictionary = {}
 		if not skill_key.is_empty():

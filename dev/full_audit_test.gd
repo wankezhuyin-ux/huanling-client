@@ -124,7 +124,7 @@ static func _services(ui, gm) -> Dictionary:
 		var equip: Dictionary = gm.local_feature_action("martial_equip", {"id": art.id})
 		var unequip: Dictionary = gm.local_feature_action("martial_unequip", {"id": art.id})
 		checks.martial_equipment = equip.get("success", false) and unequip.get("success", false)
-	added = gm.inventory_manager.add_item("强壮lv1技能书", 1)
+	added = gm.inventory_manager.add_item("壮笔lv1技能书", 1)
 	var skill: Dictionary = await gm.local_use_item(str(added.item.id), 1)
 	checks.pet_skill_book = skill.get("success", false)
 	gm._local_metadata.simulation = {"claims": {}, "mail": [], "listings": [], "guild": ""}

@@ -931,7 +931,7 @@ func _format_treasure_battle_log_line(entry: Dictionary, side_map: Dictionary = 
 			if skill_name.is_empty() and t == "triple_shot_hit":
 				skill_name = "三锋齐下"
 			elif skill_name.is_empty() and t == "kuihua_hit":
-				skill_name = "葵花点穴"
+				skill_name = "点苔封穴"
 			var skill_prefix: = ("【%s】" % _bbcode_escape(skill_name)) if not skill_name.is_empty() else ""
 			var line: = "[color=%s]%s【%s】攻【%s】造成 %s 伤害" % [side_color, skill_prefix, _bbcode_escape(attacker), _bbcode_escape(target), dmg]
 			if entry.has("targetHp"):
@@ -979,7 +979,7 @@ func _format_treasure_battle_log_line(entry: Dictionary, side_map: Dictionary = 
 			var ms: = str(entry.get("message", "")).strip_edges()
 			if not ms.is_empty():
 				return "[color=#7FD4FF]%s[/color]" % _bbcode_escape(ms)
-			return "[color=#7FD4FF]【溅射】[color=#E8E8E8]%s[/color] 波及 [color=#E8E8E8]%s[/color]，伤害 [color=#FFB86B]%s[/color]（剩余 HP %s/%s）[/color]" % [
+			return "[color=#7FD4FF]【溅墨】[color=#E8E8E8]%s[/color] 波及 [color=#E8E8E8]%s[/color]，伤害 [color=#FFB86B]%s[/color]（剩余 HP %s/%s）[/color]" % [
 				_bbcode_escape(str(entry.get("attacker", "?"))), 
 				_bbcode_escape(str(entry.get("target", "?"))), 
 				_fmt_battle_int(entry.get("damage", 0)), 
@@ -990,7 +990,7 @@ func _format_treasure_battle_log_line(entry: Dictionary, side_map: Dictionary = 
 			var md: = str(entry.get("message", "")).strip_edges()
 			if not md.is_empty():
 				return "[color=#FFD27A]%s[/color]" % _bbcode_escape(md)
-			return "[color=#FFD27A]【连射】第 %s 段 [color=#E8E8E8]%s[/color] → [color=#E8E8E8]%s[/color]，伤害 [color=#FFB86B]%s[/color]（剩余 HP %s/%s）[/color]" % [
+			return "[color=#FFD27A]【连笔】第 %s 段 [color=#E8E8E8]%s[/color] → [color=#E8E8E8]%s[/color]，伤害 [color=#FFB86B]%s[/color]（剩余 HP %s/%s）[/color]" % [
 				_bbcode_escape(str(entry.get("hitIndex", "?"))), 
 				_bbcode_escape(str(entry.get("attacker", "?"))), 
 				_bbcode_escape(str(entry.get("target", "?"))), 
@@ -1002,7 +1002,7 @@ func _format_treasure_battle_log_line(entry: Dictionary, side_map: Dictionary = 
 			var mdv: = str(entry.get("message", "")).strip_edges()
 			if not mdv.is_empty():
 				return "[color=#B8F28A]%s[/color]" % _bbcode_escape(mdv)
-			return "[color=#B8F28A]【神佑】[color=#E8E8E8]%s[/color] 触发，恢复后生命约 [color=#FFB86B]%s[/color][/color]" % [
+			return "[color=#B8F28A]【护墨】[color=#E8E8E8]%s[/color] 触发，恢复后生命约 [color=#FFB86B]%s[/color][/color]" % [
 				_bbcode_escape(str(entry.get("target", "?"))), 
 				_fmt_battle_int(entry.get("hpRestored", "?")), 
 			]
@@ -1010,7 +1010,7 @@ func _format_treasure_battle_log_line(entry: Dictionary, side_map: Dictionary = 
 			var mc: = str(entry.get("message", "")).strip_edges()
 			if not mc.is_empty():
 				return "[color=#FFB86B]%s[/color]" % _bbcode_escape(mc)
-			return "[color=#FFB86B]【反击】[color=#E8E8E8]%s[/color] 反击 [color=#E8E8E8]%s[/color]，伤害 [color=#FF9F7A]%s[/color]（目标剩余 HP %s/%s）[/color]" % [
+			return "[color=#FFB86B]【逆锋】[color=#E8E8E8]%s[/color] 反击 [color=#E8E8E8]%s[/color]，伤害 [color=#FF9F7A]%s[/color]（目标剩余 HP %s/%s）[/color]" % [
 				_bbcode_escape(str(entry.get("attacker", "?"))), 
 				_bbcode_escape(str(entry.get("target", "?"))), 
 				_fmt_battle_int(entry.get("damage", 0)), 
@@ -1436,7 +1436,7 @@ func _show_rules() -> void :
 			+ "10亿金币 1.50%\n"
 			+ "7+可进化宠礼包 1.00%\n"
 			+ "8+可进化宠礼包 0.50%\n"
-			+ "坚固lv1技能书 0.25%"
+			+ "固色lv1技能书 0.25%"
 		)
 	_show_message(rules_text)
 

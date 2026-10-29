@@ -4114,7 +4114,7 @@ func _roll_fe_reward_name(difficulty: String, element: String) -> String:
 	roll -= 0.4
 	if roll < 0.42: return "5亿金币"
 	roll -= 0.42
-	var skills: = ["溅射lv1技能书", "连射lv1技能书", "反击lv1技能书", "神佑lv1技能书"]
+	var skills: = ["溅墨lv1技能书", "连笔lv1技能书", "逆锋lv1技能书", "护墨lv1技能书"]
 	return skills[randi() % 4]
 
 func _fe_default_levels(difficulty: String) -> Array:
@@ -10882,7 +10882,7 @@ func _format_arena_battle_log_message(entry: Dictionary) -> String:
 				var base_chance: = float(entry.get("baseChance", 0.0)) * 100.0
 				var bonus_pct: = float(entry.get("bonusPct", 0.0))
 				var final_chance: = float(entry.get("finalChance", 0.0)) * 100.0
-				preset = "葵花点穴得手！%s 接下来两回合无法行动（基础%.1f%% + 加成%.1f%% = %.1f%%）" % [
+				preset = "点苔封穴得手！%s 接下来两回合无法行动（基础%.1f%% + 加成%.1f%% = %.1f%%）" % [
 					str(entry.get("target", "敌人")), base_chance, bonus_pct, final_chance
 				]
 			return "[color=#e6f35a]  ✨ 【%s】对【%s】施展点穴成功！%s[/color]" % [
@@ -10895,7 +10895,7 @@ func _format_arena_battle_log_message(entry: Dictionary) -> String:
 				var base_chance2: = float(entry.get("baseChance", 0.0)) * 100.0
 				var bonus_pct2: = float(entry.get("bonusPct", 0.0))
 				var final_chance2: = float(entry.get("finalChance", 0.0)) * 100.0
-				preset = "葵花点穴未生效（基础%.1f%% + 加成%.1f%% = %.1f%%）" % [base_chance2, bonus_pct2, final_chance2]
+				preset = "点苔封穴未生效（基础%.1f%% + 加成%.1f%% = %.1f%%）" % [base_chance2, bonus_pct2, final_chance2]
 			return "[color=#bfbfcc]  ⚪ 【%s】对【%s】施展点穴失败。%s[/color]" % [
 				str(entry.get("attacker", "我方")), 
 				str(entry.get("target", "敌人")), 
@@ -10939,7 +10939,7 @@ func _format_arena_battle_log_message(entry: Dictionary) -> String:
 			if entry_type == "triple_shot_hit":
 				prefix = "  🏹 "
 			elif entry_type == "kuihua_hit":
-				prefix = "  【葵花点穴】"
+				prefix = "  【点苔封穴】"
 			var crit_text: = " %s" % crit_mark if not crit_mark.is_empty() else ""
 			var base_text: = "%s【%s】攻击【%s】，造成 %d 伤害！%s%s%s(HP: %d/%d %.1f%%)" % [
 				prefix, attacker, target, damage, combo_text, joint_text, crit_text, target_hp, target_max_hp, hp_percent
@@ -10959,7 +10959,7 @@ func _format_arena_battle_log_message(entry: Dictionary) -> String:
 			var stmh: = int(entry.get("targetMaxHp", entry.get("target_max_hp", 1)))
 			var spct: = float(sthp) / float(maxi(stmh, 1)) * 100.0
 			var splash_crit: = " %s" % crit_mark if not crit_mark.is_empty() else ""
-			return "[color=#8ce0ff]  💧 【溅射】【%s】波及【%s】，造成 %d 伤害%s（目标剩余 HP %d/%d，约 %.0f%%）[/color]" % [
+			return "[color=#8ce0ff]  💧 【溅墨】【%s】波及【%s】，造成 %d 伤害%s（目标剩余 HP %d/%d，约 %.0f%%）[/color]" % [
 				sa, st, sd, splash_crit, sthp, stmh, spct
 			]
 		"skill_double_shot":
@@ -10972,13 +10972,13 @@ func _format_arena_battle_log_message(entry: Dictionary) -> String:
 			var dd: = int(entry.get("damage", 0))
 			var di: = int(entry.get("hitIndex", entry.get("hit_index", 0)))
 			var ds_crit: = " %s" % crit_mark if not crit_mark.is_empty() else ""
-			return "[color=#ffd173]  🎯 【连射】第 %d 段：【%s】命中【%s】，%d 伤害%s[/color]" % [di, da, dt, dd, ds_crit]
+			return "[color=#ffd173]  🎯 【连笔】第 %d 段：【%s】命中【%s】，%d 伤害%s[/color]" % [di, da, dt, dd, ds_crit]
 		"skill_divine_protect":
 			if not preset.is_empty():
 				return "[color=#bfff8c]  ✨ %s[/color]" % preset
 			var dname: = str(entry.get("target", "灵兽"))
 			var dh: = int(entry.get("hpRestored", entry.get("hp_restored", 0)))
-			return "[color=#bfff8c]  ✨ 【神佑】【%s】触发，恢复生命约 %d[/color]" % [dname, dh]
+			return "[color=#bfff8c]  ✨ 【护墨】【%s】触发，恢复生命约 %d[/color]" % [dname, dh]
 		"skill_counter_attack":
 			if not preset.is_empty():
 				if not crit_mark.is_empty() and preset.find("暴击") < 0:
@@ -10988,7 +10988,7 @@ func _format_arena_battle_log_message(entry: Dictionary) -> String:
 			var ct: = str(entry.get("target", "?"))
 			var cd: = int(entry.get("damage", 0))
 			var ca_crit: = " %s" % crit_mark if not crit_mark.is_empty() else ""
-			return "[color=#ffa673]  ⚡ 【反击】【%s】反击【%s】，%d 伤害%s[/color]" % [ca, ct, cd, ca_crit]
+			return "[color=#ffa673]  ⚡ 【逆锋】【%s】反击【%s】，%d 伤害%s[/color]" % [ca, ct, cd, ca_crit]
 		"skill_chase":
 			if not preset.is_empty():
 				if not crit_mark.is_empty() and preset.find("暴击") < 0:
@@ -10998,17 +10998,17 @@ func _format_arena_battle_log_message(entry: Dictionary) -> String:
 			var cht: = str(entry.get("target", "?"))
 			var chd: = int(entry.get("damage", 0))
 			var ch_crit: = " %s" % crit_mark if not crit_mark.is_empty() else ""
-			return "[color=#ffa673]  ⚡ 【追击】【%s】追击【%s】，%d 伤害%s[/color]" % [cha, cht, chd, ch_crit]
+			return "[color=#ffa673]  ⚡ 【续笔】【%s】追击【%s】，%d 伤害%s[/color]" % [cha, cht, chd, ch_crit]
 		"skill_armor_pierce":
 			if not preset.is_empty():
 				return "[color=#ffd173]  ⚔ %s[/color]" % preset
 			var ap_name: = str(entry.get("attacker", entry.get("petName", "灵兽")))
-			return "[color=#ffd173]  ⚔ 【破甲】【%s】本下忽视对方一半防御[/color]" % ap_name
+			return "[color=#ffd173]  ⚔ 【破纸】【%s】本下忽视对方一半防御[/color]" % ap_name
 		"skill_guard":
 			if not preset.is_empty():
 				return "[color=#74c0fc]  🛡 %s[/color]" % preset
 			var gd_name: = str(entry.get("target", entry.get("petName", "灵兽")))
-			return "[color=#74c0fc]  🛡 【格挡】【%s】减免部分伤害[/color]" % gd_name
+			return "[color=#74c0fc]  🛡 【收锋】【%s】减免部分伤害[/color]" % gd_name
 		"enemy_dead", "pet_dead", "player_dead":
 			return "[color=#ffd43b]  💀 【%s】被击败！[/color]" % str(entry.get("name", "单位"))
 		"victory":

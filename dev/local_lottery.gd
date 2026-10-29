@@ -1,7 +1,7 @@
 extends RefCounted
 
-const RARE_BOOKS := ["溅射lv1技能书", "反击lv1技能书", "神佑lv1技能书", "连射lv1技能书", "吸血lv1技能书"]
-const COMMON_BOOKS := ["自愈lv1技能书", "迅捷lv1技能书", "坚固lv1技能书", "长寿lv1技能书", "强壮lv1技能书", "凶猛lv1技能书", "必杀lv1技能书", "追击lv1技能书", "忠心lv1技能书", "嘲讽lv1技能书"]
+const RARE_BOOKS := ["溅墨lv1技能书", "逆锋lv1技能书", "护墨lv1技能书", "连笔lv1技能书", "吮墨lv1技能书"]
+const COMMON_BOOKS := ["回润lv1技能书", "疾笔lv1技能书", "固色lv1技能书", "寿墨lv1技能书", "壮笔lv1技能书", "烈墨lv1技能书", "断锋lv1技能书", "续笔lv1技能书", "守纸lv1技能书", "引锋lv1技能书"]
 const ELEMENT_EGGS := ["金属性宠物蛋", "木属性宠物蛋", "水属性宠物蛋", "火属性宠物蛋", "土属性宠物蛋"]
 const LIMIT_ITEMS := ["极限武器", "极限衣服", "极限血佩", "极限鞋子", "极限内带"]
 
