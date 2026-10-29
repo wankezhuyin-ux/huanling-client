@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>《墨境》命名对照全表 v2</title>
+<style>
+:root{--bg:#f7f5f0;--card:#fffdf9;--ink:#221f1a;--dim:#6f685c;--line:#e4dfd2;
+--accent:#8c2f20;--accent2:#3a6357;--okbg:#e8efe9;--todobg:#f8ecdd;}
+@media (prefers-color-scheme: dark){:root{--bg:#141310;--card:#1c1a16;--ink:#ece7dd;--dim:#9b9384;
+--line:#2e2a23;--accent:#e0997c;--accent2:#82c4ad;--okbg:#1f2b24;--todobg:#2b2419;}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:15px/1.7 -apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
+.wrap{max-width:1000px;margin:0 auto;padding:40px 20px 80px}
+h1{font-size:29px;margin:0 0 8px;letter-spacing:.03em}
+.lede{color:var(--dim);margin:0 0 22px;font-size:14px;line-height:1.9}
+.lede b{color:var(--accent)}
+.bar{position:sticky;top:0;z-index:9;background:var(--bg);padding:10px 0 12px;
+border-bottom:1px solid var(--line);margin-bottom:22px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+input{flex:1;min-width:200px;padding:9px 13px;border:1px solid var(--line);border-radius:8px;
+background:var(--card);color:var(--ink);font-size:14px;outline:none}
+input:focus{border-color:var(--accent2)}
+.tab{padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--card);
+color:var(--dim);cursor:pointer;font-size:13px;user-select:none}
+.tab.on{background:var(--accent2);border-color:var(--accent2);color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:18px}
+.head{display:flex;align-items:baseline;gap:10px}
+h2{font-size:19px;margin:0;letter-spacing:.02em}
+.cnt{color:var(--dim);font-size:12px;margin-left:auto}
+.badge{font-size:11px;padding:2px 8px;border-radius:999px;letter-spacing:.05em}
+.badge.ok{background:var(--okbg);color:var(--accent2)}
+.badge.refine{background:#f6e7d8;color:#a4551f}
+@media (prefers-color-scheme: dark){.badge.refine{background:#33241a;color:#e5a877}}
+.badge.todo{background:var(--todobg);color:var(--accent)}
+.note{color:var(--dim);font-size:13px;margin:6px 0 14px}
+.keep{margin:14px 0 0;padding:10px 13px;background:var(--okbg);border-radius:8px;
+font-size:12.5px;color:var(--dim);line-height:1.8}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-weight:500;color:var(--dim);font-size:12px;letter-spacing:.08em;
+padding:0 10px 8px;border-bottom:1px solid var(--line)}
+td{padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+.old{color:var(--dim);width:32%;text-decoration:line-through;text-decoration-color:var(--line)}
+.new{color:var(--accent);font-weight:600;width:26%}
+.d{color:var(--dim);font-size:13px}
+tr.realm td{color:var(--accent2);font-size:12px;letter-spacing:.12em;padding:18px 10px 7px;
+border-bottom:1px solid var(--line);font-weight:600}
+tr.realm:first-child td{padding-top:4px}
+.foot{color:var(--dim);font-size:12.5px;text-align:center;margin-top:34px;line-height:2}
+.hide{display:none}
+</style></head><body><div class="wrap">
+<h1>《墨境》命名对照全表 <span style="font-size:14px;color:var(--dim)">v2 · 按「玩家看得懂」重做</span></h1>
+<p class="lede">上一版太文了（皴、澄浆、舣、碛），玩家会懵。这一版的标准只有两条：<br>
+<b>① 字都是常用字　② 词都是玩家听过的词</b>。水墨感靠意象，不靠术语。<br>
+只换玩家看得见的显示名，<b>存档 id 一律不动</b>，改名自动迁移，老玩家不丢东西。<br>
+<span style="color:#b06020">线上是文雅版、待换 59 条</span> · <span style="color:var(--accent)">本次改 157 条</span> · 地图 148 张</p>
+<div class="bar"><input id="q" placeholder="搜旧名或新名，例如：还丹、锦囊、灵草、地狱、码头">
+<span class="tab on" data-f="all">全部</span><span class="tab" data-f="refine">待降档</span>
+<span class="tab" data-f="todo">待改</span></div>
+<section class="card" data-s="refine">
+<div class="head"><h2>人物武学</h2><span class="badge refine">线上是文雅版 · 待换</span><span class="cnt">40 条</span></div>
+<p class="note">六境界递进。上一版做成了画法术语（匀息描、罩染功），玩家看不懂，这里换回武功味</p>
+<table><thead><tr><th>旧名</th><th>新名</th><th>说明</th></tr></thead><tbody>
+<tr class="realm"><td colspan="3">凡人</td></tr>
+<tr><td class="old">基础吐纳术</td><td class="new">吐纳功</td><td class="d">全属性</td></tr>
+<tr><td class="old">强身健体</td><td class="new">强身术</td><td class="d">生命</td></tr>
+<tr><td class="old">铁布衫</td><td class="new">铁布衫</td><td class="d">防御·保留原名</td></tr>
+<tr><td class="old">疾风步</td><td class="new">疾风步</td><td class="d">敏捷·保留原名</td></tr>
+<tr><td class="old">蛮牛劲</td><td class="new">蛮牛劲</td><td class="d">攻击·保留原名</td></tr>
+<tr><td class="old">蓄灵诀</td><td class="new">蓄墨诀</td><td class="d">内力</td></tr>
+<tr><td class="old">养生诀</td><td class="new">养生诀</td><td class="d">经验·保留原名</td></tr>
+<tr class="realm"><td colspan="3">散仙</td></tr>
+<tr><td class="old">仙鹤吐纳</td><td class="new">仙鹤功</td><td class="d">全属性</td></tr>
+<tr><td class="old">金刚不坏</td><td class="new">金刚身</td><td class="d">防御</td></tr>
+<tr><td class="old">凌波微步</td><td class="new">踏水步</td><td class="d">敏捷</td></tr>
+<tr><td class="old">降龙掌</td><td class="new">破山掌</td><td class="d">攻击</td></tr>
+<tr><td class="old">行气诀</td><td class="new">行墨诀</td><td class="d">内力</td></tr>
+<tr><td class="old">长生诀</td><td class="new">长春功</td><td class="d">生命</td></tr>
+<tr class="realm"><td colspan="3">地仙</td></tr>
+<tr><td class="old">紫霞神功</td><td class="new">紫云功</td><td class="d">全属性</td></tr>
+<tr><td class="old">不动明王</td><td class="new">不动身</td><td class="d">防御</td></tr>
+<tr><td class="old">踏雪无痕</td><td class="new">踏雪步</td><td class="d">敏捷</td></tr>
+<tr><td class="old">乾坤大挪移</td><td class="new">移山劲</td><td class="d">攻击</td></tr>
+<tr><td class="old">归真诀</td><td class="new">归真诀</td><td class="d">内力·保留原名</td></tr>
+<tr><td class="old">九阳神功</td><td class="new">烈阳功</td><td class="d">生命</td></tr>
+<tr class="realm"><td colspan="3">天仙</td></tr>
+<tr><td class="old">太玄经</td><td class="new">无字经</td><td class="d">全属性</td></tr>
+<tr><td class="old">不灭金身</td><td class="new">不坏身</td><td class="d">防御</td></tr>
+<tr><td class="old">缩地成寸</td><td class="new">缩地功</td><td class="d">敏捷</td></tr>
+<tr><td class="old">万剑归宗</td><td class="new">万剑归一</td><td class="d">攻击</td></tr>
+<tr><td class="old">凝神诀</td><td class="new">凝墨诀</td><td class="d">内力</td></tr>
+<tr><td class="old">不死神功</td><td class="new">不死身</td><td class="d">生命</td></tr>
+<tr class="realm"><td colspan="3">大罗金仙</td></tr>
+<tr><td class="old">混元一气</td><td class="new">混元劲</td><td class="d">全属性</td></tr>
+<tr><td class="old">万劫不灭</td><td class="new">万劫身</td><td class="d">防御</td></tr>
+<tr><td class="old">瞬息万里</td><td class="new">瞬息千里</td><td class="d">敏捷</td></tr>
+<tr><td class="old">开天辟地</td><td class="new">开天劲</td><td class="d">攻击</td></tr>
+<tr><td class="old">玄罡诀</td><td class="new">玄罡诀</td><td class="d">内力·保留原名</td></tr>
+<tr><td class="old">永恒生命</td><td class="new">长生身</td><td class="d">生命</td></tr>
+<tr class="realm"><td colspan="3">幻灵天神</td></tr>
+<tr><td class="old">天地同寿</td><td class="new">同寿功</td><td class="d">全属性</td></tr>
+<tr><td class="old">绝对防御</td><td class="new">铁壁功</td><td class="d">防御</td></tr>
+<tr><td class="old">超越时空</td><td class="new">破空行</td><td class="d">敏捷</td></tr>
+<tr><td class="old">毁灭之力</td><td class="new">破灭劲</td><td class="d">攻击</td></tr>
+<tr><td class="old">造化玄罡</td><td class="new">造化功</td><td class="d">内力</td></tr>
+<tr><td class="old">无限生命</td><td class="new">生生不息</td><td class="d">生命</td></tr>
+<tr><td class="old">葵花点穴</td><td class="new">点穴手</td><td class="d">点穴</td></tr>
+<tr><td class="old">破军劲</td><td class="new">破军劲</td><td class="d">暴击率·保留原名</td></tr>
+<tr><td class="old">重创诀</td><td class="new">重击诀</td><td class="d">暴击伤害</td></tr>
+</tbody></table>
+<p class="keep">保留原名的 6 条（铁布衫、疾风步、蛮牛劲、养生诀、归真诀、玄罡诀）是通用武术词，玩家一眼懂作用，也不撞任何作品。必须换的是金庸系：凌波微步、降龙掌、紫霞神功、九阳神功、乾坤大挪移、太玄经、葵花点穴、长生诀、万剑归宗。</p>
+</section>
+<section class="card" data-s="refine">
+<div class="head"><h2>武学技能书</h2><span class="badge refine">线上是文雅版 · 待换</span><span class="cnt">2 条</span></div>
+<p class="note">两本，随武学一起改</p>
+<table><thead><tr><th>旧名</th><th>新名</th><th>说明</th></tr></thead><tbody>
+<tr><td class="old">一箭三雕</td><td class="new">一击三伤</td><td class="d">普攻最多同时打 3 个目标</td></tr>
+<tr><td class="old">以战养战</td><td class="new">以血养血</td><td class="d">普攻 50% 概率吸血</td></tr>
+</tbody></table>
+</section>
+<section class="card" data-s="refine">
+<div class="head"><h2>宠物技能</h2><span class="badge refine">线上是文雅版 · 待换</span><span class="cnt">17 条</span></div>
+<p class="note">上一版的逆锋/吮墨/守纸看不懂，这里全换成两字大白话</p>
+<table><thead><tr><th>旧名</th><th>新名</th><th>说明</th></tr></thead><tbody>
+<tr><td class="old">溅射</td><td class="new">溅墨</td><td class="d">一击带到旁边的目标</td></tr>
+<tr><td class="old">连射</td><td class="new">连击</td><td class="d">一笔连写，追加多段</td></tr>
+<tr><td class="old">神佑</td><td class="new">护主</td><td class="d">阵亡时概率回血复生</td></tr>
+<tr><td class="old">反击</td><td class="new">反打</td><td class="d">被攻击后反手一记</td></tr>
+<tr><td class="old">坚固</td><td class="new">硬皮</td><td class="d">基础防御提升</td></tr>
+<tr><td class="old">吸血</td><td class="new">饮血</td><td class="d">伤害转化回血</td></tr>
+<tr><td class="old">迅捷</td><td class="new">轻身</td><td class="d">敏捷提升</td></tr>
+<tr><td class="old">长寿</td><td class="new">长命</td><td class="d">生命上限提升</td></tr>
+<tr><td class="old">强壮</td><td class="new">力壮</td><td class="d">攻击提升</td></tr>
+<tr><td class="old">凶猛</td><td class="new">凶性</td><td class="d">暴击伤害提升</td></tr>
+<tr><td class="old">必杀</td><td class="new">致命</td><td class="d">暴击率提升</td></tr>
+<tr><td class="old">自愈</td><td class="new">自复</td><td class="d">每回合自行回血</td></tr>
+<tr><td class="old">追击</td><td class="new">追杀</td><td class="d">击杀后接着打下一个</td></tr>
+<tr><td class="old">忠心</td><td class="new">守主</td><td class="d">概率格挡伤害</td></tr>
+<tr><td class="old">嘲讽</td><td class="new">挑衅</td><td class="d">把攻击引到自己身上</td></tr>
+<tr><td class="old">破甲</td><td class="new">破防</td><td class="d">忽视对方部分防御</td></tr>
+<tr><td class="old">格挡</td><td class="new">挡伤</td><td class="d">减免本次伤害</td></tr>
+</tbody></table>
+</section>
+<section class="card" data-s="todo">
+<div class="head"><h2>丹药</h2><span class="badge todo">待改</span><span class="cnt">11 条</span></div>
+<p class="note">统一「X墨」，一眼知道是墨做的药；和修炼丹的「X丹」分开，不会混</p>
+<table><thead><tr><th>旧名</th><th>新名</th><th>说明</th></tr></thead><tbody>
+<tr><td class="old">小还丹</td><td class="new">小还墨</td><td class="d">小回血</td></tr>
+<tr><td class="old">中还丹</td><td class="new">中还墨</td><td class="d">中回血</td></tr>
+<tr><td class="old">大还丹</td><td class="new">大还墨</td><td class="d">大回血</td></tr>
+<tr><td class="old">回血丹</td><td class="new">回血墨</td><td class="d">持续回血</td></tr>
+<tr><td class="old">疗伤丹</td><td class="new">疗伤墨</td><td class="d">解除受伤状态</td></tr>
+<tr><td class="old">金刚药</td><td class="new">金刚墨</td><td class="d">短时防御</td></tr>
+<tr><td class="old">聚气丹</td><td class="new">聚气墨</td><td class="d">回内力</td></tr>
+<tr><td class="old">仙露丹</td><td class="new">仙露墨</td><td class="d">回内力（大）</td></tr>
+<tr><td class="old">神灵丹</td><td class="new">通灵墨</td><td class="d">宠物相关</td></tr>
+<tr><td class="old">长生丹</td><td class="new">长生墨</td><td class="d">生命上限</td></tr>
+<tr><td class="old">造化丹</td><td class="new">造化墨</td><td class="d">洗点/重塑</td></tr>
+</tbody></table>
+</section>
+<section class="card" data-s="todo">
+<div class="head"><h2>修炼丹</h2><span class="badge todo">待改</span><span class="cnt">3 条</span></div>
+<p class="note">用「丹」结尾，和回血药区分</p>
+<table><thead><tr><th>旧名</th><th>新名</th><th>说明</th></tr></thead><tbody>
+<tr><td class="old">聚灵丹</td><td class="new">蓄灵丹</td><td class="d">修为经验</td></tr>
+<tr><td class="old">凝神丹</td><td class="new">定神丹</td><td class="d">修为经验（大）</td></tr>
+<tr><td class="old">悟道仙丹</td><td class="new">开悟丹</td><td class="d">突破境界</td></tr>
+</tbody></table>
+</section>
+<section class="card" data-s="todo">
+<div class="head"><h2>灵草</h2><span class="badge todo">待改</span><span class="cnt">5 条</span></div>
+<p class="note">只去生僻前缀：九转还魂草→还魂草、天山雪莲→雪莲</p>
+<table><thead><tr><th>旧名</th><th>新名</th><th>说明</th></tr></thead><tbody>
+<tr><td class="old">灵草</td><td class="new">墨草</td><td class="d">最基础药草</td></tr>
+<tr><td class="old">灵芝</td><td class="new">墨芝</td><td class="d">回血药材</td></tr>
+<tr><td class="old">天山雪莲</td><td class="new">雪莲</td><td class="d">稀有药材，生于雪岭</td></tr>
+<tr><td class="old">九转还魂草</td><td class="new">还魂草</td><td class="d">复活类药材</td></tr>
+<tr><td class="old">龙涎草</td><td class="new">墨涎草</td><td class="d">生津益气</td></tr>
+</tbody></table>
+</section>
+<section class="card" data-s="todo">
+<div class="head"><h2>材料</h2><span class="badge todo">待改</span><span class="cnt">20 条</span></div>
+<p class="note">只改必须改的：带年份的、等级看不懂的、前缀奇怪的，其余保留</p>
+<table><thead><tr><th>旧名</th><th>新名</th><th>说明</th></tr></thead><tbody>
+<tr><td class="old">玄铁</td><td class="new">黑铁</td><td class="d">最黑的铁，更好懂</td></tr>
+<tr><td class="old">灵木</td><td class="new">墨木</td><td class="d">做笔杆的木头</td></tr>
+<tr><td class="old">寒冰精</td><td class="new">寒冰石</td><td class="d">带寒气的石头</td></tr>
+<tr><td class="old">仙晶</td><td class="new">墨晶</td><td class="d">灵石一类</td></tr>
+<tr><td class="old">兄弟天关令牌</td><td class="new">天关令牌</td><td class="d">删掉奇怪的前缀</td></tr>
+<tr><td class="old">金宠物转生令牌</td><td class="new">金系转生令</td><td class="d">宠物转生</td></tr>
+<tr><td class="old">木宠物转生令牌</td><td class="new">木系转生令</td><td class="d">宠物转生</td></tr>
+<tr><td class="old">水宠物转生令牌</td><td class="new">水系转生令</td><td class="d">宠物转生</td></tr>
+<tr><td class="old">火宠物转生令牌</td><td class="new">火系转生令</td><td class="d">宠物转生</td></tr>
+<tr><td class="old">土宠物转生令牌</td><td class="new">土系转生令</td><td class="d">宠物转生</td></tr>
+<tr><td class="old">普通法宝碎片</td><td class="new">一阶法宝碎片</td><td class="d">改成一二三阶，一眼分大小</td></tr>
+<tr><td class="old">困难法宝碎片</td><td class="new">二阶法宝碎片</td><td class="d">同上</td></tr>
+<tr><td class="old">地狱法宝碎片</td><td class="new">三阶法宝碎片</td><td class="d">同上</td></tr>
+<tr><td class="old">史诗法宝碎片</td><td class="new">四阶法宝碎片</td><td class="d">同上</td></tr>
+<tr><td class="old">传说法宝碎片</td><td class="new">五阶法宝碎片</td><td class="d">同上</td></tr>
+<tr><td class="old">至尊法宝碎片</td><td class="new">六阶法宝碎片</td><td class="d">同上</td></tr>
+<tr><td class="old">混沌法宝碎片</td><td class="new">七阶法宝碎片</td><td class="d">同上</td></tr>
+<tr><td class="old">无上法宝碎片</td><td class="new">八阶法宝碎片</td><td class="d">同上</td></tr>
+<tr><td class="old">2026纪念法宝碎片</td><td class="new">周年法宝碎片</td><td class="d">带年份会过期</td></tr>
+<tr><td class="old">普通解封石</td><td class="new">解封石</td><td class="d">去掉多余的「普通」</td></tr>
+</tbody></table>
+<p class="keep">以下保留原名：精铁、金刚石、烈火石、天雷石、星辰砂、龙鳞、凤羽、混沌石、建设材料、套装强化石、幻化符、强化石、宠装碎片、法宝洗练石、法宝重置石、宠装强化石、五行精华、五行灵石、高级解封石、极限系列（武器/衣服/鞋子/血佩/内带）。这些名字玩家本来就懂，也不含任何原游戏特征。</p>
+</section>
+<section class="card" data-s="todo">
+<div class="head"><h2>装备</h2><span class="badge todo">待改</span><span class="cnt">5 条</span></div>
+<p class="note">只改「测试」系列，其余五档保留</p>
+<table><thead><tr><th>旧名</th><th>新名</th><th>说明</th></tr></thead><tbody>
+<tr><td class="old">测试武器</td><td class="new">试炼武器</td><td class="d">保留部位词，玩家靠名字认部位</td></tr>
+<tr><td class="old">测试衣服</td><td class="new">试炼衣服</td><td class="d">保留部位词，玩家靠名字认部位</td></tr>
+<tr><td class="old">测试帽子</td><td class="new">试炼帽子</td><td class="d">保留部位词，玩家靠名字认部位</td></tr>
+<tr><td class="old">测试鞋子</td><td class="new">试炼鞋子</td><td class="d">保留部位词，玩家靠名字认部位</td></tr>
+<tr><td class="old">测试饰品</td><td class="new">试炼饰品</td><td class="d">保留部位词，玩家靠名字认部位</td></tr>
+</tbody></table>
+<p class="keep">普通 / 优秀 / 稀有 / 史诗 / 传说 五档共 25 件保留原名。这五个词玩家天天见，换成素/染/皴/泼/焦反而认不出强弱，而且它们不含任何原游戏特征。</p>
+</section>
+<section class="card" data-s="todo">
+<div class="head"><h2>宠物蛋</h2><span class="badge todo">待改</span><span class="cnt">11 条</span></div>
+<p class="note">属性 + 纹 + 异蛋，三个字说清楚</p>
+<table><thead><tr><th>旧名</th><th>新名</th><th>说明</th></tr></thead><tbody>
+<tr><td class="old">5+宠物蛋</td><td class="new">五阶宠物蛋</td><td class="d">五阶宠物</td></tr>
+<tr><td class="old">火属性宠物蛋</td><td class="new">火纹蛋</td><td class="d">火</td></tr>
+<tr><td class="old">水属性宠物蛋</td><td class="new">水纹蛋</td><td class="d">水</td></tr>
+<tr><td class="old">木属性宠物蛋</td><td class="new">木纹蛋</td><td class="d">木</td></tr>
+<tr><td class="old">金属性宠物蛋</td><td class="new">金纹蛋</td><td class="d">金</td></tr>
+<tr><td class="old">土属性宠物蛋</td><td class="new">土纹蛋</td><td class="d">土</td></tr>
+<tr><td class="old">金变异宠物蛋</td><td class="new">金纹异蛋</td><td class="d">金 · 变异</td></tr>
+<tr><td class="old">木变异宠物蛋</td><td class="new">木纹异蛋</td><td class="d">木 · 变异</td></tr>
+<tr><td class="old">水变异宠物蛋</td><td class="new">水纹异蛋</td><td class="d">水 · 变异</td></tr>
+<tr><td class="old">火变异宠物蛋</td><td class="new">火纹异蛋</td><td class="d">火 · 变异</td></tr>
+<tr><td class="old">土变异宠物蛋</td><td class="new">土纹异蛋</td><td class="d">土 · 变异</td></tr>
+</tbody></table>
+</section>
+<section class="card" data-s="todo">
+<div class="head"><h2>魂魄</h2><span class="badge todo">待改</span><span class="cnt">5 条</span></div>
+<p class="note">去掉数字后缀</p>
+<table><thead><tr><th>旧名</th><th>新名</th><th>说明</th></tr></thead><tbody>
+<tr><td class="old">金魂魄50</td><td class="new">金魂魄</td><td class="d">去掉数字后缀</td></tr>
+<tr><td class="old">木魂魄50</td><td class="new">木魂魄</td><td class="d">同上</td></tr>
+<tr><td class="old">水魂魄50</td><td class="new">水魂魄</td><td class="d">同上</td></tr>
+<tr><td class="old">火魂魄50</td><td class="new">火魂魄</td><td class="d">同上</td></tr>
+<tr><td class="old">土魂魄50</td><td class="new">土魂魄</td><td class="d">同上</td></tr>
+</tbody></table>
+</section>
+<section class="card" data-s="todo">
+<div class="head"><h2>宝箱</h2><span class="badge todo">待改</span><span class="cnt">4 条</span></div>
+<p class="note">只把「箱」换成「匣」</p>
+<table><thead><tr><th>旧名</th><th>新名</th><th>说明</th></tr></thead><tbody>
+<tr><td class="old">青铜宝箱</td><td class="new">青铜匣</td><td class="d">低阶宝箱</td></tr>
+<tr><td class="old">白银宝箱</td><td class="new">白银匣</td><td class="d">中阶宝箱</td></tr>
+<tr><td class="old">黄金宝箱</td><td class="new">黄金匣</td><td class="d">高阶宝箱</td></tr>
+<tr><td class="old">藏宝箱</td><td class="new">藏宝匣</td><td class="d">藏宝图奖励</td></tr>
+</tbody></table>
+</section>
+<section class="card" data-s="todo">
+<div class="head"><h2>礼包</h2><span class="badge todo">待改</span><span class="cnt">92 条</span></div>
+<p class="note">「礼包」统一换「锦囊」，其余原词全保留，玩家零门槛</p>
+<table><thead><tr><th>旧名</th><th>新名</th><th>说明</th></tr></thead><tbody>
+<tr><td class="old">双倍经验丹</td><td class="new">双倍经验符</td><td class="d">双倍收益</td></tr>
+<tr><td class="old">双倍经验丹(月)</td><td class="new">双倍经验符·月</td><td class="d">月卡</td></tr>
+<tr><td class="old">双倍经验丹(周)</td><td class="new">双倍经验符·周</td><td class="d">周卡</td></tr>
+<tr><td class="old">天关礼包</td><td class="new">天关锦囊</td><td class="d">天关奖励</td></tr>
+<tr><td class="old">兄弟天关礼包</td><td class="new">天关组队锦囊</td><td class="d">组队天关</td></tr>
+<tr><td class="old">生死塔参与礼包</td><td class="new">生死塔参与锦囊</td><td class="d">生死塔参与奖</td></tr>
+<tr><td class="old">世界boss礼包</td><td class="new">世界首领锦囊</td><td class="d">世界首领奖励</td></tr>
+<tr><td class="old">冠军礼包</td><td class="new">冠军锦囊</td><td class="d">比武第一</td></tr>
+<tr><td class="old">亚军礼包</td><td class="new">亚军锦囊</td><td class="d">比武第二</td></tr>
+<tr><td class="old">季军礼包</td><td class="new">季军锦囊</td><td class="d">比武第三</td></tr>
+<tr><td class="old">十强礼包</td><td class="new">十强锦囊</td><td class="d">比武十强</td></tr>
+<tr><td class="old">新手礼包</td><td class="new">新手锦囊</td><td class="d">新手</td></tr>
+<tr><td class="old">内测先锋礼包</td><td class="new">先锋锦囊</td><td class="d">先行测试奖励</td></tr>
+<tr><td class="old">新人扶持礼包</td><td class="new">新人扶持锦囊</td><td class="d">新人扶持</td></tr>
+<tr><td class="old">开荒礼包</td><td class="new">开荒锦囊</td><td class="d">开服开荒</td></tr>
+<tr><td class="old">五一活动礼包</td><td class="new">五一锦囊</td><td class="d">五一活动</td></tr>
+<tr><td class="old">端午节礼包</td><td class="new">端午锦囊</td><td class="d">端午活动</td></tr>
+<tr><td class="old">七夕节礼包</td><td class="new">七夕锦囊</td><td class="d">七夕活动</td></tr>
+<tr><td class="old">极限装备礼包</td><td class="new">极限装备锦囊</td><td class="d">极限装备</td></tr>
+<tr><td class="old">悟道仙丹礼包</td><td class="new">开悟丹锦囊</td><td class="d">突破丹</td></tr>
+<tr><td class="old">离线宠物礼包</td><td class="new">离线宠物锦囊</td><td class="d">离线收益</td></tr>
+<tr><td class="old">人物升级丹</td><td class="new">人物经验丹</td><td class="d">人物经验</td></tr>
+<tr><td class="old">宠物升级丹</td><td class="new">宠物经验丹</td><td class="d">宠物经验</td></tr>
+<tr><td class="old">5+宠物礼包</td><td class="new">五阶宠物锦囊</td><td class="d">五阶宠物</td></tr>
+<tr><td class="old">10-13变异不可进化宠礼包</td><td class="new">十至十三阶变异宠锦囊</td><td class="d">10-13 阶变异</td></tr>
+<tr><td class="old">10-13变异可进化宠礼包</td><td class="new">十至十三阶变异可进化锦囊</td><td class="d">10-13 阶变异可进化</td></tr>
+<tr><td class="old">测试礼包</td><td class="new">测试锦囊</td><td class="d">开发用</td></tr>
+<tr><td class="old">开荒宠装礼包</td><td class="new">开荒宠装锦囊</td><td class="d">开荒宠物装备</td></tr>
+<tr><td class="old">仙魔灵兽礼包</td><td class="new">仙魔灵兽锦囊</td><td class="d">仙魔玩法</td></tr>
+<tr><td class="old">仙魔神兽礼包</td><td class="new">仙魔神兽锦囊</td><td class="d">仙魔玩法</td></tr>
+<tr><td class="old">仙魔变异礼包</td><td class="new">仙魔变异锦囊</td><td class="d">仙魔玩法</td></tr>
+<tr><td class="old">仙魔野生礼包</td><td class="new">仙魔野生锦囊</td><td class="d">仙魔玩法</td></tr>
+<tr><td class="old">塔1礼包</td><td class="new">试炼塔锦囊·一</td><td class="d">试炼塔第 1 层</td></tr>
+<tr><td class="old">塔2礼包</td><td class="new">试炼塔锦囊·二</td><td class="d">试炼塔第 2 层</td></tr>
+<tr><td class="old">塔3礼包</td><td class="new">试炼塔锦囊·三</td><td class="d">试炼塔第 3 层</td></tr>
+<tr><td class="old">塔4礼包</td><td class="new">试炼塔锦囊·四</td><td class="d">试炼塔第 4 层</td></tr>
+<tr><td class="old">塔5礼包</td><td class="new">试炼塔锦囊·五</td><td class="d">试炼塔第 5 层</td></tr>
+<tr><td class="old">100关礼包</td><td class="new">百关锦囊·一</td><td class="d">通关 100 关</td></tr>
+<tr><td class="old">200关礼包</td><td class="new">百关锦囊·二</td><td class="d">通关 200 关</td></tr>
+<tr><td class="old">300关礼包</td><td class="new">百关锦囊·三</td><td class="d">通关 300 关</td></tr>
+<tr><td class="old">400关礼包</td><td class="new">百关锦囊·四</td><td class="d">通关 400 关</td></tr>
+<tr><td class="old">500关礼包</td><td class="new">百关锦囊·五</td><td class="d">通关 500 关</td></tr>
+<tr><td class="old">600关礼包</td><td class="new">百关锦囊·六</td><td class="d">通关 600 关</td></tr>
+<tr><td class="old">700关礼包</td><td class="new">百关锦囊·七</td><td class="d">通关 700 关</td></tr>
+<tr><td class="old">800关礼包</td><td class="new">百关锦囊·八</td><td class="d">通关 800 关</td></tr>
+<tr><td class="old">900关礼包</td><td class="new">百关锦囊·九</td><td class="d">通关 900 关</td></tr>
+<tr><td class="old">1000关礼包</td><td class="new">百关锦囊·十</td><td class="d">通关 1000 关</td></tr>
+<tr><td class="old">1100关礼包</td><td class="new">百关锦囊·十一</td><td class="d">通关 1100 关</td></tr>
+<tr><td class="old">1200关礼包</td><td class="new">百关锦囊·十二</td><td class="d">通关 1200 关</td></tr>
+<tr><td class="old">1300关礼包</td><td class="new">百关锦囊·十三</td><td class="d">通关 1300 关</td></tr>
+<tr><td class="old">1400关礼包</td><td class="new">百关锦囊·十四</td><td class="d">通关 1400 关</td></tr>
+<tr><td class="old">1500关礼包</td><td class="new">百关锦囊·十五</td><td class="d">通关 1500 关</td></tr>
+<tr><td class="old">1600关礼包</td><td class="new">百关锦囊·十六</td><td class="d">通关 1600 关</td></tr>
+<tr><td class="old">1700关礼包</td><td class="new">百关锦囊·十七</td><td class="d">通关 1700 关</td></tr>
+<tr><td class="old">1800关礼包</td><td class="new">百关锦囊·十八</td><td class="d">通关 1800 关</td></tr>
+<tr><td class="old">1900关礼包</td><td class="new">百关锦囊·十九</td><td class="d">通关 1900 关</td></tr>
+<tr><td class="old">2000关礼包</td><td class="new">百关锦囊·二十</td><td class="d">通关 2000 关</td></tr>
+<tr><td class="old">6+可进化宠礼包</td><td class="new">六阶可进化宠锦囊</td><td class="d">6 阶，可进化</td></tr>
+<tr><td class="old">6+不可进化宠礼包</td><td class="new">六阶不可进化宠锦囊</td><td class="d">6 阶，不可进化</td></tr>
+<tr><td class="old">6+可进化宠礼包(可能变异)</td><td class="new">六阶可进化宠锦囊（变异）</td><td class="d">6 阶，带变异</td></tr>
+<tr><td class="old">6+不可进化宠礼包(可能变异)</td><td class="new">六阶不可进化宠锦囊（变异）</td><td class="d">6 阶，带变异</td></tr>
+<tr><td class="old">7+可进化宠礼包</td><td class="new">七阶可进化宠锦囊</td><td class="d">7 阶，可进化</td></tr>
+<tr><td class="old">7+不可进化宠礼包</td><td class="new">七阶不可进化宠锦囊</td><td class="d">7 阶，不可进化</td></tr>
+<tr><td class="old">7+可进化宠礼包(可能变异)</td><td class="new">七阶可进化宠锦囊（变异）</td><td class="d">7 阶，带变异</td></tr>
+<tr><td class="old">7+不可进化宠礼包(可能变异)</td><td class="new">七阶不可进化宠锦囊（变异）</td><td class="d">7 阶，带变异</td></tr>
+<tr><td class="old">8+可进化宠礼包</td><td class="new">八阶可进化宠锦囊</td><td class="d">8 阶，可进化</td></tr>
+<tr><td class="old">8+不可进化宠礼包</td><td class="new">八阶不可进化宠锦囊</td><td class="d">8 阶，不可进化</td></tr>
+<tr><td class="old">8+可进化宠礼包(可能变异)</td><td class="new">八阶可进化宠锦囊（变异）</td><td class="d">8 阶，带变异</td></tr>
+<tr><td class="old">8+不可进化宠礼包(可能变异)</td><td class="new">八阶不可进化宠锦囊（变异）</td><td class="d">8 阶，带变异</td></tr>
+<tr><td class="old">9+可进化宠礼包</td><td class="new">九阶可进化宠锦囊</td><td class="d">9 阶，可进化</td></tr>
+<tr><td class="old">9+不可进化宠礼包</td><td class="new">九阶不可进化宠锦囊</td><td class="d">9 阶，不可进化</td></tr>
+<tr><td class="old">9+可进化宠礼包(可能变异)</td><td class="new">九阶可进化宠锦囊（变异）</td><td class="d">9 阶，带变异</td></tr>
+<tr><td class="old">9+不可进化宠礼包(可能变异)</td><td class="new">九阶不可进化宠锦囊（变异）</td><td class="d">9 阶，带变异</td></tr>
+<tr><td class="old">10+可进化宠礼包</td><td class="new">十阶可进化宠锦囊</td><td class="d">10 阶，可进化</td></tr>
+<tr><td class="old">10+不可进化宠礼包</td><td class="new">十阶不可进化宠锦囊</td><td class="d">10 阶，不可进化</td></tr>
+<tr><td class="old">10+可进化宠礼包(可能变异)</td><td class="new">十阶可进化宠锦囊（变异）</td><td class="d">10 阶，带变异</td></tr>
+<tr><td class="old">10+不可进化宠礼包(可能变异)</td><td class="new">十阶不可进化宠锦囊（变异）</td><td class="d">10 阶，带变异</td></tr>
+<tr><td class="old">11+可进化宠礼包</td><td class="new">十一阶可进化宠锦囊</td><td class="d">11 阶，可进化</td></tr>
+<tr><td class="old">11+不可进化宠礼包</td><td class="new">十一阶不可进化宠锦囊</td><td class="d">11 阶，不可进化</td></tr>
+<tr><td class="old">11+可进化宠礼包(可能变异)</td><td class="new">十一阶可进化宠锦囊（变异）</td><td class="d">11 阶，带变异</td></tr>
+<tr><td class="old">11+不可进化宠礼包(可能变异)</td><td class="new">十一阶不可进化宠锦囊（变异）</td><td class="d">11 阶，带变异</td></tr>
+<tr><td class="old">12+可进化宠礼包</td><td class="new">十二阶可进化宠锦囊</td><td class="d">12 阶，可进化</td></tr>
+<tr><td class="old">12+不可进化宠礼包</td><td class="new">十二阶不可进化宠锦囊</td><td class="d">12 阶，不可进化</td></tr>
+<tr><td class="old">12+可进化宠礼包(可能变异)</td><td class="new">十二阶可进化宠锦囊（变异）</td><td class="d">12 阶，带变异</td></tr>
+<tr><td class="old">12+不可进化宠礼包(可能变异)</td><td class="new">十二阶不可进化宠锦囊（变异）</td><td class="d">12 阶，带变异</td></tr>
+<tr><td class="old">13+可进化宠礼包</td><td class="new">十三阶可进化宠锦囊</td><td class="d">13 阶，可进化</td></tr>
+<tr><td class="old">13+不可进化宠礼包</td><td class="new">十三阶不可进化宠锦囊</td><td class="d">13 阶，不可进化</td></tr>
+<tr><td class="old">13+可进化宠礼包(可能变异)</td><td class="new">十三阶可进化宠锦囊（变异）</td><td class="d">13 阶，带变异</td></tr>
+<tr><td class="old">13+不可进化宠礼包(可能变异)</td><td class="new">十三阶不可进化宠锦囊（变异）</td><td class="d">13 阶，带变异</td></tr>
+<tr><td class="old">7-9水晶儿礼包</td><td class="new">七至九阶晶儿锦囊</td><td class="d">含宠物「水晶儿」，等宠物改名同步</td></tr>
+<tr><td class="old">7-9梦晶儿礼包</td><td class="new">七至九阶梦晶锦囊</td><td class="d">含宠物「梦晶儿」，等宠物改名同步</td></tr>
+<tr><td class="old">7-9阿弟达斯礼包</td><td class="new">七至九阶阿弟锦囊</td><td class="d">含宠物「阿弟达斯」，等宠物改名同步</td></tr>
+</tbody></table>
+</section>
+<section class="card" data-s="todo">
+<div class="head"><h2>套装</h2><span class="badge todo">待改</span><span class="cnt">1 条</span></div>
+<p class="note">只改「鸿蒙」一个</p>
+<table><thead><tr><th>旧名</th><th>新名</th><th>说明</th></tr></thead><tbody>
+<tr><td class="old">鸿蒙套装</td><td class="new">玄黄套装</td><td class="d">「鸿蒙」是华为系统名，必须换；玄黄取自「天地玄黄」</td></tr>
+</tbody></table>
+<p class="keep">其余 21 套保留原名：青云、玄灵、地脉、天羽、金罡、大罗、神威、至尊、混沌、无极、太虚、盘古、女娲、伏羲、轩辕、蚩尤、刑天、共工、永恒、无上、未知。这些词玩家一眼认得出档次；盘古女娲是上古神话、公有领域，不构成侵权。</p>
+</section>
+<section class="card" data-s="todo">
+<div class="head"><h2>地图</h2><span class="badge todo">待改</span><span class="cnt">148 条</span></div>
+<p class="note">五域对应进度，后缀全用玩家熟的地形词：原 / 野 / 谷 / 林 / 洞 / 桥 / 亭 / 坡 / 路 / 台 / 城 / 门 / 渊。生僻字全部弃用：东舣→东渡口、流沙碛→流沙滩、青风甸→青风野、断霓桥→断虹桥。「XX地狱」统一改成「XX渊」，玩家一听就是深层，也更有终局感。</p>
+<table><thead><tr><th>旧名</th><th>新名</th><th>说明</th></tr></thead><tbody>
+<tr class="realm"><td colspan="3">清域</td></tr>
+<tr><td class="old">浮影水城外郊</td><td class="new">墨影城郊</td><td class="d">水岸</td></tr>
+<tr><td class="old">东码头</td><td class="new">东渡口</td><td class="d">水岸</td></tr>
+<tr><td class="old">西码头</td><td class="new">西渡口</td><td class="d">水岸</td></tr>
+<tr><td class="old">九曲回廊</td><td class="new">九曲廊</td><td class="d">城关</td></tr>
+<tr><td class="old">青风原</td><td class="new">青风野</td><td class="d">原野</td></tr>
+<tr><td class="old">四桥原</td><td class="new">四桥野</td><td class="d">原野</td></tr>
+<tr><td class="old">枯井原</td><td class="new">枯井野</td><td class="d">原野</td></tr>
+<tr><td class="old">犁春原</td><td class="new">犁春野</td><td class="d">原野</td></tr>
+<tr><td class="old">独木原</td><td class="new">独木野</td><td class="d">原野</td></tr>
+<tr><td class="old">净沙原</td><td class="new">净沙野</td><td class="d">原野</td></tr>
+<tr><td class="old">流沙原</td><td class="new">流沙滩</td><td class="d">原野</td></tr>
+<tr><td class="old">遗恨原</td><td class="new">遗恨野</td><td class="d">原野</td></tr>
+<tr><td class="old">坠泪岗</td><td class="new">落泪岗</td><td class="d">小径</td></tr>
+<tr><td class="old">黄泥岗</td><td class="new">泥泞岗</td><td class="d">小径</td></tr>
+<tr><td class="old">暮归道</td><td class="new">暮归路</td><td class="d">小径</td></tr>
+<tr><td class="old">羊肠道</td><td class="new">羊肠路</td><td class="d">小径</td></tr>
+<tr><td class="old">情思坡</td><td class="new">相思坡</td><td class="d">小径</td></tr>
+<tr><td class="old">回首亭</td><td class="new">回望亭</td><td class="d">亭园</td></tr>
+<tr><td class="old">斑鸠小舍</td><td class="new">斑鸠小屋</td><td class="d">亭园</td></tr>
+<tr><td class="old">闲情园</td><td class="new">荒园</td><td class="d">亭园</td></tr>
+<tr><td class="old">明月桥</td><td class="new">月影桥</td><td class="d">水岸</td></tr>
+<tr><td class="old">春水桥</td><td class="new">解冻桥</td><td class="d">水岸</td></tr>
+<tr><td class="old">彩虹桥</td><td class="new">断虹桥</td><td class="d">水岸</td></tr>
+<tr><td class="old">青之绿洲</td><td class="new">青草洲</td><td class="d">水岸</td></tr>
+<tr><td class="old">绿洲东郊</td><td class="new">青草东滩</td><td class="d">水岸</td></tr>
+<tr><td class="old">沙盗洞口</td><td class="new">劫沙洞口</td><td class="d">洞窟</td></tr>
+<tr><td class="old">羁马谷</td><td class="new">拴马谷</td><td class="d">峡谷</td></tr>
+<tr class="realm"><td colspan="3">重域</td></tr>
+<tr><td class="old">徘徊林</td><td class="new">迷踪林</td><td class="d">林地</td></tr>
+<tr><td class="old">松竹林</td><td class="new">松竹坡</td><td class="d">林地</td></tr>
+<tr><td class="old">晚枫林</td><td class="new">红枫林</td><td class="d">林地</td></tr>
+<tr><td class="old">守望林场</td><td class="new">守林屋</td><td class="d">林地</td></tr>
+<tr><td class="old">剑池谷</td><td class="new">断剑潭</td><td class="d">峡谷</td></tr>
+<tr><td class="old">情人谷</td><td class="new">双生谷</td><td class="d">峡谷</td></tr>
+<tr><td class="old">赏月谷</td><td class="new">望月谷</td><td class="d">峡谷</td></tr>
+<tr><td class="old">银罐谷</td><td class="new">陶瓮谷</td><td class="d">峡谷</td></tr>
+<tr><td class="old">将军碑谷</td><td class="new">断碑谷</td><td class="d">峡谷</td></tr>
+<tr><td class="old">落雁谷</td><td class="new">落雁滩</td><td class="d">峡谷</td></tr>
+<tr><td class="old">双印谷</td><td class="new">印痕谷</td><td class="d">峡谷</td></tr>
+<tr><td class="old">凰之谷</td><td class="new">石卵谷</td><td class="d">峡谷</td></tr>
+<tr><td class="old">炊烟谷</td><td class="new">烟村谷</td><td class="d">峡谷</td></tr>
+<tr><td class="old">金轮谷</td><td class="new">石轮谷</td><td class="d">峡谷</td></tr>
+<tr><td class="old">斧青谷</td><td class="new">斧痕谷</td><td class="d">峡谷</td></tr>
+<tr><td class="old">鸟鸣谷</td><td class="new">听鸟谷</td><td class="d">峡谷</td></tr>
+<tr><td class="old">榕盘谷</td><td class="new">盘根谷</td><td class="d">峡谷</td></tr>
+<tr><td class="old">栖月谷</td><td class="new">宿月谷</td><td class="d">峡谷</td></tr>
+<tr><td class="old">碧水丹心谷</td><td class="new">红溪谷</td><td class="d">峡谷</td></tr>
+<tr><td class="old">独孤亭</td><td class="new">独坐亭</td><td class="d">亭园</td></tr>
+<tr><td class="old">猎人洞窟</td><td class="new">猎户洞</td><td class="d">洞窟</td></tr>
+<tr><td class="old">怨灵洞</td><td class="new">怨魂洞</td><td class="d">洞窟</td></tr>
+<tr><td class="old">怨灵洞口</td><td class="new">怨魂洞口</td><td class="d">洞窟</td></tr>
+<tr><td class="old">石壁洞口</td><td class="new">石壁洞</td><td class="d">洞窟</td></tr>
+<tr><td class="old">吓死人洞窟1</td><td class="new">惊魂洞·上</td><td class="d">洞窟</td></tr>
+<tr><td class="old">吓死人洞窟2</td><td class="new">惊魂洞·下</td><td class="d">洞窟</td></tr>
+<tr><td class="old">巨菇洞</td><td class="new">菇王洞</td><td class="d">洞窟</td></tr>
+<tr><td class="old">青灵洞</td><td class="new">青磷洞</td><td class="d">洞窟</td></tr>
+<tr><td class="old">绿幽洞</td><td class="new">萤火洞</td><td class="d">洞窟</td></tr>
+<tr><td class="old">清幽古洞</td><td class="new">冷泉洞</td><td class="d">洞窟</td></tr>
+<tr><td class="old">清幽古洞二区</td><td class="new">冷泉洞·二层</td><td class="d">洞窟</td></tr>
+<tr><td class="old">清幽古洞三区</td><td class="new">冷泉洞·三层</td><td class="d">洞窟</td></tr>
+<tr><td class="old">清幽古洞四区</td><td class="new">冷泉洞·四层</td><td class="d">洞窟</td></tr>
+<tr><td class="old">清幽洞</td><td class="new">冷泉洞口</td><td class="d">洞窟</td></tr>
+<tr><td class="old">金钟洞窟</td><td class="new">铜钟洞</td><td class="d">洞窟</td></tr>
+<tr><td class="old">古铜洞窟</td><td class="new">铜锈洞·甲</td><td class="d">洞窟</td></tr>
+<tr><td class="old">古铜洞窟2</td><td class="new">铜锈洞·乙</td><td class="d">洞窟</td></tr>
+<tr><td class="old">青铜洞窟</td><td class="new">铜锈洞·丙</td><td class="d">洞窟</td></tr>
+<tr><td class="old">黄铜洞窟2</td><td class="new">铜锈洞·丁</td><td class="d">洞窟</td></tr>
+<tr><td class="old">紫苔洞窟</td><td class="new">紫苔洞·上</td><td class="d">洞窟</td></tr>
+<tr><td class="old">紫苔洞窟2</td><td class="new">紫苔洞·下</td><td class="d">洞窟</td></tr>
+<tr><td class="old">石笋洞窟</td><td class="new">石笋洞</td><td class="d">洞窟</td></tr>
+<tr><td class="old">碧水洞窟</td><td class="new">碧水潭</td><td class="d">洞窟</td></tr>
+<tr class="realm"><td colspan="3">浓域</td></tr>
+<tr><td class="old">孤独亭</td><td class="new">孤亭</td><td class="d">亭园</td></tr>
+<tr><td class="old">踏雪原</td><td class="new">深雪原</td><td class="d">雪原</td></tr>
+<tr><td class="old">镜雪原</td><td class="new">冰镜原</td><td class="d">雪原</td></tr>
+<tr><td class="old">西雪岭</td><td class="new">雪岭西坡</td><td class="d">雪原</td></tr>
+<tr><td class="old">冰封雪地</td><td class="new">冻土原</td><td class="d">雪原</td></tr>
+<tr><td class="old">松雪野</td><td class="new">雪松林</td><td class="d">雪原</td></tr>
+<tr><td class="old">雪融谷</td><td class="new">融雪谷</td><td class="d">峡谷</td></tr>
+<tr><td class="old">冰清桥</td><td class="new">霜桥</td><td class="d">水岸</td></tr>
+<tr><td class="old">玉洁桥</td><td class="new">白玉桥</td><td class="d">水岸</td></tr>
+<tr><td class="old">观日桥</td><td class="new">望日桥</td><td class="d">水岸</td></tr>
+<tr><td class="old">观日桥头</td><td class="new">望日桥头</td><td class="d">水岸</td></tr>
+<tr><td class="old">观云桥</td><td class="new">云海桥</td><td class="d">水岸</td></tr>
+<tr><td class="old">不归海岸</td><td class="new">断桨滩</td><td class="d">水岸</td></tr>
+<tr><td class="old">华山瀑布</td><td class="new">断崖瀑</td><td class="d">水岸</td></tr>
+<tr><td class="old">华山脚</td><td class="new">乱石坡</td><td class="d">原野</td></tr>
+<tr><td class="old">华山腰道</td><td class="new">半山路</td><td class="d">小径</td></tr>
+<tr><td class="old">华山顶</td><td class="new">云顶</td><td class="d">高台</td></tr>
+<tr><td class="old">华山亭</td><td class="new">半山亭</td><td class="d">亭园</td></tr>
+<tr><td class="old">悬台</td><td class="new">悬空台</td><td class="d">高台</td></tr>
+<tr><td class="old">碧野云天</td><td class="new">云上坪</td><td class="d">高台</td></tr>
+<tr><td class="old">翔云台</td><td class="new">云中台</td><td class="d">高台</td></tr>
+<tr><td class="old">衡天台</td><td class="new">石秤台</td><td class="d">高台</td></tr>
+<tr><td class="old">降尘台</td><td class="new">旧祭坛</td><td class="d">高台</td></tr>
+<tr><td class="old">御风台</td><td class="new">迎风台</td><td class="d">高台</td></tr>
+<tr><td class="old">寒井台</td><td class="new">霜井台</td><td class="d">高台</td></tr>
+<tr><td class="old">盈露台看守区</td><td class="new">接露台</td><td class="d">高台</td></tr>
+<tr><td class="old">寒月台</td><td class="new">望月台</td><td class="d">高台</td></tr>
+<tr><td class="old">断魂涯</td><td class="new">断魂崖</td><td class="d">高台</td></tr>
+<tr class="realm"><td colspan="3">墨域</td></tr>
+<tr><td class="old">副本</td><td class="new">墨源洞</td><td class="d">秘境</td></tr>
+<tr><td class="old">空灵园</td><td class="new">空院</td><td class="d">亭园</td></tr>
+<tr><td class="old">深蓝海城</td><td class="new">沉海城</td><td class="d">水岸</td></tr>
+<tr><td class="old">深蓝海底</td><td class="new">沉海城底</td><td class="d">水岸</td></tr>
+<tr><td class="old">沉没的城市</td><td class="new">水淹城</td><td class="d">水岸</td></tr>
+<tr><td class="old">紫阳门</td><td class="new">朱漆门</td><td class="d">城关</td></tr>
+<tr><td class="old">宣武门</td><td class="new">黑石门</td><td class="d">城关</td></tr>
+<tr><td class="old">晋阳门</td><td class="new">西城门</td><td class="d">城关</td></tr>
+<tr><td class="old">天关</td><td class="new">天关城</td><td class="d">城关</td></tr>
+<tr><td class="old">翔云幻城</td><td class="new">云中城</td><td class="d">城关</td></tr>
+<tr><td class="old">古城遗址</td><td class="new">旧城废墟</td><td class="d">遗迹</td></tr>
+<tr><td class="old">断壁</td><td class="new">断墙</td><td class="d">遗迹</td></tr>
+<tr><td class="old">宝洞</td><td class="new">藏墨洞</td><td class="d">洞窟</td></tr>
+<tr><td class="old">盘龙洞窟</td><td class="new">龙骨洞·上</td><td class="d">洞窟</td></tr>
+<tr><td class="old">盘龙洞窟2</td><td class="new">龙骨洞·下</td><td class="d">洞窟</td></tr>
+<tr><td class="old">最后的房间</td><td class="new">尽头石室</td><td class="d">室内</td></tr>
+<tr><td class="old">逆之往事</td><td class="new">倒流境</td><td class="d">秘境</td></tr>
+<tr><td class="old">逆之心情</td><td class="new">心象境</td><td class="d">秘境</td></tr>
+<tr><td class="old">逆之虚幻</td><td class="new">虚实境</td><td class="d">秘境</td></tr>
+<tr class="realm"><td colspan="3">焦域</td></tr>
+<tr><td class="old">魔界之森</td><td class="new">黑瘴林</td><td class="d">林地</td></tr>
+<tr><td class="old">铜人殿</td><td class="new">铜像殿</td><td class="d">室内</td></tr>
+<tr><td class="old">地牢</td><td class="new">石牢</td><td class="d">室内</td></tr>
+<tr><td class="old">监狱第五层</td><td class="new">石牢五层</td><td class="d">室内</td></tr>
+<tr><td class="old">小小房间</td><td class="new">小石室</td><td class="d">室内</td></tr>
+<tr><td class="old">小房间</td><td class="new">侧石室</td><td class="d">室内</td></tr>
+<tr><td class="old">过道</td><td class="new">长过道</td><td class="d">室内</td></tr>
+<tr><td class="old">窄窄的过道</td><td class="new">窄过道</td><td class="d">室内</td></tr>
+<tr><td class="old">很窄的过道</td><td class="new">极窄过道</td><td class="d">室内</td></tr>
+<tr><td class="old">酒鬼冢</td><td class="new">酒瓮冢</td><td class="d">遗迹</td></tr>
+<tr><td class="old">传说中的英雄冢</td><td class="new">无名冢</td><td class="d">遗迹</td></tr>
+<tr><td class="old">冰封地狱</td><td class="new">寒冰渊</td><td class="d">火渊</td></tr>
+<tr><td class="old">暴走地狱</td><td class="new">狂奔渊</td><td class="d">火渊</td></tr>
+<tr><td class="old">聋耳地狱</td><td class="new">无声渊</td><td class="d">火渊</td></tr>
+<tr><td class="old">钉板地狱</td><td class="new">钉板渊</td><td class="d">火渊</td></tr>
+<tr><td class="old">绞肉地狱</td><td class="new">绞轮渊</td><td class="d">火渊</td></tr>
+<tr><td class="old">碾肢地狱</td><td class="new">石碾渊</td><td class="d">火渊</td></tr>
+<tr><td class="old">辗肢地狱</td><td class="new">石碾渊·下</td><td class="d">火渊</td></tr>
+<tr><td class="old">炮烙地狱</td><td class="new">铜柱渊</td><td class="d">火渊</td></tr>
+<tr><td class="old">油锅地狱</td><td class="new">滚油渊</td><td class="d">火渊</td></tr>
+<tr><td class="old">炉烧地狱</td><td class="new">巨炉渊</td><td class="d">火渊</td></tr>
+<tr><td class="old">旋割地狱</td><td class="new">刀轮渊</td><td class="d">火渊</td></tr>
+<tr><td class="old">吊烤地狱</td><td class="new">铁钩渊</td><td class="d">火渊</td></tr>
+<tr><td class="old">钉床地狱</td><td class="new">铁棘渊</td><td class="d">火渊</td></tr>
+<tr><td class="old">剥皮地狱</td><td class="new">剥壁渊</td><td class="d">火渊</td></tr>
+<tr><td class="old">磨骨地狱</td><td class="new">石磨渊</td><td class="d">火渊</td></tr>
+<tr><td class="old">铡头地狱</td><td class="new">巨铡渊</td><td class="d">火渊</td></tr>
+<tr><td class="old">污秽地狱</td><td class="new">黑沼渊</td><td class="d">火渊</td></tr>
+<tr><td class="old">天灯地狱</td><td class="new">青灯渊</td><td class="d">火渊</td></tr>
+<tr><td class="old">焰浆地狱</td><td class="new">岩浆渊</td><td class="d">火渊</td></tr>
+<tr class="realm"><td colspan="3">其他</td></tr>
+<tr><td class="old">morenzhandoubj</td><td class="new">默认战场</td><td class="d">占位</td></tr>
+</tbody></table>
+</section>
+<p class="foot">绿色块里是「故意不改」的部分 —— 不是漏了，是那些名字玩家本来就懂，改了反而添乱。</p>
+</div><script>
+const q=document.getElementById('q'),cards=[...document.querySelectorAll('.card')];
+let filter='all';
+function run(){const k=q.value.trim().toLowerCase();
+cards.forEach(c=>{const okF=(filter==='all'||c.dataset.s===filter);
+const rows=[...c.querySelectorAll('tbody tr:not(.realm)')];
+let hit=0;rows.forEach(r=>{const t=r.innerText.toLowerCase();
+const m=okF&&(!k||t.includes(k));r.style.display=k&&!m?'none':'';if(m&&k)hit++;});
+c.classList.toggle('hide',!(okF&&(!k||hit>0)));});}
+q.addEventListener('input',run);
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
+t.classList.add('on');filter=t.dataset.f;run();}));
+</script></body></html>
