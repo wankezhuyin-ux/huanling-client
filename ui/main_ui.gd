@@ -26715,14 +26715,16 @@ const ALLY_DEFEAT_ANCHOR_BELOW_SLOT_CENTER_Y: = 5.0
 const ALLY_DIZZY_OFFSET_PLAYER: = Vector2(0.0, -6.0)
 const ALLY_DIZZY_OFFSET_PET: = Vector2(0.0, -6.0)
 # 突进时长跟着战斗系统的出手窗口走（窗口 0.48 秒）：
-# 0.15 冲出去 + 0.15 顶住受击 + 0.15 收回来 = 0.45 秒，刚好在上一次窗口内演完，
-# 不会出现「动作还没回来，下一刀已经出了」。之前 0.12/0.12 冲得太急，
-# 玩家看到的是一闪而过，看不出是"冲上去砍"。
-const PLAYER_ATTACK_DURATION: = 0.3
-const PET_ATTACK_DURATION: = 0.3
-const MONSTER_ATTACK_DURATION: = 0.3
-const BATTLE_LUNGE_APPROACH_SECONDS: = 0.15
-const BATTLE_LUNGE_RETURN_SECONDS: = 0.15
+# 0.20 冲出去 + 0.04 顶在怪身上 + 0.20 收回来 = 0.44 秒，留 0.04 秒余量，
+# 动作不会和下一刀重叠。冲刺这一段是"打得像打架"的关键：参考稿里角色是真的
+# 跑到怪跟前才出手，0.15 秒在手机上看几乎是瞬移，看不出"过去了"这回事。
+const PLAYER_ATTACK_DURATION: = 0.32
+const PET_ATTACK_DURATION: = 0.32
+const MONSTER_ATTACK_DURATION: = 0.32
+const BATTLE_LUNGE_APPROACH_SECONDS: = 0.2
+const BATTLE_LUNGE_RETURN_SECONDS: = 0.2
+# 顶在怪身上的定格：只留 40 毫秒，够受击反馈被看见，又不至于像卡住。
+const BATTLE_LUNGE_HOLD_SECONDS: = 0.04
 const BATTLE_LUNGE_CONTACT_GAP: = 88.0
 const BATTLE_LUNGE_BOSS_CONTACT_GAP: = 96.0
 const BATTLE_LUNGE_Z_BOOST: = 40
@@ -27094,7 +27096,7 @@ func _start_battle_attack_lunge(attacker_wrap: Control, target_wrap: Control, ti
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(attacker_wrap, "position", contact_local, approach_sec)
-	var hold_sec: = maxf(0.025, (PLAYER_ATTACK_DURATION - BATTLE_LUNGE_APPROACH_SECONDS) * scale)
+	var hold_sec: = maxf(0.02, BATTLE_LUNGE_HOLD_SECONDS * scale)
 	tween.tween_interval(hold_sec)
 	tween.set_ease(Tween.EASE_IN)
 	tween.tween_property(attacker_wrap, "position", home_local, return_sec)
@@ -27166,7 +27168,7 @@ func _start_monster_slot_lunge(monster_index: int, time_scale: float = 1.0, targ
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(attacker_wrap, "position", contact_local, approach_sec)
-	var hold_sec: = maxf(0.025, (PLAYER_ATTACK_DURATION - BATTLE_LUNGE_APPROACH_SECONDS) * scale)
+	var hold_sec: = maxf(0.02, BATTLE_LUNGE_HOLD_SECONDS * scale)
 	tween.tween_interval(hold_sec)
 	tween.set_ease(Tween.EASE_IN)
 	tween.tween_property(attacker_wrap, "position", home_local, return_sec)

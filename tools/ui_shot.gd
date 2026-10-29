@@ -51,6 +51,10 @@ var _chat_send_text := ""
 var _nav_probe := false
 var _chat_dismiss_probe := false
 var _feed_probe := false
+## --burst=张数,间隔：进战斗后再连拍若干张（间隔单位为秒），
+## 用来核对「出手那一下」的动画节奏 —— 单张截图永远只能碰运气撞上命中帧。
+var _burst_count := 0
+var _burst_interval := 0.08
 const DEFAULT_PASS := "uicheck123"
 
 
@@ -108,6 +112,12 @@ func _initialize() -> void:
 			_chat_dismiss_probe = true
 		elif a == "--feedprobe":
 			_feed_probe = true
+		elif a.begins_with("--burst="):
+			var bp := a.substr(8).split(",")
+			if bp.size() >= 1:
+				_burst_count = int(bp[0])
+			if bp.size() >= 2:
+				_burst_interval = float(bp[1])
 		elif a.begins_with("--size="):
 			var raw := a.substr(7)
 			var parts := raw.split("x")
@@ -409,6 +419,12 @@ func _start(root_node: Node, user: String, pw: String, out_path: String, extra_w
 		_dump_ui()
 	await _save(out_path)
 	print("[ui_shot] 截图已保存：", out_path, " 关过弹窗数=", pressed_total)
+	if _burst_count > 0:
+		var stem: = out_path.get_basename()
+		for bi in range(_burst_count):
+			await create_timer(_burst_interval).timeout
+			await _save("%s_b%02d.png" % [stem, bi])
+		print("[ui_shot] 连拍完成：", _burst_count, " 张，间隔 ", _burst_interval, " 秒")
 	quit(0)
 
 
