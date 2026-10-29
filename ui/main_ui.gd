@@ -25455,6 +25455,94 @@ func _on_battle_damage_dealt(attacker: String, target: String, damage: int, is_c
 	_show_battle_damage_float(hit_target_type, hit_target_index, text, color, font_size)
 	_refresh_active_battle_hud()
 	_show_hit_target_hp_bar(hit_target_type, hit_target_index)
+	var heavy: = is_critical or is_armor_pierce or is_counter
+	_on_battle_hit_reaction(hit_target_type, hit_target_index, damage, heavy)
+
+
+# 受击后退的距离按像素给：普通一刀 7px（约半个字宽），重击 13px。
+# 再大就会让人物跳出格子，和斜阵的站位打架。
+const BATTLE_HIT_RECOIL_NORMAL: = 7.0
+const BATTLE_HIT_RECOIL_HEAVY: = 13.0
+const BATTLE_HIT_SHAKE_HEAVY: = 4.0
+
+
+## 挨打的那一方要有反应：先后退一下，再弹回来；重击还要闪、要震。
+## 没有这层，伤害数字就成了"自己跳出来的"，看不出是谁打了谁。
+func _on_battle_hit_reaction(hit_target_type: String, hit_target_index: int, damage: int, heavy: bool) -> void :
+	if damage <= 0:
+		return
+	if _is_bt_battle():
+		_sync_bt_battle_sprite_refs()
+	var sprite: = _resolve_hit_reaction_sprite(hit_target_type, hit_target_index)
+	if sprite == null:
+		return
+	var dir_x: = 1.0 if hit_target_type == "monster" else -1.0
+	BattleHitReaction.knock(sprite, dir_x, BATTLE_HIT_RECOIL_HEAVY if heavy else BATTLE_HIT_RECOIL_NORMAL)
+	# 已经倒下的人再闪红会顶掉阵亡表现，这里只对还站着的做闪烁
+	if not _is_hit_target_downed(hit_target_type, hit_target_index):
+		BattleHitReaction.flash(sprite)
+	if not heavy:
+		return
+	var wrap: = _resolve_hit_reaction_wrap(hit_target_type, hit_target_index)
+	if is_instance_valid(wrap):
+		var center: = _get_hit_target_center_in_field(hit_target_type, hit_target_index)
+		BattleSplashHitEffect.play_on_wrap(wrap, center - _get_wrap_origin_in_field(wrap))
+	if is_instance_valid(monster_container):
+		BattleHitReaction.shake(monster_container, BATTLE_HIT_SHAKE_HEAVY)
+
+
+func _resolve_hit_reaction_sprite(hit_target_type: String, hit_target_index: int) -> CanvasItem:
+	if hit_target_type == "monster":
+		var spr: = _get_monster_battle_animated_sprite(hit_target_index)
+		if spr != null:
+			return spr
+		if hit_target_index >= 0 and hit_target_index < monster_ui_nodes.size():
+			var ui = monster_ui_nodes[hit_target_index]
+			if is_instance_valid(ui):
+				var slot: = ui.get_node_or_null("MonsterSpriteSlot") as Control
+				if is_instance_valid(slot):
+					var inner = slot.find_child("MonsterSprite", true, false)
+					if inner is TextureRect:
+						return inner as TextureRect
+		return null
+	return _get_ally_sprite_for_hit_type(hit_target_type)
+
+
+func _resolve_hit_reaction_wrap(hit_target_type: String, hit_target_index: int) -> Control:
+	if hit_target_type == "monster":
+		if hit_target_index >= 0 and hit_target_index < monster_ui_nodes.size():
+			var ui = monster_ui_nodes[hit_target_index]
+			if is_instance_valid(ui):
+				return ui as Control
+		return null
+	return _get_ally_wrap_for_hit_type(hit_target_type)
+
+
+func _get_hit_target_center_in_field(hit_target_type: String, hit_target_index: int) -> Vector2:
+	if hit_target_type == "monster":
+		var wrap: = _resolve_hit_reaction_wrap("monster", hit_target_index)
+		if is_instance_valid(wrap):
+			return _get_monster_sprite_center_in_field(wrap)
+		return Vector2.ZERO
+	return _get_ally_sprite_center_in_field(hit_target_type)
+
+
+func _is_hit_target_downed(hit_target_type: String, hit_target_index: int) -> bool:
+	if game_manager == null or game_manager.battle_system == null:
+		return false
+	var bs = game_manager.battle_system
+	match hit_target_type:
+		"monster":
+			if hit_target_index >= 0 and hit_target_index < bs.monsters.size():
+				return not bs.is_monster_alive(bs.monsters[hit_target_index])
+		"player":
+			var p = _get_battle_display_player()
+			return p != null and p.hp <= 0
+		"pet":
+			var pet = _get_battle_display_pet()
+			return pet != null and pet.hp <= 0
+	return false
+
 
 
 const BATTLE_MOMENT_FLOAT_Y: = 208.0
@@ -26626,13 +26714,15 @@ const ALLY_DEFEATED_STATIC_OFFSET_PET: = Vector2(0.0, 0.0)
 const ALLY_DEFEAT_ANCHOR_BELOW_SLOT_CENTER_Y: = 5.0
 const ALLY_DIZZY_OFFSET_PLAYER: = Vector2(0.0, -6.0)
 const ALLY_DIZZY_OFFSET_PET: = Vector2(0.0, -6.0)
-# 出手动画时长按参考稿节奏压紧：参考稿一次出手（冲刺→命中→归位）≈0.3 秒，
-# 战斗系统那边的出手窗口也调成了 0.32 秒，两边对齐才不会出现「动画演完了干等」。
+# 突进时长跟着战斗系统的出手窗口走（窗口 0.48 秒）：
+# 0.15 冲出去 + 0.15 顶住受击 + 0.15 收回来 = 0.45 秒，刚好在上一次窗口内演完，
+# 不会出现「动作还没回来，下一刀已经出了」。之前 0.12/0.12 冲得太急，
+# 玩家看到的是一闪而过，看不出是"冲上去砍"。
 const PLAYER_ATTACK_DURATION: = 0.3
 const PET_ATTACK_DURATION: = 0.3
 const MONSTER_ATTACK_DURATION: = 0.3
-const BATTLE_LUNGE_APPROACH_SECONDS: = 0.12
-const BATTLE_LUNGE_RETURN_SECONDS: = 0.12
+const BATTLE_LUNGE_APPROACH_SECONDS: = 0.15
+const BATTLE_LUNGE_RETURN_SECONDS: = 0.15
 const BATTLE_LUNGE_CONTACT_GAP: = 88.0
 const BATTLE_LUNGE_BOSS_CONTACT_GAP: = 96.0
 const BATTLE_LUNGE_Z_BOOST: = 40
@@ -27089,6 +27179,7 @@ func _play_bt_unit_turn_anim(unit: Dictionary) -> void :
 	if lunge_scale <= 0.0:
 		lunge_scale = 1.0
 	var unit_type: = str(unit.get("type", ""))
+	_play_battle_attacker_windup(unit_type, int(unit.get("index", -1)), lunge_scale)
 	if unit_type == "player":
 		_play_player_battle_attack()
 	elif unit_type == "pet":
@@ -27101,6 +27192,23 @@ func _play_bt_unit_turn_anim(unit: Dictionary) -> void :
 		_play_monster_battle_attack(int(unit.get("index", -1)), _resolve_lunge_target_wrap(unit))
 	if unit_type != "monster" and _should_use_battle_sprite_anim() and not bool(unit.get("skip_lunge", false)):
 		_start_battle_attack_lunge(_resolve_lunge_attacker_wrap(unit), _resolve_lunge_target_wrap(unit), lunge_scale)
+
+## 出手的一瞬间先沉一下身，再冲出去。压扁幅度很小（4.5%），但足够让眼睛抓到
+## 「这一次是他打的」——之前几个单位连着出手时，看上去像一团影子在闪。
+func _play_battle_attacker_windup(unit_type: String, unit_index: int, time_scale: float = 1.0) -> void :
+	if not _should_use_battle_sprite_anim():
+		return
+	var sprite: = _resolve_hit_reaction_sprite(unit_type, unit_index)
+	if sprite == null or not is_instance_valid(sprite):
+		return
+	var base: Vector2 = sprite.scale
+	if base.x == 0.0 or base.y == 0.0:
+		return
+	var scale_f: = maxf(0.25, time_scale)
+	var tween: Tween = sprite.create_tween()
+	tween.tween_property(sprite, "scale", base * Vector2(0.955, 0.955), 0.055 * scale_f).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(sprite, "scale", base, 0.11 * scale_f).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
 
 func _resolve_local_player_battle_anim() -> AnimatedSprite2D:
 	if not is_instance_valid(_battle_player_wrap):

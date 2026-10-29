@@ -51,22 +51,22 @@ var suppress_battle_character_exp: bool = false
 var battle_log: Array = []
 const MAX_LOG_LINES: int = 500
 const DEBUG_AUTO_BATTLE_COMBO_LOG: bool = false
-# 出手节奏：对齐参考稿录屏实测值。
-# 参考稿一次出手 ≈0.25~0.3 秒；3 只怪一场（含「连击追击」再打一次）从「战斗开始」
-# 到「战斗胜利 + 结算」≈2 秒。原来一次出手窗口 1.0 秒、冲刺动画还要 0.5 秒，
-# 等于每刀有一半时间在干等，玩家体感就是「我们的战斗比参考稿慢一大截」。
-const ROUND_WINDOW_SECONDS: float = 0.32
-const JOINT_TURN_SECONDS: float = 0.6
-const COMBO_TURN_SECONDS: float = 0.24
+# 出手节奏：一次出手 = 起手（0.15）+ 命中（0.20 处）+ 收招（0.15）。
+# 早先压到 0.32 秒是为了「快」，结果每刀只有 0.16 秒就出数字，突进、受击、飘字
+# 全挤在一帧里，玩家只看到一团影子闪过去，分不清是谁打的、打了几下。
+# 现在放慢到 0.48 秒：一场 4~5 次出手约 2.5 秒，依旧是挂机节奏，但每一刀都看得清。
+const ROUND_WINDOW_SECONDS: float = 0.48
+const JOINT_TURN_SECONDS: float = 0.7
+const COMBO_TURN_SECONDS: float = 0.32
 const COMBO_LUNGE_TIME_SCALE: float = 0.6
 
-const ALLY_LUNGE_CYCLE_SECONDS: float = 0.3
-const ATTACK_IMPACT_DELAY: float = 0.16
+const ALLY_LUNGE_CYCLE_SECONDS: float = 0.44
+const ATTACK_IMPACT_DELAY: float = 0.2
 
 const MONSTER_WAVE_STAGGER_SECONDS: float = 0.04
 const JOINT_PET_IMPACT_EXTRA_DELAY: float = 0.18
 
-const OPENING_SETTLE_SECONDS: float = 0.3
+const OPENING_SETTLE_SECONDS: float = 0.34
 
 var _exec_round_initialized: bool = false
 
