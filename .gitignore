@@ -1,0 +1,17 @@
+# Godot 缓存与导入产物（可由源文件重建）
+.godot/
+*.translation
+
+# 临时备份/编辑器残留
+*.bak-*
+*.bak
+*OLNBth
+XX??????
+_cl_
+*.tmp
+
+# 本地测试覆盖
+local_server_override.json
+
+# 换皮施工中间产物
+.restyle-backup/

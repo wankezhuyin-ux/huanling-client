@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3xwo10xalghj"]
+
+[ext_resource type="Script" uid="uid://smttr0xrb3xp" path="res://ui/components/quest_item.gd" id="1"]
+
+[node name="QuestItem" type="PanelContainer" unique_id=968079443]
+custom_minimum_size = Vector2(0, 90)
+anchor_right = 1.0
+offset_bottom = 90.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+script = ExtResource("1")

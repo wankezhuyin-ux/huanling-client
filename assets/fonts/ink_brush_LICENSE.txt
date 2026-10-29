@@ -1,0 +1,13 @@
+ink_brush.ttf —— 标题书法字体
+================================
+
+字体名称：Ma Shan Zheng / 马善政毛笔楷书
+作者／来源：Google Fonts（https://fonts.google.com/specimen/Ma+Shan+Zheng）
+授权：SIL Open Font License, Version 1.1（可免费商用、可嵌入、可再分发）
+
+本仓库里的 ink_brush.ttf 是原字体的子集：只保留「幻灵归虚养宠修仙」8 个字
+（fontTools subset），体积从 5.5MB 降到约 7KB。OFL 允许修改与再分发，
+子集同样受 OFL 约束，不得单独售卖字体本身。
+
+如果以后要在别的界面也用这款字体，需要把新用到的字重新子集进去，
+否则缺字会显示成空白。

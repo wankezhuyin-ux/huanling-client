@@ -1,0 +1,2056 @@
+{
+  "icons": [
+    {
+      "name": "beijingceng",
+      "path": "res://assets/icons/beijingceng.png"
+    },
+    {
+      "name": "chongwuhunpo",
+      "path": "res://assets/icons/chongwuhunpo.png"
+    },
+    {
+      "name": "hlyx",
+      "path": "res://assets/icons/hlyx.png"
+    },
+    {
+      "name": "qianceng",
+      "path": "res://assets/icons/qianceng.png"
+    },
+    {
+      "name": "xiao",
+      "path": "res://assets/icons/XIAO.png"
+    }
+  ],
+  "portraits": [
+    {
+      "name": "1player",
+      "path": "res://assets/portraits/1player.png"
+    },
+    {
+      "name": "player",
+      "path": "res://assets/portraits/player.png"
+    }
+  ],
+  "pets": [
+    {
+      "name": "a_di_da_si",
+      "path": "res://assets/pets/a_di_da_si.png"
+    },
+    {
+      "name": "a_ge_liu_si",
+      "path": "res://assets/pets/a_ge_liu_si.png"
+    },
+    {
+      "name": "a_nu_bi_si",
+      "path": "res://assets/pets/a_nu_bi_si.png"
+    },
+    {
+      "name": "abuluo",
+      "path": "res://assets/pets/abuluo.png"
+    },
+    {
+      "name": "ao_xue_shou",
+      "path": "res://assets/pets/ao_xue_shou.png"
+    },
+    {
+      "name": "aoririquan",
+      "path": "res://assets/pets/aoririquan.png"
+    },
+    {
+      "name": "babata",
+      "path": "res://assets/pets/babata.png"
+    },
+    {
+      "name": "bai_fa_she_ji",
+      "path": "res://assets/pets/bai_fa_she_ji.png"
+    },
+    {
+      "name": "bai_yi_xian_zi",
+      "path": "res://assets/pets/bai_yi_xian_zi.png"
+    },
+    {
+      "name": "baidazui",
+      "path": "res://assets/pets/baidazui.png"
+    },
+    {
+      "name": "baiguzhanshi",
+      "path": "res://assets/pets/baiguzhanshi.png"
+    },
+    {
+      "name": "bajiaozi",
+      "path": "res://assets/pets/bajiaozi.png"
+    },
+    {
+      "name": "bajie",
+      "path": "res://assets/pets/bajie.png"
+    },
+    {
+      "name": "banbanhu",
+      "path": "res://assets/pets/banbanhu.png"
+    },
+    {
+      "name": "bao_lan_long",
+      "path": "res://assets/pets/bao_lan_long.png"
+    },
+    {
+      "name": "bashen",
+      "path": "res://assets/pets/bashen.png"
+    },
+    {
+      "name": "beibatian",
+      "path": "res://assets/pets/beibatian.png"
+    },
+    {
+      "name": "ben_lei_fei",
+      "path": "res://assets/pets/ben_lei_fei.png"
+    },
+    {
+      "name": "bianyianu",
+      "path": "res://assets/pets/bianyianu.png"
+    },
+    {
+      "name": "feicuilong",
+      "path": "res://assets/pets/feicuilong.png"
+    },
+    {
+      "name": "bianzixiong",
+      "path": "res://assets/pets/bianzixiong.png"
+    },
+    {
+      "name": "biaoshi",
+      "path": "res://assets/pets/biaoshi.png"
+    },
+    {
+      "name": "boluomi",
+      "path": "res://assets/pets/boluomi.png"
+    },
+    {
+      "name": "bujie",
+      "path": "res://assets/pets/bujie.png"
+    },
+    {
+      "name": "bunixiong",
+      "path": "res://assets/pets/bunixiong.png"
+    },
+    {
+      "name": "báimáoxiàng",
+      "path": "res://assets/pets/báimáoxiàng.png"
+    },
+    {
+      "name": "bǔbǔ",
+      "path": "res://assets/pets/bǔbǔ.png"
+    },
+    {
+      "name": "caicai",
+      "path": "res://assets/pets/caicai.png"
+    },
+    {
+      "name": "cang_ming_shen_nv",
+      "path": "res://assets/pets/cang_ming_shen_nv.png"
+    },
+    {
+      "name": "changmei",
+      "path": "res://assets/pets/changmei.png"
+    },
+    {
+      "name": "chao_ji_a_nu",
+      "path": "res://assets/pets/chao_ji_a_nu.png"
+    },
+    {
+      "name": "chi_ji_yi",
+      "path": "res://assets/pets/chi_ji_yi.png"
+    },
+    {
+      "name": "chilong",
+      "path": "res://assets/pets/chilong.png"
+    },
+    {
+      "name": "chongbaobao",
+      "path": "res://assets/pets/chongbaobao.png"
+    },
+    {
+      "name": "chongbeibei",
+      "path": "res://assets/pets/chongbeibei.png"
+    },
+    {
+      "name": "chongshengzhanshi",
+      "path": "res://assets/pets/chongshengzhanshi.png"
+    },
+    {
+      "name": "chuandishou",
+      "path": "res://assets/pets/chuandishou.png"
+    },
+    {
+      "name": "chuanlinshou",
+      "path": "res://assets/pets/chuanlinshou.png"
+    },
+    {
+      "name": "chuanshanshou",
+      "path": "res://assets/pets/chuanshanshou.png"
+    },
+    {
+      "name": "chushane",
+      "path": "res://assets/pets/chushane.png"
+    },
+    {
+      "name": "cilang",
+      "path": "res://assets/pets/cilang.png"
+    },
+    {
+      "name": "ciluo",
+      "path": "res://assets/pets/ciluo.png"
+    },
+    {
+      "name": "cong_cong",
+      "path": "res://assets/pets/cong_cong.png"
+    },
+    {
+      "name": "cǎomǎngtù",
+      "path": "res://assets/pets/cǎomǎngtù.png"
+    },
+    {
+      "name": "daicitou",
+      "path": "res://assets/pets/daicitou.png"
+    },
+    {
+      "name": "daizixiong",
+      "path": "res://assets/pets/daizixiong.png"
+    },
+    {
+      "name": "dan_dan_yu",
+      "path": "res://assets/pets/dan_dan_yu.png"
+    },
+    {
+      "name": "di_cang_shou",
+      "path": "res://assets/pets/di_cang_shou.png"
+    },
+    {
+      "name": "diandian",
+      "path": "res://assets/pets/diandian.png"
+    },
+    {
+      "name": "dianqiubaobao",
+      "path": "res://assets/pets/dianqiubaobao.png"
+    },
+    {
+      "name": "diwenzhu",
+      "path": "res://assets/pets/diwenzhu.png"
+    },
+    {
+      "name": "dong_yue_shen_yuan",
+      "path": "res://assets/pets/dong_yue_shen_yuan.png"
+    },
+    {
+      "name": "doudou",
+      "path": "res://assets/pets/doudou.png"
+    },
+    {
+      "name": "doudouyu",
+      "path": "res://assets/pets/doudouyu.png"
+    },
+    {
+      "name": "duduniao",
+      "path": "res://assets/pets/duduniao.png"
+    },
+    {
+      "name": "dumangfeng",
+      "path": "res://assets/pets/dumangfeng.png"
+    },
+    {
+      "name": "duoluotianlang",
+      "path": "res://assets/pets/duoluotianlang.png"
+    },
+    {
+      "name": "duxing",
+      "path": "res://assets/pets/duxing.png"
+    },
+    {
+      "name": "dàdāo",
+      "path": "res://assets/pets/dàdāo.png"
+    },
+    {
+      "name": "dàidāo",
+      "path": "res://assets/pets/dàidāo.png"
+    },
+    {
+      "name": "dànhuángshǔ",
+      "path": "res://assets/pets/dànhuángshǔ.png"
+    },
+    {
+      "name": "dàzǔiè",
+      "path": "res://assets/pets/dàzǔiè.png"
+    },
+    {
+      "name": "fadi",
+      "path": "res://assets/pets/fadi.png"
+    },
+    {
+      "name": "fandouyu",
+      "path": "res://assets/pets/fandouyu.png"
+    },
+    {
+      "name": "feijian",
+      "path": "res://assets/pets/feijian.png"
+    },
+    {
+      "name": "feitianshu",
+      "path": "res://assets/pets/feitianshu.png"
+    },
+    {
+      "name": "fen_yi_xian_zi",
+      "path": "res://assets/pets/fen_yi_xian_zi.png"
+    },
+    {
+      "name": "fengjingzhu",
+      "path": "res://assets/pets/fengjingzhu.png"
+    },
+    {
+      "name": "fengwu",
+      "path": "res://assets/pets/fengwu.png"
+    },
+    {
+      "name": "fengyilong",
+      "path": "res://assets/pets/fengyilong.png"
+    },
+    {
+      "name": "fu_di_long",
+      "path": "res://assets/pets/fu_di_long.png"
+    },
+    {
+      "name": "fudie",
+      "path": "res://assets/pets/fudie.png"
+    },
+    {
+      "name": "fushuiqilin",
+      "path": "res://assets/pets/fushuiqilin.png"
+    },
+    {
+      "name": "fuyejiu",
+      "path": "res://assets/pets/fuyejiu.png"
+    },
+    {
+      "name": "fuyishu",
+      "path": "res://assets/pets/fuyishu.png"
+    },
+    {
+      "name": "gang_lei_fei",
+      "path": "res://assets/pets/gang_lei_fei.png"
+    },
+    {
+      "name": "gouhunshizhe",
+      "path": "res://assets/pets/gouhunshizhe.png"
+    },
+    {
+      "name": "guaiguaihu",
+      "path": "res://assets/pets/guaiguaihu.png"
+    },
+    {
+      "name": "guguai",
+      "path": "res://assets/pets/guguai.png"
+    },
+    {
+      "name": "guihuojun",
+      "path": "res://assets/pets/guihuojun.png"
+    },
+    {
+      "name": "guoxuee",
+      "path": "res://assets/pets/guoxuee.png"
+    },
+    {
+      "name": "gōngbīngyǐ",
+      "path": "res://assets/pets/gōngbīngyǐ.png"
+    },
+    {
+      "name": "haha",
+      "path": "res://assets/pets/haha.png"
+    },
+    {
+      "name": "hailuo",
+      "path": "res://assets/pets/hailuo.png"
+    },
+    {
+      "name": "han_hai_xian_ji",
+      "path": "res://assets/pets/han_hai_xian_ji.png"
+    },
+    {
+      "name": "hei_long_shi",
+      "path": "res://assets/pets/hei_long_shi.png"
+    },
+    {
+      "name": "heicaishen",
+      "path": "res://assets/pets/heicaishen.png"
+    },
+    {
+      "name": "henrendadi",
+      "path": "res://assets/pets/henrendadi.png"
+    },
+    {
+      "name": "hong_fa_yao_ji",
+      "path": "res://assets/pets/hong_fa_yao_ji.png"
+    },
+    {
+      "name": "hongdazui",
+      "path": "res://assets/pets/hongdazui.png"
+    },
+    {
+      "name": "hongfenxiang",
+      "path": "res://assets/pets/hongfenxiang.png"
+    },
+    {
+      "name": "hou_lei_fei",
+      "path": "res://assets/pets/hou_lei_fei.png"
+    },
+    {
+      "name": "huahua",
+      "path": "res://assets/pets/huahua.png"
+    },
+    {
+      "name": "huan_yun_shou",
+      "path": "res://assets/pets/huan_yun_shou.png"
+    },
+    {
+      "name": "huanbiantianlang",
+      "path": "res://assets/pets/huanbiantianlang.png"
+    },
+    {
+      "name": "huang_jin_long",
+      "path": "res://assets/pets/huang_jin_long.png"
+    },
+    {
+      "name": "huang_long_shi",
+      "path": "res://assets/pets/huang_long_shi.png"
+    },
+    {
+      "name": "huangyidaonan",
+      "path": "res://assets/pets/huangyidaonan.png"
+    },
+    {
+      "name": "huanjinggang",
+      "path": "res://assets/pets/huanjinggang.png"
+    },
+    {
+      "name": "huo_lin_yi",
+      "path": "res://assets/pets/huo_lin_yi.png"
+    },
+    {
+      "name": "huo_yao_jing",
+      "path": "res://assets/pets/huo_yao_jing.png"
+    },
+    {
+      "name": "huofenghuang",
+      "path": "res://assets/pets/huofenghuang.png"
+    },
+    {
+      "name": "huopozai",
+      "path": "res://assets/pets/huopozai.png"
+    },
+    {
+      "name": "huángjǐnbǎo",
+      "path": "res://assets/pets/huángjǐnbǎo.png"
+    },
+    {
+      "name": "huānhuānxióng",
+      "path": "res://assets/pets/huānhuānxióng.png"
+    },
+    {
+      "name": "hòupíè",
+      "path": "res://assets/pets/hòupíè.png"
+    },
+    {
+      "name": "hóngdāo",
+      "path": "res://assets/pets/hóngdāo.png"
+    },
+    {
+      "name": "hóngjǐnbǎo",
+      "path": "res://assets/pets/hóngjǐnbǎo.png"
+    },
+    {
+      "name": "hóngxīngtù",
+      "path": "res://assets/pets/hóngxīngtù.png"
+    },
+    {
+      "name": "hēitíxiānshēng",
+      "path": "res://assets/pets/hēitíxiānshēng.png"
+    },
+    {
+      "name": "jifengju",
+      "path": "res://assets/pets/jifengju.png"
+    },
+    {
+      "name": "jin_jia_yi",
+      "path": "res://assets/pets/jin_jia_yi.png"
+    },
+    {
+      "name": "jingling",
+      "path": "res://assets/pets/jingling.png"
+    },
+    {
+      "name": "jingtianshi",
+      "path": "res://assets/pets/jingtianshi.png"
+    },
+    {
+      "name": "jinmaoshixian",
+      "path": "res://assets/pets/jinmaoshixian.png"
+    },
+    {
+      "name": "jinshuiqilin",
+      "path": "res://assets/pets/jinshuiqilin.png"
+    },
+    {
+      "name": "jinxielong",
+      "path": "res://assets/pets/jinxielong.png"
+    },
+    {
+      "name": "jiulama",
+      "path": "res://assets/pets/jiulama.png"
+    },
+    {
+      "name": "jixiangxing",
+      "path": "res://assets/pets/jixiangxing.png"
+    },
+    {
+      "name": "jiájiá",
+      "path": "res://assets/pets/jiájiá.png"
+    },
+    {
+      "name": "jiéquándào",
+      "path": "res://assets/pets/jiéquándào.png"
+    },
+    {
+      "name": "jīnmáoshīwáng",
+      "path": "res://assets/pets/jīnmáoshīwáng.png"
+    },
+    {
+      "name": "kaixinzai",
+      "path": "res://assets/pets/kaixinzai.png"
+    },
+    {
+      "name": "kaolaxiong",
+      "path": "res://assets/pets/kaolaxiong.png"
+    },
+    {
+      "name": "keke",
+      "path": "res://assets/pets/keke.png"
+    },
+    {
+      "name": "kubixiang",
+      "path": "res://assets/pets/kubixiang.png"
+    },
+    {
+      "name": "kucitou",
+      "path": "res://assets/pets/kucitou.png"
+    },
+    {
+      "name": "kuiluo",
+      "path": "res://assets/pets/kuiluo.png"
+    },
+    {
+      "name": "kukutun",
+      "path": "res://assets/pets/kukutun.png"
+    },
+    {
+      "name": "kulouzhanshi",
+      "path": "res://assets/pets/kulouzhanshi.png"
+    },
+    {
+      "name": "kōngshǒudào",
+      "path": "res://assets/pets/kōngshǒudào.png"
+    },
+    {
+      "name": "kǒudàiyā",
+      "path": "res://assets/pets/kǒudàiyā.png"
+    },
+    {
+      "name": "kǔxínggūi",
+      "path": "res://art/runtime/deer-portrait.res"
+    },
+    {
+      "name": "lan_fa_mo_ji",
+      "path": "res://assets/pets/lan_fa_mo_ji.png"
+    },
+    {
+      "name": "landazui",
+      "path": "res://assets/pets/landazui.png"
+    },
+    {
+      "name": "lanfenghuang",
+      "path": "res://assets/pets/lanfenghuang.png"
+    },
+    {
+      "name": "lanmengmeng",
+      "path": "res://assets/pets/lanmengmeng.png"
+    },
+    {
+      "name": "lanmiaolong",
+      "path": "res://assets/pets/lanmiaolong.png"
+    },
+    {
+      "name": "lianyugulong",
+      "path": "res://assets/pets/lianyugulong.png"
+    },
+    {
+      "name": "lieyanjun",
+      "path": "res://assets/pets/lieyanjun.png"
+    },
+    {
+      "name": "lijian",
+      "path": "res://assets/pets/lijian.png"
+    },
+    {
+      "name": "ling_bo_xian_zi",
+      "path": "res://assets/pets/ling_bo_xian_zi.png"
+    },
+    {
+      "name": "ling_shan",
+      "path": "res://assets/pets/ling_shan.png"
+    },
+    {
+      "name": "linghu",
+      "path": "res://assets/pets/linghu.png"
+    },
+    {
+      "name": "lingyilong",
+      "path": "res://assets/pets/lingyilong.png"
+    },
+    {
+      "name": "linlin",
+      "path": "res://assets/pets/linlin.png"
+    },
+    {
+      "name": "liuyitianshi",
+      "path": "res://assets/pets/liuyitianshi.png"
+    },
+    {
+      "name": "liushen",
+      "path": "res://assets/pets/liushen.png"
+    },
+    {
+      "name": "lu_lu",
+      "path": "res://assets/pets/lu_lu.png"
+    },
+    {
+      "name": "luluniao",
+      "path": "res://assets/pets/luluniao.png"
+    },
+    {
+      "name": "lv_yao",
+      "path": "res://assets/pets/lv_yao.png"
+    },
+    {
+      "name": "lv_yi_xian_zi",
+      "path": "res://assets/pets/lv_yi_xian_zi.png"
+    },
+    {
+      "name": "lvjia",
+      "path": "res://assets/pets/lvjia.png"
+    },
+    {
+      "name": "lvjinbao",
+      "path": "res://assets/pets/lvjinbao.png"
+    },
+    {
+      "name": "lv̀jiǎ",
+      "path": "res://assets/pets/lv̀jiǎ.png"
+    },
+    {
+      "name": "lv̀jǐnbǎo",
+      "path": "res://assets/pets/lv̀jǐnbǎo.png"
+    },
+    {
+      "name": "maiduo",
+      "path": "res://assets/pets/maiduo.png"
+    },
+    {
+      "name": "lántíxiānshēng",
+      "path": "res://assets/pets/lántíxiānshēng.png"
+    },
+    {
+      "name": "lányá",
+      "path": "res://assets/pets/lányá.png"
+    },
+    {
+      "name": "lèlèxióng",
+      "path": "res://assets/pets/lèlèxióng.png"
+    },
+    {
+      "name": "lèngtóuqīng",
+      "path": "res://assets/pets/lèngtóuqīng.png"
+    },
+    {
+      "name": "lǎnlǎnxiàng",
+      "path": "res://assets/pets/lǎnlǎnxiàng.png"
+    },
+    {
+      "name": "meng_meng",
+      "path": "res://assets/pets/meng_meng.png"
+    },
+    {
+      "name": "mengjinger",
+      "path": "res://assets/pets/mengjinger.png"
+    },
+    {
+      "name": "mengjinggang",
+      "path": "res://assets/pets/mengjinggang.png"
+    },
+    {
+      "name": "mengjingling",
+      "path": "res://assets/pets/mengjingling.png"
+    },
+    {
+      "name": "mengtianshi",
+      "path": "res://assets/pets/mengtianshi.png"
+    },
+    {
+      "name": "micaiyu",
+      "path": "res://assets/pets/micaiyu.png"
+    },
+    {
+      "name": "minixiang",
+      "path": "res://assets/pets/minixiang.png"
+    },
+    {
+      "name": "miwuju",
+      "path": "res://assets/pets/miwuju.png"
+    },
+    {
+      "name": "modi",
+      "path": "res://assets/pets/modi.png"
+    },
+    {
+      "name": "modoubao",
+      "path": "res://assets/pets/modoubao.png"
+    },
+    {
+      "name": "moguiyu",
+      "path": "res://assets/pets/moguiyu.png"
+    },
+    {
+      "name": "mojia",
+      "path": "res://assets/pets/mojia.png"
+    },
+    {
+      "name": "moxiu",
+      "path": "res://assets/pets/moxiu.png"
+    },
+    {
+      "name": "munaibi",
+      "path": "res://assets/pets/munaibi.png"
+    },
+    {
+      "name": "mìmìxióng",
+      "path": "res://assets/pets/mìmìxióng.png"
+    },
+    {
+      "name": "míhuò",
+      "path": "res://assets/pets/míhuò.png"
+    },
+    {
+      "name": "mímáng",
+      "path": "res://assets/pets/mímáng.png"
+    },
+    {
+      "name": "nanbatian",
+      "path": "res://assets/pets/nanbatian.png"
+    },
+    {
+      "name": "nangongzhu",
+      "path": "res://assets/pets/nangongzhu.png"
+    },
+    {
+      "name": "nawahuo",
+      "path": "res://assets/pets/nawahuo.png"
+    },
+    {
+      "name": "nezha",
+      "path": "res://assets/pets/nezha.png"
+    },
+    {
+      "name": "ni_chang",
+      "path": "res://assets/pets/ni_chang.png"
+    },
+    {
+      "name": "niefengquan",
+      "path": "res://assets/pets/niefengquan.png"
+    },
+    {
+      "name": "nununiao",
+      "path": "res://assets/pets/nununiao.png"
+    },
+    {
+      "name": "ouou",
+      "path": "res://assets/pets/ouou.png"
+    },
+    {
+      "name": "paopaotun",
+      "path": "res://assets/pets/paopaotun.png"
+    },
+    {
+      "name": "pilibaobao",
+      "path": "res://assets/pets/pilibaobao.png"
+    },
+    {
+      "name": "pilihuhu",
+      "path": "res://assets/pets/pilihuhu.png"
+    },
+    {
+      "name": "ping_pang_yu",
+      "path": "res://assets/pets/ping_pang_yu.png"
+    },
+    {
+      "name": "qiangdao",
+      "path": "res://assets/pets/qiangdao.png"
+    },
+    {
+      "name": "qibiantianlang",
+      "path": "res://assets/pets/qibiantianlang.png"
+    },
+    {
+      "name": "qixitu",
+      "path": "res://assets/pets/qixitu.png"
+    },
+    {
+      "name": "qing_long_shi",
+      "path": "res://assets/pets/qing_long_shi.png"
+    },
+    {
+      "name": "qingyilong",
+      "path": "res://assets/pets/qingyilong.png"
+    },
+    {
+      "name": "qingyishu",
+      "path": "res://assets/pets/qingyishu.png"
+    },
+    {
+      "name": "qiuzhang",
+      "path": "res://assets/pets/qiuzhang.png"
+    },
+    {
+      "name": "qiāoqiāoshǔ",
+      "path": "res://assets/pets/qiāoqiāoshǔ.png"
+    },
+    {
+      "name": "quanshi",
+      "path": "res://assets/pets/quanshi.png"
+    },
+    {
+      "name": "qíshìgūi",
+      "path": "res://assets/pets/qíshìgūi.png"
+    },
+    {
+      "name": "sanlang",
+      "path": "res://assets/pets/sanlang.png"
+    },
+    {
+      "name": "shandianbaobao",
+      "path": "res://assets/pets/shandianbaobao.png"
+    },
+    {
+      "name": "shangguhuangshou",
+      "path": "res://assets/pets/shangguhuangshou.png"
+    },
+    {
+      "name": "shanling",
+      "path": "res://assets/pets/shanling.png"
+    },
+    {
+      "name": "shanzei",
+      "path": "res://assets/pets/shanzei.png"
+    },
+    {
+      "name": "shehunshizhe",
+      "path": "res://assets/pets/shehunshizhe.png"
+    },
+    {
+      "name": "shenjia",
+      "path": "res://assets/pets/shenjia.png"
+    },
+    {
+      "name": "shenqi",
+      "path": "res://assets/pets/shenqi.png"
+    },
+    {
+      "name": "shenxianyu",
+      "path": "res://assets/pets/shenxianyu.png"
+    },
+    {
+      "name": "shizizuo",
+      "path": "res://assets/pets/shizizuo.png"
+    },
+    {
+      "name": "shouhuxing",
+      "path": "res://assets/pets/shouhuxing.png"
+    },
+    {
+      "name": "shoumei",
+      "path": "res://assets/pets/shoumei.png"
+    },
+    {
+      "name": "shuaidaixiang",
+      "path": "res://assets/pets/shuaidaixiang.png"
+    },
+    {
+      "name": "shuaishuai",
+      "path": "res://assets/pets/shuaishuai.png"
+    },
+    {
+      "name": "shuangyanzhan",
+      "path": "res://assets/pets/shuangyanzhan.png"
+    },
+    {
+      "name": "shuguai",
+      "path": "res://assets/pets/shuguai.png"
+    },
+    {
+      "name": "shuijinger",
+      "path": "res://assets/pets/shuijinger.png"
+    },
+    {
+      "name": "shujing",
+      "path": "res://assets/pets/shujing.png"
+    },
+    {
+      "name": "shun_di_long",
+      "path": "res://assets/pets/shun_di_long.png"
+    },
+    {
+      "name": "shundi",
+      "path": "res://assets/pets/shundi.png"
+    },
+    {
+      "name": "shunfeng",
+      "path": "res://assets/pets/shunfeng.png"
+    },
+    {
+      "name": "shuntian",
+      "path": "res://assets/pets/shuntian.png"
+    },
+    {
+      "name": "shuyao",
+      "path": "res://assets/pets/shuyao.png"
+    },
+    {
+      "name": "silingwushi",
+      "path": "res://assets/pets/silingwushi.png"
+    },
+    {
+      "name": "taiguhuangshou",
+      "path": "res://assets/pets/taiguhuangshou.png"
+    },
+    {
+      "name": "tailang",
+      "path": "res://assets/pets/tailang.png"
+    },
+    {
+      "name": "tao_tao",
+      "path": "res://assets/pets/tao_tao.png"
+    },
+    {
+      "name": "tianbao",
+      "path": "res://assets/pets/tianbao.png"
+    },
+    {
+      "name": "tianshidan",
+      "path": "res://assets/pets/tianshidan.png"
+    },
+    {
+      "name": "tianwenfeng",
+      "path": "res://assets/pets/tianwenfeng.png"
+    },
+    {
+      "name": "tiaopizai",
+      "path": "res://assets/pets/tiaopizai.png"
+    },
+    {
+      "name": "tiaotiaogui",
+      "path": "res://assets/pets/tiaotiaogui.png"
+    },
+    {
+      "name": "tiějiǎgūi",
+      "path": "res://assets/pets/tiějiǎgūi.png"
+    },
+    {
+      "name": "tongbao",
+      "path": "res://assets/pets/tongbao.png"
+    },
+    {
+      "name": "tower_commander",
+      "path": "res://assets/pets/tower_commander.png"
+    },
+    {
+      "name": "tower_guard",
+      "path": "res://assets/pets/tower_guard.png"
+    },
+    {
+      "name": "tower_overlord",
+      "path": "res://assets/pets/tower_overlord.png"
+    },
+    {
+      "name": "tufei",
+      "path": "res://assets/pets/tufei.png"
+    },
+    {
+      "name": "táiquándào",
+      "path": "res://assets/pets/táiquándào.png"
+    },
+    {
+      "name": "wan_zi_yu",
+      "path": "res://assets/pets/wan_zi_yu.png"
+    },
+    {
+      "name": "wang_wang",
+      "path": "res://assets/pets/wang_wang.png"
+    },
+    {
+      "name": "wanglingwushi",
+      "path": "res://assets/pets/wanglingwushi.png"
+    },
+    {
+      "name": "wen_di_long",
+      "path": "res://assets/pets/wen_di_long.png"
+    },
+    {
+      "name": "wu_qi_long",
+      "path": "res://assets/pets/wu_qi_long.png"
+    },
+    {
+      "name": "wudi",
+      "path": "res://assets/pets/wudi.png"
+    },
+    {
+      "name": "wudidan",
+      "path": "res://assets/pets/wudidan.png"
+    },
+    {
+      "name": "wushi",
+      "path": "res://assets/pets/wushi.png"
+    },
+    {
+      "name": "wuyenzi",
+      "path": "res://assets/pets/wuyenzi.png"
+    },
+    {
+      "name": "wūlītóu",
+      "path": "res://assets/pets/wūlītóu.png"
+    },
+    {
+      "name": "xi_pi",
+      "path": "res://assets/pets/xi_pi.png"
+    },
+    {
+      "name": "xi_shui_xian_zi",
+      "path": "res://assets/pets/xi_shui_xian_zi.png"
+    },
+    {
+      "name": "xi_yue_shen_yuan",
+      "path": "res://assets/pets/xi_yue_shen_yuan.png"
+    },
+    {
+      "name": "xiaobawang",
+      "path": "res://assets/pets/xiaobawang.png"
+    },
+    {
+      "name": "xiaochong",
+      "path": "res://assets/pets/xiaochong.png"
+    },
+    {
+      "name": "xiaofashi",
+      "path": "res://assets/pets/xiaofashi.png"
+    },
+    {
+      "name": "xiaojiangshi",
+      "path": "res://assets/pets/xiaojiangshi.png"
+    },
+    {
+      "name": "xiaojingwei",
+      "path": "res://assets/pets/xiaojingwei.png"
+    },
+    {
+      "name": "xiaolanxiong",
+      "path": "res://assets/pets/xiaolanxiong.png"
+    },
+    {
+      "name": "xiaoleigong",
+      "path": "res://assets/pets/xiaoleigong.png"
+    },
+    {
+      "name": "xiaoleishen",
+      "path": "res://assets/pets/xiaoleishen.png"
+    },
+    {
+      "name": "xiaomoshi",
+      "path": "res://assets/pets/xiaomoshi.png"
+    },
+    {
+      "name": "xiaopili",
+      "path": "res://assets/pets/xiaopili.png"
+    },
+    {
+      "name": "xiaowushi",
+      "path": "res://assets/pets/xiaowushi.png"
+    },
+    {
+      "name": "xiaozhuanante",
+      "path": "res://assets/pets/xiaozhuanante.png"
+    },
+    {
+      "name": "xiaozhubite",
+      "path": "res://assets/pets/xiaozhubite.png"
+    },
+    {
+      "name": "xiaozhufente",
+      "path": "res://assets/pets/xiaozhufente.png"
+    },
+    {
+      "name": "ximenchuixue",
+      "path": "res://assets/pets/ximenchuixue.png"
+    },
+    {
+      "name": "ximenzhu",
+      "path": "res://assets/pets/ximenzhu.png"
+    },
+    {
+      "name": "xingyunxing",
+      "path": "res://assets/pets/xingyunxing.png"
+    },
+    {
+      "name": "xiudouyu",
+      "path": "res://assets/pets/xiudouyu.png"
+    },
+    {
+      "name": "xiàngpíshǔ",
+      "path": "res://assets/pets/xiàngpíshǔ.png"
+    },
+    {
+      "name": "xiǎodīngdāng",
+      "path": "res://assets/pets/xiǎodīngdāng.png"
+    },
+    {
+      "name": "xiǎodīngdōng",
+      "path": "res://assets/pets/xiǎodīngdōng.png"
+    },
+    {
+      "name": "xiǎolìngdāng",
+      "path": "res://assets/pets/xiǎolìngdāng.png"
+    },
+    {
+      "name": "xiǎoyāo",
+      "path": "res://assets/pets/xiǎoyāo.png"
+    },
+    {
+      "name": "xuanweizhu",
+      "path": "res://assets/pets/xuanweizhu.png"
+    },
+    {
+      "name": "xuanxuantun",
+      "path": "res://assets/pets/xuanxuantun.png"
+    },
+    {
+      "name": "xuefenghuang",
+      "path": "res://assets/pets/xuefenghuang.png"
+    },
+    {
+      "name": "xunleiju",
+      "path": "res://assets/pets/xunleiju.png"
+    },
+    {
+      "name": "yao_shui_ling_zun",
+      "path": "res://assets/pets/yao_shui_ling_zun.png"
+    },
+    {
+      "name": "yaogundan",
+      "path": "res://assets/pets/yaogundan.png"
+    },
+    {
+      "name": "yaolinjun",
+      "path": "res://assets/pets/yaolinjun.png"
+    },
+    {
+      "name": "yezixiong",
+      "path": "res://assets/pets/yezixiong.png"
+    },
+    {
+      "name": "yijie",
+      "path": "res://assets/pets/yijie.png"
+    },
+    {
+      "name": "yingying",
+      "path": "res://assets/pets/yingying.png"
+    },
+    {
+      "name": "youling",
+      "path": "res://assets/pets/youling.png"
+    },
+    {
+      "name": "yu_mei_mei",
+      "path": "res://assets/pets/yu_mei_mei.png"
+    },
+    {
+      "name": "yu_niu_niu",
+      "path": "res://assets/pets/yu_niu_niu.png"
+    },
+    {
+      "name": "yu_wa_wa",
+      "path": "res://assets/pets/yu_wa_wa.png"
+    },
+    {
+      "name": "yu_yi",
+      "path": "res://assets/pets/yu_yi.png"
+    },
+    {
+      "name": "yuanbao",
+      "path": "res://assets/pets/yuanbao.png"
+    },
+    {
+      "name": "yuanguhuangshou",
+      "path": "res://assets/pets/yuanguhuangshou.png"
+    },
+    {
+      "name": "yuehu",
+      "path": "res://assets/pets/yuehu.png"
+    },
+    {
+      "name": "yulujiu",
+      "path": "res://assets/pets/yulujiu.png"
+    },
+    {
+      "name": "yunhu",
+      "path": "res://assets/pets/yunhu.png"
+    },
+    {
+      "name": "yáoyé",
+      "path": "res://assets/pets/yáoyé.png"
+    },
+    {
+      "name": "yìnggǔè",
+      "path": "res://assets/pets/yìnggǔè.png"
+    },
+    {
+      "name": "yùlíntù",
+      "path": "res://assets/pets/yùlíntù.png"
+    },
+    {
+      "name": "zhaicitou",
+      "path": "res://assets/pets/zhaicitou.png"
+    },
+    {
+      "name": "zhaohunshizhe",
+      "path": "res://assets/pets/zhaohunshizhe.png"
+    },
+    {
+      "name": "zhenshuiqilin",
+      "path": "res://assets/pets/zhenshuiqilin.png"
+    },
+    {
+      "name": "zhenzhen",
+      "path": "res://assets/pets/zhenzhen.png"
+    },
+    {
+      "name": "zhi_zun_bao",
+      "path": "res://assets/pets/zhi_zun_bao.png"
+    },
+    {
+      "name": "zhi_zun_cao",
+      "path": "res://assets/pets/zhi_zun_cao.png"
+    },
+    {
+      "name": "zhi_zun_lin",
+      "path": "res://assets/pets/zhi_zun_lin.png"
+    },
+    {
+      "name": "zhimei",
+      "path": "res://assets/pets/zhimei.png"
+    },
+    {
+      "name": "zhong_yue_shen_yuan",
+      "path": "res://assets/pets/zhong_yue_shen_yuan.png"
+    },
+    {
+      "name": "zhongjian",
+      "path": "res://assets/pets/zhongjian.png"
+    },
+    {
+      "name": "zhonglingwushi",
+      "path": "res://assets/pets/zhonglingwushi.png"
+    },
+    {
+      "name": "zhongshanzhu",
+      "path": "res://assets/pets/zhongshanzhu.png"
+    },
+    {
+      "name": "zhu_lang_xian_zi",
+      "path": "res://assets/pets/zhu_lang_xian_zi.png"
+    },
+    {
+      "name": "zhuidianju",
+      "path": "res://assets/pets/zhuidianju.png"
+    },
+    {
+      "name": "zhuiyingquan",
+      "path": "res://assets/pets/zhuiyingquan.png"
+    },
+    {
+      "name": "zhusisi",
+      "path": "res://assets/pets/zhusisi.png"
+    },
+    {
+      "name": "zhōngdāo",
+      "path": "res://assets/pets/zhōngdāo.png"
+    },
+    {
+      "name": "zi_yi",
+      "path": "res://assets/pets/zi_yi.png"
+    },
+    {
+      "name": "zǐtíxiānshēng",
+      "path": "res://assets/pets/zǐtíxiānshēng.png"
+    },
+    {
+      "name": "ādá",
+      "path": "res://assets/pets/ādá.png"
+    },
+    {
+      "name": "ādǒu",
+      "path": "res://assets/pets/ādǒu.png"
+    },
+    {
+      "name": "ātài",
+      "path": "res://assets/pets/ātài.png"
+    }
+  ],
+  "items": [
+    {
+      "name": "cangbaoxiang",
+      "path": "res://assets/items/cangbaoxiang.png"
+    },
+    {
+      "name": "jinyuanbao",
+      "path": "res://assets/items/jinyuanbao.png"
+    },
+    {
+      "name": "icon_chest",
+      "path": "res://assets/items/category/icon_chest.png"
+    },
+    {
+      "name": "icon_cultivation_pill",
+      "path": "res://assets/items/category/icon_cultivation_pill.png"
+    },
+    {
+      "name": "icon_egg",
+      "path": "res://assets/items/category/icon_egg.png"
+    },
+    {
+      "name": "icon_gift",
+      "path": "res://assets/items/category/icon_gift.png"
+    },
+    {
+      "name": "icon_item",
+      "path": "res://assets/items/category/icon_item.png"
+    },
+    {
+      "name": "icon_martial_book",
+      "path": "res://assets/items/category/icon_martial_book.png"
+    },
+    {
+      "name": "icon_material",
+      "path": "res://assets/items/category/icon_material.png"
+    },
+    {
+      "name": "icon_pet_book",
+      "path": "res://assets/items/category/icon_pet_book.png"
+    },
+    {
+      "name": "icon_pill",
+      "path": "res://assets/items/category/icon_pill.png"
+    },
+    {
+      "name": "icon_soul",
+      "path": "res://assets/items/category/icon_soul.png"
+    },
+    {
+      "name": "icon_gold_bag",
+      "path": "res://assets/items/category/icon_gold_bag.png"
+    },
+    {
+      "name": "icon_gift_pet",
+      "path": "res://assets/items/category/icon_gift_pet.png"
+    },
+    {
+      "name": "icon_gift_pet_mutant",
+      "path": "res://assets/items/category/icon_gift_pet_mutant.png"
+    },
+    {
+      "name": "icon_herb",
+      "path": "res://assets/items/category/icon_herb.png"
+    },
+    {
+      "name": "icon_token",
+      "path": "res://assets/items/category/icon_token.png"
+    },
+    {
+      "name": "icon_limit_weapon",
+      "path": "res://assets/items/category/icon_limit_weapon.png"
+    },
+    {
+      "name": "icon_limit_armor",
+      "path": "res://assets/items/category/icon_limit_armor.png"
+    },
+    {
+      "name": "icon_limit_helmet",
+      "path": "res://assets/items/category/icon_limit_helmet.png"
+    },
+    {
+      "name": "icon_limit_boots",
+      "path": "res://assets/items/category/icon_limit_boots.png"
+    },
+    {
+      "name": "icon_limit_accessory",
+      "path": "res://assets/items/category/icon_limit_accessory.png"
+    },
+    {
+      "name": "equip_normal_accessory",
+      "path": "res://assets/items/equip_normal/equip_normal_accessory.png"
+    },
+    {
+      "name": "equip_normal_armor",
+      "path": "res://assets/items/equip_normal/equip_normal_armor.png"
+    },
+    {
+      "name": "equip_normal_boots",
+      "path": "res://assets/items/equip_normal/equip_normal_boots.png"
+    },
+    {
+      "name": "equip_normal_helmet",
+      "path": "res://assets/items/equip_normal/equip_normal_helmet.png"
+    },
+    {
+      "name": "equip_normal_weapon",
+      "path": "res://assets/items/equip_normal/equip_normal_weapon.png"
+    },
+    {
+      "name": "suit_01_accessory",
+      "path": "res://assets/items/suits/suit_01_accessory.png"
+    },
+    {
+      "name": "suit_01_armor",
+      "path": "res://assets/items/suits/suit_01_armor.png"
+    },
+    {
+      "name": "suit_01_boots",
+      "path": "res://assets/items/suits/suit_01_boots.png"
+    },
+    {
+      "name": "suit_01_helmet",
+      "path": "res://assets/items/suits/suit_01_helmet.png"
+    },
+    {
+      "name": "suit_01_weapon",
+      "path": "res://assets/items/suits/suit_01_weapon.png"
+    },
+    {
+      "name": "suit_02_accessory",
+      "path": "res://assets/items/suits/suit_02_accessory.png"
+    },
+    {
+      "name": "suit_02_armor",
+      "path": "res://assets/items/suits/suit_02_armor.png"
+    },
+    {
+      "name": "suit_02_boots",
+      "path": "res://assets/items/suits/suit_02_boots.png"
+    },
+    {
+      "name": "suit_02_helmet",
+      "path": "res://assets/items/suits/suit_02_helmet.png"
+    },
+    {
+      "name": "suit_02_weapon",
+      "path": "res://assets/items/suits/suit_02_weapon.png"
+    },
+    {
+      "name": "suit_03_accessory",
+      "path": "res://assets/items/suits/suit_03_accessory.png"
+    },
+    {
+      "name": "suit_03_armor",
+      "path": "res://assets/items/suits/suit_03_armor.png"
+    },
+    {
+      "name": "suit_03_boots",
+      "path": "res://assets/items/suits/suit_03_boots.png"
+    },
+    {
+      "name": "suit_03_helmet",
+      "path": "res://assets/items/suits/suit_03_helmet.png"
+    },
+    {
+      "name": "suit_03_weapon",
+      "path": "res://assets/items/suits/suit_03_weapon.png"
+    },
+    {
+      "name": "suit_04_accessory",
+      "path": "res://assets/items/suits/suit_04_accessory.png"
+    },
+    {
+      "name": "suit_04_armor",
+      "path": "res://assets/items/suits/suit_04_armor.png"
+    },
+    {
+      "name": "suit_04_boots",
+      "path": "res://assets/items/suits/suit_04_boots.png"
+    },
+    {
+      "name": "suit_04_helmet",
+      "path": "res://assets/items/suits/suit_04_helmet.png"
+    },
+    {
+      "name": "suit_04_weapon",
+      "path": "res://assets/items/suits/suit_04_weapon.png"
+    },
+    {
+      "name": "suit_05_accessory",
+      "path": "res://assets/items/suits/suit_05_accessory.png"
+    },
+    {
+      "name": "suit_05_armor",
+      "path": "res://assets/items/suits/suit_05_armor.png"
+    },
+    {
+      "name": "suit_05_boots",
+      "path": "res://assets/items/suits/suit_05_boots.png"
+    },
+    {
+      "name": "suit_05_helmet",
+      "path": "res://assets/items/suits/suit_05_helmet.png"
+    },
+    {
+      "name": "suit_05_weapon",
+      "path": "res://assets/items/suits/suit_05_weapon.png"
+    },
+    {
+      "name": "suit_06_accessory",
+      "path": "res://assets/items/suits/suit_06_accessory.png"
+    },
+    {
+      "name": "suit_06_armor",
+      "path": "res://assets/items/suits/suit_06_armor.png"
+    },
+    {
+      "name": "suit_06_boots",
+      "path": "res://assets/items/suits/suit_06_boots.png"
+    },
+    {
+      "name": "suit_06_helmet",
+      "path": "res://assets/items/suits/suit_06_helmet.png"
+    },
+    {
+      "name": "suit_06_weapon",
+      "path": "res://assets/items/suits/suit_06_weapon.png"
+    },
+    {
+      "name": "suit_07_accessory",
+      "path": "res://assets/items/suits/suit_07_accessory.png"
+    },
+    {
+      "name": "suit_07_armor",
+      "path": "res://assets/items/suits/suit_07_armor.png"
+    },
+    {
+      "name": "suit_07_boots",
+      "path": "res://assets/items/suits/suit_07_boots.png"
+    },
+    {
+      "name": "suit_07_helmet",
+      "path": "res://assets/items/suits/suit_07_helmet.png"
+    },
+    {
+      "name": "suit_07_weapon",
+      "path": "res://assets/items/suits/suit_07_weapon.png"
+    },
+    {
+      "name": "suit_08_accessory",
+      "path": "res://assets/items/suits/suit_08_accessory.png"
+    },
+    {
+      "name": "suit_08_armor",
+      "path": "res://assets/items/suits/suit_08_armor.png"
+    },
+    {
+      "name": "suit_08_boots",
+      "path": "res://assets/items/suits/suit_08_boots.png"
+    },
+    {
+      "name": "suit_08_helmet",
+      "path": "res://assets/items/suits/suit_08_helmet.png"
+    },
+    {
+      "name": "suit_08_weapon",
+      "path": "res://assets/items/suits/suit_08_weapon.png"
+    },
+    {
+      "name": "suit_09_accessory",
+      "path": "res://assets/items/suits/suit_09_accessory.png"
+    },
+    {
+      "name": "suit_09_armor",
+      "path": "res://assets/items/suits/suit_09_armor.png"
+    },
+    {
+      "name": "suit_09_boots",
+      "path": "res://assets/items/suits/suit_09_boots.png"
+    },
+    {
+      "name": "suit_09_helmet",
+      "path": "res://assets/items/suits/suit_09_helmet.png"
+    },
+    {
+      "name": "suit_09_weapon",
+      "path": "res://assets/items/suits/suit_09_weapon.png"
+    },
+    {
+      "name": "suit_10_accessory",
+      "path": "res://assets/items/suits/suit_10_accessory.png"
+    },
+    {
+      "name": "suit_10_armor",
+      "path": "res://assets/items/suits/suit_10_armor.png"
+    },
+    {
+      "name": "suit_10_boots",
+      "path": "res://assets/items/suits/suit_10_boots.png"
+    },
+    {
+      "name": "suit_10_helmet",
+      "path": "res://assets/items/suits/suit_10_helmet.png"
+    },
+    {
+      "name": "suit_10_weapon",
+      "path": "res://assets/items/suits/suit_10_weapon.png"
+    },
+    {
+      "name": "suit_11_accessory",
+      "path": "res://assets/items/suits/suit_11_accessory.png"
+    },
+    {
+      "name": "suit_11_armor",
+      "path": "res://assets/items/suits/suit_11_armor.png"
+    },
+    {
+      "name": "suit_11_boots",
+      "path": "res://assets/items/suits/suit_11_boots.png"
+    },
+    {
+      "name": "suit_11_helmet",
+      "path": "res://assets/items/suits/suit_11_helmet.png"
+    },
+    {
+      "name": "suit_11_weapon",
+      "path": "res://assets/items/suits/suit_11_weapon.png"
+    },
+    {
+      "name": "suit_12_accessory",
+      "path": "res://assets/items/suits/suit_12_accessory.png"
+    },
+    {
+      "name": "suit_12_armor",
+      "path": "res://assets/items/suits/suit_12_armor.png"
+    },
+    {
+      "name": "suit_12_boots",
+      "path": "res://assets/items/suits/suit_12_boots.png"
+    },
+    {
+      "name": "suit_12_helmet",
+      "path": "res://assets/items/suits/suit_12_helmet.png"
+    },
+    {
+      "name": "suit_12_weapon",
+      "path": "res://assets/items/suits/suit_12_weapon.png"
+    },
+    {
+      "name": "suit_13_accessory",
+      "path": "res://assets/items/suits/suit_13_accessory.png"
+    },
+    {
+      "name": "suit_13_armor",
+      "path": "res://assets/items/suits/suit_13_armor.png"
+    },
+    {
+      "name": "suit_13_boots",
+      "path": "res://assets/items/suits/suit_13_boots.png"
+    },
+    {
+      "name": "suit_13_helmet",
+      "path": "res://assets/items/suits/suit_13_helmet.png"
+    },
+    {
+      "name": "suit_13_weapon",
+      "path": "res://assets/items/suits/suit_13_weapon.png"
+    },
+    {
+      "name": "suit_14_accessory",
+      "path": "res://assets/items/suits/suit_14_accessory.png"
+    },
+    {
+      "name": "suit_14_armor",
+      "path": "res://assets/items/suits/suit_14_armor.png"
+    },
+    {
+      "name": "suit_14_boots",
+      "path": "res://assets/items/suits/suit_14_boots.png"
+    },
+    {
+      "name": "suit_14_helmet",
+      "path": "res://assets/items/suits/suit_14_helmet.png"
+    },
+    {
+      "name": "suit_14_weapon",
+      "path": "res://assets/items/suits/suit_14_weapon.png"
+    },
+    {
+      "name": "suit_15_accessory",
+      "path": "res://assets/items/suits/suit_15_accessory.png"
+    },
+    {
+      "name": "suit_15_armor",
+      "path": "res://assets/items/suits/suit_15_armor.png"
+    },
+    {
+      "name": "suit_15_boots",
+      "path": "res://assets/items/suits/suit_15_boots.png"
+    },
+    {
+      "name": "suit_15_helmet",
+      "path": "res://assets/items/suits/suit_15_helmet.png"
+    },
+    {
+      "name": "suit_15_weapon",
+      "path": "res://assets/items/suits/suit_15_weapon.png"
+    },
+    {
+      "name": "suit_16_accessory",
+      "path": "res://assets/items/suits/suit_16_accessory.png"
+    },
+    {
+      "name": "suit_16_armor",
+      "path": "res://assets/items/suits/suit_16_armor.png"
+    },
+    {
+      "name": "suit_16_boots",
+      "path": "res://assets/items/suits/suit_16_boots.png"
+    },
+    {
+      "name": "suit_16_helmet",
+      "path": "res://assets/items/suits/suit_16_helmet.png"
+    },
+    {
+      "name": "suit_16_weapon",
+      "path": "res://assets/items/suits/suit_16_weapon.png"
+    },
+    {
+      "name": "suit_17_accessory",
+      "path": "res://assets/items/suits/suit_17_accessory.png"
+    },
+    {
+      "name": "suit_17_armor",
+      "path": "res://assets/items/suits/suit_17_armor.png"
+    },
+    {
+      "name": "suit_17_boots",
+      "path": "res://assets/items/suits/suit_17_boots.png"
+    },
+    {
+      "name": "suit_17_helmet",
+      "path": "res://assets/items/suits/suit_17_helmet.png"
+    },
+    {
+      "name": "suit_17_weapon",
+      "path": "res://assets/items/suits/suit_17_weapon.png"
+    },
+    {
+      "name": "suit_18_accessory",
+      "path": "res://assets/items/suits/suit_18_accessory.png"
+    },
+    {
+      "name": "suit_18_armor",
+      "path": "res://assets/items/suits/suit_18_armor.png"
+    },
+    {
+      "name": "suit_18_boots",
+      "path": "res://assets/items/suits/suit_18_boots.png"
+    },
+    {
+      "name": "suit_18_helmet",
+      "path": "res://assets/items/suits/suit_18_helmet.png"
+    },
+    {
+      "name": "suit_18_weapon",
+      "path": "res://assets/items/suits/suit_18_weapon.png"
+    },
+    {
+      "name": "suit_19_accessory",
+      "path": "res://assets/items/suits/suit_19_accessory.png"
+    },
+    {
+      "name": "suit_19_armor",
+      "path": "res://assets/items/suits/suit_19_armor.png"
+    },
+    {
+      "name": "suit_19_boots",
+      "path": "res://assets/items/suits/suit_19_boots.png"
+    },
+    {
+      "name": "suit_19_helmet",
+      "path": "res://assets/items/suits/suit_19_helmet.png"
+    },
+    {
+      "name": "suit_19_weapon",
+      "path": "res://assets/items/suits/suit_19_weapon.png"
+    },
+    {
+      "name": "suit_20_accessory",
+      "path": "res://assets/items/suits/suit_20_accessory.png"
+    },
+    {
+      "name": "suit_20_armor",
+      "path": "res://assets/items/suits/suit_20_armor.png"
+    },
+    {
+      "name": "suit_20_boots",
+      "path": "res://assets/items/suits/suit_20_boots.png"
+    },
+    {
+      "name": "suit_20_helmet",
+      "path": "res://assets/items/suits/suit_20_helmet.png"
+    },
+    {
+      "name": "suit_20_weapon",
+      "path": "res://assets/items/suits/suit_20_weapon.png"
+    },
+    {
+      "name": "suit_21_accessory",
+      "path": "res://assets/items/suits/suit_21_accessory.png"
+    },
+    {
+      "name": "suit_21_armor",
+      "path": "res://assets/items/suits/suit_21_armor.png"
+    },
+    {
+      "name": "suit_21_boots",
+      "path": "res://assets/items/suits/suit_21_boots.png"
+    },
+    {
+      "name": "suit_21_helmet",
+      "path": "res://assets/items/suits/suit_21_helmet.png"
+    },
+    {
+      "name": "suit_21_weapon",
+      "path": "res://assets/items/suits/suit_21_weapon.png"
+    },
+    {
+      "name": "pet_bronze_accessory",
+      "path": "res://assets/items/pet_equip/pet_bronze_accessory.png"
+    },
+    {
+      "name": "pet_bronze_armor",
+      "path": "res://assets/items/pet_equip/pet_bronze_armor.png"
+    },
+    {
+      "name": "pet_bronze_boots",
+      "path": "res://assets/items/pet_equip/pet_bronze_boots.png"
+    },
+    {
+      "name": "pet_bronze_helmet",
+      "path": "res://assets/items/pet_equip/pet_bronze_helmet.png"
+    },
+    {
+      "name": "pet_bronze_weapon",
+      "path": "res://assets/items/pet_equip/pet_bronze_weapon.png"
+    },
+    {
+      "name": "pet_gold_accessory",
+      "path": "res://assets/items/pet_equip/pet_gold_accessory.png"
+    },
+    {
+      "name": "pet_gold_armor",
+      "path": "res://assets/items/pet_equip/pet_gold_armor.png"
+    },
+    {
+      "name": "pet_gold_boots",
+      "path": "res://assets/items/pet_equip/pet_gold_boots.png"
+    },
+    {
+      "name": "pet_gold_helmet",
+      "path": "res://assets/items/pet_equip/pet_gold_helmet.png"
+    },
+    {
+      "name": "pet_gold_weapon",
+      "path": "res://assets/items/pet_equip/pet_gold_weapon.png"
+    },
+    {
+      "name": "pet_normal_accessory",
+      "path": "res://assets/items/pet_equip/pet_normal_accessory.png"
+    },
+    {
+      "name": "pet_normal_armor",
+      "path": "res://assets/items/pet_equip/pet_normal_armor.png"
+    },
+    {
+      "name": "pet_normal_boots",
+      "path": "res://assets/items/pet_equip/pet_normal_boots.png"
+    },
+    {
+      "name": "pet_normal_helmet",
+      "path": "res://assets/items/pet_equip/pet_normal_helmet.png"
+    },
+    {
+      "name": "pet_normal_weapon",
+      "path": "res://assets/items/pet_equip/pet_normal_weapon.png"
+    },
+    {
+      "name": "pet_silver_accessory",
+      "path": "res://assets/items/pet_equip/pet_silver_accessory.png"
+    },
+    {
+      "name": "pet_silver_armor",
+      "path": "res://assets/items/pet_equip/pet_silver_armor.png"
+    },
+    {
+      "name": "pet_silver_boots",
+      "path": "res://assets/items/pet_equip/pet_silver_boots.png"
+    },
+    {
+      "name": "pet_silver_helmet",
+      "path": "res://assets/items/pet_equip/pet_silver_helmet.png"
+    },
+    {
+      "name": "pet_silver_weapon",
+      "path": "res://assets/items/pet_equip/pet_silver_weapon.png"
+    },
+    {
+      "name": "icon_pill_player_level",
+      "path": "res://assets/items/category/icon_pill_player_level.png"
+    },
+    {
+      "name": "icon_pill_pet_level",
+      "path": "res://assets/items/category/icon_pill_pet_level.png"
+    },
+    {
+      "name": "icon_pill_double_exp",
+      "path": "res://assets/items/category/icon_pill_double_exp.png"
+    },
+    {
+      "name": "icon_pet_medal_tool",
+      "path": "res://assets/items/category/icon_pet_medal_tool.png"
+    },
+    {
+      "name": "icon_gift_growth",
+      "path": "res://assets/items/category/icon_gift_growth.png"
+    },
+    {
+      "name": "icon_gift_tower",
+      "path": "res://assets/items/category/icon_gift_tower.png"
+    },
+    {
+      "name": "icon_gift_brother",
+      "path": "res://assets/items/category/icon_gift_brother.png"
+    },
+    {
+      "name": "icon_gift_pioneer",
+      "path": "res://assets/items/category/icon_gift_pioneer.png"
+    },
+    {
+      "name": "icon_gift_newbie",
+      "path": "res://assets/items/category/icon_gift_newbie.png"
+    },
+    {
+      "name": "icon_gift_limit_equip",
+      "path": "res://assets/items/category/icon_gift_limit_equip.png"
+    },
+    {
+      "name": "icon_gift_pioneer_pet_equip",
+      "path": "res://assets/items/category/icon_gift_pioneer_pet_equip.png"
+    },
+    {
+      "name": "icon_gift_offline_pet",
+      "path": "res://assets/items/category/icon_gift_offline_pet.png"
+    },
+    {
+      "name": "icon_herb_lingcao",
+      "path": "res://assets/items/category/icon_herb_lingcao.png"
+    },
+    {
+      "name": "icon_herb_lingzhi",
+      "path": "res://assets/items/category/icon_herb_lingzhi.png"
+    },
+    {
+      "name": "icon_herb_xuelian",
+      "path": "res://assets/items/category/icon_herb_xuelian.png"
+    },
+    {
+      "name": "icon_herb_jiuzhuan",
+      "path": "res://assets/items/category/icon_herb_jiuzhuan.png"
+    },
+    {
+      "name": "icon_herb_longxian",
+      "path": "res://assets/items/category/icon_herb_longxian.png"
+    },
+    {
+      "name": "icon_stone_enhance",
+      "path": "res://assets/items/category/icon_stone_enhance.png"
+    },
+    {
+      "name": "icon_stone_suit",
+      "path": "res://assets/items/category/icon_stone_suit.png"
+    },
+    {
+      "name": "icon_frag_pet_equip",
+      "path": "res://assets/items/category/icon_frag_pet_equip.png"
+    },
+    {
+      "name": "icon_stone_pet_equip",
+      "path": "res://assets/items/category/icon_stone_pet_equip.png"
+    },
+    {
+      "name": "icon_build_mat",
+      "path": "res://assets/items/category/icon_build_mat.png"
+    },
+    {
+      "name": "icon_unseal_normal",
+      "path": "res://assets/items/category/icon_unseal_normal.png"
+    },
+    {
+      "name": "icon_unseal_high",
+      "path": "res://assets/items/category/icon_unseal_high.png"
+    },
+    {
+      "name": "icon_huanhua_fu",
+      "path": "res://assets/items/category/icon_huanhua_fu.png"
+    }
+  ],
+  "buttons": [
+    {
+      "name": "主城",
+      "path": "res://assets/buttons/主城.png"
+    },
+    {
+      "name": "宠物 (1)",
+      "path": "res://assets/buttons/宠物 (1).png"
+    },
+    {
+      "name": "战斗",
+      "path": "res://assets/buttons/战斗.png"
+    },
+    {
+      "name": "背包 (1)",
+      "path": "res://assets/buttons/背包 (1).png"
+    },
+    {
+      "name": "角色 (1)",
+      "path": "res://assets/buttons/角色 (1).png"
+    },
+    {
+      "name": "设置 (1)",
+      "path": "res://assets/buttons/设置 (1).png"
+    }
+  ]
+}

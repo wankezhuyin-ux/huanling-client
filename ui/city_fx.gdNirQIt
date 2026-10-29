@@ -1,0 +1,969 @@
+extends Control
+class_name CityFx
+
+## 主城环境动效层 —— 把 out/city_live/index.html 那套 Canvas 分层动效搬进引擎
+##
+## 挂载位置：CityInkLayer 内、背景之上、雾与标题之下。
+## 自身用 scale 做设计坐标 → 屏幕换算，子节点一律直接写 1024×1536 设计像素，
+## 因此所有参数可以跟原型逐条对齐，不需要到处乘 s。
+##
+## 原型绘制顺序：底图 → 悬空岛 → 远景雾 → 后景云 → 石龙 → 前景云 → 瀑布
+##   → 水面 → 塔窗幽光 → 灯笼 → 花瓣 → 金粉 → 地面灯火 → 人群/宠物 → 仙鹤
+## 底图由 CityInkLayer 自己画，这里从「悬空岛」开始。
+
+const DIR := "res://assets/city_fx/"
+const DESIGN := Vector2(1024.0, 1536.0)
+
+# ---- 原型 CFG（逐条照抄，改这里就能调）----
+const FALLS_SPEED := 46.0
+const FALLS_ALPHA := 0.22
+const FALLS_ALPHA2 := 0.09
+const WATER_SPEED := 9.0
+const WATER_ALPHA := 0.17
+const NPC_S := 192.0
+const NPC_BASE := 174.0
+const PET_S := 96.0
+const PET_BASE := 84.0
+
+## 悬空岛：整体上下浮动 + 岛下垂枝竖条横移
+## 原型幅度 3.9~6.6，手机上换算只有 2.7~4.6 设备像素、几乎看不出 →
+## 这里统一 ×1.5，周期不变（15~22s），观感仍是「慢慢呼吸」而不是「弹跳」。
+const ISLE_AMP_K := 1.5
+const ISLES := [
+	{"k": "isle_l", "pos": Vector2(46, 196), "size": Vector2(152, 202), "amp": 6.6, "sp": 0.34, "ph": 0.0, "sway": 3.4},
+	{"k": "isle_r", "pos": Vector2(792, 190), "size": Vector2(134, 200), "amp": 5.8, "sp": 0.28, "ph": 1.9, "sway": 3.0},
+	{"k": "isle_c", "pos": Vector2(276, 182), "size": Vector2(96, 130), "amp": 3.9, "sp": 0.44, "ph": 3.4, "sway": 2.2},
+]
+
+## 云：y / 高 / 速度(像素每秒) / 宽倍率 / 透明度 / 色调。分前后两组，石龙夹在中间。
+## 水墨底接近纸白，纯白云没有对比 → 后景云压成冷灰（暗部）、前景云提亮（亮部），
+## 一亮一暗才有「云在流」的层次，否则整片糊成白的。
+const CLOUDS_BACK := [
+	{"k": "cloud3", "y": 108.0, "h": 300.0, "sp": 9.0, "wm": 1.0, "a": 0.46, "tint": Color(0.78, 0.83, 0.88)},
+	{"k": "cloud1", "y": 196.0, "h": 340.0, "sp": 6.0, "wm": 1.35, "a": 0.50, "tint": Color(0.80, 0.85, 0.90)},
+	{"k": "cloud2", "y": 288.0, "h": 300.0, "sp": 4.0, "wm": 1.15, "a": 0.40, "tint": Color(0.84, 0.88, 0.92)},
+]
+const CLOUDS_FRONT := [
+	{"k": "cloud2", "y": 330.0, "h": 400.0, "sp": 13.0, "wm": 1.6, "a": 0.34, "tint": Color(1.0, 1.0, 1.0)},
+	{"k": "cloud3", "y": 486.0, "h": 250.0, "sp": 17.0, "wm": 1.2, "a": 0.24, "tint": Color(1.0, 1.0, 1.0)},
+]
+
+## 石龙：贴片从底图同位置同像素裁下，中心不透明、边缘羽化，位移 2~4px 不出双影
+const DR_POS := Vector2(146.0, 392.0)
+const DR_SIZE := Vector2(268.0, 244.0)
+const DR_NECK := Vector2(110.0, 78.0)
+const DR_EYE := Vector2(188.0, 51.0)
+const DR_MOUTH := Vector2(220.0, 74.0)
+
+## 脊柱（贴片坐标），鳞光沿这条线流过
+const DR_SPINE := [
+	Vector2(32, 156), Vector2(22, 180), Vector2(36, 202), Vector2(58, 212),
+	Vector2(84, 216), Vector2(108, 209), Vector2(130, 197), Vector2(142, 179),
+	Vector2(140, 159), Vector2(131, 137), Vector2(121, 114), Vector2(113, 89),
+	Vector2(107, 63), Vector2(113, 41), Vector2(135, 29), Vector2(160, 27),
+	Vector2(180, 34), Vector2(195, 49),
+]
+
+const FALLS_RECT := Rect2(668, 548, 232, 240)
+const WATER_RECT := Rect2(690, 790, 330, 120)
+
+## 灯笼（暖光点）：[x, y, 强度]
+const LANTERNS := [
+	[196.0, 700.0, 1.0], [218.0, 702.0, 0.85], [392.0, 700.0, 1.0], [330.0, 906.0, 0.72],
+	[295.0, 1192.0, 1.0], [492.0, 1202.0, 0.95], [600.0, 1246.0, 0.9],
+	[140.0, 1386.0, 1.15], [390.0, 1400.0, 1.15], [505.0, 1288.0, 0.95],
+]
+
+## 塔窗暖光
+const PAGODA_WIN := [
+	[446.0, 126.0], [506.0, 126.0], [444.0, 182.0], [504.0, 182.0],
+	[440.0, 240.0], [502.0, 240.0], [442.0, 296.0], [506.0, 296.0],
+	[450.0, 348.0], [512.0, 348.0], [456.0, 392.0], [518.0, 392.0],
+]
+
+## 地面灯火
+const GROUND_GLOW := [
+	[140.0, 1408.0, 1.15], [390.0, 1420.0, 1.15], [505.0, 1306.0, 0.95],
+	[300.0, 1240.0, 0.8], [600.0, 1268.0, 0.8],
+]
+
+## 人群三层斜带：x 区间 + 两端 y（线性过渡）+ 抖动
+const WALK := [
+	{"x0": 536.0, "x1": 618.0, "y0": 1122.0, "y1": 1122.0, "jit": 16.0, "sc0": 0.30, "sc1": 0.36, "a": 0.46, "v0": 4.0, "v1": 7.0},
+	{"x0": 516.0, "x1": 628.0, "y0": 1270.0, "y1": 1166.0, "jit": 5.0, "sc0": 0.36, "sc1": 0.44, "a": 0.62, "v0": 9.0, "v1": 15.0},
+	{"x0": 336.0, "x1": 660.0, "y0": 1282.0, "y1": 1282.0, "jit": 34.0, "sc0": 0.42, "sc1": 0.52, "a": 0.70, "v0": 13.0, "v1": 20.0},
+]
+
+## 身份配比：修士/商贩最多，撑伞、孩童、老者、抱宠者点缀
+const NPC_CAST := [
+	"xiushi", "vendor", "child", "petowner", "vendor", "elder",
+	"xiushi", "child", "vendor", "umbrella", "xiushi", "child",
+	"child", "vendor", "xiushi", "elder", "vendor", "xiushi",
+	"xiushi", "child", "petowner", "vendor",
+]
+const PET_KINDS := ["fox", "puff", "pup"]
+
+const GOLD := 0.6180339887
+
+var s: float = 1.0
+var _t: float = 0.0
+var _built: bool = false
+
+var _tex: Dictionary = {}
+var _npc_tex: Dictionary = {}
+var _pet_tex: Dictionary = {}
+var _crane_tex: Array = []
+var _petal_tex: Array = []
+var _glow_tex: Texture2D = null
+
+var _isle_nodes: Array = []      # [{node, mat, ...}]
+var _cloud_nodes: Array = []     # [{segs:[TextureRect], ...}]
+var _falls_nodes: Array = []     # [TextureRect]
+var _water_node: TextureRect = null
+var _dragon: Dictionary = {}
+var _spine_dots: Array = []
+var _lights: Array = []          # [{node, kind, idx, sc}]
+var _crowd: Array = []
+var _pets: Array = []
+var _cranes: Array = []
+var _petals: Array = []
+var _motes: GPUParticles2D = null
+
+
+func _ready() -> void:
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	size = DESIGN
+	_build()
+
+
+## 由 CityInkLayer 在 relayout 时调用：s 为宽度贴合比，oy 为纵向居中偏移
+func apply_layout(scale_val: float, oy: float) -> void:
+	s = scale_val
+	position = Vector2(0.0, oy)
+	size = DESIGN
+	scale = Vector2(s, s)
+
+
+func _ld(name_: String) -> Texture2D:
+	if _tex.has(name_):
+		return _tex[name_]
+	var t := load(DIR + name_ + ".png") as Texture2D
+	_tex[name_] = t
+	return t
+
+
+# ================================================================= 构建
+func _build() -> void:
+	if _built:
+		return
+	_built = true
+
+	_build_isles()
+	for c in CLOUDS_BACK:
+		_build_cloud(c)
+	_build_dragon()
+	for c in CLOUDS_FRONT:
+		_build_cloud(c)
+	_build_falls()
+	_build_water()
+	_build_pagoda()
+	_build_lanterns()
+	_build_petals()
+	_build_motes()
+	_build_ground()
+	_build_crowd()
+
+	set_process(true)
+
+
+## 悬空岛：贴片整体上下浮动 + shader 做下垂枝摆动
+func _build_isles() -> void:
+	var sh := load(DIR + "isle_sway.gdshader") as Shader
+	for cfg in ISLES:
+		var t := _ld(String(cfg["k"]))
+		if t == null:
+			continue
+		var r := TextureRect.new()
+		r.texture = t
+		r.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		r.stretch_mode = TextureRect.STRETCH_SCALE
+		r.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		r.position = cfg["pos"]
+		r.size = cfg["size"]
+		if sh != null:
+			var m := ShaderMaterial.new()
+			m.shader = sh
+			m.set_shader_parameter("sway", float(cfg["sway"]))
+			m.set_shader_parameter("phase", float(cfg["ph"]))
+			m.set_shader_parameter("px_size", cfg["size"])
+			r.material = m
+			_isle_nodes.append({"node": r, "mat": m, "cfg": cfg})
+		else:
+			_isle_nodes.append({"node": r, "mat": null, "cfg": cfg})
+		add_child(r)
+
+
+## 云：横向平铺，靠挪节点位置循环（不走 shader 滚动，避免接缝闪一下）
+func _build_cloud(cfg: Dictionary) -> void:
+	var t := _ld(String(cfg["k"]))
+	if t == null:
+		return
+	var csh := load(DIR + "cloud_fade.gdshader") as Shader
+	var tint: Color = cfg.get("tint", Color.WHITE)
+	var tw := float(t.get_width()) * float(cfg["wm"])
+	var h := float(cfg["h"])
+	var segs: Array = []
+	var need := int(ceil(DESIGN.x / tw)) + 1
+	for i in range(maxi(2, need)):
+		var r := TextureRect.new()
+		r.texture = t
+		r.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		r.stretch_mode = TextureRect.STRETCH_SCALE
+		r.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		r.size = Vector2(tw, h)
+		r.position = Vector2(float(i) * tw, float(cfg["y"]))
+		r.modulate = Color(tint.r, tint.g, tint.b, float(cfg["a"]))
+		if csh != null:
+			var cm := ShaderMaterial.new()
+			cm.shader = csh
+			cm.set_shader_parameter("top_fade", 0.24)
+			cm.set_shader_parameter("bot_fade", 0.28)
+			r.material = cm
+		add_child(r)
+		segs.append(r)
+	_cloud_nodes.append({"segs": segs, "tw": tw, "sp": float(cfg["sp"]), "y": float(cfg["y"])})
+
+
+## 石龙：身体 shader 蠕动 + 头部绕颈根微旋 + 脊柱鳞光 + 双眼 + 口吐云气
+func _build_dragon() -> void:
+	var body_t := _ld("dragon_body")
+	var head_t := _ld("dragon_head")
+
+	# 身体
+	var body := TextureRect.new()
+	body.name = "DragonBody"
+	body.texture = body_t
+	body.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	body.stretch_mode = TextureRect.STRETCH_SCALE
+	body.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	body.position = DR_POS
+	body.size = DR_SIZE
+	var bsh := load(DIR + "dragon_body.gdshader") as Shader
+	var bmat: ShaderMaterial = null
+	if bsh != null:
+		bmat = ShaderMaterial.new()
+		bmat.shader = bsh
+		bmat.set_shader_parameter("px_size", DR_SIZE)
+		body.material = bmat
+	add_child(body)
+
+	# 头部：pivot 落在颈根，绕它慢慢抬落
+	var head := TextureRect.new()
+	head.name = "DragonHead"
+	head.texture = head_t
+	head.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	head.stretch_mode = TextureRect.STRETCH_SCALE
+	head.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	head.position = DR_POS
+	head.size = DR_SIZE
+	head.pivot_offset = DR_NECK
+	add_child(head)
+
+	# 龙身玉质暖光：同一张贴片染成暖色，加法叠 + 呼吸
+	var aura := TextureRect.new()
+	aura.name = "DragonAura"
+	aura.texture = body_t
+	aura.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	aura.stretch_mode = TextureRect.STRETCH_SCALE
+	aura.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	aura.position = DR_POS
+	aura.size = DR_SIZE
+	aura.modulate = Color(1.0, 0.886, 0.659, 0.0)
+	var am := CanvasItemMaterial.new()
+	am.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD
+	aura.material = am
+	add_child(aura)
+
+	# 脊柱鳞光：沿脊柱流动的一串光点
+	var gl := _get_glow()
+	_spine_dots.clear()
+	for p in DR_SPINE:
+		var sp := Sprite2D.new()
+		sp.texture = gl
+		sp.position = DR_POS + (p as Vector2)
+		sp.modulate = Color(1.0, 0.933, 0.776, 0.0)
+		var sm := CanvasItemMaterial.new()
+		sm.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD
+		sp.material = sm
+		add_child(sp)
+		_spine_dots.append(sp)
+
+	# 双眼：大光晕 + 小亮芯
+	var eyes: Array = []
+	for i in range(2):
+		var e := Sprite2D.new()
+		e.texture = gl
+		e.modulate = Color(1.0, 0.808, 0.486, 0.0)
+		var em := CanvasItemMaterial.new()
+		em.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD
+		e.material = em
+		add_child(e)
+		eyes.append(e)
+
+	# 口吐云气
+	var breath := GPUParticles2D.new()
+	breath.name = "DragonBreath"
+	breath.texture = _ld("cloud3")
+	breath.amount = 18
+	breath.lifetime = 4.2
+	breath.preprocess = 2.0
+	breath.local_coords = false
+	breath.emitting = true
+	breath.position = DR_POS + DR_MOUTH
+	breath.visibility_rect = Rect2(-320, -320, 760, 640)
+	breath.modulate = Color(1.0, 0.98, 0.94, 0.44)
+	var bm := CanvasItemMaterial.new()
+	bm.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD
+	breath.material = bm
+	var pm := ParticleProcessMaterial.new()
+	pm.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_SPHERE
+	pm.emission_sphere_radius = 6.0
+	pm.direction = Vector3(0.62, -0.34, 0.0)
+	pm.spread = 22.0
+	pm.initial_velocity_min = 14.0
+	pm.initial_velocity_max = 26.0
+	pm.gravity = Vector3(0, -3.0, 0)
+	pm.scale_min = 0.20
+	pm.scale_max = 0.42
+	pm.angle_min = -14.0
+	pm.angle_max = 14.0
+	var k := Gradient.new()
+	k.set_color(0, Color(1, 1, 1, 0.0))
+	k.set_color(1, Color(1, 1, 1, 0.0))
+	k.add_point(0.18, Color(1, 1, 1, 1.0))
+	k.add_point(0.62, Color(1, 1, 1, 0.42))
+	var kt := GradientTexture1D.new()
+	kt.gradient = k
+	pm.color_ramp = kt
+	breath.process_material = pm
+	add_child(breath)
+
+	_dragon = {
+		"body": body, "bmat": bmat, "head": head, "aura": aura,
+		"eyes": eyes, "breath": breath, "base": DR_POS,
+	}
+
+
+## 瀑布：竖向平铺滚动，两层不同速度（lighter 叠色）
+func _build_falls() -> void:
+	var t := _ld("falls_soft")
+	if t == null:
+		return
+	for layer in range(2):
+		var segs: Array = []
+		for k in range(-1, 2):
+			var r := TextureRect.new()
+			r.texture = t
+			r.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			r.stretch_mode = TextureRect.STRETCH_SCALE
+			r.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			var w := FALLS_RECT.size.x + (6.0 if layer == 1 else 0.0)
+			var x := FALLS_RECT.position.x - (3.0 if layer == 1 else 0.0)
+			r.size = Vector2(w, FALLS_RECT.size.y)
+			r.position = Vector2(x, FALLS_RECT.position.y + float(k) * FALLS_RECT.size.y)
+			r.modulate = Color(1, 1, 1, FALLS_ALPHA if layer == 0 else FALLS_ALPHA2)
+			var m := CanvasItemMaterial.new()
+			m.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD
+			r.material = m
+			add_child(r)
+			segs.append(r)
+		_falls_nodes.append(segs)
+
+
+## 水面：横向缓慢位移 + 加法提亮
+func _build_water() -> void:
+	var t := _ld("water_soft")
+	if t == null:
+		return
+	var r := TextureRect.new()
+	r.texture = t
+	r.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	r.stretch_mode = TextureRect.STRETCH_SCALE
+	r.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	r.position = WATER_RECT.position
+	r.size = WATER_RECT.size
+	r.modulate = Color(1, 1, 1, WATER_ALPHA)
+	var m := CanvasItemMaterial.new()
+	m.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD
+	r.material = m
+	add_child(r)
+	_water_node = r
+
+
+## 塔内幽光：大范围暖雾 + 每扇窗各自呼吸 + 塔尖灵光
+func _build_pagoda() -> void:
+	var gl := _get_glow()
+	# 大范围暖雾
+	var big := _mk_glow_node(gl, "255,236,190", 340.0, Vector2(300.0, 60.0) + Vector2(170, 170))
+	big.set_meta("kind", "pagoda_big")
+	_lights.append({"node": big, "kind": "pagoda_big", "idx": 0, "sc": 1.0})
+	# 窗格
+	var i := 0
+	for p in PAGODA_WIN:
+		var n := _mk_glow_node(gl, "255,214,150", 46.0, Vector2(float(p[0]), float(p[1])))
+		_lights.append({"node": n, "kind": "win", "idx": i, "sc": 1.0})
+		i += 1
+	# 塔尖灵光
+	var tip := _mk_glow_node(gl, "255,244,206", 110.0, Vector2(470.0 + 55.0, -10.0 + 55.0))
+	_lights.append({"node": tip, "kind": "tip", "idx": 0, "sc": 1.0})
+
+
+## 灯笼：各自闪动频率不同
+func _build_lanterns() -> void:
+	var gl := _get_glow()
+	var i := 0
+	for it in LANTERNS:
+		var n := _mk_glow_node(gl, "255,206,132", 58.0 * float(it[2]), Vector2(float(it[0]), float(it[1])))
+		_lights.append({"node": n, "kind": "lantern", "idx": i, "sc": float(it[2])})
+		i += 1
+
+
+## 地面灯火倒影
+func _build_ground() -> void:
+	var gl := _get_glow()
+	var i := 0
+	for it in GROUND_GLOW:
+		var sc := float(it[2])
+		var n := _mk_glow_node(gl, "255,196,120", 190.0 * sc, Vector2(float(it[0]), float(it[1])))
+		# 地面倒影是扁椭圆：宽 190*sc、高 90*sc
+		n.scale = Vector2(190.0 * sc / 128.0, 90.0 * sc / 128.0)
+		_lights.append({"node": n, "kind": "ground", "idx": i, "sc": sc})
+		i += 1
+
+
+func _mk_glow_node(gl: Texture2D, rgb: String, size_px: float, center: Vector2) -> Sprite2D:
+	var sp := Sprite2D.new()
+	sp.texture = gl
+	sp.position = center
+	sp.scale = Vector2(size_px / 128.0, size_px / 128.0)
+	var parts := rgb.split(",")
+	sp.modulate = Color(float(parts[0]) / 255.0, float(parts[1]) / 255.0, float(parts[2]) / 255.0, 0.0)
+	var m := CanvasItemMaterial.new()
+	m.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD
+	sp.material = m
+	add_child(sp)
+	return sp
+
+
+## 花瓣：三层色 + 近景放大，从顶部飘落
+func _build_petals() -> void:
+	_petal_tex.clear()
+	for k in range(3):
+		_petal_tex.append(_make_petal(k))
+	var kinds := [
+		{"n": 54, "sc0": 0.58, "sc1": 1.20, "a": 0.50},
+		{"n": 54, "sc0": 0.56, "sc1": 1.14, "a": 0.46},
+		{"n": 26, "sc0": 1.30, "sc1": 2.40, "a": 0.34},
+	]
+	var i := 0
+	for cfg in kinds:
+		var p := GPUParticles2D.new()
+		p.name = "Petals%d" % i
+		p.texture = _petal_tex[i % 3]
+		p.amount = int(cfg["n"])
+		p.lifetime = 46.0
+		p.preprocess = 46.0
+		p.local_coords = false
+		p.emitting = true
+		p.position = Vector2(DESIGN.x * 0.5, -40.0)
+		p.visibility_rect = Rect2(-620, -220, 2240, 2040)
+		var pm := ParticleProcessMaterial.new()
+		pm.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_BOX
+		pm.emission_box_extents = Vector3(DESIGN.x * 0.62, 6.0, 0.0)
+		pm.direction = Vector3(0.16, 1.0, 0.0)
+		pm.spread = 12.0
+		pm.initial_velocity_min = 11.0
+		pm.initial_velocity_max = 27.0
+		pm.gravity = Vector3(5.0, 1.0, 0.0)
+		pm.scale_min = float(cfg["sc0"])
+		pm.scale_max = float(cfg["sc1"])
+		pm.angle_min = 0.0
+		pm.angle_max = 360.0
+		pm.angular_velocity_min = -42.0
+		pm.angular_velocity_max = 42.0
+		# 湍流让飘落带风感（原型是 sin 横摆，这里用噪声近似）
+		if pm.get("turbulence_enabled") != null:
+			pm.set("turbulence_enabled", true)
+			pm.set("turbulence_noise_strength", 2.2)
+			pm.set("turbulence_noise_scale", 3.4)
+			pm.set("turbulence_noise_speed", Vector3(0.18, 0.10, 0.0))
+			pm.set("turbulence_influence_min", 0.04)
+			pm.set("turbulence_influence_max", 0.12)
+		var ramp := Gradient.new()
+		ramp.set_color(0, Color(1, 1, 1, 0.0))
+		ramp.set_color(1, Color(1, 1, 1, 0.0))
+		ramp.add_point(0.08, Color(1, 1, 1, 1.0))
+		ramp.add_point(0.88, Color(1, 1, 1, 0.92))
+		var rt := GradientTexture1D.new()
+		rt.gradient = ramp
+		pm.color_ramp = rt
+		p.process_material = pm
+		p.modulate = Color(1, 1, 1, float(cfg["a"]))
+		add_child(p)
+		_petals.append(p)
+		i += 1
+
+
+## 金粉浮尘：广场范围向上飘，给「繁华感」
+func _build_motes() -> void:
+	var img := Image.create(16, 16, false, Image.FORMAT_RGBA8)
+	var c := 7.5
+	for y in range(16):
+		for x in range(16):
+			var d := Vector2(x - c, y - c).length() / c
+			var a := clampf(1.0 - d, 0.0, 1.0)
+			a = a * a * (3.0 - 2.0 * a)
+			img.set_pixel(x, y, Color(1.0, 0.902, 0.682, a))
+	var p := GPUParticles2D.new()
+	p.name = "GoldMotes"
+	p.texture = ImageTexture.create_from_image(img)
+	p.amount = 64
+	p.lifetime = 9.0
+	p.preprocess = 9.0
+	p.local_coords = false
+	p.emitting = true
+	p.position = Vector2(DESIGN.x * 0.5, 1120.0)
+	p.visibility_rect = Rect2(-620, -560, 2240, 1120)
+	var pm := ParticleProcessMaterial.new()
+	pm.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_BOX
+	pm.emission_box_extents = Vector3(DESIGN.x * 0.48, 340.0, 0.0)
+	pm.direction = Vector3(0.0, -1.0, 0.0)
+	pm.spread = 26.0
+	pm.initial_velocity_min = 4.0
+	pm.initial_velocity_max = 14.0
+	pm.gravity = Vector3(1.2, -1.6, 0.0)
+	pm.scale_min = 0.55
+	pm.scale_max = 2.4
+	pm.color = Color(1.0, 0.90, 0.68, 0.5)
+	var ramp := Gradient.new()
+	ramp.set_color(0, Color(1, 1, 1, 0.0))
+	ramp.set_color(1, Color(1, 1, 1, 0.0))
+	ramp.add_point(0.20, Color(1, 1, 1, 0.9))
+	ramp.add_point(0.72, Color(1, 1, 1, 0.45))
+	var rt := GradientTexture1D.new()
+	rt.gradient = ramp
+	pm.color_ramp = rt
+	p.process_material = pm
+	var mm := CanvasItemMaterial.new()
+	mm.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD
+	p.material = mm
+	add_child(p)
+	_motes = p
+
+
+## 人群 + 宠物 + 仙鹤
+func _build_crowd() -> void:
+	# 预载帧序列
+	for k in ["xiushi", "vendor", "umbrella", "child", "elder", "petowner"]:
+		var frames: Array = []
+		for i in range(4):
+			frames.append(load(DIR + "p_%s_%d.png" % [k, i]) as Texture2D)
+		_npc_tex[k] = frames
+	for k in PET_KINDS:
+		var frames: Array = []
+		for i in range(4):
+			frames.append(load(DIR + "pet_%s_%d.png" % [k, i]) as Texture2D)
+		_pet_tex[k] = frames
+	for i in range(4):
+		_crane_tex.append(load(DIR + "crane_%d.png" % i) as Texture2D)
+
+	# ---- 人物 ----
+	for i in range(NPC_CAST.size()):
+		var kind := String(NPC_CAST[i])
+		var layer := 2 if i < 12 else (1 if i < 19 else 0)
+		var R: Dictionary = WALK[layer]
+		var x0 := float(R["x0"])
+		var x1 := float(R["x1"])
+		var dir := 1.0 if randf() < 0.5 else -1.0
+		# 黄金分割铺 x，比纯随机均匀
+		var x := x0 + _frac(float(i) * GOLD + 0.31) * (x1 - x0)
+		var room := (x - x0) if dir > 0.0 else (x1 - x)
+		var span := maxf(26.0, minf(60.0 + randf() * 190.0, room))
+		var t01 := (x - x0) / maxf(1.0, x1 - x0)
+		var yjit := (_frac(float(i) * GOLD * 1.7 + 0.13) * 2.0 - 1.0) * float(R["jit"])
+		var y := float(R["y0"]) + (float(R["y1"]) - float(R["y0"])) * t01 + yjit
+		var sc := float(R["sc0"]) + randf() * (float(R["sc1"]) - float(R["sc0"]))
+		var sp := Sprite2D.new()
+		sp.texture = _npc_tex[kind][0]
+		sp.scale = Vector2(sc, sc)
+		sp.flip_h = dir < 0.0
+		sp.position = Vector2(x, y - NPC_S * sc * 0.5 + (NPC_S - NPC_BASE) * sc)
+		sp.modulate = Color(1, 1, 1, float(R["a"]) * (0.86 + randf() * 0.22))
+		add_child(sp)
+		_crowd.append({
+			"node": sp, "kind": kind, "x": x, "y": y, "yjit": yjit, "dir": dir,
+			"from": x, "span": span, "layer": layer,
+			"v": float(R["v0"]) + randf() * (float(R["v1"]) - float(R["v0"])),
+			"sc": sc, "frame": randf() * 4.0, "fps": 5.0 + randf() * 2.0,
+		})
+
+	# ---- 宠物 ----
+	for i in range(5):
+		var owner_: Dictionary = _crowd[i % _crowd.size()]
+		var kind2 := String(PET_KINDS[i % PET_KINDS.size()])
+		var sp2 := Sprite2D.new()
+		sp2.texture = _pet_tex[kind2][0]
+		var osc := float(owner_["sc"])
+		sp2.modulate = Color(1, 1, 1, minf(1.0, float(owner_["node"].modulate.a) * 1.04))
+		sp2.flip_h = float(owner_["dir"]) < 0.0
+		add_child(sp2)
+		_pets.append({
+			"node": sp2, "kind": kind2, "owner": owner_,
+			"x": float(owner_["x"]) - float(owner_["dir"]) * 24.0,
+			"y": float(owner_["y"]) + 2.0,
+			"dir": float(owner_["dir"]), "frame": randf() * 4.0,
+			"base": 15.0 + randf() * 15.0, "ph": randf() * TAU,
+			"vx": 0.0, "follow": i < 3, "sc": osc,
+		})
+
+	# ---- 仙鹤 ----
+	for i in range(5):
+		var sp3 := Sprite2D.new()
+		sp3.texture = _crane_tex[0]
+		sp3.position = Vector2(-200, 100)
+		add_child(sp3)
+		_cranes.append(_new_crane(float(i) * 7.5, sp3))
+
+
+func _new_crane(delay: float, node: Sprite2D) -> Dictionary:
+	return {
+		"node": node,
+		"t": -delay - randf() * 6.0,
+		"period": 30.0 + randf() * 12.0,
+		"y": 90.0 + randf() * 130.0,
+		"amp": 14.0 + randf() * 26.0,
+		"sc": 0.34 + randf() * 0.20,
+		"a": 0.5 + randf() * 0.35,
+		"dir": 1.0 if randf() < 0.72 else -1.0,
+	}
+
+
+func _frac(v: float) -> float:
+	return v - floor(v)
+
+
+# ================================================================= 贴图生成
+func _get_glow() -> Texture2D:
+	if _glow_tex != null:
+		return _glow_tex
+	var n := 128
+	var img := Image.create(n, n, false, Image.FORMAT_RGBA8)
+	var c := (n - 1) * 0.5
+	for y in range(n):
+		for x in range(n):
+			var d := Vector2(x - c, y - c).length() / c
+			var a := 0.0
+			if d <= 1.0:
+				# 中心实、0.28 处半透、0.62 处极淡，1.0 归零（同原型 4 段渐变）
+				if d < 0.28:
+					a = lerpf(1.0, 0.52, d / 0.28)
+				elif d < 0.62:
+					a = lerpf(0.52, 0.14, (d - 0.28) / 0.34)
+				else:
+					a = lerpf(0.14, 0.0, (d - 0.62) / 0.38)
+			img.set_pixel(x, y, Color(1, 1, 1, clampf(a, 0.0, 1.0)))
+	_glow_tex = ImageTexture.create_from_image(img)
+	return _glow_tex
+
+
+## 花瓣精灵：一枚椭圆 + 径向渐变，3 种色（照原型 makePetalSprite）
+func _make_petal(kind: int) -> Texture2D:
+	var n := 26
+	var img := Image.create(n, n, false, Image.FORMAT_RGBA8)
+	var palette := [
+		Vector3(246, 214, 224), Vector3(238, 198, 210), Vector3(250, 236, 236),
+	]
+	var col: Vector3 = palette[kind % 3]
+	var c := (n - 1) * 0.5
+	var rot := -0.4
+	var cs := cos(-rot)
+	var sn := sin(-rot)
+	for y in range(n):
+		for x in range(n):
+			var px := float(x) - c
+			var py := float(y) - c
+			# 反旋转到花瓣自身坐标
+			var rx := px * cs - py * sn
+			var ry := px * sn + py * cs
+			# 椭圆 (4.4, 7.4)：值 <1 在内
+			var e := (rx * rx) / (4.4 * 4.4) + (ry * ry) / (7.4 * 7.4)
+			if e > 1.0:
+				continue
+			var d := clampf(sqrt(e), 0.0, 1.0)
+			var a := lerpf(0.95, 0.42, d)
+			img.set_pixel(x, y, Color(col.x / 255.0, col.y / 255.0, col.z / 255.0, a))
+	return ImageTexture.create_from_image(img)
+
+
+# ================================================================= 每帧
+func _process(delta: float) -> void:
+	if not _built or not visible:
+		return
+	_t += delta
+	var t := _t
+
+	_update_isles(t)
+	_update_clouds(delta)
+	_update_dragon(t)
+	_update_falls(t)
+	_update_water(t)
+	_update_lights(t)
+	_update_crowd(delta)
+	_update_cranes(delta)
+
+
+func _update_isles(t: float) -> void:
+	for it in _isle_nodes:
+		var cfg: Dictionary = it["cfg"]
+		var n: TextureRect = it["node"]
+		var amp := float(cfg["amp"]) * ISLE_AMP_K
+		var sp := float(cfg["sp"])
+		var ph := float(cfg["ph"])
+		var dy := -sin(t * sp + ph) * amp
+		var dx := sin(t * sp * 0.63 + ph) * amp * 0.22
+		n.position = (cfg["pos"] as Vector2) + Vector2(dx, dy)
+		var m: ShaderMaterial = it["mat"]
+		if m != null:
+			m.set_shader_parameter("t", t)
+
+
+func _update_clouds(delta: float) -> void:
+	for it in _cloud_nodes:
+		var segs: Array = it["segs"]
+		var tw := float(it["tw"])
+		var sp := float(it["sp"])
+		var span := tw * float(segs.size())
+		for i in range(segs.size()):
+			var r: TextureRect = segs[i]
+			var x := r.position.x - sp * delta
+			if x <= -tw:
+				x += span
+			r.position = Vector2(x, float(it["y"]))
+
+
+func _update_dragon(t: float) -> void:
+	if _dragon.is_empty():
+		return
+	var bmat: ShaderMaterial = _dragon["bmat"]
+	if bmat != null:
+		bmat.set_shader_parameter("t", t)
+
+	# 头部：绕颈根缓慢抬落
+	var hk := sin(t * 0.46)
+	var hdy := -3.4 * hk
+	var hdx := 1.1 * sin(t * 0.46 + 1.9)
+	var hrot := 0.010 * hk
+	var head: TextureRect = _dragon["head"]
+	head.position = DR_POS + Vector2(hdx, hdy)
+	head.rotation = hrot
+
+	# 鳞光：沿脊柱跑一条亮带
+	var n := _spine_dots.size()
+	for i in range(n):
+		var sp: Sprite2D = _spine_dots[i]
+		var u := float(i) / float(n)
+		var b := sin(u * TAU - t * 1.05)
+		if b < 0.10:
+			sp.modulate.a = 0.0
+			continue
+		var r := 16.0 + 5.0 * sin(u * 9.0 + t * 0.8)
+		sp.scale = Vector2(r / 128.0, r / 128.0)
+		sp.modulate.a = 0.46 * b * b
+
+	# 玉质暖光呼吸（含偶发强脉冲）
+	var aura: TextureRect = _dragon["aura"]
+	var pulse := pow(maxf(0.0, sin(t * 0.31)), 10.0)
+	aura.modulate.a = 0.045 + 0.035 * sin(t * 0.8) + 0.10 * pulse
+
+	# 双眼：呼吸 + 偶发强闪；位置跟随头部旋转
+	var eyes: Array = _dragon["eyes"]
+	var rel := DR_EYE - DR_NECK
+	var cs := cos(hrot)
+	var sn := sin(hrot)
+	var ex := DR_POS.x + DR_NECK.x + hdx + rel.x * cs - rel.y * sn
+	var ey := DR_POS.y + DR_NECK.y + hdy + rel.x * sn + rel.y * cs
+	var blink := 0.5 + 0.5 * sin(t * 1.25)
+	var flare := pow(maxf(0.0, sin(t * 0.31)), 14.0)
+	if eyes.size() == 2:
+		var big: Sprite2D = eyes[0]
+		var core: Sprite2D = eyes[1]
+		big.position = Vector2(ex, ey)
+		big.scale = Vector2(28.0 / 128.0, 28.0 / 128.0)
+		big.modulate.a = 0.40 + 0.34 * blink + 0.46 * flare
+		core.position = Vector2(ex, ey)
+		core.scale = Vector2(10.0 / 128.0, 10.0 / 128.0)
+		core.modulate.a = 0.72 + 0.28 * blink + 0.50 * flare
+
+
+func _update_falls(t: float) -> void:
+	if _falls_nodes.size() < 2:
+		return
+	var h := FALLS_RECT.size.y
+	var y0 := FALLS_RECT.position.y
+	var offs := [
+		fmod(t * FALLS_SPEED, h),
+		fmod(t * FALLS_SPEED * 0.55 + 40.0, h),
+	]
+	for layer in range(2):
+		var segs: Array = _falls_nodes[layer]
+		var off := float(offs[layer])
+		for k in range(segs.size()):
+			var r: TextureRect = segs[k]
+			r.position = Vector2(r.position.x, y0 + off + float(k - 1) * h)
+
+
+func _update_water(t: float) -> void:
+	if _water_node == null:
+		return
+	var ox := sin(t * 0.55) * 3.5 + fmod(t * WATER_SPEED, 20.0)
+	_water_node.position = Vector2(WATER_RECT.position.x - ox * 0.4, WATER_RECT.position.y)
+
+
+func _update_lights(t: float) -> void:
+	for it in _lights:
+		var sp: Sprite2D = it["node"]
+		var kind := String(it["kind"])
+		var i := int(it["idx"])
+		var sc := float(it["sc"])
+		var a := 0.0
+		match kind:
+			"pagoda_big":
+				var breathe := 0.36 + 0.16 * sin(t * 0.55)
+				a = 0.28 * breathe
+			"win":
+				a = (0.20 + 0.20 * (0.5 + 0.5 * sin(t * (0.9 + float(i) * 0.17) + float(i) * 1.3))) * 0.85
+				var s2 := 46.0 + 10.0 * sin(t * 0.7 + float(i))
+				sp.scale = Vector2(s2 / 128.0, s2 / 128.0)
+			"tip":
+				var up := 0.5 + 0.5 * sin(t * 0.42)
+				a = 0.10 + 0.13 * up
+			"lantern":
+				var fl := 0.5 + 0.5 * sin(t * (1.7 + float(i % 4) * 0.35) + float(i) * 2.1)
+				var fl2 := 0.5 + 0.5 * sin(t * (4.3 + float(i % 3) * 0.6) + float(i))
+				a = (0.30 + 0.26 * fl) * (1.0 - 0.14 * fl2) * sc
+				var s3 := (58.0 + 12.0 * fl) * sc
+				sp.scale = Vector2(s3 / 128.0, s3 / 128.0)
+			"ground":
+				var fl3 := 0.5 + 0.5 * sin(t * (1.4 + float(i) * 0.3) + float(i) * 2.3)
+				a = (0.10 + 0.10 * fl3) * sc
+		sp.modulate.a = a
+
+
+func _update_crowd(delta: float) -> void:
+	var t := _t
+	for it in _crowd:
+		var n: Sprite2D = it["node"]
+		var layer := int(it["layer"])
+		var x := float(it["x"]) + float(it["v"]) * float(it["dir"]) * delta
+		var dir := float(it["dir"])
+		var from_ := float(it["from"])
+		var span := float(it["span"])
+		if dir > 0.0 and x > from_ + span:
+			dir = -1.0
+		if dir < 0.0 and x < from_ - span:
+			dir = 1.0
+		var y := float(it["y"])
+		if layer == 1:
+			var R: Dictionary = WALK[1]
+			y = float(R["y0"]) + (x - float(R["x0"])) / maxf(1.0, float(R["x1"]) - float(R["x0"])) * (float(R["y1"]) - float(R["y0"])) + float(it["yjit"])
+		it["x"] = x
+		it["dir"] = dir
+		it["y"] = y
+		var fr := float(it["frame"]) + delta * float(it["fps"])
+		it["frame"] = fr
+		var frames: Array = _npc_tex[String(it["kind"])]
+		n.texture = frames[int(fr) % 4]
+		var sc := float(it["sc"])
+		n.scale = Vector2(sc, sc)
+		n.flip_h = dir < 0.0
+		n.position = Vector2(x, y - NPC_S * sc * 0.5 + (NPC_S - NPC_BASE) * sc)
+		n.z_index = int(y)
+
+	# ---- 宠物 ----
+	for it2 in _pets:
+		var pn: Sprite2D = it2["node"]
+		var o: Dictionary = it2["owner"]
+		var ox := float(o["x"])
+		var oy := float(o["y"])
+		var odir := float(o["dir"])
+		var x2 := float(it2["x"])
+		var y2 := float(it2["y"])
+		var vx := float(it2["vx"])
+		if bool(it2["follow"]):
+			var gap := float(it2["base"]) + sin(t * 0.85 + float(it2["ph"])) * 9.0
+			var tx := ox - odir * gap
+			var d := tx - x2
+			var want := clampf(d * 4.4, -90.0, 90.0)
+			vx += (want - vx) * minf(1.0, delta * 6.0)
+			x2 += vx * delta
+			y2 += ((oy + 2.0) - y2) * minf(1.0, delta * 3.0)
+			it2["frame"] = float(it2["frame"]) + absf(vx) * delta * 0.13
+			var pd := 1.0 if vx >= 0.0 else -1.0
+			if absf(vx) < 5.0:
+				pd = odir
+			it2["dir"] = pd
+		else:
+			var pdir := float(it2["dir"])
+			x2 += 11.0 * pdir * delta
+			it2["frame"] = float(it2["frame"]) + delta * 8.0
+			y2 = 1286.0 + sin(t * 0.5 + float(it2["ph"])) * 14.0
+			if x2 < 330.0:
+				pdir = 1.0
+			if x2 > 680.0:
+				pdir = -1.0
+			it2["dir"] = pdir
+		it2["x"] = x2
+		it2["y"] = y2
+		it2["vx"] = vx
+		var osc := float(o["sc"]) * 0.68
+		var w := PET_S * osc
+		var pframes: Array = _pet_tex[String(it2["kind"])]
+		pn.texture = pframes[int(float(it2["frame"])) % 4]
+		pn.scale = Vector2(osc, osc)
+		pn.flip_h = float(it2["dir"]) < 0.0
+		pn.position = Vector2(x2, y2 - w * 0.5 + (PET_S - PET_BASE) * osc)
+		pn.modulate.a = minf(1.0, float(o["node"].modulate.a) * 1.04) * 0.85
+		pn.z_index = int(y2)
+
+
+func _update_cranes(delta: float) -> void:
+	for it in _cranes:
+		var n: Sprite2D = it["node"]
+		var tt := float(it["t"]) + delta
+		var period := float(it["period"])
+		if tt > period:
+			var fresh := _new_crane(0.0, n)
+			for k in fresh.keys():
+				it[k] = fresh[k]
+			tt = 0.0
+		it["t"] = tt
+		if tt < 0.0:
+			n.visible = false
+			continue
+		n.visible = true
+		var k01 := tt / period
+		var dir := float(it["dir"])
+		var x := 0.0
+		if dir > 0.0:
+			x = -90.0 + k01 * (DESIGN.x + 180.0)
+		else:
+			x = DESIGN.x + 90.0 - k01 * (DESIGN.x + 180.0)
+		var y := float(it["y"]) + sin(tt * 0.9) * float(it["amp"])
+		var fade := minf(1.0, minf(k01, 1.0 - k01) * 6.0)
+		var sc := float(it["sc"])
+		n.texture = _crane_tex[int(tt * 6.0) % 4]
+		n.scale = Vector2(sc, sc)
+		n.flip_h = dir < 0.0
+		n.position = Vector2(x, y)
+		n.modulate.a = float(it["a"]) * fade
+		n.z_index = 900

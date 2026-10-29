@@ -1,0 +1,300 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" uid="uid://chuec7oltduxk" path="res://scripts/ui/xianmo/xianmo_main_panel.gd" id="1"]
+
+[node name="XianMoMain" type="Control" unique_id=239695733]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=85575209]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1341379128]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=956200401]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Header" unique_id=1812474648]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Header/MarginContainer" unique_id=173748057]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer/Header/MarginContainer/HBoxContainer" unique_id=619833116]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "仙魔战场"
+horizontal_alignment = 1
+
+[node name="WeekLabel" type="Label" parent="MarginContainer/VBoxContainer/Header/MarginContainer/HBoxContainer" unique_id=1116754964]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "第1周"
+horizontal_alignment = 1
+
+[node name="CountdownLabel" type="Label" parent="MarginContainer/VBoxContainer/Header/MarginContainer/HBoxContainer" unique_id=415518552]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "倒计时: 7天0时0分"
+horizontal_alignment = 2
+
+[node name="FactionContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=715176815]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="XianPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer/FactionContainer" unique_id=770497379]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/FactionContainer/XianPanel" unique_id=1686129353]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/FactionContainer/XianPanel/MarginContainer" unique_id=1523847702]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="FactionIcon" type="Label" parent="MarginContainer/VBoxContainer/FactionContainer/XianPanel/MarginContainer/HBoxContainer" unique_id=2145250310]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.4, 0.7, 1, 1)
+theme_override_font_sizes/font_size = 48
+text = "☯️ 仙道"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InfoContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/FactionContainer/XianPanel/MarginContainer/HBoxContainer" unique_id=378723880]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="CountLabel" type="Label" parent="MarginContainer/VBoxContainer/FactionContainer/XianPanel/MarginContainer/HBoxContainer/InfoContainer" unique_id=1037697410]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0人"
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/FactionContainer/XianPanel/MarginContainer/HBoxContainer/InfoContainer" unique_id=201532357]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0分"
+
+[node name="LeadingLabel" type="Label" parent="MarginContainer/VBoxContainer/FactionContainer/XianPanel/MarginContainer/HBoxContainer/InfoContainer" unique_id=1876479491]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.2, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="MoPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer/FactionContainer" unique_id=1614297381]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/FactionContainer/MoPanel" unique_id=455023569]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/FactionContainer/MoPanel/MarginContainer" unique_id=523708251]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="FactionIcon" type="Label" parent="MarginContainer/VBoxContainer/FactionContainer/MoPanel/MarginContainer/HBoxContainer" unique_id=934984048]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 48
+text = "☠️ 魔道"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InfoContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/FactionContainer/MoPanel/MarginContainer/HBoxContainer" unique_id=1026269990]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="CountLabel" type="Label" parent="MarginContainer/VBoxContainer/FactionContainer/MoPanel/MarginContainer/HBoxContainer/InfoContainer" unique_id=987161475]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0人"
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/FactionContainer/MoPanel/MarginContainer/HBoxContainer/InfoContainer" unique_id=522871166]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0分"
+
+[node name="LeadingLabel" type="Label" parent="MarginContainer/VBoxContainer/FactionContainer/MoPanel/MarginContainer/HBoxContainer/InfoContainer" unique_id=1396105518]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.2, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="PlayerInfoPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=659890476]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/PlayerInfoPanel" unique_id=701913731]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PlayerInfoPanel/MarginContainer" unique_id=619039548]
+layout_mode = 2
+
+[node name="LeftContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PlayerInfoPanel/MarginContainer/HBoxContainer" unique_id=1341892369]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TopRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PlayerInfoPanel/MarginContainer/HBoxContainer/LeftContainer" unique_id=390902401]
+layout_mode = 2
+
+[node name="FactionLabel" type="Label" parent="MarginContainer/VBoxContainer/PlayerInfoPanel/MarginContainer/HBoxContainer/LeftContainer/TopRow" unique_id=1113962789]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer/PlayerInfoPanel/MarginContainer/HBoxContainer/LeftContainer/TopRow" unique_id=83266731]
+layout_mode = 2
+
+[node name="PlayerNameLabel" type="Label" parent="MarginContainer/VBoxContainer/PlayerInfoPanel/MarginContainer/HBoxContainer/LeftContainer/TopRow" unique_id=421885799]
+layout_mode = 2
+text = "玩家名称"
+
+[node name="MiddleRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PlayerInfoPanel/MarginContainer/HBoxContainer/LeftContainer" unique_id=1766386385]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="MarginContainer/VBoxContainer/PlayerInfoPanel/MarginContainer/HBoxContainer/LeftContainer/MiddleRow" unique_id=622509166]
+layout_mode = 2
+text = "等级: 1"
+
+[node name="RealmLabel" type="Label" parent="MarginContainer/VBoxContainer/PlayerInfoPanel/MarginContainer/HBoxContainer/LeftContainer/MiddleRow" unique_id=8951894]
+layout_mode = 2
+text = "境界: 凡人"
+
+[node name="ScoreRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PlayerInfoPanel/MarginContainer/HBoxContainer/LeftContainer" unique_id=3507833]
+layout_mode = 2
+
+[node name="WeeklyScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/PlayerInfoPanel/MarginContainer/HBoxContainer/LeftContainer/ScoreRow" unique_id=99189895]
+layout_mode = 2
+text = "本周积分: 0"
+
+[node name="TotalScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/PlayerInfoPanel/MarginContainer/HBoxContainer/LeftContainer/ScoreRow" unique_id=783026478]
+layout_mode = 2
+text = "累积积分: 0"
+
+[node name="ActionPointsRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PlayerInfoPanel/MarginContainer/HBoxContainer/LeftContainer" unique_id=481498597]
+layout_mode = 2
+
+[node name="ActionPointsLabel" type="Label" parent="MarginContainer/VBoxContainer/PlayerInfoPanel/MarginContainer/HBoxContainer/LeftContainer/ActionPointsRow" unique_id=1762229609]
+layout_mode = 2
+text = "行动力: 24/24"
+
+[node name="ActionPointsBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/PlayerInfoPanel/MarginContainer/HBoxContainer/LeftContainer/ActionPointsRow" unique_id=1099777643]
+custom_minimum_size = Vector2(150, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 24.0
+value = 24.0
+
+[node name="AdventureBtnContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/PlayerInfoPanel/MarginContainer/HBoxContainer" unique_id=713722983]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+
+[node name="AdventureBtn" type="Button" parent="MarginContainer/VBoxContainer/PlayerInfoPanel/MarginContainer/HBoxContainer/AdventureBtnContainer" unique_id=5000359]
+custom_minimum_size = Vector2(200, 55)
+layout_mode = 2
+text = "加入战场"
+
+[node name="LogPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=2101147805]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/LogPanel" unique_id=2043452241]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/LogPanel/MarginContainer" unique_id=1283562270]
+layout_mode = 2
+
+[node name="LogTitle" type="Label" parent="MarginContainer/VBoxContainer/LogPanel/MarginContainer/VBoxContainer" unique_id=333010833]
+layout_mode = 2
+text = "📜 事件日志"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/LogPanel/MarginContainer/VBoxContainer" unique_id=622327865]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LogContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/LogPanel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1823264781]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BottomNav" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=150146664]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/BottomNav" unique_id=373354739]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/BottomNav/MarginContainer" unique_id=1157348771]
+layout_mode = 2
+alignment = 1
+
+[node name="RankingBtn" type="Button" parent="MarginContainer/VBoxContainer/BottomNav/MarginContainer/HBoxContainer" unique_id=2106038521]
+layout_mode = 2
+text = "排行榜"
+
+[node name="ShopBtn" type="Button" parent="MarginContainer/VBoxContainer/BottomNav/MarginContainer/HBoxContainer" unique_id=964542997]
+layout_mode = 2
+text = "积分兑换"
+
+[node name="ChestBtn" type="Button" parent="MarginContainer/VBoxContainer/BottomNav/MarginContainer/HBoxContainer" unique_id=1971055035]
+layout_mode = 2
+text = "我的宝箱"
+
+[node name="TreasureBtn" type="Button" parent="MarginContainer/VBoxContainer/BottomNav/MarginContainer/HBoxContainer" unique_id=1708602736]
+layout_mode = 2
+text = "藏宝图"
+
+[node name="TitleBtn" type="Button" parent="MarginContainer/VBoxContainer/BottomNav/MarginContainer/HBoxContainer" unique_id=927028418]
+layout_mode = 2
+text = "称号"
+
+[node name="RulesBtn" type="Button" parent="MarginContainer/VBoxContainer/BottomNav/MarginContainer/HBoxContainer" unique_id=1569602797]
+layout_mode = 2
+text = "规则说明"
+
+[node name="BackBtn" type="Button" parent="MarginContainer/VBoxContainer/BottomNav/MarginContainer/HBoxContainer" unique_id=28709593]
+layout_mode = 2
+text = "返回"

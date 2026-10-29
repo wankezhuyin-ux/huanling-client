@@ -1,0 +1,18 @@
+{
+    "version":  "2.0.12",
+    "patch_version":  "2.0.13",
+    "minimum_base_version":  "2.0.12",
+    "releaseNotes":  "【2.0.9.2测试环境更新公告 - 仅测试包可见】\n1. 此处写测试用说明\n2. 不会发给正式玩家",
+    "platforms":  {
+                      "windows":  {
+                                      "url":  "http://101.42.200.***/updates/test/patches/windows/patch_windows.pck",
+                                      "size":  2911852,
+                                      "sha256":  "d398a0a6bd55d3aff67d75423a48c94c3760a4137f41e72cf09d223863fd90e0"
+                                  },
+                      "android":  {
+                                      "url":  "http://101.42.200.***/updates/test/patches/android/patch_android.pck",
+                                      "size":  2911852,
+                                      "sha256":  "a6619318a701271c3d90d45e0eef35375bfca321fb1b58bac171e38e58313b4b"
+                                  }
+                  }
+}

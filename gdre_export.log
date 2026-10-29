@@ -1,0 +1,37 @@
+GDRE Tools v2.7.4
+macOS 26.6.2, headless
+Opening directory: ~/Documents/Codex/2026-10-21/n/work/apk-inspection/unpacked/assets
+Checking if we need to load detected sparse pack...
+Skipping loading detected sparse pack...
+Loaded 1714 imported files
+Detected Engine Version: 4.5.0
+Detected Bytecode Revision: 4.5.0-stable (ebc36a7)
+Successfully loaded PCK!
+Version: 4.5.0
+Extracted 3439 files, no errors detected!
+Saved project config.
+
+
+********************************EXPORT REPORT********************************
+
+Totals:                                 
+Decompiled scripts:                     169
+Scripts not decompiled:                 0
+Imported resources for export session:  1714
+Successfully converted:                 1714
+Lossy:                                  145
+Rewrote metadata:                       1534
+Non-importable conversions:             0
+Not converted:                          0
+Failed conversions:                     0
+-------------
+
+
+
+------------------------------------------------------------------------------------
+
+Use Godot editor version 4.5.0 to edit the project.
+
+*******************************************************************************
+
+Recovery finished in 00m59s

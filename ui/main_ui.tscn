@@ -1,0 +1,1357 @@
+[gd_scene load_steps=22 format=3 uid="uid://btcptikjgmqya"]
+
+[ext_resource type="Script" uid="uid://cbvjxo1fxuwke" path="res://ui/main_ui.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/city_ink/bg_ink.jpg" id="2"]
+[ext_resource type="Texture2D" uid="uid://84kyw5ymbi01" path="res://assets/items/jinbi_icon.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://brdieirxotgfq" path="res://assets/items/jinyuanbao.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://x3vio8n1xxxk" path="res://assets/buttons/战斗.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://bx52dols8wmko" path="res://assets/buttons/角色 (1).png" id="6"]
+[ext_resource type="Texture2D" uid="uid://c6jqa1m05mad1" path="res://assets/buttons/主城.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://y8utgcwnorqf" path="res://assets/buttons/宠物 (1).png" id="8"]
+[ext_resource type="Texture2D" uid="uid://bgfexldtah4jx" path="res://assets/buttons/背包 (1).png" id="9"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_main"]
+bg_color = Color(0.10, 0.15, 0.14, 0.76)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.60, 0.65, 0.54, 0.8)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_topbar"]
+bg_color = Color(0.055, 0.07, 0.08, 0.92)
+border_width_bottom = 1
+border_color = Color(0.55, 0.44, 0.22, 0.55)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 4
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.08, 0.13, 0.12, 0.65)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.50, 0.59, 0.49, 0.8)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.3)
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hp_bg"]
+bg_color = Color(0.043, 0.035, 0.035, 0.78)
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hp_fill"]
+bg_color = Color(0.66, 0.26, 0.22, 1)
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exp_bg"]
+bg_color = Color(0.055, 0.048, 0.038, 0.78)
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exp_fill"]
+bg_color = Color(0.788, 0.635, 0.294, 1)
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_map_btn"]
+bg_color = Color(0.8, 0.3, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.5, 0.3, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_map_btn_hover"]
+bg_color = Color(0.9, 0.4, 0.25, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.6, 0.4, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_battle_feed"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_subbutton"]
+bg_color = Color(0.2, 0.5, 0.8, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.7, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0.3, 0.6, 0.4)
+shadow_size = 3
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_subbutton_pressed"]
+bg_color = Color(0.15, 0.4, 0.7, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.3, 0.6, 0.9, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_subbutton_hover"]
+bg_color = Color(0.3, 0.6, 0.9, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5, 0.8, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="MainUI" type="Control" unique_id=338291281]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1715213193]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TopBar" type="Panel" parent="." unique_id=765943226]
+z_index = 10
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = 55.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_topbar")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopBar" unique_id=340377809]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="QQGroupLabel" type="Label" parent="TopBar/HBoxContainer" unique_id=863477785]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 22
+text = "交流群 41501141"
+vertical_alignment = 1
+
+[node name="GoldIcon" type="TextureRect" parent="TopBar/HBoxContainer" unique_id=231901933]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("3")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="GoldLabel" type="Label" parent="TopBar/HBoxContainer" unique_id=863477784]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
+theme_override_font_sizes/font_size = 26
+text = "0"
+vertical_alignment = 1
+
+[node name="YuanbaoIcon" type="TextureRect" parent="TopBar/HBoxContainer" unique_id=863477787]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="YuanbaoLabel" type="Label" parent="TopBar/HBoxContainer" unique_id=863477786]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 26
+text = "0"
+vertical_alignment = 1
+
+[node name="MainContent" type="Panel" parent="." unique_id=1121406167]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 70.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_main")
+
+[node name="BattleView" type="Control" parent="MainContent" unique_id=1603106127]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerPanel" type="Panel" parent="MainContent/BattleView" unique_id=663815208]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 10.0
+offset_top = 5.0
+offset_right = -10.0
+offset_bottom = 145.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContent/BattleView/PlayerPanel" unique_id=777777001]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="PlayerAvatarColumn" type="VBoxContainer" parent="MainContent/BattleView/PlayerPanel/HBoxContainer" unique_id=375347119]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 3
+
+[node name="PlayerAvatar" type="ColorRect" parent="MainContent/BattleView/PlayerPanel/HBoxContainer/PlayerAvatarColumn" unique_id=375347120]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_vertical = 0
+color = Color(0.2, 0.2, 0.2, 0.5)
+
+[node name="PlayerSwitchBtn" type="Button" parent="MainContent/BattleView/PlayerPanel/HBoxContainer/PlayerAvatarColumn" unique_id=375347121]
+custom_minimum_size = Vector2(80, 22)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "切换"
+
+[node name="InfoContainer" type="VBoxContainer" parent="MainContent/BattleView/PlayerPanel/HBoxContainer" unique_id=777777002]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 3
+
+[node name="NameRow" type="HBoxContainer" parent="MainContent/BattleView/PlayerPanel/HBoxContainer/InfoContainer" unique_id=777777003]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="PlayerNameLabel" type="Label" parent="MainContent/BattleView/PlayerPanel/HBoxContainer/InfoContainer/NameRow" unique_id=2145482138]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "江小鱼"
+
+[node name="PlayerLevelLabel" type="Label" parent="MainContent/BattleView/PlayerPanel/HBoxContainer/InfoContainer/NameRow" unique_id=2044699822]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Lv.1"
+
+[node name="PlayerRealmLabel" type="Label" parent="MainContent/BattleView/PlayerPanel/HBoxContainer/InfoContainer/NameRow" unique_id=834120729]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "练气期"
+horizontal_alignment = 2
+
+[node name="HPRow" type="HBoxContainer" parent="MainContent/BattleView/PlayerPanel/HBoxContainer/InfoContainer" unique_id=777777004]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="PlayerHPLabel" type="Label" parent="MainContent/BattleView/PlayerPanel/HBoxContainer/InfoContainer/HPRow" unique_id=1790960086]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "HP: 100/100"
+
+[node name="PlayerMPLabel" type="Label" parent="MainContent/BattleView/PlayerPanel/HBoxContainer/InfoContainer/HPRow" unique_id=2092119415]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 22
+text = "MP: 50/50"
+horizontal_alignment = 2
+
+[node name="HPBar" type="ProgressBar" parent="MainContent/BattleView/PlayerPanel/HBoxContainer/InfoContainer" unique_id=1482414142]
+custom_minimum_size = Vector2(200, 24)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_hp_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hp_fill")
+value = 100.0
+show_percentage = false
+
+[node name="HPLabel" type="Label" parent="MainContent/BattleView/PlayerPanel/HBoxContainer/InfoContainer/HPBar" unique_id=1753242221]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "100%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExpBar" type="ProgressBar" parent="MainContent/BattleView/PlayerPanel/HBoxContainer/InfoContainer" unique_id=365933149]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_exp_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_exp_fill")
+show_percentage = false
+
+[node name="ExpLabel" type="Label" parent="MainContent/BattleView/PlayerPanel/HBoxContainer/InfoContainer/ExpBar" unique_id=1254302464]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "0%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TopPanels" type="HBoxContainer" parent="MainContent/BattleView" unique_id=171951035]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 10.0
+offset_top = 155.0
+offset_right = -10.0
+offset_bottom = 260.0
+grow_horizontal = 2
+theme_override_constants/separation = 10
+
+[node name="PetPanel" type="Panel" parent="MainContent/BattleView/TopPanels" unique_id=132893626]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContent/BattleView/TopPanels/PetPanel" unique_id=888888001]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="PetAvatar" type="ColorRect" parent="MainContent/BattleView/TopPanels/PetPanel/HBoxContainer" unique_id=470433859]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_vertical = 0
+color = Color(0.2, 0.2, 0.2, 0.5)
+
+[node name="InfoContainer" type="VBoxContainer" parent="MainContent/BattleView/TopPanels/PetPanel/HBoxContainer" unique_id=888888002]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 5
+
+[node name="PetNameLabel" type="Label" parent="MainContent/BattleView/TopPanels/PetPanel/HBoxContainer/InfoContainer" unique_id=1216235798]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "苦行龙 Lv.1"
+
+[node name="HPBar" type="ProgressBar" parent="MainContent/BattleView/TopPanels/PetPanel/HBoxContainer/InfoContainer" unique_id=1138935881]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_hp_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hp_fill")
+value = 100.0
+show_percentage = false
+
+[node name="HPLabel" type="Label" parent="MainContent/BattleView/TopPanels/PetPanel/HBoxContainer/InfoContainer/HPBar" unique_id=1119584883]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "100%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExpBar" type="ProgressBar" parent="MainContent/BattleView/TopPanels/PetPanel/HBoxContainer/InfoContainer" unique_id=133408973]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_exp_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_exp_fill")
+show_percentage = false
+
+[node name="ExpLabel" type="Label" parent="MainContent/BattleView/TopPanels/PetPanel/HBoxContainer/InfoContainer/ExpBar" unique_id=485484488]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "0%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MapInfoPanel" type="Panel" parent="MainContent/BattleView/TopPanels" unique_id=1233128004]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="ContentBox" type="HBoxContainer" parent="MainContent/BattleView/TopPanels/MapInfoPanel" unique_id=495471731]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 5
+
+[node name="MapInfoText" type="RichTextLabel" parent="MainContent/BattleView/TopPanels/MapInfoPanel/ContentBox" unique_id=1067042233]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "浮影水城 | Lv.1"
+
+[node name="MapBtnPanel" type="Panel" parent="MainContent/BattleView/TopPanels" unique_id=1379371059]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="MapBtn" type="Button" parent="MainContent/BattleView/TopPanels/MapBtnPanel" unique_id=356883153]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 10.0
+offset_right = -22.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.95, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_map_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_map_btn_hover")
+text = "切换
+地图"
+icon_alignment = 1
+
+[node name="BattlePanel" type="Panel" parent="MainContent/BattleView" unique_id=1748580703]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 270.0
+offset_right = -10.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="BattleTitle" type="Label" parent="MainContent/BattleView/BattlePanel" unique_id=131478154]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = -10.0
+offset_bottom = 36.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 22
+text = "⚔ 战斗区域"
+
+[node name="SpriteField" type="Control" parent="MainContent/BattleView/BattlePanel" unique_id=923472453]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 10.0
+offset_top = 42.0
+offset_right = -10.0
+offset_bottom = 218.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LogText" type="RichTextLabel" parent="MainContent/BattleView/BattlePanel" unique_id=1744463168]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 670.0
+offset_right = -10.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+scroll_following = true
+
+[node name="BattleFeedPanel" type="Panel" parent="MainContent/BattleView/BattlePanel" unique_id=2059560597]
+z_index = 22
+clip_contents = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -276.0
+offset_right = 444.0
+offset_bottom = -52.0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_battle_feed")
+
+[node name="FeedTitle" type="Label" parent="MainContent/BattleView/BattlePanel/BattleFeedPanel" unique_id=1492469495]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = -7.0
+offset_bottom = 23.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.788, 0.635, 0.294, 0.92)
+theme_override_font_sizes/font_size = 13
+text = "战 报"
+
+[node name="BattleFeedText" type="RichTextLabel" parent="MainContent/BattleView/BattlePanel/BattleFeedPanel" unique_id=1492469494]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 24.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+scroll_active = false
+scroll_following = true
+
+[node name="StopBattleBtn" type="Button" parent="MainContent/BattleView/BattlePanel" unique_id=783419967]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 184.0
+offset_top = -46.0
+offset_right = 344.0
+offset_bottom = -10.0
+grow_vertical = 0
+text = "停止战斗"
+
+[node name="DisableBattleAnimBtn" type="Button" parent="MainContent/BattleView/BattlePanel" unique_id=1096460067]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 354.0
+offset_top = -46.0
+offset_right = 514.0
+offset_bottom = -10.0
+grow_vertical = 0
+text = "关闭动图"
+
+[node name="LogBtn" type="Button" parent="MainContent/BattleView/BattlePanel" unique_id=1432111268]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = -46.0
+offset_right = 174.0
+offset_bottom = -10.0
+grow_vertical = 0
+text = "战斗日志"
+
+[node name="CharacterView" type="Control" parent="MainContent" unique_id=833609143]
+visible = false
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContentArea" type="Panel" parent="MainContent/CharacterView" unique_id=950886201]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 70.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Body" type="Control" parent="MainContent/CharacterView/ContentArea" unique_id=900000001]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = -10.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HeroColumn" type="Panel" parent="MainContent/CharacterView/ContentArea/Body" unique_id=900000002]
+layout_mode = 1
+anchors_preset = 9
+anchor_right = 0.38
+anchor_bottom = 1.0
+offset_right = -5.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="RightStack" type="Control" parent="MainContent/CharacterView/ContentArea/Body" unique_id=900000003]
+layout_mode = 1
+anchors_preset = 15
+anchor_left = 0.38
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BasicStatsContainer" type="ScrollContainer" parent="MainContent/CharacterView/ContentArea/Body/RightStack" unique_id=759295925]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+scroll_deadzone = 20
+
+[node name="BasicStatsVBox" type="VBoxContainer" parent="MainContent/CharacterView/ContentArea/Body/RightStack/BasicStatsContainer" unique_id=759295926]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 15
+
+[node name="CombatStatsContainer" type="ScrollContainer" parent="MainContent/CharacterView/ContentArea/Body/RightStack" unique_id=759295927]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+scroll_deadzone = 20
+
+[node name="CombatStatsVBox" type="VBoxContainer" parent="MainContent/CharacterView/ContentArea/Body/RightStack/CombatStatsContainer" unique_id=759295928]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 15
+
+[node name="EquipmentContainer" type="ScrollContainer" parent="MainContent/CharacterView/ContentArea/Body/RightStack" unique_id=2059660757]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+scroll_deadzone = 20
+
+[node name="EquipmentVBox" type="VBoxContainer" parent="MainContent/CharacterView/ContentArea/Body/RightStack/EquipmentContainer" unique_id=2059660758]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 15
+
+[node name="TalentContainer" type="ScrollContainer" parent="MainContent/CharacterView/ContentArea/Body/RightStack" unique_id=1306874164]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+scroll_deadzone = 20
+
+[node name="TalentVBox" type="VBoxContainer" parent="MainContent/CharacterView/ContentArea/Body/RightStack/TalentContainer" unique_id=893455934]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 15
+
+[node name="SubButtons" type="HBoxContainer" parent="MainContent/CharacterView" unique_id=1753127450]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="BasicStatsBtn" type="Button" parent="MainContent/CharacterView/SubButtons" unique_id=1426071557]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_subbutton")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_subbutton_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_subbutton_hover")
+text = "基础属性"
+
+[node name="CombatStatsBtn" type="Button" parent="MainContent/CharacterView/SubButtons" unique_id=1426071558]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_subbutton")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_subbutton_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_subbutton_hover")
+text = "战斗属性"
+
+[node name="TalentBtn" type="Button" parent="MainContent/CharacterView/SubButtons" unique_id=1663888191]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_subbutton")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_subbutton_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_subbutton_hover")
+text = "天赋"
+
+[node name="EquipmentBtn" type="Button" parent="MainContent/CharacterView/SubButtons" unique_id=1099478690]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_subbutton")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_subbutton_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_subbutton_hover")
+text = "装备"
+
+[node name="PetView" type="Control" parent="MainContent" unique_id=1887388336]
+visible = false
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContentArea" type="Panel" parent="MainContent/PetView" unique_id=968410258]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 70.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PetListScroll" type="ScrollContainer" parent="MainContent/PetView/ContentArea" unique_id=1689978217]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+scroll_deadzone = 20
+
+[node name="PetListContainer" type="VBoxContainer" parent="MainContent/PetView/ContentArea/PetListScroll" unique_id=1689978218]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 9
+
+[node name="CaptureScroll" type="ScrollContainer" parent="MainContent/PetView/ContentArea" unique_id=1600310831]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+scroll_deadzone = 20
+
+[node name="CaptureContainer" type="VBoxContainer" parent="MainContent/PetView/ContentArea/CaptureScroll" unique_id=1600310832]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 15
+
+[node name="EquipmentScroll" type="ScrollContainer" parent="MainContent/PetView/ContentArea" unique_id=1600310833]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+scroll_deadzone = 20
+
+[node name="EquipmentContainer" type="VBoxContainer" parent="MainContent/PetView/ContentArea/EquipmentScroll" unique_id=1600310834]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 15
+
+[node name="SoulScroll" type="ScrollContainer" parent="MainContent/PetView/ContentArea" unique_id=1222899091]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+scroll_deadzone = 20
+
+[node name="SoulContainer" type="VBoxContainer" parent="MainContent/PetView/ContentArea/SoulScroll" unique_id=1444753669]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 15
+
+[node name="AssistScroll" type="ScrollContainer" parent="MainContent/PetView/ContentArea" unique_id=1050619754]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+scroll_deadzone = 20
+
+[node name="AssistContainer" type="VBoxContainer" parent="MainContent/PetView/ContentArea/AssistScroll" unique_id=1275521834]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="SubButtons" type="HBoxContainer" parent="MainContent/PetView" unique_id=1365289626]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="ListBtn" type="Button" parent="MainContent/PetView/SubButtons" unique_id=156396683]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_subbutton")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_subbutton_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_subbutton_hover")
+text = "宠物列表"
+
+[node name="CaptureBtn" type="Button" parent="MainContent/PetView/SubButtons" unique_id=1889468689]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_subbutton")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_subbutton_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_subbutton_hover")
+text = "宠物袋"
+
+[node name="EquipmentBtn" type="Button" parent="MainContent/PetView/SubButtons" unique_id=1889468690]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_subbutton")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_subbutton_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_subbutton_hover")
+text = "宠物装备"
+
+[node name="SoulBtn" type="Button" parent="MainContent/PetView/SubButtons" unique_id=11845325]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_subbutton")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_subbutton_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_subbutton_hover")
+text = "宠物魂魄"
+
+[node name="AssistBtn" type="Button" parent="MainContent/PetView/SubButtons" unique_id=1121119471]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_subbutton")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_subbutton_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_subbutton_hover")
+text = "助战宠"
+
+[node name="BagView" type="Control" parent="MainContent" unique_id=1887388337]
+visible = false
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubButtons" type="HBoxContainer" parent="MainContent/BagView" unique_id=1887388342]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="EquipmentBtn" type="Button" parent="MainContent/BagView/SubButtons" unique_id=1887388343]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_subbutton")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_subbutton_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_subbutton_hover")
+text = "装备"
+
+[node name="MaterialBtn" type="Button" parent="MainContent/BagView/SubButtons" unique_id=1887388344]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_subbutton")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_subbutton_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_subbutton_hover")
+text = "材料"
+
+[node name="ItemBtn" type="Button" parent="MainContent/BagView/SubButtons" unique_id=1887388345]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_subbutton")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_subbutton_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_subbutton_hover")
+text = "道具"
+
+[node name="StoreBtn" type="Button" parent="MainContent/BagView/SubButtons" unique_id=1887389901]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_subbutton")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_subbutton_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_subbutton_hover")
+text = "仓库"
+
+[node name="ContentArea" type="Panel" parent="MainContent/BagView" unique_id=968410259]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 70.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BagEquipmentScroll" type="ScrollContainer" parent="MainContent/BagView/ContentArea" unique_id=1887388347]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = -130.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+scroll_deadzone = 20
+
+[node name="BagEquipmentContainer" type="VBoxContainer" parent="MainContent/BagView/ContentArea/BagEquipmentScroll" unique_id=1887388348]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 15
+
+[node name="MaterialScroll" type="ScrollContainer" parent="MainContent/BagView/ContentArea" unique_id=1887388349]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = -130.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+scroll_deadzone = 20
+
+[node name="MaterialContainer" type="VBoxContainer" parent="MainContent/BagView/ContentArea/MaterialScroll" unique_id=1887388350]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 15
+
+[node name="ItemScroll" type="ScrollContainer" parent="MainContent/BagView/ContentArea" unique_id=1887388351]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = -130.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+scroll_deadzone = 20
+
+[node name="ItemContainer" type="VBoxContainer" parent="MainContent/BagView/ContentArea/ItemScroll" unique_id=1887388352]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 15
+
+[node name="StoreScroll" type="Control" parent="MainContent/BagView/ContentArea" unique_id=1887389902]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = -130.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StoreContainer" type="VBoxContainer" parent="MainContent/BagView/ContentArea/StoreScroll" unique_id=1887389903]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="CityView" type="Control" parent="MainContent" unique_id=1887388338]
+visible = false
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CityUI" type="Control" parent="MainContent/CityView" unique_id=1887388339]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BottomNav" type="Panel" parent="." unique_id=1887388340]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -140.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="MainButtons" type="HBoxContainer" parent="BottomNav" unique_id=1887388341]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="BattleContainer" type="VBoxContainer" parent="BottomNav/MainButtons" unique_id=1240728697]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="BattleBtn" type="Button" parent="BottomNav/MainButtons/BattleContainer" unique_id=907144776]
+layout_mode = 2
+size_flags_vertical = 3
+icon = ExtResource("5")
+icon_alignment = 1
+expand_icon = true
+
+[node name="BattleLabel" type="Label" parent="BottomNav/MainButtons/BattleContainer" unique_id=1206054003]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "战斗"
+horizontal_alignment = 1
+
+[node name="CharacterContainer" type="VBoxContainer" parent="BottomNav/MainButtons" unique_id=548774226]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="CharacterBtn" type="Button" parent="BottomNav/MainButtons/CharacterContainer" unique_id=1887388346]
+layout_mode = 2
+size_flags_vertical = 3
+icon = ExtResource("6")
+icon_alignment = 1
+expand_icon = true
+
+[node name="CharacterLabel" type="Label" parent="BottomNav/MainButtons/CharacterContainer" unique_id=1152173508]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "角色"
+horizontal_alignment = 1
+
+[node name="CityContainer" type="VBoxContainer" parent="BottomNav/MainButtons" unique_id=1887388354]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="CityBtn" type="Button" parent="BottomNav/MainButtons/CityContainer" unique_id=1887388355]
+layout_mode = 2
+size_flags_vertical = 3
+icon = ExtResource("7")
+icon_alignment = 1
+expand_icon = true
+
+[node name="CityLabel" type="Label" parent="BottomNav/MainButtons/CityContainer" unique_id=1887388356]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "主城"
+horizontal_alignment = 1
+
+[node name="PetContainer" type="VBoxContainer" parent="BottomNav/MainButtons" unique_id=125926741]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="PetBtn" type="Button" parent="BottomNav/MainButtons/PetContainer" unique_id=646727234]
+layout_mode = 2
+size_flags_vertical = 3
+icon = ExtResource("8")
+icon_alignment = 1
+expand_icon = true
+
+[node name="PetLabel" type="Label" parent="BottomNav/MainButtons/PetContainer" unique_id=1124407647]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "宠物"
+horizontal_alignment = 1
+
+[node name="BagContainer" type="VBoxContainer" parent="BottomNav/MainButtons" unique_id=1132607554]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="BagBtn" type="Button" parent="BottomNav/MainButtons/BagContainer" unique_id=1216486873]
+layout_mode = 2
+size_flags_vertical = 3
+icon = ExtResource("9")
+icon_alignment = 1
+expand_icon = true
+
+[node name="BagLabel" type="Label" parent="BottomNav/MainButtons/BagContainer" unique_id=1887388353]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "背包"
+horizontal_alignment = 1

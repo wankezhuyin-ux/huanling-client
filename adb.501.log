@@ -1,0 +1,27 @@
+--- adb starting (pid 11302) ---
+10-25 19:27:44.200 11302 20082521 I adb     : main.cpp:65 Android Debug Bridge version 1.0.41
+10-25 19:27:44.200 11302 20082521 I adb     : main.cpp:65 Version 37.0.1-15733141
+10-25 19:27:44.200 11302 20082521 I adb     : main.cpp:65 Installed as /Users/a1111/Library/Android/sdk/platform-tools/adb
+10-25 19:27:44.200 11302 20082521 I adb     : main.cpp:65 Running on Darwin 25.6.0 (arm64)
+10-25 19:27:44.200 11302 20082521 I adb     : main.cpp:65 
+10-25 19:27:44.562 11302 20082521 I adb     : adb.cpp:1288 adb server killed by remote request
+10-25 19:27:44.564 11302 20082521 I adb     : transport.cpp:1123 kicking transport 0x103764ea0 emulator-5564
+10-25 19:27:44.564 11302 20082529 I adb     : transport.cpp:1222 emulator-5564: connection terminated: read failed
+--- adb starting (pid 32590) ---
+10-28 13:20:47.936 32590 1585958 I adb     : main.cpp:65 Android Debug Bridge version 1.0.41
+10-28 13:20:47.936 32590 1585958 I adb     : main.cpp:65 Version 37.0.1-15733141
+10-28 13:20:47.936 32590 1585958 I adb     : main.cpp:65 Installed as /Users/a1111/Library/Android/sdk/platform-tools/adb
+10-28 13:20:47.936 32590 1585958 I adb     : main.cpp:65 Running on Darwin 25.6.0 (arm64)
+10-28 13:20:47.936 32590 1585958 I adb     : main.cpp:65 
+10-28 13:20:48.295 32590 1585958 I adb     : adb.cpp:1288 adb server killed by remote request
+10-28 13:20:48.296 32590 1585958 I adb     : transport.cpp:1123 kicking transport 0x105df5650 emulator-5564
+10-28 13:20:48.296 32590 1585968 I adb     : transport.cpp:1222 emulator-5564: connection terminated: read failed
+--- adb starting (pid 89912) ---
+10-29 10:51:25.600 89912 2615991 I adb     : main.cpp:65 Android Debug Bridge version 1.0.41
+10-29 10:51:25.600 89912 2615991 I adb     : main.cpp:65 Version 37.0.1-15733141
+10-29 10:51:25.600 89912 2615991 I adb     : main.cpp:65 Installed as /Users/a1111/Library/Android/sdk/platform-tools/adb
+10-29 10:51:25.600 89912 2615991 I adb     : main.cpp:65 Running on Darwin 25.6.0 (arm64)
+10-29 10:51:25.600 89912 2615991 I adb     : main.cpp:65 
+10-29 10:51:28.019 89912 2615991 I adb     : adb.cpp:1288 adb server killed by remote request
+10-29 10:51:28.020 89912 2615991 I adb     : transport.cpp:1123 kicking transport 0x101d98d00 emulator-5564
+10-29 10:51:28.020 89912 2615999 I adb     : transport.cpp:1222 emulator-5564: connection terminated: read failed
