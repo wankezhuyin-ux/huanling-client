@@ -12,12 +12,25 @@ const RARE_PET_SKILL_NAMES: = [
 
 
 # 钱币袋（原「金币袋」）在 2026-10 合并成一种道具：单个 10 万金币，归到「其它」分页。
-# 旧存档里还可能有下面这些赞助者命名的钱袋，读档时会被 from_dict 合并成「钱币袋」，
-# 这里保留名单是为了图标 / 兼容判断（迁移前的一帧、或服务端老存档回包）。
+# 旧存档里可能还有历史遗留的同类钱袋，读档时由 from_dict 合并成「钱币袋」；
+# 这里保留指纹是为了迁移前那一帧、或服务端老存档回包的兼容判断。
 const COIN_BAG_ITEM_NAME: = "钱币袋"
-const LEGACY_GOLD_BAG_NAMES: = [
-	"醉剑", "1万金币袋（醉）", "神的遗愿", "风歌夜曲", "摆烂松", "人间大炮", 
-	"我的理想", "板砖", "立羽", "铭大大", "长空秋雁", "大橘大利", "人间事", "思念", 
+# 旧版钱袋的识别按「名称 md5 前 8 位」比对，避免把历史遗留的玩家网名写进包体。
+const LEGACY_GOLD_BAG_HASHES: = [
+	"24163e57",
+	"1bcf146c",
+	"a5556265",
+	"c41945c8",
+	"25d0434d",
+	"966e9dbf",
+	"ef8f293f",
+	"3de9e749",
+	"25ccc94e",
+	"306a55af",
+	"5468d84d",
+	"bb85969c",
+	"3e5af92f",
+	"a715579e", 
 ]
 
 
@@ -27,7 +40,7 @@ static func is_gold_bag_name(item_name: String) -> bool:
 		return false
 	if n == COIN_BAG_ITEM_NAME:
 		return true
-	if LEGACY_GOLD_BAG_NAMES.has(n):
+	if LEGACY_GOLD_BAG_HASHES.has(n.md5_text().substr(0, 8)):
 		return true
 	return n.contains("金币袋")
 
@@ -78,7 +91,7 @@ static func _is_gold_bag_item(item) -> bool:
 	if n.is_empty():
 		return false
 	var desc: = _catalog_desc(n)
-	return desc.contains("赞助") and desc.contains("金币")
+	return desc.contains("钱袋") and desc.contains("金币")
 
 
 static func _is_pet_related_gift_name(item_name: String) -> bool:

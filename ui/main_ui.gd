@@ -1303,10 +1303,7 @@ func _add_qq_group_label():
 	var hbox = top_bar.get_node_or_null("HBoxContainer")
 	if hbox:
 		hbox.add_theme_constant_override("separation", 6)
-		# 顶栏只保留「金币 / 元宝」。
-		# 上一版我把「交流群」和「同步」当成"玩家说的乱七八糟"给藏了，方向搞错了 ——
-		# 参考稿战斗截图（言者 Lv.1200 那张）顶栏就是这四项，一个字都不少；
-		# 玩家真正吐槽的那堆信息是启动弹窗背后没藏住的首页皮，已经单独修掉了。
+		# 顶栏只保留「交流群 / 金币 / 元宝」。
 		var group_label = hbox.get_node_or_null("QQGroupLabel")
 		if group_label and group_label is CanvasItem:
 			(group_label as CanvasItem).visible = true
@@ -1695,7 +1692,7 @@ func _apply_ink_topbar() -> void:
 	hbox.offset_bottom = 0.0
 	hbox.add_theme_constant_override("separation", int(round(4.0 * s)))
 
-	# 交流群（白）+ 群号（金）：设计稿是两段不同颜色，拆成两个 Label
+	# 交流群（白）+ 群号（金）：两段不同颜色，拆成两个 Label
 	var qq: = hbox.get_node_or_null("QQGroupLabel")
 	if qq is Label:
 		var raw: String = (qq as Label).text
@@ -1717,7 +1714,7 @@ func _apply_ink_topbar() -> void:
 
 	var gold: = hbox.get_node_or_null("GoldLabel")
 	if gold is Label:
-		# 设计稿是「交流群 | 金币 | 元宝 ……… 同步」：货币挨着排在左边，
+		# 顶栏布局「交流群 | 金币 | 元宝」：货币挨着排在左边，
 		# 空档留在「同步」之前，所以这里不能再用 EXPAND_FILL 把元宝顶到最右。
 		(gold as Label).size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 		_ink_tint_label(gold as Label, 27.0, INK_GOLD_HI, 1.2)
@@ -9395,7 +9392,7 @@ func _show_assist_help_dialog() -> void :
 		rate_value_color, 
 		22.0
 	)
-	_assist_help_add_line(inner, "私人定制", 17, rate_name_color, 6.0)
+	_assist_help_add_line(inner, "旧藏定制", 17, rate_name_color, 6.0)
 	_assist_help_add_line(
 		inner, 
 		"%.0f%%（基础%.0f%%+额外%.0f%%）" % [

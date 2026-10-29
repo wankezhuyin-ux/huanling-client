@@ -170,81 +170,11 @@ const SINGLE_ATTR_SLOT_CONFIG = [
 ]
 
 const GOLD_BAG_CONFIG: = {
-	# 2026-10 起所有赞助钱袋合并成「钱币袋」一种（10 万金币/个），旧名字保留仅为读档迁移兜底。
+	# 2026-10 起所有旧版钱袋合并成「钱币袋」一种（10 万金币/个）。
+	# 旧名识别放在 InventoryBagSort.LEGACY_GOLD_BAG_HASHES（按名称指纹）。
 	"钱币袋": {
 		"amount": 100000, 
 		"server_key": "coin_bag", 
-		"sponsor": "", 
-	}, 
-	"醉剑": {
-		"amount": 100000, 
-		"server_key": "gold_bag_10k_zui", 
-		"sponsor": "醉里挑灯看剑丶", 
-	}, 
-	"1万金币袋（醉）": {
-		"amount": 100000, 
-		"server_key": "gold_bag_10k_zui", 
-		"sponsor": "醉里挑灯看剑丶", 
-	}, 
-	"神的遗愿": {
-		"amount": 100000, 
-		"server_key": "gold_bag_50k_shen", 
-		"sponsor": "你有格调", 
-	}, 
-	"风歌夜曲": {
-		"amount": 100000, 
-		"server_key": "gold_bag_100k_fengge", 
-		"sponsor": "夜雨风歌", 
-	}, 
-	"摆烂松": {
-		"amount": 100000, 
-		"server_key": "gold_bag_100k_bailan", 
-		"sponsor": "摆烂的松哥", 
-	}, 
-	"人间大炮": {
-		"amount": 100000, 
-		"server_key": "gold_bag_100k_renjian", 
-		"sponsor": "人间大炮", 
-	}, 
-	"我的理想": {
-		"amount": 100000, 
-		"server_key": "gold_bag_100k_wodelixiang", 
-		"sponsor": "我有理想。", 
-	}, 
-	"板砖": {
-		"amount": 100000, 
-		"server_key": "gold_bag_100k_banzhuan", 
-		"sponsor": "搬砖的", 
-	}, 
-	"立羽": {
-		"amount": 100000, 
-		"server_key": "gold_bag_100k_liyu", 
-		"sponsor": "立羽", 
-	}, 
-	"铭大大": {
-		"amount": 100000, 
-		"server_key": "gold_bag_100k_mingdada", 
-		"sponsor": "铭大大", 
-	}, 
-	"长空秋雁": {
-		"amount": 100000, 
-		"server_key": "gold_bag_100k_changkong", 
-		"sponsor": "appy", 
-	}, 
-	"大橘大利": {
-		"amount": 100000, 
-		"server_key": "gold_bag_100k_dajudali", 
-		"sponsor": "橘子", 
-	}, 
-	"人间事": {
-		"amount": 100000, 
-		"server_key": "gold_bag_100k_renjianshi", 
-		"sponsor": "人间无事人", 
-	}, 
-	"思念": {
-		"amount": 100000, 
-		"server_key": "gold_bag_100k_sinian", 
-		"sponsor": "思念", 
 	}, 
 }
 const HIGH_RISK_LOCAL_ONLY_PET_GIFTS: = ["6+可进化宠礼包", "7+可进化宠礼包", "8+可进化宠礼包", "9+可进化宠礼包", "10+可进化宠礼包", "11+可进化宠礼包", "12+可进化宠礼包", "13+可进化宠礼包", "6+可进化宠礼包(可能变异)", "7+可进化宠礼包(可能变异)", "8+可进化宠礼包(可能变异)", "9+可进化宠礼包(可能变异)", "10+可进化宠礼包(可能变异)", "11+可进化宠礼包(可能变异)", "12+可进化宠礼包(可能变异)", "13+可进化宠礼包(可能变异)", "6+不可进化宠礼包", "6+不可进化宠礼包(可能变异)", "7+不可进化宠礼包(可能变异)", "8+不可进化宠礼包(可能变异)", "9+不可进化宠礼包(可能变异)", "10+不可进化宠礼包(可能变异)", "11+不可进化宠礼包(可能变异)", "12+不可进化宠礼包(可能变异)", "13+不可进化宠礼包(可能变异)", "10-13变异可进化宠礼包", "7-9水晶儿礼包", "7-9梦晶儿礼包", "7-9阿弟达斯礼包", "仙魔灵兽礼包", "仙魔神兽礼包", "仙魔变异礼包", "仙魔野生礼包", "天关礼包", "塔1礼包", "塔2礼包", "塔3礼包", "塔4礼包", "塔5礼包", "生死塔参与礼包"]

@@ -138,7 +138,7 @@ const EVENT_PET_LIBRARY = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "醉里挑灯看剑丶私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"maiduo": {
 		"name": "麦朵", 
@@ -155,7 +155,7 @@ const EVENT_PET_LIBRARY = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "搬砖的私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"shuangyanzhan": {
 		"name": "双炎斩", 
@@ -172,7 +172,7 @@ const EVENT_PET_LIBRARY = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "立羽私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"heicaishen": {
 		"name": "黑财神", 
@@ -189,7 +189,7 @@ const EVENT_PET_LIBRARY = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "我有理想。私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"lianyugulong": {
 		"name": "炼狱骨龙", 
@@ -206,7 +206,7 @@ const EVENT_PET_LIBRARY = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "夜雨风歌私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"zhusisi": {
 		"name": "猪丝丝", 
@@ -223,7 +223,7 @@ const EVENT_PET_LIBRARY = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "我有理想。私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"shizizuo": {
 		"name": "狮子座", 
@@ -240,7 +240,7 @@ const EVENT_PET_LIBRARY = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "人间大炮私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"yuzu": {
 		"name": "狱卒", 
@@ -257,7 +257,7 @@ const EVENT_PET_LIBRARY = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "appy私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"yizhanmafu": {
 		"name": "驿站马夫", 
@@ -274,7 +274,7 @@ const EVENT_PET_LIBRARY = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "人间大炮私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"kezhanmeimei": {
 		"name": "客栈妹妹", 
@@ -291,7 +291,7 @@ const EVENT_PET_LIBRARY = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "我有理想。私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"shaiziwangwu": {
 		"name": "骰子王五", 
@@ -308,7 +308,7 @@ const EVENT_PET_LIBRARY = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "我有理想。私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"songbukuai": {
 		"name": "宋捕快", 
@@ -325,7 +325,7 @@ const EVENT_PET_LIBRARY = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "我有理想。私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"cailin": {
 		"name": "彩鳞", 
@@ -342,7 +342,7 @@ const EVENT_PET_LIBRARY = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "橘子私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"goumang": {
 		"name": "句芒", 
@@ -359,7 +359,7 @@ const EVENT_PET_LIBRARY = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "人间无事人私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"qingqiujiuwei": {
 		"name": "青丘九尾", 
@@ -376,7 +376,7 @@ const EVENT_PET_LIBRARY = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "搬砖的私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"longzhanjiang": {
 		"name": "龙战将", 
@@ -393,7 +393,7 @@ const EVENT_PET_LIBRARY = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "思念私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 }
 
@@ -3497,7 +3497,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "醉里挑灯看剑丶私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"maiduo": {
 		"name": "麦朵", 
@@ -3514,7 +3514,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "搬砖的私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"shuangyanzhan": {
 		"name": "双炎斩", 
@@ -3531,7 +3531,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "立羽私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"heicaishen": {
 		"name": "黑财神", 
@@ -3548,7 +3548,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "我有理想。私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"lianyugulong": {
 		"name": "炼狱骨龙", 
@@ -3565,7 +3565,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "夜雨风歌私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"zhusisi": {
 		"name": "猪丝丝", 
@@ -3582,7 +3582,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "我有理想。私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"shizizuo": {
 		"name": "狮子座", 
@@ -3599,7 +3599,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "人间大炮私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"yuzu": {
 		"name": "狱卒", 
@@ -3616,7 +3616,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "appy私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"yizhanmafu": {
 		"name": "驿站马夫", 
@@ -3633,7 +3633,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "人间大炮私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"kezhanmeimei": {
 		"name": "客栈妹妹", 
@@ -3650,7 +3650,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "我有理想。私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"shaiziwangwu": {
 		"name": "骰子王五", 
@@ -3667,7 +3667,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "我有理想。私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"songbukuai": {
 		"name": "宋捕快", 
@@ -3684,7 +3684,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "我有理想。私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"cailin": {
 		"name": "彩鳞", 
@@ -3701,7 +3701,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "橘子私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"goumang": {
 		"name": "句芒", 
@@ -3718,7 +3718,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "人间无事人私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"qingqiujiuwei": {
 		"name": "青丘九尾", 
@@ -3735,7 +3735,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "搬砖的私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"longzhanjiang": {
 		"name": "龙战将", 
@@ -3752,7 +3752,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "思念私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"chulong": {
 		"name": "雏龙", 
@@ -8006,21 +8006,7 @@ const ALL_ITEMS = {
 	"开荒礼包": {"name": "开荒礼包", "type": "gift", "rarity": "legendary", "desc": "打开后获得5亿金币、7只成长6.0琳琳和一套单属性+400装备", "drop_rate": 0}, 
 	"五一活动礼包": {"name": "五一活动礼包", "type": "gift", "rarity": "legendary", "desc": "2026五一活动限定礼包，打开后随机获得节日奖励。", "drop_rate": 0}, 
 	"端午节礼包": {"name": "端午节礼包", "type": "gift", "rarity": "legendary", "desc": "2026端午节活动限定礼包，打开后随机获得节日奖励。", "drop_rate": 0}, 
-	"七夕节礼包": {"name": "七夕节礼包", "type": "gift", "rarity": "legendary", "desc": "2026七夕节活动限定礼包，打开后随机获得节日奖励。", "drop_rate": 0}, 
-	"醉剑": {"name": "醉剑", "type": "gift", "rarity": "rare", "desc": "打开可获得醉里挑灯看剑丶大佬赞助的10万金币。", "drop_rate": 0}, 
-	"1万金币袋（醉）": {"name": "1万金币袋（醉）", "type": "gift", "rarity": "rare", "desc": "打开可获得醉里挑灯看剑丶大佬赞助的10万金币。", "drop_rate": 0}, 
-	"神的遗愿": {"name": "神的遗愿", "type": "gift", "rarity": "rare", "desc": "打开可获得你有格调大佬赞助的10万金币。", "drop_rate": 0}, 
-	"风歌夜曲": {"name": "风歌夜曲", "type": "gift", "rarity": "rare", "desc": "打开可获得夜雨风歌大佬赞助的10万金币。", "drop_rate": 0}, 
-	"我的理想": {"name": "我的理想", "type": "gift", "rarity": "rare", "desc": "打开可获得我有理想。大佬赞助的10万金币。", "drop_rate": 0}, 
-	"人间大炮": {"name": "人间大炮", "type": "gift", "rarity": "rare", "desc": "打开后可获得人间大炮大佬赞助的10万金币。", "drop_rate": 0}, 
-	"摆烂松": {"name": "摆烂松", "type": "gift", "rarity": "rare", "desc": "打开可获得摆烂的松哥大佬赞助的10万金币。", "drop_rate": 0}, 
-	"板砖": {"name": "板砖", "type": "gift", "rarity": "rare", "desc": "打开可获得搬砖的大佬赞助的10万金币。", "drop_rate": 0}, 
-	"立羽": {"name": "立羽", "type": "gift", "rarity": "rare", "desc": "打开可获得立羽大佬赞助的10万金币。", "drop_rate": 0}, 
-	"铭大大": {"name": "铭大大", "type": "gift", "rarity": "rare", "desc": "打开可获得铭大大大佬赞助的10万金币。", "drop_rate": 0}, 
-	"长空秋雁": {"name": "长空秋雁", "type": "gift", "rarity": "rare", "desc": "打开可获得appy大佬赞助的10万金币", "drop_rate": 0}, 
-	"大橘大利": {"name": "大橘大利", "type": "gift", "rarity": "rare", "desc": "打开可获得橘子大佬赞助的10万金币", "drop_rate": 0}, 
-	"人间事": {"name": "人间事", "type": "gift", "rarity": "rare", "desc": "打开后可获得人间无事人大佬赞助的10万金币。", "drop_rate": 0}, 
-	"思念": {"name": "思念", "type": "gift", "rarity": "rare", "desc": "打开可获得思念大佬赞助的10万金币。", "drop_rate": 0}, 
+	"七夕节礼包": {"name": "七夕节礼包", "type": "gift", "rarity": "legendary", "desc": "2026七夕节活动限定礼包，打开后随机获得节日奖励。", "drop_rate": 0},               
 	"极限装备礼包": {"name": "极限装备礼包", "type": "gift", "rarity": "legendary", "desc": "打开后获得极限武器、极限衣服、极限鞋子、极限血佩和极限内带", "drop_rate": 0}, 
 	"悟道仙丹礼包": {"name": "悟道仙丹礼包", "type": "gift", "rarity": "legendary", "desc": "打开后获得悟道仙丹 x50", "drop_rate": 0}, 
 	"100关礼包": {"name": "100关礼包", "type": "gift", "rarity": "legendary", "desc": "闯过天关100层的里程碑奖励", "drop_rate": 0}, 

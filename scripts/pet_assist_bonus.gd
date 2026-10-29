@@ -114,7 +114,7 @@ static func _collection_flavor(meta: Dictionary) -> String:
 
 static func is_sponsor_custom_meta(meta: Dictionary) -> bool:
 	var flavor: = _collection_flavor(meta)
-	return flavor.find("私人定制") >= 0 or flavor.find("私人订制") >= 0
+	return flavor.find("旧岁遗珍") >= 0 or flavor.find("私藏") >= 0
 
 static func is_noble10_exclusive_meta(meta: Dictionary) -> bool:
 	return _collection_flavor(meta).find("贵族10专属") >= 0

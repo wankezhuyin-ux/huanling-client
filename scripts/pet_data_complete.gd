@@ -140,7 +140,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "醉里挑灯看剑丶私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"maiduo": {
 		"name": "麦朵", 
@@ -157,7 +157,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "搬砖的私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"shuangyanzhan": {
 		"name": "双炎斩", 
@@ -174,7 +174,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "立羽私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"heicaishen": {
 		"name": "黑财神", 
@@ -191,7 +191,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "我有理想。私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"lianyugulong": {
 		"name": "炼狱骨龙", 
@@ -208,7 +208,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "夜雨风歌私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"zhusisi": {
 		"name": "猪丝丝", 
@@ -225,7 +225,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "我有理想。私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"shizizuo": {
 		"name": "狮子座", 
@@ -242,7 +242,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "人间大炮私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"yuzu": {
 		"name": "狱卒", 
@@ -259,7 +259,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "appy私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"yizhanmafu": {
 		"name": "驿站马夫", 
@@ -276,7 +276,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "人间大炮私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"kezhanmeimei": {
 		"name": "客栈妹妹", 
@@ -293,7 +293,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "我有理想。私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"shaiziwangwu": {
 		"name": "骰子王五", 
@@ -310,7 +310,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "我有理想。私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"songbukuai": {
 		"name": "宋捕快", 
@@ -327,7 +327,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "我有理想。私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"cailin": {
 		"name": "彩鳞", 
@@ -344,7 +344,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "橘子私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"goumang": {
 		"name": "句芒", 
@@ -361,7 +361,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "人间无事人私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"qingqiujiuwei": {
 		"name": "青丘九尾", 
@@ -378,7 +378,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "搬砖的私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"longzhanjiang": {
 		"name": "龙战将", 
@@ -395,7 +395,7 @@ const PET_DATA = {
 		"collection_display_only": true, 
 		"collection_disabled": true, 
 		"event_pool": "limited_event_pets", 
-		"collection_flavor": "思念私人定制"
+		"collection_flavor": "旧岁遗珍"
 	}, 
 	"chulong": {
 		"name": "雏龙", 
