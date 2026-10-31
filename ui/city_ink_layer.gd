@@ -81,7 +81,9 @@ func _build() -> void:
 	add_child(paper)
 	paper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
+	var _ptm: int = Time.get_ticks_msec()
 	_bg = _make_tex("bg_ink.jpg")
+	_ptm = Time.get_ticks_msec()
 	_bg.name = "Bg"
 	_apply_isle_float()
 	add_child(_bg)

@@ -233,6 +233,16 @@ func _build_cloud(cfg: Dictionary) -> void:
 	var h := float(cfg["h"])
 	var segs: Array = []
 	var need := int(ceil(DESIGN.x / tw)) + 1
+	# 同一朵云的每一段参数完全一样 —— 共用一个材质实例。
+	# 原来每段 new 一个 ShaderMaterial，16 段就是 16 个独立材质：
+	# 渲染线程要为每个材质单独绑 uniform、单独走一次 pipeline，
+	# 主城一打开就一次性涌进来，渲染线程一帧画不完 → 卡两秒。
+	var cm: ShaderMaterial = null
+	if csh != null:
+		cm = ShaderMaterial.new()
+		cm.shader = csh
+		cm.set_shader_parameter("top_fade", 0.24)
+		cm.set_shader_parameter("bot_fade", 0.28)
 	for i in range(maxi(2, need)):
 		var r := TextureRect.new()
 		r.texture = t
@@ -242,11 +252,7 @@ func _build_cloud(cfg: Dictionary) -> void:
 		r.size = Vector2(tw, h)
 		r.position = Vector2(float(i) * tw, float(cfg["y"]))
 		r.modulate = Color(tint.r, tint.g, tint.b, float(cfg["a"]))
-		if csh != null:
-			var cm := ShaderMaterial.new()
-			cm.shader = csh
-			cm.set_shader_parameter("top_fade", 0.24)
-			cm.set_shader_parameter("bot_fade", 0.28)
+		if cm != null:
 			r.material = cm
 		add_child(r)
 		segs.append(r)
@@ -432,6 +438,15 @@ func _build_falls() -> void:
 		var mats: Array = []
 		var w := FALLS_RECT.size.x + (6.0 if layer == 1 else 0.0)
 		var x := FALLS_RECT.position.x - (3.0 if layer == 1 else 0.0)
+		# 同一层的三段参数一样 → 共用一个材质（见 _build_cloud 里的说明）
+		var m: ShaderMaterial = null
+		if fsh != null:
+			m = ShaderMaterial.new()
+			m.shader = fsh
+			# 慢的一层拉更长的淡出，让两层叠起来没有硬边
+			m.set_shader_parameter("fade_top", 34.0 if layer == 0 else 20.0)
+			m.set_shader_parameter("fade_bot", 58.0 if layer == 0 else 40.0)
+			m.set_shader_parameter("strength", FALLS_ALPHA if layer == 0 else FALLS_ALPHA2)
 		for k in range(-1, 2):
 			var r := TextureRect.new()
 			r.texture = t
@@ -440,13 +455,7 @@ func _build_falls() -> void:
 			r.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			r.size = Vector2(w, FALLS_RECT.size.y)
 			r.position = Vector2(x, FALLS_RECT.position.y + float(k) * FALLS_RECT.size.y)
-			if fsh != null:
-				var m := ShaderMaterial.new()
-				m.shader = fsh
-				# 慢的一层拉更长的淡出，让两层叠起来没有硬边
-				m.set_shader_parameter("fade_top", 34.0 if layer == 0 else 20.0)
-				m.set_shader_parameter("fade_bot", 58.0 if layer == 0 else 40.0)
-				m.set_shader_parameter("strength", FALLS_ALPHA if layer == 0 else FALLS_ALPHA2)
+			if m != null:
 				r.material = m
 				mats.append(m)
 			else:
@@ -734,6 +743,7 @@ func _build_crowd() -> void:
 			"shimmer": bool(R.get("shimmer", false)), "sph": randf() * TAU,
 			"v": float(R["v0"]) + randf() * (float(R["v1"]) - float(R["v0"])),
 			"sc": sc, "frame": randf() * 4.0, "fps": 5.0 + randf() * 2.0,
+			"last_frame": -1,
 		})
 
 	# ---- 宠物 ----
@@ -753,6 +763,7 @@ func _build_crowd() -> void:
 			"dir": float(owner_["dir"]), "frame": randf() * 4.0,
 			"base": 15.0 + randf() * 15.0, "ph": randf() * TAU,
 			"vx": 0.0, "follow": i < 3, "sc": osc,
+			"last_frame": -1,
 		})
 
 	# ---- 仙鹤 ----
@@ -800,6 +811,7 @@ func _new_crane(delay: float, node: Sprite2D, boot: bool = false) -> Dictionary:
 		"bf": 0.55 + randf() * 0.75,          # 浮动频率
 		"flap": flap, "fph": randf() * 4.0,   # 扇翅频率 / 相位
 		"life": life,
+		"last_frame": -1,
 	}
 
 
@@ -1163,7 +1175,13 @@ func _update_crowd(delta: float) -> void:
 		var fr := float(it["frame"]) + delta * float(it["fps"])
 		it["frame"] = fr
 		var frames: Array = _npc_tex[String(it["kind"])]
-		n.texture = frames[int(fr) % 4]
+		# 贴图切换只在帧号真的变了时才做。
+		# 原来每帧都赋一次 n.texture（27 次/帧），即使值没变 ——
+		# 每次赋值都会让渲染服务器重新请求重绘，材质/纹理绑定失效、无法合批。
+		var fi := int(fr) % 4
+		if int(it["last_frame"]) != fi:
+			it["last_frame"] = fi
+			n.texture = frames[fi]
 		var sc := float(it["sc"])
 		n.scale = Vector2(sc, sc)
 		n.flip_h = dir < 0.0
@@ -1213,7 +1231,11 @@ func _update_crowd(delta: float) -> void:
 		var osc := float(o["sc"]) * 0.68
 		var w := PET_S * osc
 		var pframes: Array = _pet_tex[String(it2["kind"])]
-		pn.texture = pframes[int(float(it2["frame"])) % 4]
+		# 同上：帧号没变就别重设贴图
+		var pfi := int(float(it2["frame"])) % 4
+		if int(it2["last_frame"]) != pfi:
+			it2["last_frame"] = pfi
+			pn.texture = pframes[pfi]
 		pn.scale = Vector2(osc, osc)
 		pn.flip_h = float(it2["dir"]) < 0.0
 		pn.position = Vector2(x2, y2 - w * 0.5 + (PET_S - PET_BASE) * osc)
@@ -1247,8 +1269,11 @@ func _update_cranes(delta: float) -> void:
 		n.z_index = 900
 		var sc := float(it["sc"])
 		n.scale = Vector2(sc, sc)
-		# 扇翅：四帧循环，频率按体型给
-		n.texture = _crane_tex[int(tt * float(it["flap"]) + float(it["fph"])) % 4]
+		# 扇翅：四帧循环，频率按体型给（帧号没变就别重设贴图）
+		var cfi := int(tt * float(it["flap"]) + float(it["fph"])) % 4
+		if int(it["last_frame"]) != cfi:
+			it["last_frame"] = cfi
+			n.texture = _crane_tex[cfi]
 		# 姿态：朝右用原图，朝左镜像；再按航向倾一点，爬升/下滑才看得出来
 		var dirx := float(it["dir"])
 		var ang := atan2(float(it["vy"]), float(it["vx"]))

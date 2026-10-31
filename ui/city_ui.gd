@@ -40,6 +40,10 @@ static func _call_script_static(script_path: String, method: String, args: Array
 ## 置 false 可退回原来的矩形按钮布局（旧代码全部保留）。
 const INK_UI: = true
 var _ink: CityInkLayer = null
+## 整个主城页当前是不是「可见且活跃」（由 MainUI 切页时设置）
+var _city_page_active: bool = true
+## 功能页（副本 / 商店 / 排行…）是不是开着
+var _feature_page_open: bool = false
 ## 内页统一底板（主城水墨景虚化 + 墨青罩 + 主题光晕 + 纸纹），全静态绘制。
 var _backdrop: InkPageBackdrop = null
 var _forge_btn: Button = null
@@ -671,6 +675,7 @@ func _show_content(content: Control, navigation_tag: String = ""):
 	content_container.visible = true
 	content_container.mouse_filter = Control.MOUSE_FILTER_STOP
 	back_btn.visible = true
+	_feature_page_open = true
 	if _ink != null and is_instance_valid(_ink):
 		_ink.set_ui_visible(false)
 		# 功能页是全屏不透明面板，主城的环境动效（云 / 瀑布 / 人群 / 仙鹤 / 雾）
@@ -735,6 +740,24 @@ func reset_for_show() -> void :
 		game_manager.chat_network.set_world_channel()
 	if MailManager.instance:
 		_update_mail_unread_label(MailManager.instance.unread_count)
+
+
+## 整个主城页要不要「活着」。
+##
+## 之前只有「开功能页」才停环境动效（set_ambient_active(false)），
+## 但切到战斗 / 角色 / 背包页时，主城只是被 visible=false 藏起来，
+## 那些逐帧模拟还在跑：云 / 瀑布 / 水面 / 石龙双 shader / 22 个人物换图 /
+## 9 只仙鹤 / 两三层全屏噪声雾 / 30 个粒子 —— 手机上这些帧率全被吃掉了，
+## 而玩家一秒都看不见。
+##
+## 现在由 MainUI 在切页时调用：离开主城就整层停摆（process 也停），
+## 回到主城再唤醒。
+func set_city_page_active(v: bool) -> void:
+	_city_page_active = v
+	if _ink != null and is_instance_valid(_ink):
+		# 功能页开着的时候不能因为切页把动效放回来，
+		# 所以真正的开关看功能页状态（_feature_page_open 那一套）。
+		_ink.set_ambient_active(v and not _feature_page_open)
 
 func clear_content_cache_on_logout() -> void :
 	clear_world_feed_display()
@@ -879,9 +902,10 @@ func _hide_content():
 	content_container.visible = false
 	content_container.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	back_btn.visible = false
+	_feature_page_open = false
 	if _ink != null and is_instance_valid(_ink):
 		_ink.set_ui_visible(true)
-		_ink.set_ambient_active(true)
+		_ink.set_ambient_active(_city_page_active)
 		# set_ui_visible(true) 会把所有带 ink_pos 的节点一起显示，
 		# 聊天面板是否可见由玩家上次的开合状态决定，所以放在它之后收口。
 		_ink_restore_chat()

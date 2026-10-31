@@ -511,6 +511,11 @@ func _install_ink_reskin() -> void:
 func _on_ink_node_added(node: Node) -> void:
 	if not (node is Control or node is Window):
 		return
+	# 主城那一整棵子树（CityUI / CityInkLayer / CityFx）全是手写样式的节点，
+	# 不需要 ink reskin。这里跳过，省掉每个节点 39 次反射调用 ——
+	# 主城一次要建 1400+ 个节点，这笔开销不小。
+	if _is_city_subtree_node(node):
+		return
 	# 大多数构造器是「先套样式再 add_child」，这里立刻扫一遍就能命中；
 	# 也有反过来的（add_child 之后才 add_theme_*_override），所以统一排队，
 	# 本帧末再补扫一次（_flush_ink_reskin_pending）。
@@ -520,6 +525,20 @@ func _on_ink_node_added(node: Node) -> void:
 		return
 	if _ink_reskin_pending.size() < 4000:
 		_ink_reskin_pending.append(node)
+
+## 这个节点是不是主城子树里的（主城自己手写样式，不走 ink reskin）
+func _is_city_subtree_node(node: Node) -> bool:
+	var p: Node = node
+	var depth: int = 0
+	while p != null and depth < 6:
+		if p == _current_city_ui:
+			return true
+		var n := str(p.name)
+		if n == "CityFx" or n == "InkLayer":
+			return true
+		p = p.get_parent()
+		depth += 1
+	return false
 
 func _flush_ink_reskin_pending() -> void:
 	if _ink_reskin_pending.is_empty():
@@ -1197,6 +1216,55 @@ func _show_login_dialog():
 
 	add_child(startup_dialog)
 	startup_dialog.popup_centered()
+	# 趁玩家还在看「欢迎回来」面板，把主城先造出来。
+	# 主城第一次打开会卡约 2 秒 —— 实测主线程只占 110ms，剩下全在渲染线程
+	# （GL Compatibility 下首次绘制要现场编译 shader 管线、传贴图到显存）。
+	# 放在这里预热，玩家点「进入游戏」之后切主城就是零等待。
+	_prewarm_city_ui()
+
+func _prewarm_city_ui() -> void:
+	if city_ui_container == null or not is_instance_valid(city_ui_container):
+		return
+	var city_ui: = _ensure_city_ui_instance()
+	if city_ui == null:
+		return
+	# 预热期间动效要开着 —— 停了的话雾 / 粒子 / 仙鹤那些 shader 就不会被编译，
+	# 等玩家真进主城时还是要在那一帧现编（那正是卡两秒的原因）。
+	city_ui.set_city_page_active(true)
+	# 关键：光「建好节点」不够 —— 容器不可见就不会进渲染管线，
+	# shader 也就不会被编译、贴图不会被传显存。必须让它真的被画几帧，
+	# 预热才有意义（GL Compatibility 没有 pipeline cache，shader 是首次绘制时现场编译的）。
+	_prewarm_city_render_pass(city_ui)
+	# 预热完把动效停掉，等玩家真进主城再唤醒（省掉看不见时的逐帧开销）。
+	city_ui.set_city_page_active(false)
+
+## 让主城被真正渲染一帧（随后立刻藏回去）。
+## 这一帧渲染线程会把 shader 管线编译好、贴图传上显存 ——
+## 玩家之后点「主城」就不用再等那两秒。
+func _prewarm_city_render_pass(city_ui) -> void:
+	if city_ui_container == null or not is_instance_valid(city_ui_container):
+		return
+	var mc: Control = get_node_or_null("MainContent")
+	var was_mc_visible: bool = mc != null and mc.visible
+	var was_city_visible: bool = city_ui_container.visible
+	var was_modulate: Color = city_ui_container.modulate
+	if mc != null:
+		mc.visible = true
+	# 关键：光「建好节点」不够 —— 容器不可见就不会进渲染管线，
+	# shader 也就不会被编译、贴图不会被传显存。必须让它真的被画几帧，
+	# 预热才有意义（GL Compatibility 没有 pipeline cache，shader 是首次绘制时现场编译的）。
+	city_ui_container.visible = true
+	city_ui_container.modulate = Color(1, 1, 1, 0)
+	# 等渲染线程把这几帧画完（第一帧最慢：shader 管线现场编译 + 贴图上传）
+	for _i in range(8):
+		await get_tree().process_frame
+	# 预热完把透明度还回去 —— city_ui_container 是 city_view 的子节点，
+	# modulate 会往下传，压成 0 的话吊牌 / 聊天 / 环境动效全会隐形。
+	# 主城整体显隐由 city_view.modulate 管（见 _show_view）。
+	city_ui_container.modulate = was_modulate
+	if mc != null:
+		mc.visible = was_mc_visible
+	city_ui_container.visible = true
 
 func _hide_game_hud_for_startup_dialog() -> void:
 	if top_bar:
@@ -2138,6 +2206,13 @@ func _show_view(view_name: String, city_skip_reset: bool = false):
 		target_view.visible = true
 		var tween = create_tween()
 		tween.tween_property(target_view, "modulate:a", 1.0, 0.2)
+
+	# 离开主城就把主城的环境动效整层停掉（process 也停）。
+	# 主城那一整套（云 / 瀑布 / 水面 / 石龙双 shader / 22 个人物换图 / 9 只仙鹤 /
+	# 两三层全屏噪声雾 / 30 个粒子）逐帧都在跑，切到战斗页时玩家一秒都看不见，
+	# 却把手机帧率吃光了。回主城再唤醒。
+	if _current_city_ui != null and is_instance_valid(_current_city_ui):
+		_current_city_ui.set_city_page_active(view_name == "city")
 
 	match view_name:
 		"battle":
@@ -12552,11 +12627,16 @@ func _ensure_city_ui_instance() -> CityUI:
 		return existing
 	if city_ui_container == null or not is_instance_valid(city_ui_container):
 		return null
+	var _ptc: int = Time.get_ticks_msec()
 	var city_ui_scene: PackedScene = load(CITY_UI_SCENE_PATH) as PackedScene
+	print("[PROBE]   load city_ui.tscn ", Time.get_ticks_msec() - _ptc, "ms")
 	if city_ui_scene == null:
 		push_error("无法加载 city_ui 场景: %s" % CITY_UI_SCENE_PATH)
 		return null
+	_ptc = Time.get_ticks_msec()
 	var city_ui_node = city_ui_scene.instantiate()
+	print("[PROBE]   instantiate city_ui ", Time.get_ticks_msec() - _ptc, "ms")
+	_ptc = Time.get_ticks_msec()
 	if city_ui_node == null:
 		push_error("无法实例化 city_ui 场景")
 		return null
@@ -12571,6 +12651,7 @@ func _ensure_city_ui_instance() -> CityUI:
 		city_ui.city_closed.connect(_on_city_ui_closed)
 		_city_ui_closed_connected = true
 	city_ui_container.add_child(city_ui)
+	print("[PROBE]   add_child(city_ui) 含 _ready ", Time.get_ticks_msec() - _ptc, "ms")
 	_current_city_ui = city_ui
 	return city_ui
 
@@ -18251,23 +18332,8 @@ func _clear_container_immediate(container: Control):
 		container.remove_child(child)
 		child.queue_free()
 
+
 func _process(delta):
-	_flush_ink_reskin_pending()
-	_guard_modal_dim(delta)
-	_online_gate_timer += delta
-	if _online_gate_timer >= ONLINE_GATE_INTERVAL:
-		_online_gate_timer = 0.0
-		_main_ui_periodic_online_check()
-	_vip_expire_check_timer += delta
-	if _vip_expire_check_timer >= VIP_EXPIRE_CHECK_INTERVAL:
-		_vip_expire_check_timer = 0.0
-		_check_vip_expired_locally()
-	if not game_manager or not game_manager.initialized:
-		return
-	if _character_attr_panel_stale and _should_refresh_character_attr_ui():
-		_refresh_character_attr_panel(false)
-
-
 	if _vip_info_requested:
 		_vip_info_timer += delta
 		if _vip_info_timer >= _vip_info_timeout:
