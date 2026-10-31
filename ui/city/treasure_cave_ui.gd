@@ -929,9 +929,9 @@ func _format_treasure_battle_log_line(entry: Dictionary, side_map: Dictionary = 
 			var side_color: = _battle_side_color(str(entry.get("attackerRole", "")), attacker, ally_color, enemy_color, side_map)
 			var skill_name: = str(entry.get("skillName", entry.get("skill_name", ""))).strip_edges()
 			if skill_name.is_empty() and t == "triple_shot_hit":
-				skill_name = "一击三伤"
+				skill_name = "一箭三雕"
 			elif skill_name.is_empty() and t == "kuihua_hit":
-				skill_name = "点穴手"
+				skill_name = "葵花点穴"
 			var skill_prefix: = ("【%s】" % _bbcode_escape(skill_name)) if not skill_name.is_empty() else ""
 			var line: = "[color=%s]%s【%s】攻【%s】造成 %s 伤害" % [side_color, skill_prefix, _bbcode_escape(attacker), _bbcode_escape(target), dmg]
 			if entry.has("targetHp"):

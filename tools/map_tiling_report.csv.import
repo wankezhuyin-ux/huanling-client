@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bulme5styp6qy"
+
+[deps]
+
+files=["res://tools/map_tiling_report.edge.translation", "res://tools/map_tiling_report.tileable.translation", "res://tools/map_tiling_report.mode.translation", "res://tools/map_tiling_report.saliency.translation"]
+
+source_file="res://tools/map_tiling_report.csv"
+dest_files=["res://tools/map_tiling_report.edge.translation", "res://tools/map_tiling_report.tileable.translation", "res://tools/map_tiling_report.mode.translation", "res://tools/map_tiling_report.saliency.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

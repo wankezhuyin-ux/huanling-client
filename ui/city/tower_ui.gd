@@ -2067,7 +2067,7 @@ static func _add_milestone_reward(game_manager, floor: int):
 static func _add_boss_reward(game_manager, floor: int):
 	print("[TowerUI] _add_boss_reward 被调用, MailManager.instance=", MailManager.instance)
 	if MailManager.instance:
-		MailManager.instance.send_item_drop_mail("天关BOSS奖励", [{"name": "天关锦囊", "count": 1}], 0)
+		MailManager.instance.send_item_drop_mail("天关BOSS奖励", [{"name": "天关礼包", "count": 1}], 0)
 	else:
 		print("[TowerUI] MailManager.instance 为 null，无法发送BOSS奖励邮件")
 

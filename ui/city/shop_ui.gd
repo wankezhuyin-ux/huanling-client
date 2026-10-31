@@ -79,11 +79,11 @@ static func _format_seconds_compact(total_seconds: int) -> String:
 
 static func _get_yuanbao_items_cfg_fallback() -> Array:
 	return [
-		{"name": "开荒锦囊", "price": 500, "base_price": 500, "currency": "yuanbao"}, 
-		{"name": "开荒宠装锦囊", "price": 500, "base_price": 500, "currency": "yuanbao"}, 
-		{"name": "开悟丹锦囊", "price": 200, "base_price": 200, "currency": "yuanbao"}, 
+		{"name": "开荒礼包", "price": 500, "base_price": 500, "currency": "yuanbao"}, 
+		{"name": "开荒宠装礼包", "price": 500, "base_price": 500, "currency": "yuanbao"}, 
+		{"name": "悟道仙丹礼包", "price": 200, "base_price": 200, "currency": "yuanbao"}, 
 		{
-			"name": "宠物经验丹", 
+			"name": "宠物升级丹", 
 			"price": 200, 
 			"base_price": 200, 
 			"currency": "yuanbao", 
@@ -92,14 +92,14 @@ static func _get_yuanbao_items_cfg_fallback() -> Array:
 			"daily_limit": 1, 
 			"daily_remaining": 1, 
 		}, 
-		{"name": "双倍经验符", "price": 100, "base_price": 100, "currency": "yuanbao"}, 
-		{"name": "双倍经验符·月", "price": 2900, "base_price": 2900, "currency": "yuanbao"}, 
-		{"name": "双倍经验符·周", "price": 700, "base_price": 700, "currency": "yuanbao"}, 
-		{"name": "六阶可进化宠锦囊", "price": 50, "base_price": 50, "currency": "yuanbao"}, 
-		{"name": "七阶可进化宠锦囊", "price": 150, "base_price": 150, "currency": "yuanbao"}, 
-		{"name": "八阶可进化宠锦囊", "price": 600, "base_price": 600, "currency": "yuanbao"}, 
-		{"name": "七阶不可进化宠锦囊", "price": 150, "base_price": 150, "currency": "yuanbao"}, 
-		{"name": "八阶不可进化宠锦囊", "price": 450, "base_price": 450, "currency": "yuanbao"}, 
+		{"name": "双倍经验丹", "price": 100, "base_price": 100, "currency": "yuanbao"}, 
+		{"name": "双倍经验丹(月)", "price": 2900, "base_price": 2900, "currency": "yuanbao"}, 
+		{"name": "双倍经验丹(周)", "price": 700, "base_price": 700, "currency": "yuanbao"}, 
+		{"name": "6+可进化宠礼包", "price": 50, "base_price": 50, "currency": "yuanbao"}, 
+		{"name": "7+可进化宠礼包", "price": 150, "base_price": 150, "currency": "yuanbao"}, 
+		{"name": "8+可进化宠礼包", "price": 600, "base_price": 600, "currency": "yuanbao"}, 
+		{"name": "7+不可进化宠礼包", "price": 150, "base_price": 150, "currency": "yuanbao"}, 
+		{"name": "8+不可进化宠礼包", "price": 450, "base_price": 450, "currency": "yuanbao"}, 
 		{"name": "宠物补章器", "price": 50, "base_price": 50, "currency": "yuanbao"}, 
 	]
 
@@ -141,7 +141,7 @@ static func _get_yuanbao_items_cfg() -> Array:
 
 static func _get_gold_items_cfg_fallback() -> Array:
 	return [
-		{"name": "新手锦囊", "price": 1000, "base_price": 1000, "currency": "gold"}, 
+		{"name": "新手礼包", "price": 1000, "base_price": 1000, "currency": "gold"}, 
 	]
 
 static func _get_gold_items_cfg() -> Array:
@@ -169,11 +169,11 @@ static func _get_gold_items_cfg() -> Array:
 
 static func _get_friendship_items_cfg_fallback() -> Array:
 	return [
-		{"name": "金魂魄", "price": 50, "base_price": 50, "currency": "friendship"}, 
-		{"name": "木魂魄", "price": 50, "base_price": 50, "currency": "friendship"}, 
-		{"name": "水魂魄", "price": 50, "base_price": 50, "currency": "friendship"}, 
-		{"name": "火魂魄", "price": 50, "base_price": 50, "currency": "friendship"}, 
-		{"name": "土魂魄", "price": 50, "base_price": 50, "currency": "friendship"}, 
+		{"name": "金魂魄50", "price": 50, "base_price": 50, "currency": "friendship"}, 
+		{"name": "木魂魄50", "price": 50, "base_price": 50, "currency": "friendship"}, 
+		{"name": "水魂魄50", "price": 50, "base_price": 50, "currency": "friendship"}, 
+		{"name": "火魂魄50", "price": 50, "base_price": 50, "currency": "friendship"}, 
+		{"name": "土魂魄50", "price": 50, "base_price": 50, "currency": "friendship"}, 
 		{"name": "幻化符", "price": 100, "base_price": 100, "currency": "friendship"}, 
 		{"name": "法宝洗练石", "price": 100, "base_price": 100, "currency": "friendship"}, 
 		{"name": "极限武器", "price": 300, "base_price": 300, "currency": "friendship"}, 
@@ -181,12 +181,12 @@ static func _get_friendship_items_cfg_fallback() -> Array:
 		{"name": "极限血佩", "price": 300, "base_price": 300, "currency": "friendship"}, 
 		{"name": "极限鞋子", "price": 300, "base_price": 300, "currency": "friendship"}, 
 		{"name": "极限内带", "price": 300, "base_price": 300, "currency": "friendship"}, 
-		{"name": "七阶可进化宠锦囊", "price": 100, "base_price": 100, "currency": "friendship"}, 
-		{"name": "八阶可进化宠锦囊", "price": 300, "base_price": 300, "currency": "friendship"}, 
-		{"name": "九阶可进化宠锦囊", "price": 500, "base_price": 500, "currency": "friendship"}, 
-		{"name": "十阶可进化宠锦囊", "price": 900, "base_price": 900, "currency": "friendship"}, 
-		{"name": "七阶不可进化宠锦囊", "price": 100, "base_price": 100, "currency": "friendship"}, 
-		{"name": "八阶不可进化宠锦囊", "price": 250, "base_price": 250, "currency": "friendship"}, 
+		{"name": "7+可进化宠礼包", "price": 100, "base_price": 100, "currency": "friendship"}, 
+		{"name": "8+可进化宠礼包", "price": 300, "base_price": 300, "currency": "friendship"}, 
+		{"name": "9+可进化宠礼包", "price": 500, "base_price": 500, "currency": "friendship"}, 
+		{"name": "10+可进化宠礼包", "price": 900, "base_price": 900, "currency": "friendship"}, 
+		{"name": "7+不可进化宠礼包", "price": 100, "base_price": 100, "currency": "friendship"}, 
+		{"name": "8+不可进化宠礼包", "price": 250, "base_price": 250, "currency": "friendship"}, 
 	]
 
 static func _get_friendship_items_cfg() -> Array:

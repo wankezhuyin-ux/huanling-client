@@ -501,7 +501,7 @@ static func _loot_item_icon_tex(display_name: String) -> Texture2D:
 		return InventoryIconHelper.category_icon_for_item_type("material")
 	match n:
 		"极限装备":
-			return InventoryIconHelper.category_icon_for_inventory_item({"name": "极限装备锦囊"})
+			return InventoryIconHelper.category_icon_for_inventory_item({"name": "极限装备礼包"})
 		"套装强化石":
 			return InventoryIconHelper.category_icon_for_inventory_item({"name": "套装强化石"})
 		"宠物技能书":

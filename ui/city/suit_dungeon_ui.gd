@@ -658,7 +658,7 @@ static func _parse_suit_sweep_server_drops(server_data: Dictionary) -> Dictionar
 				if item_name.is_empty():
 					continue
 				var item_type: = str(d.get("type", "")).strip_edges()
-				if item_type == "stone" or item_name.ends_with("解封石"):
+				if item_type == "stone" or item_name.ends_with("普通解封石"):
 					stones.append(item_name)
 				else:
 					sealed.append(item_name)

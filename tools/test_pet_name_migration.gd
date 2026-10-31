@@ -1,42 +1,47 @@
 extends SceneTree
 
-# 宠物改名自检：名字归一 + 老存档读档后 pet_id 还能不能反查回图鉴键。
-# 跑法：Godot --headless --path . --script res://tools/test_pet_name_migration.gd
+# 宠物名自检（改名回滚后的版本）
+#
+# 背景：10-29 那轮给 5 只怪改过名（琳琳→赤翅蛾、独行→铁嘴鸦、愣头青→苔背兽、
+# 御林兔→沙耳兔、小叮咚→滴水蛙）。用户要求「所有名称改回原版」，
+# 所以现在显示名就是原版名，改名迁移表已清空。
+#
+# 这个自检锁两件事：
+#   1. 原版名直接通过归一（不会被二次改写）；
+#   2. 老存档（只有 name、没有 pet_id）读档后仍能靠名字反查回图鉴键。
+#
+# 跑法：Godot --headless --path . --script tools/test_pet_name_migration.gd
 
 const GameData = preload("res://scripts/game_data.gd")
 const PetClass = preload("res://scripts/pet.gd")
 
+## 原版名 → 该怪的 pet_id（反查靠这个）
 const CASES := {
-	"琳琳": "赤翅蛾",
-	"独行": "铁嘴鸦",
-	"愣头青": "苔背兽",
-	"御林兔": "沙耳兔",
-	"小叮咚": "滴水蛙",
+	"琳琳": "linlin",
+	"独行": "duxing",
+	"愣头青": "lèngtóuqīng",
+	"御林兔": "yùlíntù",
+	"小叮咚": "xiǎodīngdōng",
 }
 
 
 func _init() -> void:
 	var fail := 0
-	for old in CASES.keys():
-		var got: String = GameData.migrate_pet_name(str(old))
-		if got != CASES[old]:
-			print("FAIL 名字归一：", old, " -> ", got, "（应为 ", CASES[old], "）")
+	# 1) 原版名归一后应保持原样（改名表已清空，不再有任何转换）
+	for name in CASES.keys():
+		var got: String = GameData.migrate_pet_name(str(name))
+		if got != str(name):
+			print("FAIL 归一改动了原版名：", name, " -> ", got)
 			fail += 1
-	# 新名再归一不应被改动
-	for fresh in CASES.values():
-		if GameData.migrate_pet_name(str(fresh)) != str(fresh):
-			print("FAIL 新名被二次改写：", fresh)
+	# 2) 老存档：只有 name、没有 pet_id，靠名字反查图鉴键
+	for name in CASES.keys():
+		var pet: Pet = PetClass.new()
+		pet.from_dict({"name": str(name), "level": 5})
+		if pet.pet_name != str(name):
+			print("FAIL 读档后名字被改了：", name, " -> ", pet.pet_name)
 			fail += 1
-	# 老存档：只有 name、没有 pet_id，靠名字反查图鉴键
-	var pet: Pet = PetClass.new()
-	pet.from_dict({"name": "琳琳", "level": 5})
-	print("老存档读档 → name=", pet.pet_name, " pet_id=", pet.pet_id)
-	if pet.pet_name != "赤翅蛾":
-		print("FAIL 读档后名字没归一")
-		fail += 1
-	if pet.pet_id != "linlin":
-		print("FAIL 读档后 pet_id 没反查到 linlin")
-		fail += 1
-	pet.free()
-	print("结果：通过" if fail == 0 else "结果：失败 %d 项" % fail)
+		if pet.pet_id != str(CASES[name]):
+			print("FAIL 读档后 pet_id 反查错：", name, " -> ", pet.pet_id, "（应为 ", CASES[name], "）")
+			fail += 1
+	print("结果：", "通过" if fail == 0 else ("失败 %d 项" % fail))
 	quit(0 if fail == 0 else 1)

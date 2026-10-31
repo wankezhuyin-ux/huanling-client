@@ -3494,9 +3494,9 @@ func _full_rules_text() -> String:
 		range_text = "以后台配置为准"
 	var daily: = int(cfg.get("dailyLimitPerUser", 1))
 	var participate_fp: = int(cfg.get("participateFriendshipPoints", 5))
-	var participate_gift: = str(cfg.get("participateGiftItem", "生死塔参与锦囊")).strip_edges()
+	var participate_gift: = str(cfg.get("participateGiftItem", "生死塔参与礼包")).strip_edges()
 	if participate_gift.is_empty():
-		participate_gift = "生死塔参与锦囊"
+		participate_gift = "生死塔参与礼包"
 	var participate_gift_on: = bool(cfg.get("participateGiftEnabled", true))
 	var cap_parts: Array = []
 	var floor_lines: Array = []

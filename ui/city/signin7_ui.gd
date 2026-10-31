@@ -316,7 +316,7 @@ func _reward_icon(row: Dictionary) -> Texture2D:
 		return InventoryIconHelper.category_icon_for_item_type("gift")
 	if item_name.ends_with("宠物蛋"):
 		return InventoryIconHelper.category_icon_for_item_type("pet_egg")
-	if item_name.find("法宝碎片") >= 0 or item_name.begins_with("双倍经验符"):
+	if item_name.find("法宝碎片") >= 0 or item_name.begins_with("双倍经验丹"):
 		var named: = InventoryIconHelper.category_icon_for_inventory_item({"name": item_name})
 		if named:
 			return named

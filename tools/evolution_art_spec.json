@@ -1,0 +1,1772 @@
+{
+ "_readme": [
+  "可进化宠物美术规格 v2（2026-10-30 重写，推翻 v1）",
+  "",
+  "【v1 错在哪】v1 规定「进化 = 同一物种的形态变化，只改体型/纹样/饰件」，",
+  "把一条链全画成「永远是那只蝴蝶，只加花冠」。这是错的 —— 原游戏每一阶都换形体。",
+  "",
+  "【原游戏的真实规则】进化是**换形体**，不是加配饰。每条链按固定四阶阶梯走：",
+  "    阶0 幼年本体 → 阶1 中介形 → 阶2 觉醒形 → 阶3 完全体",
+  "每阶换的是**整个剪影与物种类别**，只在配色、纹样、饰件上做族内区分。",
+  "例：蝶蛾族 = 蝶 → 人形蝶翅少女 → 羽翼仙子 → 龙形神兽。",
+  "",
+  "【族内共享】27 条链其实只有 10 个族群。同族三条链共用**同一套阶梯原型**，",
+  "区别只在配色与细节（普通线暖调、变异线冷调）。",
+  "这正是形态 id 跨链复用的原因：yu_yi（蝶翅少女）既是盈盈的阶1，",
+  "也是赤翅蛾变异线的阶1 —— 同一个原型，链专属版本才分得出是蝶翅还是蛾翅。",
+  "",
+  "【与原画的关系】阶1~3 的原型以**原游戏原画**为唯一依据（assets/sprites/{form}_idle.png），",
+  "照着它的剪影画，不要另创形体。阶0 幼年本体沿用各链自己的原画。",
+  "所有产出统一为水墨工笔淡彩（与新组怪物同画风）。"
+ ],
+ "style": {
+  "medium": "东方工笔淡彩 + 水墨渲染，宣纸质感，墨线勾边",
+  "palette_normal": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+  "palette_mutant": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+  "background": "透明",
+  "framing": "主体居中，全身完整入画，留 8% 边距",
+  "prohibitions": [
+   "不要把任何一阶画成「给上一阶加花冠/加金环/加光环」—— 那是 v1 的错误做法",
+   "不要跳阶（阶1 不能直接长成阶3 的样子）",
+   "不要出现人形躯干 + 兽头的拼接怪"
+  ]
+ },
+ "stage_semantics": {
+  "0": "幼年本体：原画里那个物种本身，体型最小、饰件最少",
+  "1": "中介形：换成该族的阶1 原型物种（往往已从动物变成人形或半兽），体型中等",
+  "2": "觉醒形：换成该族的阶2 原型，明显人形化/神性化，配饰开始成套",
+  "3": "完全体：换成该族的阶3 原型，最威严，体型最大、气势最盛"
+ },
+ "families": {
+  "butterfly": {
+   "members": [
+    "yingying",
+    "linlin",
+    "zhenzhen"
+   ],
+   "label": "蝶蛾族",
+   "ladder": [
+    "蝶/蛾本体",
+    "人形蝶翅少女（背生双蝶翅的妖精）",
+    "羽翼仙子（八羽翼展开的人形仙）",
+    "龙形神兽（长身四足带翼龙）"
+   ],
+   "notes": "阶1 关键：必须是人形少女 + 蝶翅，不是「更大的蝴蝶」。阶3 是龙，不是人。",
+   "stage1_detail": {
+    "yingying": "紫蝶化形的妖精少女：紫色宽圆双翅从背后展开，绿色圆头，纤细人形身躯",
+    "linlin": "灰白蛾化形的妖精少女：灰黑宽翅带朱红斑，羽状触角，纤细人形身躯",
+    "zhenzhen": "蓝色蝶化形的妖精少女：蓝色窄翅，浅蓝身躯，黑色细触须"
+   }
+  },
+  "goldfish": {
+   "members": [
+    "dan_dan_yu",
+    "wan_zi_yu",
+    "ping_pang_yu"
+   ],
+   "label": "金尾鱼族",
+   "ladder": [
+    "圆胖金尾鱼",
+    "人鱼（鱼尾上身的少女）",
+    "人鱼仙（持宝瓶/法器的人鱼）",
+    "人鱼神女（端坐的鱼尾女神）"
+   ],
+   "notes": "阶1 起全部人形化，鱼尾保留。阶3 仍是鱼尾神女，不要画成龙。"
+  },
+  "monkey": {
+   "members": [
+    "cong_cong",
+    "xi_pi",
+    "wang_wang"
+   ],
+   "label": "猴族",
+   "ladder": [
+    "小猴",
+    "狼犬（四足兽）",
+    "巨狼（獠牙巨狼）",
+    "带翼妖（人立、背生大翼的妖）"
+   ],
+   "notes": "阶1 阶2 是四足兽，阶3 才回到人形立姿带翼。这条链形变跨度最大。"
+  },
+  "panda": {
+   "members": [
+    "a_di_da_si"
+   ],
+   "label": "熊猫族",
+   "ladder": [
+    "熊猫幼崽",
+    "熊猫战士（持盾）",
+    "熊猫牛（力士）",
+    "熊猫巨牛（狂暴形态）"
+   ]
+  },
+  "skeleton": {
+   "members": [
+    "baiguzhanshi",
+    "kulouzhanshi",
+    "chongshengzhanshi"
+   ],
+   "label": "骷髅族",
+   "ladder": [
+    "骷髅战士（拳套）",
+    "骷髅武士（持盾）",
+    "兜帽刺客（斗篷遮面）",
+    "兜帽法师（袍服加法器）"
+   ],
+   "notes": "全程人形，只是装备与灵体状态逐级变化。"
+  },
+  "bird": {
+   "members": [
+    "luluniao",
+    "nununiao",
+    "duduniao"
+   ],
+   "label": "小鸟族",
+   "ladder": [
+    "小鸟",
+    "雀（七彩长尾）",
+    "凤凰（展翅神鸟）",
+    "龙（化龙）"
+   ],
+   "notes": "前三阶全是鸟形，阶3 才化龙。"
+  },
+  "crystal": {
+   "members": [
+    "shuijinger",
+    "mengjinger"
+   ],
+   "label": "水晶族",
+   "ladder": [
+    "水晶小兽",
+    "水晶（棱面巨晶）",
+    "水晶人（人形晶体）",
+    "水晶铠甲（全身铠甲的晶体战士）"
+   ]
+  },
+  "monkeyking": {
+   "members": [
+    "lu_lu",
+    "tao_tao",
+    "meng_meng"
+   ],
+   "label": "猴王族",
+   "ladder": [
+    "小猴",
+    "猴战士（持锤）",
+    "猴王（披甲）",
+    "至尊猴（金甲神猴）"
+   ]
+  },
+  "dragon": {
+   "members": [
+    "fu_di_long",
+    "wen_di_long",
+    "shun_di_long"
+   ],
+   "label": "龙族",
+   "ladder": [
+    "小龙",
+    "龙（长身）",
+    "龙狮（狮首龙身）",
+    "人形妖姬（龙化人形的妖姬）"
+   ],
+   "notes": "阶3 从兽变成人。"
+  },
+  "pig": {
+   "members": [
+    "xiaozhubite",
+    "xiaozhuanante",
+    "xiaozhufente"
+   ],
+   "label": "小猪族",
+   "ladder": [
+    "小猪",
+    "大猪",
+    "猪战士（猪头人身）",
+    "猪王（猪头人身王冠）"
+   ]
+  }
+ },
+ "chains": {
+  "yingying": {
+   "name": "盈盈",
+   "family": "butterfly",
+   "family_label": "蝶蛾族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "yu_yi",
+       "proto": "人形蝶翅少女（背生双蝶翅的妖精）",
+       "detail": "紫蝶化形的妖精少女：紫色宽圆双翅从背后展开，绿色圆头，纤细人形身躯",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "fen_yi_xian_zi",
+       "proto": "羽翼仙子（八羽翼展开的人形仙）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "huan_yun_shou",
+       "proto": "龙形神兽（长身四足带翼龙）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "ling_shan",
+       "proto": "人形蝶翅少女（背生双蝶翅的妖精）",
+       "detail": "紫蝶化形的妖精少女：紫色宽圆双翅从背后展开，绿色圆头，纤细人形身躯",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "bai_yi_xian_zi",
+       "proto": "羽翼仙子（八羽翼展开的人形仙）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "ao_xue_shou",
+       "proto": "龙形神兽（长身四足带翼龙）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "linlin": {
+   "name": "赤翅蛾",
+   "family": "butterfly",
+   "family_label": "蝶蛾族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "ni_chang",
+       "proto": "人形蝶翅少女（背生双蝶翅的妖精）",
+       "detail": "灰白蛾化形的妖精少女：灰黑宽翅带朱红斑，羽状触角，纤细人形身躯",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "lv_yi_xian_zi",
+       "proto": "羽翼仙子（八羽翼展开的人形仙）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "di_cang_shou",
+       "proto": "龙形神兽（长身四足带翼龙）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "yu_yi",
+       "proto": "人形蝶翅少女（背生双蝶翅的妖精）",
+       "detail": "灰白蛾化形的妖精少女：灰黑宽翅带朱红斑，羽状触角，纤细人形身躯",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "fen_yi_xian_zi",
+       "proto": "羽翼仙子（八羽翼展开的人形仙）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "huan_yun_shou",
+       "proto": "龙形神兽（长身四足带翼龙）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "zhenzhen": {
+   "name": "珍珍",
+   "family": "butterfly",
+   "family_label": "蝶蛾族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "ling_shan",
+       "proto": "人形蝶翅少女（背生双蝶翅的妖精）",
+       "detail": "蓝色蝶化形的妖精少女：蓝色窄翅，浅蓝身躯，黑色细触须",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "bai_yi_xian_zi",
+       "proto": "羽翼仙子（八羽翼展开的人形仙）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "ao_xue_shou",
+       "proto": "龙形神兽（长身四足带翼龙）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "ni_chang",
+       "proto": "人形蝶翅少女（背生双蝶翅的妖精）",
+       "detail": "蓝色蝶化形的妖精少女：蓝色窄翅，浅蓝身躯，黑色细触须",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "lv_yi_xian_zi",
+       "proto": "羽翼仙子（八羽翼展开的人形仙）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "di_cang_shou",
+       "proto": "龙形神兽（长身四足带翼龙）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "dan_dan_yu": {
+   "name": "蛋蛋鱼",
+   "family": "goldfish",
+   "family_label": "金尾鱼族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "yu_wa_wa",
+       "proto": "人鱼（鱼尾上身的少女）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "ling_bo_xian_zi",
+       "proto": "人鱼仙（持宝瓶/法器的人鱼）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "cang_ming_shen_nv",
+       "proto": "人鱼神女（端坐的鱼尾女神）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "yu_mei_mei",
+       "proto": "人鱼（鱼尾上身的少女）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "zhu_lang_xian_zi",
+       "proto": "人鱼仙（持宝瓶/法器的人鱼）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "han_hai_xian_ji",
+       "proto": "人鱼神女（端坐的鱼尾女神）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "wan_zi_yu": {
+   "name": "丸子鱼",
+   "family": "goldfish",
+   "family_label": "金尾鱼族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "yu_niu_niu",
+       "proto": "人鱼（鱼尾上身的少女）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "xi_shui_xian_zi",
+       "proto": "人鱼仙（持宝瓶/法器的人鱼）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "yao_shui_ling_zun",
+       "proto": "人鱼神女（端坐的鱼尾女神）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "yu_wa_wa",
+       "proto": "人鱼（鱼尾上身的少女）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "ling_bo_xian_zi",
+       "proto": "人鱼仙（持宝瓶/法器的人鱼）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "cang_ming_shen_nv",
+       "proto": "人鱼神女（端坐的鱼尾女神）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "ping_pang_yu": {
+   "name": "乒乓鱼",
+   "family": "goldfish",
+   "family_label": "金尾鱼族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "yu_mei_mei",
+       "proto": "人鱼（鱼尾上身的少女）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "zhu_lang_xian_zi",
+       "proto": "人鱼仙（持宝瓶/法器的人鱼）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "han_hai_xian_ji",
+       "proto": "人鱼神女（端坐的鱼尾女神）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "yu_niu_niu",
+       "proto": "人鱼（鱼尾上身的少女）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "xi_shui_xian_zi",
+       "proto": "人鱼仙（持宝瓶/法器的人鱼）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "yao_shui_ling_zun",
+       "proto": "人鱼神女（端坐的鱼尾女神）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "cong_cong": {
+   "name": "匆匆",
+   "family": "monkey",
+   "family_label": "猴族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "aoririquan",
+       "proto": "狼犬（四足兽）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "duoluotianlang",
+       "proto": "巨狼（獠牙巨狼）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "huo_yao_jing",
+       "proto": "带翼妖（人立、背生大翼的妖）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "niefengquan",
+       "proto": "狼犬（四足兽）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "huanbiantianlang",
+       "proto": "巨狼（獠牙巨狼）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "zi_yi",
+       "proto": "带翼妖（人立、背生大翼的妖）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "xi_pi": {
+   "name": "西皮",
+   "family": "monkey",
+   "family_label": "猴族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "zhuiyingquan",
+       "proto": "狼犬（四足兽）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "qibiantianlang",
+       "proto": "巨狼（獠牙巨狼）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "lv_yao",
+       "proto": "带翼妖（人立、背生大翼的妖）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "aoririquan",
+       "proto": "狼犬（四足兽）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "duoluotianlang",
+       "proto": "巨狼（獠牙巨狼）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "huo_yao_jing",
+       "proto": "带翼妖（人立、背生大翼的妖）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "wang_wang": {
+   "name": "旺旺",
+   "family": "monkey",
+   "family_label": "猴族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "niefengquan",
+       "proto": "狼犬（四足兽）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "huanbiantianlang",
+       "proto": "巨狼（獠牙巨狼）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "zi_yi",
+       "proto": "带翼妖（人立、背生大翼的妖）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "zhuiyingquan",
+       "proto": "狼犬（四足兽）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "qibiantianlang",
+       "proto": "巨狼（獠牙巨狼）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "lv_yao",
+       "proto": "带翼妖（人立、背生大翼的妖）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "a_di_da_si": {
+   "name": "阿弟达斯",
+   "family": "panda",
+   "family_label": "熊猫族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "a_ge_liu_si",
+       "proto": "熊猫战士（持盾）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "a_nu_bi_si",
+       "proto": "熊猫牛（力士）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "chao_ji_a_nu",
+       "proto": "熊猫巨牛（狂暴形态）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "baiguzhanshi": {
+   "name": "白骨战士",
+   "family": "skeleton",
+   "family_label": "骷髅族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "wanglingwushi",
+       "proto": "骷髅武士（持盾）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "zhaohunshizhe",
+       "proto": "兜帽刺客（斗篷遮面）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "xiaowushi",
+       "proto": "兜帽法师（袍服加法器）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "silingwushi",
+       "proto": "骷髅武士（持盾）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "gouhunshizhe",
+       "proto": "兜帽刺客（斗篷遮面）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "xiaomoshi",
+       "proto": "兜帽法师（袍服加法器）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "kulouzhanshi": {
+   "name": "骷髅战士",
+   "family": "skeleton",
+   "family_label": "骷髅族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "silingwushi",
+       "proto": "骷髅武士（持盾）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "gouhunshizhe",
+       "proto": "兜帽刺客（斗篷遮面）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "xiaomoshi",
+       "proto": "兜帽法师（袍服加法器）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "zhonglingwushi",
+       "proto": "骷髅武士（持盾）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "shehunshizhe",
+       "proto": "兜帽刺客（斗篷遮面）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "xiaofashi",
+       "proto": "兜帽法师（袍服加法器）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "chongshengzhanshi": {
+   "name": "重生战士",
+   "family": "skeleton",
+   "family_label": "骷髅族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "zhonglingwushi",
+       "proto": "骷髅武士（持盾）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "shehunshizhe",
+       "proto": "兜帽刺客（斗篷遮面）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "xiaofashi",
+       "proto": "兜帽法师（袍服加法器）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "wanglingwushi",
+       "proto": "骷髅武士（持盾）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "zhaohunshizhe",
+       "proto": "兜帽刺客（斗篷遮面）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "xiaowushi",
+       "proto": "兜帽法师（袍服加法器）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "luluniao": {
+   "name": "露露鸟",
+   "family": "bird",
+   "family_label": "小鸟族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "fuyejiu",
+       "proto": "雀（七彩长尾）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "xuefenghuang",
+       "proto": "凤凰（展翅神鸟）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "chilong",
+       "proto": "龙（化龙）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "yulujiu",
+       "proto": "雀（七彩长尾）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "huofenghuang",
+       "proto": "凤凰（展翅神鸟）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "jinxielong",
+       "proto": "龙（化龙）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "nununiao": {
+   "name": "努努鸟",
+   "family": "bird",
+   "family_label": "小鸟族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "yulujiu",
+       "proto": "雀（七彩长尾）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "huofenghuang",
+       "proto": "凤凰（展翅神鸟）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "jinxielong",
+       "proto": "龙（化龙）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "miwuju",
+       "proto": "雀（七彩长尾）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "lanfenghuang",
+       "proto": "凤凰（展翅神鸟）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "lanmiaolong",
+       "proto": "龙（化龙）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "duduniao": {
+   "name": "嘟嘟鸟",
+   "family": "bird",
+   "family_label": "小鸟族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "miwuju",
+       "proto": "雀（七彩长尾）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "lanfenghuang",
+       "proto": "凤凰（展翅神鸟）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "lanmiaolong",
+       "proto": "龙（化龙）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "fuyejiu",
+       "proto": "雀（七彩长尾）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "xuefenghuang",
+       "proto": "凤凰（展翅神鸟）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "chilong",
+       "proto": "龙（化龙）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "shuijinger": {
+   "name": "水晶儿",
+   "family": "crystal",
+   "family_label": "水晶族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "jingtianshi",
+       "proto": "水晶（棱面巨晶）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "mengjingling",
+       "proto": "水晶人（人形晶体）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "huanjinggang",
+       "proto": "水晶铠甲（全身铠甲的晶体战士）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "mengtianshi",
+       "proto": "水晶（棱面巨晶）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "mengjinggang",
+       "proto": "水晶人（人形晶体）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "liuyitianshi",
+       "proto": "水晶铠甲（全身铠甲的晶体战士）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "mengjinger": {
+   "name": "梦晶儿",
+   "family": "crystal",
+   "family_label": "水晶族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "mengtianshi",
+       "proto": "水晶（棱面巨晶）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "mengjinggang",
+       "proto": "水晶人（人形晶体）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "liuyitianshi",
+       "proto": "水晶铠甲（全身铠甲的晶体战士）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "jingtianshi",
+       "proto": "水晶（棱面巨晶）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "mengjingling",
+       "proto": "水晶人（人形晶体）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "huanjinggang",
+       "proto": "水晶铠甲（全身铠甲的晶体战士）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "lu_lu": {
+   "name": "鲁鲁",
+   "family": "monkeyking",
+   "family_label": "猴王族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "gang_lei_fei",
+       "proto": "猴战士（持锤）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "zhong_yue_shen_yuan",
+       "proto": "猴王（披甲）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "zhi_zun_bao",
+       "proto": "至尊猴（金甲神猴）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "ben_lei_fei",
+       "proto": "猴战士（持锤）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "dong_yue_shen_yuan",
+       "proto": "猴王（披甲）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "zhi_zun_lin",
+       "proto": "至尊猴（金甲神猴）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "tao_tao": {
+   "name": "淘淘",
+   "family": "monkeyking",
+   "family_label": "猴王族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "hou_lei_fei",
+       "proto": "猴战士（持锤）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "xi_yue_shen_yuan",
+       "proto": "猴王（披甲）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "zhi_zun_cao",
+       "proto": "至尊猴（金甲神猴）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "gang_lei_fei",
+       "proto": "猴战士（持锤）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "zhong_yue_shen_yuan",
+       "proto": "猴王（披甲）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "zhi_zun_bao",
+       "proto": "至尊猴（金甲神猴）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "meng_meng": {
+   "name": "蒙蒙",
+   "family": "monkeyking",
+   "family_label": "猴王族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "ben_lei_fei",
+       "proto": "猴战士（持锤）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "dong_yue_shen_yuan",
+       "proto": "猴王（披甲）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "zhi_zun_lin",
+       "proto": "至尊猴（金甲神猴）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "hou_lei_fei",
+       "proto": "猴战士（持锤）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "xi_yue_shen_yuan",
+       "proto": "猴王（披甲）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "zhi_zun_cao",
+       "proto": "至尊猴（金甲神猴）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "fu_di_long": {
+   "name": "伏地龙",
+   "family": "dragon",
+   "family_label": "龙族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "wu_qi_long",
+       "proto": "龙（长身）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "hei_long_shi",
+       "proto": "龙狮（狮首龙身）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "hong_fa_yao_ji",
+       "proto": "人形妖姬（龙化人形的妖姬）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "bao_lan_long",
+       "proto": "龙（长身）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "qing_long_shi",
+       "proto": "龙狮（狮首龙身）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "lan_fa_mo_ji",
+       "proto": "人形妖姬（龙化人形的妖姬）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "wen_di_long": {
+   "name": "纹地龙",
+   "family": "dragon",
+   "family_label": "龙族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "huang_jin_long",
+       "proto": "龙（长身）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "huang_long_shi",
+       "proto": "龙狮（狮首龙身）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "bai_fa_she_ji",
+       "proto": "人形妖姬（龙化人形的妖姬）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "wu_qi_long",
+       "proto": "龙（长身）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "hei_long_shi",
+       "proto": "龙狮（狮首龙身）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "hong_fa_yao_ji",
+       "proto": "人形妖姬（龙化人形的妖姬）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "shun_di_long": {
+   "name": "瞬地龙",
+   "family": "dragon",
+   "family_label": "龙族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "bao_lan_long",
+       "proto": "龙（长身）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "qing_long_shi",
+       "proto": "龙狮（狮首龙身）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "lan_fa_mo_ji",
+       "proto": "人形妖姬（龙化人形的妖姬）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "huang_jin_long",
+       "proto": "龙（长身）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "huang_long_shi",
+       "proto": "龙狮（狮首龙身）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "bai_fa_she_ji",
+       "proto": "人形妖姬（龙化人形的妖姬）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "xiaozhubite": {
+   "name": "小猪比特",
+   "family": "pig",
+   "family_label": "小猪族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "zhongshanzhu",
+       "proto": "大猪",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "nanbatian",
+       "proto": "猪战士（猪头人身）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "bajie",
+       "proto": "猪王（猪头人身王冠）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "nangongzhu",
+       "proto": "大猪",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "xiaobawang",
+       "proto": "猪战士（猪头人身）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "bujie",
+       "proto": "猪王（猪头人身王冠）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "xiaozhuanante": {
+   "name": "小猪安特",
+   "family": "pig",
+   "family_label": "小猪族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "ximenzhu",
+       "proto": "大猪",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "beibatian",
+       "proto": "猪战士（猪头人身）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "yijie",
+       "proto": "猪王（猪头人身王冠）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "zhongshanzhu",
+       "proto": "大猪",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "nanbatian",
+       "proto": "猪战士（猪头人身）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "bajie",
+       "proto": "猪王（猪头人身王冠）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  },
+  "xiaozhufente": {
+   "name": "小猪芬特",
+   "family": "pig",
+   "family_label": "小猪族",
+   "branches": {
+    "normal": {
+     "palette": "暖调：金、朱砂、翡翠、粉、赭石，灵气外放",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "nangongzhu",
+       "proto": "大猪",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "xiaobawang",
+       "proto": "猪战士（猪头人身）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "bujie",
+       "proto": "猪王（猪头人身王冠）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    },
+    "mutant": {
+     "palette": "冷调：霜白、冰蓝、玄紫、月银，气质内敛",
+     "stages": [
+      {
+       "stage": 1,
+       "form_id": "ximenzhu",
+       "proto": "大猪",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 2,
+       "form_id": "beibatian",
+       "proto": "猪战士（猪头人身）",
+       "detail": "",
+       "has_ref_art": true
+      },
+      {
+       "stage": 3,
+       "form_id": "yijie",
+       "proto": "猪王（猪头人身王冠）",
+       "detail": "",
+       "has_ref_art": true
+      }
+     ]
+    }
+   }
+  }
+ },
+ "workflow": {
+  "principle": "阶1~3 的形体**不是我们发明的**，而是原游戏原画里就有的。做法：把该形态的原画当 image-to-image 输入，提示词只要求「保留原图形体与构图，改成水墨淡彩」，并明确禁止改变形体类别。这样形体 100% 对齐原游戏。",
+  "steps": [
+   "1. 从 assets/sprites/{form}_idle.png 取第 0 帧，裁透明边，放大到 768 存 /tmp/evo_ref_{form}.png（作参考图）",
+   "2. ImageGen：image1=参考图，prompt=「把这张角色立绘重绘成东方工笔淡彩水墨风格…必须严格保留原图的构图、姿态与造型特征：<该形态的形体描述>。绝对不要改变它的形体——它必须还是「<形体关键词>」，不要变成…、不要加皇冠或光环。」",
+   "3. 产出存 outputs/ai-restyle/evo/{origin}/{form}.png（透明底方图）",
+   "4. python3 tools/install_evo_art.py --all → 生成 idle/attack/图标",
+   "5. python3 tools/bake_volume_maps.py --only {origin} --force → 烘体积图",
+   "6. Godot --headless --path . --import 导入资源"
+  ],
+  "prompt_template": "把这张角色立绘重绘成东方工笔淡彩水墨风格（宣纸质感，墨线勾边，矿物颜料淡染），但必须严格保留原图的构图、姿态与造型特征：{FORM_DESC}。绝对不要改变她的形体——她必须还是「{FORM_KEY}」，不要变成{FORBID_BECOME}，不要加{FORBID_ADD}或光环。保留原有的{COLOR_TONE}配色倾向，转成淡彩水墨的{WATERCOLOR}。{BRANCH_TONE}透明背景，主体居中，全身完整入画。",
+  "credits": "每张约 5-10 积分；159 张全量约 800-1600 积分"
+ }
+}
