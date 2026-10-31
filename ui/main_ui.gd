@@ -310,6 +310,16 @@ const BATTLE_MONSTER_FORMATION_CLUSTER: = 3
 const MONSTER_ENTRANCE_SLIDE_OFFSET: = 300.0
 const MONSTER_ENTRANCE_SLIDE_DURATION: = 0.22
 const MONSTER_ENTRANCE_STAGGER_MAX: = 0.2
+
+# --- 战斗背景 ---------------------------------------------------------------
+# 背景系统本身保留：BattleScrollWorld 现在是「静态背景」模式
+# （ENABLED = false），负责换地图时换贴图，不拼接、不卷动。
+const BATTLE_SCROLL_WORLD_SCRIPT = preload("res://scripts/ui/battle_scroll_world.gd")
+var _battle_scroll_world: BattleScrollWorld = null
+## 当前绑在卷轴上的背景图路径。
+var _battle_bg_bound_path: String = ""
+## 换图淡出的旧背景垫层。
+var _battle_bg_fade: TextureRect = null
 var _ally_pet_defeat_applied: bool = false
 var _ally_player_defeat_applied: bool = false
 var _bt_ally_visual_state: Dictionary = {}
@@ -1973,7 +1983,6 @@ func _relayout_battle_units_keep_playback() -> void :
 			monster_ui.z_index = 20
 		else:
 			monster_ui.z_index = _battle_monster_ui_z_index_for_pos(new_home)
-			_apply_battle_slot_perspective(monster_ui)
 	if is_instance_valid(_battle_player_wrap) and not _is_battle_ally_wrap_slot_layout(_battle_player_wrap):
 		_shift_battle_wrap_to_new_home(_battle_player_wrap, _get_player_battle_wrap_pos())
 	if is_instance_valid(_battle_pet_wrap) and not _is_battle_ally_wrap_slot_layout(_battle_pet_wrap):
@@ -6808,7 +6817,7 @@ func _inventory_item_disallows_batch_use(item: Variant) -> bool:
 	if item == null:
 		return true
 	var n: = str(item.name).strip_edges()
-	return n == "人物经验丹" or n == "宠物经验丹"
+	return n == "人物升级丹" or n == "宠物升级丹"
 
 const PET_FRAGMENT_SYNTHESIZE_BATCH_MAX: = 50
 
@@ -7306,11 +7315,11 @@ func _show_batch_use_dialog(item):
 				var pet_batch_result: Dictionary = {}
 				if InventoryManager.SERVER_AUTH_PET_EGG_NAMES.has(item_name_s):
 					pet_batch_result = await game_manager.inventory_manager.use_pet_egg_batch(item.id, game_manager.player, count)
-				elif item_name_s == "离线宠物锦囊":
+				elif item_name_s == "离线宠物礼包":
 					pet_batch_result = await game_manager.inventory_manager.use_offline_pet_gift_batch(item.id, game_manager.player, count)
 				elif FestivalGiftManager.is_festival_gift(item_name_s):
 					pet_batch_result = await FestivalGiftManager.use_festival_gift_batch(item.id, game_manager.player, count, item_name_s)
-				elif item_name_s == "天关锦囊" or (item_name_s.ends_with("关礼包") and item_name_s != InventoryManager.BROTHER_TOWER_GIFT_NAME):
+				elif item_name_s == "天关礼包" or (item_name_s.ends_with("关礼包") and item_name_s != InventoryManager.BROTHER_TOWER_GIFT_NAME):
 					pet_batch_result = await game_manager.inventory_manager.use_tower_gift_batch(item.id, game_manager.player, count)
 				else:
 					pet_batch_result = await game_manager.inventory_manager.use_server_gift_batch(item.id, game_manager.player, count)
@@ -7319,7 +7328,7 @@ func _show_batch_use_dialog(item):
 					batch_authoritative_applied = true
 				if bool(pbres.get("success", false)):
 					custom_summary_lines = pbres.get("summary_lines", []) if pbres.get("summary_lines", []) is Array else []
-					if FestivalGiftManager.is_festival_gift(item_name_s) or item_name_s == "天关锦囊" or item_name_s.ends_with("关礼包"):
+					if FestivalGiftManager.is_festival_gift(item_name_s) or item_name_s == "天关礼包" or item_name_s.ends_with("关礼包"):
 						total_gold += int(pbres.get("total_gold", 0))
 					total_results.append(str(pbres.get("message", "")))
 				else:
@@ -19329,7 +19338,6 @@ func _rebuild_monster_ui(monsters: Array) -> void :
 			else:
 				monster_ui.position = _battle_grid_monster_slot_pos_formed(slot_index, total_count)
 				monster_ui.z_index = _battle_monster_ui_z_index_for_pos(monster_ui.position)
-				_apply_battle_slot_perspective(monster_ui)
 		monster_ui.set_meta("_battle_home_pos", monster_ui.position)
 		monster_container.add_child(monster_ui)
 		monster_ui_nodes.append(monster_ui)
@@ -19367,7 +19375,6 @@ func _reset_monster_ui_for_new_battle(monsters: Array) -> void :
 				else:
 					monster_ui.position = _battle_grid_monster_slot_pos_formed(i, total_count)
 					monster_ui.z_index = _battle_monster_ui_z_index_for_pos(monster_ui.position)
-					_apply_battle_slot_perspective(monster_ui)
 			monster_ui.set_meta("_battle_home_pos", monster_ui.position)
 		var monster_hp = _get_monster_property(monster, "hp", 100)
 		var monster_max_hp = _get_monster_property(monster, "max_hp", 100)
@@ -20803,7 +20810,7 @@ func _apply_battle_highlight(highlight: Dictionary, log_message: String = "") ->
 			color = BATTLE_BANNER_COLORS.joint
 		"skill":
 			anchor = str(highlight.get("anchor", "pet"))
-			if _is_bt_viewer() and hl_text == "一击三伤" and not log_message.is_empty():
+			if _is_bt_viewer() and hl_text == "一箭三雕" and not log_message.is_empty():
 				anchor = _resolve_bt_viewer_skill_anchor_from_message(log_message, anchor)
 			color = BATTLE_BANNER_COLORS.skill
 		_:
@@ -25195,7 +25202,7 @@ func _show_battle_floating_text(anchor: String, text: String, color: Color, larg
 		return
 	if moment_type == "":
 		moment_type = anchor
-	if text == "一击三伤":
+	if text == "一箭三雕":
 		if anchor == "pet":
 			anchor = "player"
 		elif anchor == "coop_pet":
@@ -25216,7 +25223,7 @@ func _show_battle_floating_text(anchor: String, text: String, color: Color, larg
 	var center_pos: Vector2
 	var end_pos: Vector2
 	var on_unit: = anchor == "player" or anchor == "pet" or anchor == "coop_player" or anchor == "coop_pet" or (anchor == "monster" and anchor_index >= 0)
-	var spread_idx: = 0 if text == "一击三伤" else stack_idx
+	var spread_idx: = 0 if text == "一箭三雕" else stack_idx
 	if on_unit:
 		var stack_off: = Vector2(0.0, - float(stack_idx) * 20.0)
 		if moment_type == "skill":
@@ -25562,18 +25569,6 @@ const BATTLE_GRID_MONSTER_COL0_X: = 415.0
 
 const BATTLE_GRID_MONSTER_COL0_X_PACKED: = 295.0
 const BATTLE_GRID_MONSTER_COL_STEP_PACKED: = 98.0
-
-# 斜阵：敌方每往右一列，格子同时往下压一点，读起来就是斜着排开的队列，
-# 而不是一排贴在同一水平线上。配合下面的近大远小和脚下墨影，构成伪等距纵深。
-const BATTLE_GRID_SLANT_Y_STEP: = 34.0
-const BATTLE_GRID_SLANT_X_PULL: = 14.0
-const BATTLE_GRID_SLANT_ROW_X_STEP: = 22.0
-const BATTLE_ALLY_SLANT_Y_STEP: = 8.0
-# 近大远小：y 越大离镜头越近。远端收到 0.86，近端满格，差值别太大否则像换了个怪物。
-const BATTLE_PERSPECTIVE_SCALE_NEAR: = 1.0
-const BATTLE_PERSPECTIVE_SCALE_FAR: = 0.86
-const BATTLE_PERSPECTIVE_Y_NEAR: = 440.0
-const BATTLE_PERSPECTIVE_Y_FAR: = 40.0
 const BATTLE_GRID_ALLY_PLAYER_COL_X: = -5.0
 const BATTLE_GRID_ALLY_PET_COL_X: = 120.0
 const BATTLE_GRID_ALLY_COL_SHIFT_X: = 30.0
@@ -25614,7 +25609,7 @@ func _battle_grid_row_y(row_index: int) -> float:
 # 但 stretch/aspect = "expand"：竖屏窄机（例如 418x907）逻辑高度会被拉长，
 # 宽屏平板（例如 900x1108）逻辑宽度会变宽（720 → 1039）。
 # 结果是宽屏上「人物 + 宠物 + 怪物」整排挤在左上角、人和宠叠在一起。
-# 这里把设计画布水平居中，保证任何屏幕比例下站位都和参考稿一致。
+# 这里把设计画布水平居中，保证任何屏幕比例下站位都和原版一致。
 const BATTLE_DESIGN_WIDTH: float = 720.0
 
 func _battle_field_layout_offset() -> Vector2:
@@ -25674,15 +25669,10 @@ func _battle_grid_monster_slot_pos(index: int, total_count: int) -> Vector2:
 
 	var member_y: = _battle_grid_row_y(BATTLE_GRID_ROW_MEMBER)
 	var y: = member_y + float(row - BATTLE_GRID_ROW_MEMBER) * BATTLE_GRID_MONSTER_ROW_STEP
-	# 斜阵：我方在左下，敌方阵列朝右上铺开——列每右移一格往上抬一点（更远更小），
-	# 同一列里越靠上的怪也往右让一点，两条轴合起来才是一条斜线而不是一竖排。
-	y -= float(col) * BATTLE_GRID_SLANT_Y_STEP
 
 	if _is_wild_field_battle_ui():
 		y += BT_SLOT_HP_BAR_POS.y - MONSTER_BATTLE_HP_BAR_POS.y + WILD_MONSTER_HP_ALIGN_EXTRA_Y
-	var x: = _battle_grid_monster_col_x(col, total_count) - float(col) * BATTLE_GRID_SLANT_X_PULL
-	x -= float(row - BATTLE_GRID_ROW_MEMBER) * BATTLE_GRID_SLANT_ROW_X_STEP
-	return Vector2(x, y) + _battle_field_layout_offset()
+	return Vector2(_battle_grid_monster_col_x(col, total_count), y) + _battle_field_layout_offset()
 
 func _is_wild_field_battle_ui() -> bool:
 	return game_manager != null\
@@ -25706,25 +25696,6 @@ func _pick_battle_monster_formation(force: bool = false) -> void :
 func _battle_monster_ui_z_index_for_pos(pos: Vector2) -> int:
 
 	return 20 + int(pos.y / 20.0)
-
-
-func _battle_perspective_scale_at(unit_y: float) -> float:
-	# 伪等距的「近大远小」：只按脚底 y 算，不碰逻辑，纯表现层。
-	var span: float = maxf(BATTLE_PERSPECTIVE_Y_NEAR - BATTLE_PERSPECTIVE_Y_FAR, 1.0)
-	var t: float = clampf((unit_y - BATTLE_PERSPECTIVE_Y_FAR) / span, 0.0, 1.0)
-	return lerpf(BATTLE_PERSPECTIVE_SCALE_FAR, BATTLE_PERSPECTIVE_SCALE_NEAR, t)
-
-
-func _apply_battle_slot_perspective(unit_ui: Control, slot_name: String = "MonsterSpriteSlot") -> void:
-	# 只缩放精灵槽，血条和名字保持原尺寸，否则远处的怪看不清血量。
-	if not is_instance_valid(unit_ui):
-		return
-	var slot = unit_ui.get_node_or_null(slot_name) as Control
-	if slot == null:
-		return
-	var s: = _battle_perspective_scale_at(unit_ui.position.y)
-	slot.pivot_offset = Vector2(slot.size.x * 0.5, slot.size.y)
-	slot.scale = Vector2(s, s)
 
 
 func _battle_grid_monster_formation_offset(index: int, total_count: int, formation_id: int) -> Vector2:
@@ -25977,11 +25948,7 @@ func _world_boss_monster_ui_position(cell_width: float) -> Vector2:
 
 func _battle_grid_ally_slot_pos(row_index: int, is_pet: bool) -> Vector2:
 	var col_x: = BATTLE_GRID_ALLY_PET_COL_X if is_pet else BATTLE_GRID_ALLY_PLAYER_COL_X
-	var y: = _battle_grid_row_y(row_index)
-	# 宠物站在主角斜后方半个身位，避免人与宠叠成一条直线
-	if is_pet:
-		y += BATTLE_ALLY_SLANT_Y_STEP
-	return Vector2(col_x + BATTLE_GRID_ALLY_COL_SHIFT_X, y)
+	return Vector2(col_x + BATTLE_GRID_ALLY_COL_SHIFT_X, _battle_grid_row_y(row_index))
 
 func _bt_local_on_leader_row() -> bool:
 	if _is_shengsi_replay():
@@ -27421,7 +27388,97 @@ func _add_static_sprite_to_slot(
 		tr.position = (slot_size - display_size) * 0.5
 	tr.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	slot.add_child(tr)
+	_apply_ink_volumetric(tr, mirror_x, _ink_sheet_path_of(texture))
 	return tr
+
+## —— 3D 水墨体积感 ——————————————————————————————————————
+## 新做的那组怪物立绘偏「纸片」，这里统一给战斗立绘（怪物/宠物/玩家）加：
+## 伪光照、内圈环境光遮蔽、墨线勾边、顶部轻摆（见 assets/shaders/ink_volumetric.gdshader）。
+## 只换 material，不动 transform —— 突进、受击、死亡这些补间照常工作。
+##
+## ⚠ 体积图（volume_tex）是**每个立绘各绑各的**：shader 里按 UV 采样这张
+## 半分辨率灰度图来还原体块曲率，所有立绘共用一张图的话，取到的就是别人的形状，
+## 打光等于没打（之前就是踩了这个坑，参数怎么调都平）。
+const INK_VOLUMETRIC_SHADER := preload("res://assets/shaders/ink_volumetric.gdshader")
+var _ink_volumetric_mats: Dictionary = {}          # "图集路径|镜像" → ShaderMaterial
+var _ink_volumetric_vol_tex_cache: Dictionary = {} # 图集路径 → 体积图（可能为 null）
+var _ink_volumetric_blank_tex: Texture2D = null
+
+func _ink_volume_tex_for_sheet(sheet_path: String) -> Texture2D:
+	# assets/sprites/xxx_idle.png → assets/sprites/vol/xxx_idle_vol.png
+	if sheet_path.is_empty():
+		return null
+	if _ink_volumetric_vol_tex_cache.has(sheet_path):
+		return _ink_volumetric_vol_tex_cache[sheet_path] as Texture2D
+	# res://assets/sprites/xxx_idle.png → res://assets/sprites/vol/xxx_idle_vol.png
+	# res://assets/sprites/evo/xxx_yyy_idle.png → res://assets/sprites/vol/evo/xxx_yyy_idle_vol.png
+	var dir: String = sheet_path.get_base_dir().replace("/sprites", "/sprites/vol")
+	var vol_path: String = dir + "/" + sheet_path.get_file().replace(".png", "_vol.png")
+	var tex: Texture2D = null
+	if ResourceLoader.exists(vol_path):
+		tex = load(vol_path) as Texture2D
+	_ink_volumetric_vol_tex_cache[sheet_path] = tex
+	return tex
+
+func _ink_sheet_path_of(tex: Texture2D) -> String:
+	if tex == null:
+		return ""
+	if tex is AtlasTexture:
+		var at := tex as AtlasTexture
+		return at.atlas.resource_path if at.atlas != null else ""
+	return tex.resource_path
+
+func _apply_ink_volumetric(unit: CanvasItem, mirror_x: bool = false, sheet_path: String = "") -> void :
+	if unit == null or not is_instance_valid(unit):
+		return
+	var key := "%s|%s" % [sheet_path, "1" if mirror_x else "0"]
+	var mat: ShaderMaterial = _ink_volumetric_mats.get(key, null) as ShaderMaterial
+	if mat == null:
+		mat = ShaderMaterial.new()
+		mat.shader = INK_VOLUMETRIC_SHADER
+		# 光从左上来；镜像的单位（面朝左）把光翻到右上，全场光向一致。
+		mat.set_shader_parameter("key_dir", Vector3(0.55, -0.62, 0.56) if mirror_x else Vector3(-0.55, -0.62, 0.56))
+		# 影子也得跟着光翻：面朝左的单位影子落左下。
+		mat.set_shader_parameter("shadow_uv", Vector2(0.012, -0.012) if mirror_x else Vector2(-0.014, -0.013))
+		var vol_tex := _ink_volume_tex_for_sheet(sheet_path)
+		if vol_tex != null:
+			mat.set_shader_parameter("volume_tex", vol_tex)
+			mat.set_shader_parameter("use_volume", 1.0)
+		else:
+			# 没有体积图就退回「按明度当高度」的近似，别让采样器读到空纹理
+			if _ink_volumetric_blank_tex == null:
+				var blank := Image.create(1, 1, false, Image.FORMAT_L8)
+				blank.fill(0)
+				_ink_volumetric_blank_tex = ImageTexture.create_from_image(blank)
+			mat.set_shader_parameter("volume_tex", _ink_volumetric_blank_tex)
+			mat.set_shader_parameter("use_volume", 0.0)
+		_ink_volumetric_mats[key] = mat
+	unit.material = mat
+
+## idle 与 attack 是两张不同的图集，体积图也各烘焙一张（图集版式一致，
+## shader 里按同一套 UV 采样，所以只要把材质换成对应那张就行）。
+func _bind_ink_volumetric_anim(anim: AnimatedSprite2D, sprite_id: String, mirror_x: bool) -> void:
+	if anim == null or not is_instance_valid(anim) or sprite_id.is_empty():
+		return
+	anim.set_meta("ink_sprite_id", sprite_id)
+	anim.set_meta("ink_mirror_x", mirror_x)
+	_apply_ink_volumetric(anim, mirror_x, _creature_idle_sprite_path(sprite_id))
+	if not anim.animation_changed.is_connected(_on_battle_sprite_animation_changed):
+		anim.animation_changed.connect(_on_battle_sprite_animation_changed)
+
+func _on_battle_sprite_animation_changed(anim: AnimatedSprite2D) -> void:
+	if anim == null or not is_instance_valid(anim):
+		return
+	var sprite_id := str(anim.get_meta("ink_sprite_id", ""))
+	if sprite_id.is_empty():
+		return
+	var mirror_x := bool(anim.get_meta("ink_mirror_x", false))
+	var sheet_path := _creature_idle_sprite_path(sprite_id)
+	if anim.animation == "attack":
+		var attack_path := _creature_attack_sprite_path(sprite_id)
+		if ResourceLoader.exists(attack_path):
+			sheet_path = attack_path
+	_apply_ink_volumetric(anim, mirror_x, sheet_path)
 
 func _add_anim_sprite_to_slot(slot: Control, sprite_sheet: Texture2D, mirror_x: bool = false) -> AnimatedSprite2D:
 	var scale_val = BATTLE_SPRITE_SLOT_SIZE.x / 256.0
@@ -27503,12 +27560,48 @@ func _has_creature_battle_sprite(sprite_id: String) -> bool:
 	return ResourceLoader.exists(_creature_idle_sprite_path(sprite_id))\
 	or ResourceLoader.exists(_creature_attack_sprite_path(sprite_id))
 
+## 进化宠物的立绘按「原物种 + 形态」找链专属图。
+##
+## 为什么需要：形态 id 在不同链之间是**复用**的 —— yu_yi 既是盈盈（紫蝶）的普通形态，
+## 也是赤翅蛾的变异形态。共用一张图就等于「蝴蝶进化成了蛾子」，那不是进化是换物种。
+## 所以美术按 {原物种}_{形态} 出图，文件名放 assets/sprites/evo/；
+## 没有链专属图时自动退回共用的形态图，老素材照常能用，不会开天窗。
+func _evo_chain_sprite_id(sprite_id: String, evolution_origin: String) -> String:
+	if sprite_id.is_empty() or evolution_origin.is_empty():
+		return sprite_id
+	var chain_id := "evo/%s_%s" % [evolution_origin.to_lower(), sprite_id.to_lower()]
+	if ResourceLoader.exists("res://assets/sprites/%s_idle.png" % chain_id):
+		return chain_id
+	return sprite_id
+
+
+## 从宠物数据里取「原物种 id」与服务端 evolution_origin 字段对齐。
+func _pet_evolution_origin(pet) -> String:
+	# pet 可能是 Node（Pet 节点）或 Dictionary，两种取法不一样。
+	# Node 不能用 get(k, default) —— Object.get() 只接受一个参数，
+	# 传两个会直接报 "Invalid call to function 'get'"。用属性检查来判存在性。
+	if pet == null:
+		return ""
+	if pet is Dictionary:
+		if pet.has("evolution_origin"):
+			return str(pet.get("evolution_origin", ""))
+		if pet.has("evolution_origin_id"):
+			return str(pet.get("evolution_origin_id", ""))
+		return ""
+	if "evolution_origin" in pet:
+		return str(pet.evolution_origin).strip_edges()
+	return ""
+
+
 func _creature_idle_sprite_path(sprite_id: String) -> String:
 	# Art-only replacement for the original starter ID.
 	if sprite_id.to_lower() == "kǔxínggūi":
 		return "res://art/runtime/deer-idle.res"
 	if sprite_id == "":
 		return ""
+	# evo/xxx_yyy = 进化宠物的「链专属」立绘（按原物种 + 形态命名）
+	if sprite_id.begins_with("evo/"):
+		return "res://assets/sprites/" + sprite_id + "_idle.png"
 	return "res://assets/sprites/" + sprite_id.to_lower() + "_idle.png"
 
 func _creature_attack_sprite_path(sprite_id: String) -> String:
@@ -27517,6 +27610,8 @@ func _creature_attack_sprite_path(sprite_id: String) -> String:
 		return "res://art/runtime/deer-attack.res"
 	if sprite_id == "":
 		return ""
+	if sprite_id.begins_with("evo/"):
+		return "res://assets/sprites/" + sprite_id + "_attack.png"
 	return "res://assets/sprites/" + sprite_id.to_lower() + "_attack.png"
 
 func _battle_sprite_frames_cache_key(sprite_id: String, attack_duration: float) -> String:
@@ -27636,6 +27731,7 @@ func _create_player_battle_anim_sprite(wrap: Control, node_name: String, charact
 	player_anim.z_index = 20
 	wrap.add_child(player_anim)
 	_layout_player_visual_in_current_scene(wrap, cid)
+	_bind_ink_volumetric_anim(player_anim, PlayerCharacterConfig.get_sprite_id(cid), false)
 	BattleMonsterDefeatEffect.remember_base_scale(player_anim)
 	_apply_battle_sprite_playback_state(player_anim)
 	_ensure_player_wrap_foot_shadow(wrap, player_anim)
@@ -27686,6 +27782,7 @@ func _populate_battle_sprite_slot(
 		if anim:
 			anim.name = sprite_node_name
 			anim.z_index = 20
+			_bind_ink_volumetric_anim(anim, sprite_id, mirror_x)
 			BattleMonsterDefeatEffect.remember_base_scale(anim)
 			_apply_battle_sprite_playback_state(anim)
 			_ensure_battle_slot_foot_shadow(slot, slot_size, anim)
@@ -27695,6 +27792,7 @@ func _populate_battle_sprite_slot(
 		return null
 	var tr: = _add_static_sprite_to_slot(slot, static_tex, slot_size, static_display_size, mirror_x)
 	tr.name = sprite_node_name
+	# 材质已在 _add_static_sprite_to_slot 里按这张图自己的体积图挂好，这里别再覆盖。
 	BattleMonsterDefeatEffect.remember_base_scale(tr)
 	_ensure_battle_slot_foot_shadow(slot, slot_size, tr)
 	return tr
@@ -27968,9 +28066,11 @@ func _refresh_pet_battle_display() -> void :
 
 	var pet_tex: Texture2D = _get_pet_battle_texture()
 	var pet_slot_size: = _ally_pet_battle_slot_size()
+	# 进化过的宠物：立绘按「原物种 + 形态」找链专属图（没有就退回共用形态图）
+	var pet_sprite_id: String = _evo_chain_sprite_id(pet_id, _pet_evolution_origin(pet))
 	var pet_sprite: = _populate_battle_sprite_slot(
 		slot, 
-		pet_id, 
+		pet_sprite_id, 
 		_bt_ally_pet_mirror_x(), 
 		pet_tex, 
 		pet_slot_size, 
@@ -28332,6 +28432,19 @@ func _remove_battle_panel_child_immediate(panel: Panel, node: Node) -> void :
 	node.free()
 
 
+func _ensure_battle_scroll_world(battle_panel: Panel) -> BattleScrollWorld:
+	if _battle_scroll_world == null or not is_instance_valid(_battle_scroll_world):
+		_battle_scroll_world = BATTLE_SCROLL_WORLD_SCRIPT.new()
+		_battle_scroll_world.name = "BattleScrollWorld"
+		add_child(_battle_scroll_world)
+	if not _battle_scroll_world.is_inside_tree():
+		add_child(_battle_scroll_world)
+	var bg = battle_panel.get_node_or_null("BattleBackground")
+	if bg is TextureRect:
+		_battle_scroll_world.bind(battle_panel, bg)
+	return _battle_scroll_world
+
+
 func _ensure_battle_background_layers(battle_panel: Panel) -> void :
 	if battle_panel == null:
 		return
@@ -28351,10 +28464,28 @@ func _ensure_battle_background_layers(battle_panel: Panel) -> void :
 		bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		bg.z_index = 12
 		battle_panel.add_child(bg)
+	var world: BattleScrollWorld = _ensure_battle_scroll_world(battle_panel)
 	var bg_tex = _load_battle_background_texture()
 	if bg_tex:
+		# 换图（自动升级地图 / 手动切换）不许硬切：旧图先垫一层慢慢淡掉，
+		# 新图在底下顶上来。这就是「打了第二波结束会闪屏一下」的来源——
+		# 连胜升级地图时 bg.texture 被直接换掉，整张背景一帧跳变。
+		var old_tex: Texture2D = bg.texture as Texture2D
+		if old_tex != null and old_tex != bg_tex:
+			_start_battle_bg_dissolve(battle_panel, old_tex, bg.offset_left)
 		bg.texture = bg_tex
 	battle_panel.move_child(bg, 0)
+	if bg is TextureRect:
+		world.bind(battle_panel, bg)
+		if bg_tex:
+			# 当前是静态背景（BattleScrollWorld.ENABLED = false）：
+			# 这里只换贴图，不拼接、不卷动。开关打开时才会去准备镜像铺贴。
+			world.prepare(bg_tex)
+	# 换了一张背景图 = 换了一段路：卷轴从头开始。
+	var bg_path: String = _resolve_battle_background_path()
+	if bg_path != _battle_bg_bound_path:
+		_battle_bg_bound_path = bg_path
+		world.reset()
 
 	var bg_mask = battle_panel.get_node_or_null("BattleBackgroundMask")
 	if not is_instance_valid(bg_mask) or not bg_mask is TextureRect:
@@ -28380,6 +28511,40 @@ func _ensure_battle_background_layers(battle_panel: Panel) -> void :
 	var bp_style = StyleBoxFlat.new()
 	bp_style.bg_color = Color(0, 0, 0, 0)
 	battle_panel.add_theme_stylebox_override("panel", bp_style)
+
+
+## 换图时的旧背景垫层：旧图按原来的偏移摆好，再整体淡出。
+## 有这层，新图在底下怎么换、卷轴怎么归零，画面都不会跳。
+func _start_battle_bg_dissolve(panel: Panel, old_tex: Texture2D, old_offset: float) -> void:
+	if old_tex == null or panel == null:
+		return
+	var fade: TextureRect = null
+	if _battle_bg_fade != null and is_instance_valid(_battle_bg_fade) and _battle_bg_fade.get_parent() == panel:
+		fade = _battle_bg_fade
+	if fade == null:
+		fade = TextureRect.new()
+		fade.name = "BattleBackgroundFade"
+		fade.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		fade.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+		fade.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		fade.z_index = 12
+		fade.set_anchors_preset(Control.PRESET_FULL_RECT)
+		fade.offset_top = 0
+		fade.offset_bottom = 0
+		panel.add_child(fade)
+	fade.texture = old_tex
+	fade.offset_left = -old_offset
+	fade.offset_right = -old_offset
+	fade.modulate = Color(1.0, 1.0, 1.0, 1.0)
+	_battle_bg_fade = fade
+	var tween: Tween = create_tween()
+	tween.bind_node(fade)
+	tween.tween_property(fade, "modulate:a", 0.0, 0.8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_callback(func():
+		if is_instance_valid(fade):
+			fade.queue_free()
+		if _battle_bg_fade == fade:
+			_battle_bg_fade = null)
 
 
 func _resolve_battle_background_path() -> String:

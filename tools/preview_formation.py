@@ -2,9 +2,12 @@
 # -*- coding: utf-8 -*-
 """按游戏里的真实坐标算一遍战场站位，用真实立绘和背景合成对比图。
 
-改前 / 改后两张，坐标公式与 ui/main_ui.gd 里的
+坐标公式与 ui/main_ui.gd 里的
 _battle_grid_monster_slot_pos / _battle_grid_ally_slot_pos 保持一致，
 调参时不用反复进游戏截图。
+
+站位已回退原版网格布局：敌方按「列 + 行」铺（每列 3~4 只），
+我方主角与宠物各占一格、行号相同（左右相邻），没有斜阵也没有近大远小。
 """
 import os
 
@@ -23,40 +26,22 @@ ALLY_PLAYER_X = -5.0
 ALLY_PET_X = 120.0
 ALLY_SHIFT_X = 30.0
 WILD_Y = -13.0
-SLANT_Y = 34.0
-SLANT_X_PULL = 14.0
-SLANT_ROW_X = 22.0
-PERSP_NEAR, PERSP_FAR = 1.0, 0.86
-PERSP_Y_NEAR, PERSP_Y_FAR = 440.0, 40.0
 
 
-def clamp(v, lo, hi):
-    return max(lo, min(hi, v))
-
-
-def monster_pos(idx, total, new_layout):
+def monster_pos(idx, total):
     per_col = 4 if total > 6 else 3
     col = idx // per_col
     role = min(idx % per_col, per_col - 1)
     row = [ROW_MEMBER, ROW_LEADER, ROW_RESERVE_BOTTOM, 0][role]
     y = 270.0 + (row - ROW_MEMBER) * MON_ROW_STEP + WILD_Y
     x = COL0_X + col * COL_STEP
-    if new_layout:
-        y -= col * SLANT_Y
-        x -= col * SLANT_X_PULL
-        x -= (row - ROW_MEMBER) * SLANT_ROW_X
     return x, y
 
 
-def ally_pos(is_pet, new_layout):
+def ally_pos(is_pet):
     x = (ALLY_PET_X if is_pet else ALLY_PLAYER_X) + ALLY_SHIFT_X
-    y = 270.0 + (8.0 if (is_pet and new_layout) else 0.0)
+    y = 270.0
     return x, y
-
-
-def persp_scale(y):
-    t = clamp((y - PERSP_Y_FAR) / (PERSP_Y_NEAR - PERSP_Y_FAR), 0.0, 1.0)
-    return PERSP_FAR + (PERSP_NEAR - PERSP_FAR) * t
 
 
 def load_unit(path, cx, foot_y, height):
@@ -81,54 +66,42 @@ def cover(im, w, h):
     return im.crop((x, y, x + w, y + h))
 
 
-def compose(new_layout, monsters):
+def compose(monsters):
     bg = Image.open(os.path.join(ROOT, "assets/backgrounds/迷踪林.jpg")).convert("RGB")
     bg = cover(bg, W, H).convert("RGBA")
     shade = Image.new("RGBA", (W, H), (0, 0, 0, 0))
 
     units = []
-    px, py = ally_pos(False, new_layout)
-    units.append(("assets/portraits/player.png", px + 50, py + 100, 128, 1.0))
-    qx, qy = ally_pos(True, new_layout)
-    units.append(("assets/pets/nawahuo.png", qx + 60, qy + 126, 104, persp_scale(qy)))
+    px, py = ally_pos(False)
+    units.append(("assets/portraits/player.png", px + 50, py + 100, 128))
+    qx, qy = ally_pos(True)
+    units.append(("assets/pets/nawahuo.png", qx + 60, qy + 126, 104))
 
     total = len(monsters)
     for i, pid in enumerate(monsters):
-        mx, my = monster_pos(i, total, new_layout)
-        s = persp_scale(my) if new_layout else 1.0
-        units.append((f"assets/pets/{pid}.png", mx + 65, my + 126, 96 * s, s))
+        mx, my = monster_pos(i, total)
+        units.append((f"assets/pets/{pid}.png", mx + 65, my + 126, 96))
 
-    for path, cx, foot, h, _s in units:
+    for path, cx, foot, h in units:
         draw_shadow(shade, cx, foot - 4, h * 0.85)
 
     shade = shade.filter(ImageFilter.GaussianBlur(4))
     bg.alpha_composite(shade)
 
-    for path, cx, foot, h, _s in units:
+    for path, cx, foot, h in units:
         im, pos = load_unit(os.path.join(ROOT, path), cx, foot, h)
         bg.alpha_composite(im, pos)
 
-    d = ImageDraw.Draw(bg)
-    if new_layout:
-        pts = []
-        for i in range(len(monsters)):
-            mx, my = monster_pos(i, len(monsters), True)
-            pts.append((mx + 65, my + 66))
-        pts.sort(key=lambda p: (p[1], p[0]))
-        if len(pts) > 1:
-            d.line(pts, fill=(210, 90, 60, 120), width=2)
     return bg.convert("RGB")
 
 
 def main():
     monsters = ["linlin", "duxing", "yùlíntù", "xiǎodīngdōng", "lèngtóuqīng"]
-    old = compose(False, monsters)
-    new = compose(True, monsters)
+    shot = compose(monsters)
 
     gap = 34
-    canvas = Image.new("RGB", (W, H * 2 + gap + 96), (24, 22, 20))
-    canvas.paste(old, (0, 52))
-    canvas.paste(new, (0, 52 + H + gap))
+    canvas = Image.new("RGB", (W, H + gap + 96), (24, 22, 20))
+    canvas.paste(shot, (0, 52))
 
     d = ImageDraw.Draw(canvas)
     f = None
@@ -143,8 +116,7 @@ def main():
             continue
     if f is None:
         f = ImageFont.load_default()
-    d.text((24, 14), "改前：怪物竖着贴在同一列上", fill=(235, 230, 222), font=f)
-    d.text((24, 52 + H + gap - 38), "改后：斜阵 + 近大远小 + 脚下墨影", fill=(235, 230, 222), font=f)
+    d.text((24, 14), "原版站位：怪物按列铺开，我方角色与宠物左右相邻", fill=(235, 230, 222), font=f)
 
     out = os.path.join(ROOT, "docs/站位对比.png")
     canvas.save(out)
