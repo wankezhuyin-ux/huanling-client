@@ -12,7 +12,7 @@ static func run(ui, gm) -> void:
 	var rows: Array = []
 	for count in range(4):
 		if count > 0:
-			gm.local_extend_double_exp(["双倍经验符", "双倍经验符·周", "双倍经验符·月"][count - 1])
+			gm.local_extend_double_exp(["双倍经验丹", "双倍经验丹(周)", "双倍经验丹(月)"][count - 1])
 		p.level = 1
 		p.experience = 0
 		pet.level = 1

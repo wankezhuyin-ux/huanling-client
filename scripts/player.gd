@@ -78,7 +78,7 @@ var vip_level: int = 0
 var vip_expire_time_str: String = ""
 var double_exp_until: int = 0
 
-# 三种双倍经验符各自独立计时（服务端权威）：{"双倍经验符": ts, "双倍经验符·周": ts, "双倍经验符·月": ts}
+# 三种双倍经验丹各自独立计时（服务端权威）：{"双倍经验丹": ts, "双倍经验丹(周)": ts, "双倍经验丹(月)": ts}
 # 参考稿是「三种可以同时生效、时效分开算」，每多一种生效再加 100% 经验。
 # 老存档 / 老服务端没有这个字段时回退到 double_exp_until 的单通道口径。
 var double_exp_channels: Dictionary = {}
@@ -445,7 +445,7 @@ func add_exp(amount: int, allow_multiple_levels: bool = true, include_newbie_bon
 			var pill_suffix: String = ""
 			if pill_count > 1:
 				pill_suffix = "（%d种叠加）" % pill_count
-			messages.append("[color=orange]双倍经验符生效：经验 +%d%%!%s[/color]" % [pill_count * 100, pill_suffix])
+			messages.append("[color=orange]双倍经验丹生效：经验 +%d%%!%s[/color]" % [pill_count * 100, pill_suffix])
 		elif vip_pct > 0:
 			messages.append("[color=gold]VIP加成：经验 +%d%%![/color]" % vip_pct)
 

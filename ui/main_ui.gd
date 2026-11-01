@@ -4509,11 +4509,11 @@ func _sync_double_exp_privilege_checkbox_state(show_tip_when_invalid: bool) -> v
 	_updating_double_exp_privilege_checkbox = false
 
 	if is_active:
-		double_exp_privilege_checkbox.tooltip_text = "双倍经验符生效中：达到飞升/投胎条件后自动执行（结果弹窗自动关闭）"
+		double_exp_privilege_checkbox.tooltip_text = "双倍经验丹生效中：达到飞升/投胎条件后自动执行（结果弹窗自动关闭）"
 	else:
-		double_exp_privilege_checkbox.tooltip_text = "设置会被保存；仅在双倍经验符生效期间自动执行"
+		double_exp_privilege_checkbox.tooltip_text = "设置会被保存；仅在双倍经验丹生效期间自动执行"
 		if show_tip_when_invalid and want_enabled:
-			_show_error_tip("已开启。双倍经验符生效期间，达到条件会自动飞升/投胎")
+			_show_error_tip("已开启。双倍经验丹生效期间，达到条件会自动飞升/投胎")
 	_refresh_double_exp_privilege_checkbox_text()
 	# 面板重建时补一次判定：勾着、丹在生效、等级也够了就直接执行，
 	# 不用等下一次升级信号。
@@ -4547,20 +4547,20 @@ func _try_auto_realm_transition() -> void :
 	_auto_realm_transition_in_progress = true
 	_dismiss_realm_transition_ui_chrome()
 	if can_reincarnate:
-		_add_log("[color=#f6d06a]双倍经验符权益触发：检测到满足投胎条件，正在自动投胎...[/color]")
-		_show_auto_realm_transition_tip("双倍经验符权益触发\n检测到满足投胎条件，正在自动投胎...")
+		_add_log("[color=#f6d06a]双倍经验丹权益触发：检测到满足投胎条件，正在自动投胎...[/color]")
+		_show_auto_realm_transition_tip("双倍经验丹权益触发\n检测到满足投胎条件，正在自动投胎...")
 		await _on_character_realm_reincarnate_pressed()
 		if player.reincarnation > previous_reincarnation:
-			_add_log("[color=#7dff9b]双倍经验符权益触发：已自动投胎（第%d次）。[/color]" % player.reincarnation)
-			_show_auto_realm_transition_tip("双倍经验符权益触发\n已自动投胎（第%d次）" % player.reincarnation)
+			_add_log("[color=#7dff9b]双倍经验丹权益触发：已自动投胎（第%d次）。[/color]" % player.reincarnation)
+			_show_auto_realm_transition_tip("双倍经验丹权益触发\n已自动投胎（第%d次）" % player.reincarnation)
 			await _try_player_attr_auto_allocate_after_level_up()
 	elif can_ascend:
-		_add_log("[color=#f6d06a]双倍经验符权益触发：检测到满足飞升条件，正在自动飞升...[/color]")
-		_show_auto_realm_transition_tip("双倍经验符权益触发\n检测到满足飞升条件，正在自动飞升...")
+		_add_log("[color=#f6d06a]双倍经验丹权益触发：检测到满足飞升条件，正在自动飞升...[/color]")
+		_show_auto_realm_transition_tip("双倍经验丹权益触发\n检测到满足飞升条件，正在自动飞升...")
 		await _on_character_realm_ascend_pressed()
 		if player.realm != previous_realm:
-			_add_log("[color=#7dff9b]双倍经验符权益触发：已自动飞升至【%s】。[/color]" % player.realm)
-			_show_auto_realm_transition_tip("双倍经验符权益触发\n已自动飞升至【%s】" % player.realm)
+			_add_log("[color=#7dff9b]双倍经验丹权益触发：已自动飞升至【%s】。[/color]" % player.realm)
+			_show_auto_realm_transition_tip("双倍经验丹权益触发\n已自动飞升至【%s】" % player.realm)
 			await _try_player_attr_auto_allocate_after_level_up()
 	_auto_realm_transition_in_progress = false
 	_dismiss_realm_transition_ui_chrome()
@@ -4570,7 +4570,7 @@ func _refresh_double_exp_privilege_checkbox_text() -> void :
 	if not is_instance_valid(double_exp_privilege_checkbox):
 		return
 	# 右栏只有约 400px，原来那串 30 字的说明会被裁掉一半，压短但语义不变
-	double_exp_privilege_checkbox.text = "启用双倍经验符权益（自动飞升/投胎）"
+	double_exp_privilege_checkbox.text = "启用双倍经验丹权益（自动飞升/投胎）"
 
 func _build_talent_view():
 	if character_talent_container == null:

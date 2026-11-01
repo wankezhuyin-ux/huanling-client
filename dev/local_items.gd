@@ -1,7 +1,7 @@
 extends RefCounted
 
 const GameData = preload("res://scripts/game_data.gd")
-const DOUBLE_HOURS := {"双倍经验符": 24, "双倍经验符·周": 168, "双倍经验符·月": 720}
+const DOUBLE_HOURS := {"双倍经验丹": 24, "双倍经验丹(周)": 168, "双倍经验丹(月)": 720}
 
 static func use_item(gm, item_id: String, quantity: int = 1) -> Dictionary:
 	var inv = gm.inventory_manager

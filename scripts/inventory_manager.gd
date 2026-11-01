@@ -8,12 +8,12 @@ const ForgeData = preload("res://scripts/forge/forge_data.gd")
 const PetEquipmentEnhance = preload("res://scripts/pet_equipment/pet_equipment_enhance.gd")
 const FestivalGiftManager = preload("res://scripts/festival_gift_manager.gd")
 const WorldBossConfig = preload("res://scripts/world_boss/world_boss_config.gd")
-const NORMAL_SEAL_STONE_ITEM: = "解封石"
+const NORMAL_SEAL_STONE_ITEM: = "普通解封石"
 const ADVANCED_SEAL_STONE_ITEM: = "高级解封石"
 const NORMAL_PER_ADVANCED_SEAL_STONE: = 10
 const ITEM_NAME_ALIASES: = {
-	"修行丹": "开悟丹", 
-	"解封石": NORMAL_SEAL_STONE_ITEM, 
+	"修行丹": "悟道仙丹", 
+	"普通解封石": NORMAL_SEAL_STONE_ITEM, 
 	"溅墨lv1": "溅墨lv1技能书", 
 	"溅墨 lv1": "溅墨lv1技能书", 
 	"溅墨1": "溅墨lv1技能书", 
@@ -177,10 +177,10 @@ const GOLD_BAG_CONFIG: = {
 		"server_key": "coin_bag", 
 	}, 
 }
-const HIGH_RISK_LOCAL_ONLY_PET_GIFTS: = ["六阶可进化宠锦囊", "七阶可进化宠锦囊", "八阶可进化宠锦囊", "九阶可进化宠锦囊", "十阶可进化宠锦囊", "十一阶可进化宠锦囊", "十二阶可进化宠锦囊", "十三阶可进化宠锦囊", "六阶可进化宠锦囊（变异）", "七阶可进化宠锦囊（变异）", "八阶可进化宠锦囊（变异）", "九阶可进化宠锦囊（变异）", "十阶可进化宠锦囊（变异）", "十一阶可进化宠锦囊（变异）", "十二阶可进化宠锦囊（变异）", "十三阶可进化宠锦囊（变异）", "六阶不可进化宠锦囊", "六阶不可进化宠锦囊（变异）", "七阶不可进化宠锦囊（变异）", "八阶不可进化宠锦囊（变异）", "九阶不可进化宠锦囊（变异）", "十阶不可进化宠锦囊（变异）", "十一阶不可进化宠锦囊（变异）", "十二阶不可进化宠锦囊（变异）", "十三阶不可进化宠锦囊（变异）", "十至十三阶变异可进化锦囊", "七至九阶晶儿锦囊", "七至九阶梦晶锦囊", "七至九阶阿弟锦囊", "仙魔灵兽锦囊", "仙魔神兽锦囊", "仙魔变异锦囊", "仙魔野生锦囊", "天关锦囊", "试炼塔锦囊·一", "试炼塔锦囊·二", "试炼塔锦囊·三", "试炼塔锦囊·四", "试炼塔锦囊·五", "生死塔参与锦囊"]
-const HIGH_RISK_LOCAL_ONLY_PET_EGGS: = ["五阶宠物蛋", "火纹蛋", "水纹蛋", "木纹蛋", "金纹蛋", "土纹蛋", "金纹异蛋", "木纹异蛋", "水纹异蛋", "火纹异蛋", "土纹异蛋"]
-const SERVER_AUTH_PET_EGG_NAMES: = ["五阶宠物蛋", "火纹蛋", "水纹蛋", "木纹蛋", "金纹蛋", "土纹蛋", "金纹异蛋", "木纹异蛋", "水纹异蛋", "火纹异蛋", "土纹异蛋"]
-const SERVER_AUTH_PET_GIFT_NAMES: = ["五阶宠物锦囊", "六阶可进化宠锦囊", "七阶可进化宠锦囊", "六阶不可进化宠锦囊", "七阶不可进化宠锦囊", "八阶不可进化宠锦囊", "八阶可进化宠锦囊", "九阶可进化宠锦囊", "九阶不可进化宠锦囊", "十阶不可进化宠锦囊", "十一阶不可进化宠锦囊", "十阶可进化宠锦囊", "十一阶可进化宠锦囊", "十二阶不可进化宠锦囊", "十二阶可进化宠锦囊", "十三阶不可进化宠锦囊", "十三阶可进化宠锦囊", "六阶可进化宠锦囊（变异）", "七阶可进化宠锦囊（变异）", "八阶可进化宠锦囊（变异）", "九阶可进化宠锦囊（变异）", "十阶可进化宠锦囊（变异）", "十一阶可进化宠锦囊（变异）", "十二阶可进化宠锦囊（变异）", "十三阶可进化宠锦囊（变异）", "六阶不可进化宠锦囊（变异）", "七阶不可进化宠锦囊（变异）", "八阶不可进化宠锦囊（变异）", "九阶不可进化宠锦囊（变异）", "十阶不可进化宠锦囊（变异）", "十一阶不可进化宠锦囊（变异）", "十二阶不可进化宠锦囊（变异）", "十三阶不可进化宠锦囊（变异）", "十至十三阶变异宠锦囊", "十至十三阶变异可进化锦囊", "七至九阶晶儿锦囊", "七至九阶梦晶锦囊", "七至九阶阿弟锦囊", "仙魔灵兽锦囊", "仙魔神兽锦囊", "仙魔变异锦囊", "仙魔野生锦囊", "天关锦囊", "天关组队锦囊", "试炼塔锦囊·一", "试炼塔锦囊·二", "试炼塔锦囊·三", "试炼塔锦囊·四", "试炼塔锦囊·五", "生死塔参与锦囊", "世界首领锦囊", "冠军锦囊", "亚军锦囊", "季军锦囊", "十强锦囊", "百关锦囊·一", "百关锦囊·二", "百关锦囊·三", "百关锦囊·四", "百关锦囊·五", "百关锦囊·六", "百关锦囊·七", "百关锦囊·八", "百关锦囊·九", "百关锦囊·十", "百关锦囊·十一", "百关锦囊·十二", "百关锦囊·十三", "百关锦囊·十四", "百关锦囊·十五", "百关锦囊·十六", "百关锦囊·十七", "百关锦囊·十八", "百关锦囊·十九", "百关锦囊·二十"]
+const HIGH_RISK_LOCAL_ONLY_PET_GIFTS: = ["6+可进化宠礼包", "7+可进化宠礼包", "8+可进化宠礼包", "9+可进化宠礼包", "10+可进化宠礼包", "11+可进化宠礼包", "12+可进化宠礼包", "13+可进化宠礼包", "6+可进化宠礼包(可能变异)", "7+可进化宠礼包(可能变异)", "8+可进化宠礼包(可能变异)", "9+可进化宠礼包(可能变异)", "10+可进化宠礼包(可能变异)", "11+可进化宠礼包(可能变异)", "12+可进化宠礼包(可能变异)", "13+可进化宠礼包(可能变异)", "6+不可进化宠礼包", "6+不可进化宠礼包(可能变异)", "7+不可进化宠礼包(可能变异)", "8+不可进化宠礼包(可能变异)", "9+不可进化宠礼包(可能变异)", "10+不可进化宠礼包(可能变异)", "11+不可进化宠礼包(可能变异)", "12+不可进化宠礼包(可能变异)", "13+不可进化宠礼包(可能变异)", "10-13变异可进化宠礼包", "7-9水晶儿礼包", "7-9梦晶儿礼包", "7-9阿弟达斯礼包", "仙魔灵兽礼包", "仙魔神兽礼包", "仙魔变异礼包", "仙魔野生礼包", "天关礼包", "塔1礼包", "塔2礼包", "塔3礼包", "塔4礼包", "塔5礼包", "生死塔参与礼包"]
+const HIGH_RISK_LOCAL_ONLY_PET_EGGS: = ["5+宠物蛋", "火属性宠物蛋", "水属性宠物蛋", "木属性宠物蛋", "金属性宠物蛋", "土属性宠物蛋", "金变异宠物蛋", "木变异宠物蛋", "水变异宠物蛋", "火变异宠物蛋", "土变异宠物蛋"]
+const SERVER_AUTH_PET_EGG_NAMES: = ["5+宠物蛋", "火属性宠物蛋", "水属性宠物蛋", "木属性宠物蛋", "金属性宠物蛋", "土属性宠物蛋", "金变异宠物蛋", "木变异宠物蛋", "水变异宠物蛋", "火变异宠物蛋", "土变异宠物蛋"]
+const SERVER_AUTH_PET_GIFT_NAMES: = ["5+宠物礼包", "6+可进化宠礼包", "7+可进化宠礼包", "6+不可进化宠礼包", "7+不可进化宠礼包", "8+不可进化宠礼包", "8+可进化宠礼包", "9+可进化宠礼包", "9+不可进化宠礼包", "10+不可进化宠礼包", "11+不可进化宠礼包", "10+可进化宠礼包", "11+可进化宠礼包", "12+不可进化宠礼包", "12+可进化宠礼包", "13+不可进化宠礼包", "13+可进化宠礼包", "6+可进化宠礼包(可能变异)", "7+可进化宠礼包(可能变异)", "8+可进化宠礼包(可能变异)", "9+可进化宠礼包(可能变异)", "10+可进化宠礼包(可能变异)", "11+可进化宠礼包(可能变异)", "12+可进化宠礼包(可能变异)", "13+可进化宠礼包(可能变异)", "6+不可进化宠礼包(可能变异)", "7+不可进化宠礼包(可能变异)", "8+不可进化宠礼包(可能变异)", "9+不可进化宠礼包(可能变异)", "10+不可进化宠礼包(可能变异)", "11+不可进化宠礼包(可能变异)", "12+不可进化宠礼包(可能变异)", "13+不可进化宠礼包(可能变异)", "10-13变异不可进化宠礼包", "10-13变异可进化宠礼包", "7-9水晶儿礼包", "7-9梦晶儿礼包", "7-9阿弟达斯礼包", "仙魔灵兽礼包", "仙魔神兽礼包", "仙魔变异礼包", "仙魔野生礼包", "天关礼包", "兄弟天关礼包", "塔1礼包", "塔2礼包", "塔3礼包", "塔4礼包", "塔5礼包", "生死塔参与礼包", "世界boss礼包", "冠军礼包", "亚军礼包", "季军礼包", "十强礼包", "100关礼包", "200关礼包", "300关礼包", "400关礼包", "500关礼包", "600关礼包", "700关礼包", "800关礼包", "900关礼包", "1000关礼包", "1100关礼包", "1200关礼包", "1300关礼包", "1400关礼包", "1500关礼包", "1600关礼包", "1700关礼包", "1800关礼包", "1900关礼包", "2000关礼包"]
 const PET_BATCH_USE_MAX: = 20
 const PET_MEDAL_BATCH_MAX: = 15
 
@@ -249,7 +249,7 @@ static func item_uses_pet_batch_cap(item_name: String) -> bool:
 		return true
 	if InventoryManager.is_server_auth_pet_gift_name(n):
 		return true
-	if n == "离线宠物锦囊" or FestivalGiftManager.is_festival_gift(n):
+	if n == "离线宠物礼包" or FestivalGiftManager.is_festival_gift(n):
 		return true
 	return false
 
@@ -257,11 +257,11 @@ static func clamp_pet_batch_use_count(requested: int, owned: int) -> int:
 	var max_allowed: = mini(maxi(owned, 0), PET_BATCH_USE_MAX)
 	return clampi(requested, 1, maxi(1, max_allowed))
 
-const BROTHER_TOWER_GIFT_NAME: = "天关组队锦囊"
+const BROTHER_TOWER_GIFT_NAME: = "兄弟天关礼包"
 
 static func is_tower_family_gift_name(gift_name: String) -> bool:
 	var name_s: = str(gift_name).strip_edges()
-	return name_s == "天关锦囊" or (name_s.ends_with("关礼包") and name_s != BROTHER_TOWER_GIFT_NAME)
+	return name_s == "天关礼包" or (name_s.ends_with("关礼包") and name_s != BROTHER_TOWER_GIFT_NAME)
 
 static func _build_brother_tower_reward_display_fallback(reward_result: Dictionary) -> String:
 	var parts: Array[String] = []
@@ -435,15 +435,15 @@ static func emit_server_auth_pet_reward_broadcast(
 		var pet_name: = InventoryManager.format_pet_name_with_mutation_from_info(first_pet)
 		var growth: = float(first_pet.get("growth", 0.0))
 		var min_growth_for_broadcast: = 6.0
-		if reward_name == "五阶宠物蛋":
+		if reward_name == "5+宠物蛋":
 			min_growth_for_broadcast = 5.0
 		elif reward_name.ends_with("属性宠物蛋") or reward_name.ends_with("变异宠物蛋"):
 			min_growth_for_broadcast = 6.0
 		if pet_name.is_empty() or growth < min_growth_for_broadcast:
 			return
 		var egg_src: = reward_name
-		if reward_name == "五阶宠物蛋":
-			egg_src = "五阶宠物蛋"
+		if reward_name == "5+宠物蛋":
+			egg_src = "5+宠物蛋"
 		elif reward_name.ends_with("属性宠物蛋"):
 			var elem_char: = str(reward_name.replace("属性宠物蛋", "")).strip_edges()
 			egg_src = "五行属性宠物蛋·%s" % elem_char
@@ -476,17 +476,17 @@ static func emit_server_auth_pet_reward_broadcast(
 		var opened_count_wb: = int(reward_result.get("opened", batch_count if batch_count > 0 else 1))
 		InventoryManager.broadcast_world_boss_gift_open(reward_display_wb, opened_count_wb if opened_count_wb > 1 else 0)
 		return
-	if reward_name == "天关锦囊":
+	if reward_name == "天关礼包":
 		var granted_items: Array = reward_result.get("grantedItems", []) if reward_result.get("grantedItems") is Array else []
 		for entry in granted_items:
 			if not (entry is Dictionary):
 				continue
 			var item_key: = str(entry.get("name", ""))
-			if item_key == "五阶宠物蛋" or item_key == "五阶宠物锦囊":
+			if item_key == "5+宠物蛋" or item_key == "5+宠物礼包":
 				gm.broadcast_event("tower_gift_pet_egg", player_name, {})
 				return
 		return
-	if reward_name == "五阶宠物锦囊":
+	if reward_name == "5+宠物礼包":
 		if not opened_pets.is_empty():
 			var fp_5p: Dictionary = opened_pets[0] if opened_pets[0] is Dictionary else {}
 			var pn_5p: = InventoryManager.format_pet_name_with_mutation_from_info(fp_5p)
@@ -495,11 +495,11 @@ static func emit_server_auth_pet_reward_broadcast(
 				gm.broadcast_event("pet_egg_high_growth", player_name, {
 					"pet_name": pn_5p, 
 					"growth": gr_5p, 
-					"egg_source": "五阶宠物锦囊", 
+					"egg_source": "5+宠物礼包", 
 					"mutation_count": InventoryManager.get_pet_mutation_count_from_info(fp_5p), 
 				})
 		return
-	if reward_name == "六阶不可进化宠锦囊" or reward_name == "七阶不可进化宠锦囊" or reward_name == "八阶不可进化宠锦囊" or reward_name == "九阶不可进化宠锦囊" or reward_name == "十阶不可进化宠锦囊" or reward_name == "十一阶不可进化宠锦囊" or reward_name == "十二阶不可进化宠锦囊" or reward_name == "十三阶不可进化宠锦囊" or reward_name == "十至十三阶变异宠锦囊":
+	if reward_name == "6+不可进化宠礼包" or reward_name == "7+不可进化宠礼包" or reward_name == "8+不可进化宠礼包" or reward_name == "9+不可进化宠礼包" or reward_name == "10+不可进化宠礼包" or reward_name == "11+不可进化宠礼包" or reward_name == "12+不可进化宠礼包" or reward_name == "13+不可进化宠礼包" or reward_name == "10-13变异不可进化宠礼包":
 		if not opened_pets.is_empty():
 			var fp_ne: Dictionary = opened_pets[0] if opened_pets[0] is Dictionary else {}
 			var pn_ne: = InventoryManager.format_pet_name_with_mutation_from_info(fp_ne)
@@ -561,7 +561,7 @@ static func emit_server_auth_pet_reward_broadcast(
 			if not (entry2 is Dictionary):
 				continue
 			var item_name: = str(entry2.get("name", ""))
-			if item_name == "五阶宠物蛋":
+			if item_name == "5+宠物蛋":
 				gm.broadcast_event("tower_gift_egg", player_name, {"floor": floor})
 				return
 			if item_name.ends_with("属性宠物蛋"):
@@ -570,7 +570,7 @@ static func emit_server_auth_pet_reward_broadcast(
 		return
 	if kind == "gift" and not opened_pets.is_empty():
 		var min_growth_fb: = 6.0
-		if reward_name == "五阶宠物锦囊":
+		if reward_name == "5+宠物礼包":
 			min_growth_fb = 5.0
 		var qualified: Array = []
 		for pet_info in opened_pets:
@@ -691,7 +691,7 @@ func resolve_bag_category(item_name: String, item_type: String, custom_data: Dic
 
 func _is_non_stackable_item_instance(item_name: String, item_type: String) -> bool:
 	var t: = _normalize_item_type(item_type)
-	return t == "sealed_suit" or t == "treasure_chest" or item_name == "藏宝匣"
+	return t == "sealed_suit" or t == "treasure_chest" or item_name == "藏宝箱"
 
 
 func _is_limit_forge_material_inventory_row(item) -> bool:
@@ -883,7 +883,7 @@ func add_item(item_name: String, count: int = 1, extra_data: Dictionary = {}) ->
 		return result
 
 
-	if item_name == "藏宝匣":
+	if item_name == "藏宝箱":
 		var cb_data = GameData.ALL_ITEMS.get(item_name, null)
 		if cb_data == null:
 			result.message = "未知物品: %s" % item_name
@@ -1436,32 +1436,32 @@ func use_item(item_id: String, player: Node) -> Dictionary:
 
 
 const CULTIVATION_PILL_WHITELIST_KEYS: = {
-	"蓄灵丹": "cultivation_pill_juling", 
-	"定神丹": "cultivation_pill_ningshen", 
-	"开悟丹": "cultivation_pill_wudao", 
+	"聚灵丹": "cultivation_pill_juling", 
+	"凝神丹": "cultivation_pill_ningshen", 
+	"悟道仙丹": "cultivation_pill_wudao", 
 }
 
 const DOUBLE_EXP_WHITELIST_KEYS: = {
-	"双倍经验符": "double_exp_day", 
-	"双倍经验符·周": "double_exp_week", 
-	"双倍经验符·月": "double_exp_month", 
+	"双倍经验丹": "double_exp_day", 
+	"双倍经验丹(周)": "double_exp_week", 
+	"双倍经验丹(月)": "double_exp_month", 
 }
 
-const LIMIT_EQUIPMENT_GIFT_NAME: = "极限装备锦囊"
+const LIMIT_EQUIPMENT_GIFT_NAME: = "极限装备礼包"
 const LIMIT_EQUIPMENT_GIFT_KEY: = "limit_equipment_gift"
 const LIMIT_EQUIPMENT_GIFT_MATERIAL_SLOTS_PER: = 5
 const LIMIT_EQUIPMENT_GIFT_BATCH_MAX: = 5
 const LIMIT_EQUIPMENT_GIFT_GRANTED_NAMES: = [
-	"极限武器", "极限衣服", "极限鞋子", "极限血佩", "极限内带", "极限装备锦囊", 
+	"极限武器", "极限衣服", "极限鞋子", "极限血佩", "极限内带", "极限装备礼包", 
 ]
-const WUDAO_PILL_GIFT_GRANTED_NAMES: = ["开悟丹", "开悟丹锦囊"]
+const WUDAO_PILL_GIFT_GRANTED_NAMES: = ["悟道仙丹", "悟道仙丹礼包"]
 
 const PET_SOUL_ITEM_NAMES: = {
-	"金魂魄": true, 
-	"木魂魄": true, 
-	"水魂魄": true, 
-	"火魂魄": true, 
-	"土魂魄": true, 
+	"金魂魄50": true, 
+	"木魂魄50": true, 
+	"水魂魄50": true, 
+	"火魂魄50": true, 
+	"土魂魄50": true, 
 }
 
 func use_pet_soul_item(player: Node, item_name: String) -> Dictionary:
@@ -1517,7 +1517,7 @@ func use_pet_soul_item(player: Node, item_name: String) -> Dictionary:
 	return result
 
 func use_wudao_batch(player: Node, batch_count: int) -> Dictionary:
-	return await use_cultivation_pill_batch(player, "开悟丹", batch_count)
+	return await use_cultivation_pill_batch(player, "悟道仙丹", batch_count)
 
 func use_cultivation_pill_batch(player: Node, pill_name: String, batch_count: int) -> Dictionary:
 	var pill_key: = str(pill_name).strip_edges()
@@ -1542,7 +1542,7 @@ func use_cultivation_pill_batch(player: Node, pill_name: String, batch_count: in
 	var cfg_pill: Variant = GameData.ALL_ITEMS.get(pill_key, {})
 	var bonus_per: int = int(cfg_pill.get("cultivation_bonus", 0)) if cfg_pill is Dictionary else 0
 	if bonus_per <= 0:
-		bonus_per = 500 if pill_key == "开悟丹" else (200 if pill_key == "定神丹" else 100)
+		bonus_per = 500 if pill_key == "悟道仙丹" else (200 if pill_key == "凝神丹" else 100)
 	var op_cult: = "consume_%s_%d_%s" % [consume_key, Time.get_ticks_usec(), str(randi())]
 	var er_cult: Dictionary = await gm_cult.wait_economy("economy_whitelist_item_consume", func():
 		gm_cult.network.economy_whitelist_item_consume(op_cult, consume_key, n)
@@ -1625,27 +1625,27 @@ func use_double_exp_batch(player: Node, item_name: String, batch_count: int) -> 
 	var consume_key: String = String(DOUBLE_EXP_WHITELIST_KEYS.get(pill_key, ""))
 	var result: = {"success": false, "message": "", "source_item_name": pill_key, "source_item_type": "gift"}
 	if consume_key.is_empty():
-		result.message = "双倍经验符配置异常"
+		result.message = "双倍经验丹配置异常"
 		return result
 	var gm_de: = GameManager.instance
 	if gm_de == null or gm_de.network == null or not gm_de.network.is_logged_in():
-		result.message = "高价值双倍经验符需联网并由服务器确认，请登录后重试"
+		result.message = "高价值双倍经验丹需联网并由服务器确认，请登录后重试"
 		return result
 	if player == null:
 		result.message = "玩家数据未初始化"
 		return result
 	var n: = maxi(1, batch_count)
 	var stacked_hours_per: = 24
-	if pill_key == "双倍经验符·月":
+	if pill_key == "双倍经验丹(月)":
 		stacked_hours_per = 30 * 24
-	elif pill_key == "双倍经验符·周":
+	elif pill_key == "双倍经验丹(周)":
 		stacked_hours_per = 7 * 24
 	var op_de: = "consume_%s_%d_%s" % [consume_key, Time.get_ticks_usec(), str(randi())]
 	var er_de: Dictionary = await gm_de.wait_economy("economy_whitelist_item_consume", func():
 		gm_de.network.economy_whitelist_item_consume(op_de, consume_key, n)
 	)
 	if not bool(er_de.get("ok", false)):
-		result.message = str(er_de.get("err", "双倍经验符使用失败，请稍后重试"))
+		result.message = str(er_de.get("err", "双倍经验丹使用失败，请稍后重试"))
 		return result
 	var er_de_data: Variant = er_de.get("data", {})
 	var de_payload: Dictionary = er_de_data if er_de_data is Dictionary else {}
@@ -2083,7 +2083,7 @@ func use_tower_gift_batch(item_id: String, player: Node, count: int) -> Dictiona
 		for entry_variant in granted_items_variant:
 			if entry_variant is Dictionary:
 				var entry: Dictionary = entry_variant
-				if str(entry.get("name", "")) == "五阶宠物锦囊":
+				if str(entry.get("name", "")) == "5+宠物礼包":
 					result.pet_gift_count += int(entry.get("count", 0))
 	result.summary_lines = summary_lines
 	result.message = "\n".join(summary_lines)
@@ -2150,7 +2150,7 @@ func use_pet_egg_batch(item_id: String, player: Node, count: int) -> Dictionary:
 		var player_name: = str(gm.player.player_name).strip_edges()
 		if not player_name.is_empty():
 			var min_growth: = 6.0
-			if egg_name == "五阶宠物蛋":
+			if egg_name == "5+宠物蛋":
 				min_growth = 5.0
 			var egg_src: = egg_name
 			if egg_name.ends_with("属性宠物蛋"):
@@ -2304,7 +2304,7 @@ func use_offline_pet_gift_batch(item_id: String, player: Node, count: int) -> Di
 	if item == null:
 		result.message = "物品不存在"
 		return result
-	if str(item.name).strip_edges() != "离线宠物锦囊":
+	if str(item.name).strip_edges() != "离线宠物礼包":
 		result.message = "该道具不支持此批量方式"
 		return result
 	count = clamp_pet_batch_use_count(count, int(item.count))
@@ -2339,7 +2339,7 @@ func use_offline_pet_gift_batch(item_id: String, player: Node, count: int) -> Di
 		state.message = error
 	gm.network.pet_gift_open_success.connect(on_success, CONNECT_ONE_SHOT)
 	gm.network.pet_gift_open_failed.connect(on_failed, CONNECT_ONE_SHOT)
-	gm.network.request_pet_gift_open("离线宠物锦囊", op_id, offline_payload)
+	gm.network.request_pet_gift_open("离线宠物礼包", op_id, offline_payload)
 	while not bool(state.done):
 		await gm.get_tree().process_frame
 	if not bool(state.ok):
@@ -2374,7 +2374,7 @@ func reconcile_treasure_chests_with_server(game_manager, current_token: String =
 	for it in items:
 		if it == null:
 			continue
-		if str(it.name) != "藏宝匣":
+		if str(it.name) != "藏宝箱":
 			continue
 		var tk: = str((it.custom_data if it.custom_data is Dictionary else {}).get("treasure_token", "")).strip_edges()
 		if tk.is_empty():
@@ -2404,7 +2404,7 @@ func reconcile_treasure_chests_with_server(game_manager, current_token: String =
 	var changed: = false
 	for i in range(items.size() - 1, -1, -1):
 		var it = items[i]
-		if it == null or str(it.name) != "藏宝匣":
+		if it == null or str(it.name) != "藏宝箱":
 			continue
 		var tk: = str((it.custom_data if it.custom_data is Dictionary else {}).get("treasure_token", "")).strip_edges()
 		if tk.is_empty() or not valid_set.has(tk):
@@ -2525,11 +2525,11 @@ func _migrate_legacy_xiuxingdan_items(target_items: Array) -> void :
 			continue
 		if str(item.name) != "修行丹":
 			continue
-		var cfg: Variant = GameData.ALL_ITEMS.get("开悟丹", null)
+		var cfg: Variant = GameData.ALL_ITEMS.get("悟道仙丹", null)
 		if cfg == null or not cfg is Dictionary:
 			continue
 		var d: = cfg as Dictionary
-		item.name = "开悟丹"
+		item.name = "悟道仙丹"
 		item.item_type = str(d.get("type", "cultivation_pill"))
 		item.data = d.duplicate()
 
@@ -2661,7 +2661,7 @@ func _merge_duplicate_item_array(target_items: Array, is_warehouse: bool) -> voi
 		if item == null:
 			continue
 
-		if item.item_type == "sealed_suit" or item.name == "藏宝匣" or _is_non_stackable_item_instance(item.name, item.item_type):
+		if item.item_type == "sealed_suit" or item.name == "藏宝箱" or _is_non_stackable_item_instance(item.name, item.item_type):
 			rebuilt.append(item)
 			continue
 		if _is_limit_forge_material_inventory_row(item):
@@ -2849,9 +2849,9 @@ class InventoryItem:
 				result.message = "仙魔宝箱系统未初始化，请稍后再试"
 				return result
 			var chest_type_map = {
-				"青铜匣": "bronze", 
-				"白银匣": "silver", 
-				"黄金匣": "gold"
+				"青铜宝箱": "bronze", 
+				"白银宝箱": "silver", 
+				"黄金宝箱": "gold"
 			}
 			var chest_type = str(chest_type_map.get(name, ""))
 			if chest_type.is_empty():
@@ -2995,19 +2995,19 @@ class InventoryItem:
 					messages.append("打开%s，获得%d金币！" % [name, gb_amount])
 				else:
 					messages.append("打开%s，获得%s大佬赞助的%d金币！" % [name, gb_sponsor, gb_amount])
-			elif name == "天关锦囊":
+			elif name == "天关礼包":
 				var tower_reward_result: Dictionary = await _request_server_auth_pet_reward_open("gift", name)
 				if not bool(tower_reward_result.get("success", false)):
 					result.message = str(tower_reward_result.get("message", "天关锦囊需要服务端权威开启"))
 					return result
 				return tower_reward_result
-			elif name.ends_with("关礼包") and name != "天关锦囊":
+			elif name.ends_with("关礼包") and name != "天关礼包":
 				var floor_reward_result: Dictionary = await _request_server_auth_pet_reward_open("gift", name)
 				if not bool(floor_reward_result.get("success", false)):
 					result.message = str(floor_reward_result.get("message", "关卡礼包需要服务端权威开启"))
 					return result
 				return floor_reward_result
-			elif name == "离线宠物锦囊":
+			elif name == "离线宠物礼包":
 				var gm_offline = GameManager.instance
 				var offline_payload: Dictionary = {}
 				if gm_offline != null:
@@ -3022,7 +3022,7 @@ class InventoryItem:
 					result.message = str(offline_reward_result.get("message", "离线宠物锦囊需要服务端权威开启"))
 					return result
 				return offline_reward_result
-			elif name == "新手锦囊":
+			elif name == "新手礼包":
 				var game_manager = GameManager.instance
 				if game_manager == null or game_manager.inventory_manager == null:
 					result.message = "背包管理器未初始化，请稍后再试"
@@ -3037,7 +3037,7 @@ class InventoryItem:
 				if game_manager.network == null or not game_manager.network.is_logged_in():
 					result.message = "新手锦囊包含人物装备，需联网使用，请登录后重试"
 					return result
-				var newbie_grant_result: Dictionary = await inv_manager._grant_single_attr_set_via_server(game_manager, "新手锦囊")
+				var newbie_grant_result: Dictionary = await inv_manager._grant_single_attr_set_via_server(game_manager, "新手礼包")
 				if not bool(newbie_grant_result.get("success", false)):
 					result.message = str(newbie_grant_result.get("message", "新手锦囊开启失败，请稍后重试"))
 					return result
@@ -3051,7 +3051,7 @@ class InventoryItem:
 					messages.append(str(newbie_grant_result.get("message", "新手锦囊开启成功")))
 				result["authoritative_save_applied"] = true
 				result["reward_sync_policy"] = REWARD_SYNC_NONE
-			elif name == "先锋锦囊":
+			elif name == "内测先锋礼包":
 				var game_manager_pioneer = GameManager.instance
 				if game_manager_pioneer == null or game_manager_pioneer.inventory_manager == null:
 					result.message = "背包管理器未初始化，请稍后再试"
@@ -3068,7 +3068,7 @@ class InventoryItem:
 					result.message = str(pioneer_reward_result.get("message", "先锋锦囊需要服务端权威开启"))
 					return result
 				return pioneer_reward_result
-			elif name == "新人扶持锦囊":
+			elif name == "新人扶持礼包":
 				var game_manager_newbie = GameManager.instance
 				if game_manager_newbie == null or game_manager_newbie.inventory_manager == null:
 					result.message = "背包管理器未初始化，请稍后再试"
@@ -3085,7 +3085,7 @@ class InventoryItem:
 					result.message = str(newbie_reward_result.get("message", "新人扶持锦囊需要服务端权威开启"))
 					return result
 				return newbie_reward_result
-			elif name == "开荒锦囊":
+			elif name == "开荒礼包":
 				var game_manager = GameManager.instance
 				if game_manager == null or game_manager.inventory_manager == null:
 					result.message = "背包管理器未初始化，请稍后再试"
@@ -3165,7 +3165,7 @@ class InventoryItem:
 							granted_items.append({"name": str(equip.name)})
 				if granted_pets.is_empty() and game_manager and game_manager.pet_manager:
 					for pet_inst in game_manager.pet_manager.pets:
-						if pet_inst and str(pet_inst.pet_name) == "赤翅蛾" and int(pet_inst.level) == 1 and int(pet_inst.generation) == 0:
+						if pet_inst and str(pet_inst.pet_name) == "琳琳" and int(pet_inst.level) == 1 and int(pet_inst.generation) == 0:
 							granted_pets.append({"name": str(pet_inst.pet_name)})
 				for granted in granted_items:
 					if granted is Dictionary:
@@ -3179,13 +3179,13 @@ class InventoryItem:
 				result["reward_sync_policy"] = REWARD_SYNC_NONE
 				result.success = true
 				result.message = "\n".join(messages)
-			elif name == "极限装备锦囊":
+			elif name == "极限装备礼包":
 				var game_manager = GameManager.instance
 				if game_manager == null or game_manager.inventory_manager == null:
 					result.message = "背包管理器未初始化，请稍后再试"
 					return result
 				return await game_manager.inventory_manager.use_limit_equipment_gift_batch(player, 1)
-			elif name == "开悟丹锦囊":
+			elif name == "悟道仙丹礼包":
 				var game_manager = GameManager.instance
 				if game_manager == null or game_manager.inventory_manager == null:
 					result.message = "背包管理器未初始化，请稍后再试"
@@ -3195,7 +3195,7 @@ class InventoryItem:
 					return result
 				var cap_wudao: Dictionary = game_manager.inventory_manager._check_gift_capacity(
 					game_manager, name, 0, 0, 
-					[{"name": "开悟丹", "item_type": "cultivation_pill", "count": 50}]
+					[{"name": "悟道仙丹", "item_type": "cultivation_pill", "count": 50}]
 				)
 				if not bool(cap_wudao.get("ok", false)):
 					return game_manager.inventory_manager._build_capacity_block_result(str(cap_wudao.get("message", "背包空间不足")))
@@ -3235,20 +3235,20 @@ class InventoryItem:
 				result.success = true
 				result.message = "\n".join(messages)
 				return result
-			elif name == "双倍经验符" or name == "双倍经验符·月" or name == "双倍经验符·周":
+			elif name == "双倍经验丹" or name == "双倍经验丹(月)" or name == "双倍经验丹(周)":
 				var gm_exp = GameManager.instance
 				if gm_exp == null or gm_exp.player == null:
 					result.message = "玩家数据未初始化"
 					return result
 				if gm_exp.network == null or not gm_exp.network.is_logged_in():
-					result.message = "高价值双倍经验符需联网并由服务器确认，请登录后重试"
+					result.message = "高价值双倍经验丹需联网并由服务器确认，请登录后重试"
 					return result
 				var consume_key: = "double_exp_day"
 				var stacked_hours: = 24
-				if name == "双倍经验符·月":
+				if name == "双倍经验丹(月)":
 					consume_key = "double_exp_month"
 					stacked_hours = 30 * 24
-				elif name == "双倍经验符·周":
+				elif name == "双倍经验丹(周)":
 					consume_key = "double_exp_week"
 					stacked_hours = 7 * 24
 				var op_double: = "consume_%s_%d_%s" % [consume_key, Time.get_ticks_usec(), str(randi())]
@@ -3256,7 +3256,7 @@ class InventoryItem:
 					gm_exp.network.economy_whitelist_item_consume(op_double, consume_key)
 				)
 				if not bool(er_double.get("ok", false)):
-					result.message = str(er_double.get("err", "双倍经验符使用失败，请稍后重试"))
+					result.message = str(er_double.get("err", "双倍经验丹使用失败，请稍后重试"))
 					return result
 				var er_double_data: Variant = er_double.get("data", {})
 				var consumed_double: int = 0
@@ -3287,7 +3287,7 @@ class InventoryItem:
 					result["authoritative_save_applied"] = true
 					result["reward_sync_policy"] = REWARD_SYNC_NONE
 				messages.append(str(medal_res.get("message", "宠物补章成功")))
-			elif name == "人物经验丹":
+			elif name == "人物升级丹":
 				var game_manager = GameManager.instance
 				if game_manager == null:
 					result.message = "游戏管理器未初始化，请稍后再试"
@@ -3356,7 +3356,7 @@ class InventoryItem:
 				result.message = "服务器返回异常，宠物升级未完成，请稍后重试。道具不会扣除。"
 				return result
 
-			elif name == "宠物经验丹":
+			elif name == "宠物升级丹":
 				var game_manager = GameManager.instance
 				if game_manager == null:
 					result.message = "游戏管理器未初始化，请稍后再试"
@@ -3481,7 +3481,7 @@ class InventoryItem:
 				messages.append("最终成长：%.3f" % active_pet.total_growth)
 				if not max_level_reward_message.is_empty():
 					messages.append(max_level_reward_message)
-			elif name == "测试锦囊":
+			elif name == "测试礼包":
 				var game_manager = GameManager.instance
 				if game_manager == null:
 					result.message = "游戏管理器未初始化，请稍后再试"
@@ -3494,7 +3494,7 @@ class InventoryItem:
 				if gift_result.success:
 					count -= 1
 				return gift_result
-			elif name == "开荒宠装锦囊" or name == "测试宠物装备礼包":
+			elif name == "开荒宠装礼包" or name == "测试宠物装备礼包":
 				var game_manager = GameManager.instance
 				if game_manager == null:
 					result.message = "游戏管理器未初始化，请稍后再试"
@@ -3916,9 +3916,9 @@ class InventoryItem:
 			result.message = "宠物系统未初始化"
 			return result
 		var gift_pet_map = {
-			"七至九阶晶儿锦囊": "shuijinger", 
-			"七至九阶梦晶锦囊": "mengjinger", 
-			"七至九阶阿弟锦囊": "a_di_da_si"
+			"7-9水晶儿礼包": "shuijinger", 
+			"7-9梦晶儿礼包": "mengjinger", 
+			"7-9阿弟达斯礼包": "a_di_da_si"
 		}
 		var pet_id = gift_pet_map.get(gift_name, "")
 		if pet_id.is_empty():
@@ -3953,23 +3953,23 @@ class InventoryItem:
 
 	func _get_evo_gift_growth_range(gift_name: String) -> Dictionary:
 		match gift_name:
-			"六阶可进化宠锦囊":
+			"6+可进化宠礼包":
 				return {"min": 6.0, "max": 6.9}
-			"七阶可进化宠锦囊":
+			"7+可进化宠礼包":
 				return {"min": 7.0, "max": 7.3}
-			"八阶可进化宠锦囊":
+			"8+可进化宠礼包":
 				return {"min": 8.0, "max": 8.9}
-			"九阶可进化宠锦囊":
+			"9+可进化宠礼包":
 				return {"min": 9.0, "max": 9.9}
-			"十阶可进化宠锦囊":
+			"10+可进化宠礼包":
 				return {"min": 10.0, "max": 10.9}
-			"十一阶可进化宠锦囊":
+			"11+可进化宠礼包":
 				return {"min": 11.0, "max": 11.9}
-			"十二阶可进化宠锦囊":
+			"12+可进化宠礼包":
 				return {"min": 12.0, "max": 12.99}
-			"十三阶可进化宠锦囊":
+			"13+可进化宠礼包":
 				return {"min": 13.0, "max": 13.99}
-			"十至十三阶变异可进化锦囊":
+			"10-13变异可进化宠礼包":
 				return {"min": 10.0, "max": 13.99}
 			_:
 				return {"min": 6.0, "max": 6.9}
@@ -4965,11 +4965,11 @@ func open_test_gift(player: Node, game_manager) -> Dictionary:
 	messages.append("获得1亿金币")
 
 	var test_equipment_stats = [
-		{"name": "试炼武器", "slot": "weapon", "attack": 500}, 
-		{"name": "试炼衣服", "slot": "armor", "defense": 500}, 
-		{"name": "试炼帽子", "slot": "helmet", "agility": 500}, 
-		{"name": "试炼鞋子", "slot": "boots", "hp": 500}, 
-		{"name": "试炼饰品", "slot": "accessory", "mp": 500}
+		{"name": "测试武器", "slot": "weapon", "attack": 500}, 
+		{"name": "测试衣服", "slot": "armor", "defense": 500}, 
+		{"name": "测试帽子", "slot": "helmet", "agility": 500}, 
+		{"name": "测试鞋子", "slot": "boots", "hp": 500}, 
+		{"name": "测试饰品", "slot": "accessory", "mp": 500}
 	]
 
 	for equip_data in test_equipment_stats:
@@ -4979,7 +4979,7 @@ func open_test_gift(player: Node, game_manager) -> Dictionary:
 		print("[TestGift] 添加装备: ", equip_data.name, ", 装备背包数量: ", equipment_manager.inventory.size())
 
 	for i in range(8):
-		pet_manager.create_pet_from_tower("linlin", "赤翅蛾", 6.0)
+		pet_manager.create_pet_from_tower("linlin", "琳琳", 6.0)
 	messages.append("获得8只【赤翅蛾】（成长6.0）")
 
 	result.success = true

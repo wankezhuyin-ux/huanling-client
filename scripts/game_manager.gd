@@ -9132,7 +9132,7 @@ func _log_double_exp_field_bonus_once(server_count: int = -1) -> void :
 	var suffix: = ""
 	if count > 1:
 		suffix = "（%d种叠加）" % count
-	battle_system.add_log("[color=orange]双倍经验符生效：经验 +%d%%!%s[/color]" % [count * 100, suffix])
+	battle_system.add_log("[color=orange]双倍经验丹生效：经验 +%d%%!%s[/color]" % [count * 100, suffix])
 
 func _log_weekend_field_exp_bonus_once(server_bonus: float = -1.0) -> void :
 	if _field_weekend_exp_bonus_logged_in_window or battle_system == null:

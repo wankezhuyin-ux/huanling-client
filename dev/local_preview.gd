@@ -101,7 +101,7 @@ func _ready() -> void:
 		ui._ink_enter("bag")
 		await get_tree().process_frame
 		for entry in gm.inventory_manager.items:
-			if entry.name == "双倍经验符·周":
+			if entry.name == "双倍经验丹(周)":
 				ui._show_item_action_popup(entry)
 				break
 		await get_tree().process_frame
@@ -266,8 +266,8 @@ func _run_shop_test(ui, gm) -> void:
 	await shop._buy_configured_item(gm, "新手锦囊", 1000, "gold", gold_label, yuanbao_label, friendship_label, panel, 1, 2)
 	var gold_ui_ok: bool = gm.player.gold == gold_before - 2000 and gm.inventory_manager.get_item_count("新手锦囊") == 2
 	var y_before: int = gm.player.yuanbao_currency
-	var y_result: Dictionary = gm.local_shop_buy("双倍经验符", "yuanbao", 3)
-	var yuanbao_ok: bool = y_result.get("ok", false) and gm.player.yuanbao_currency == y_before - 300 and gm.inventory_manager.get_item_count("双倍经验符") == 3
+	var y_result: Dictionary = gm.local_shop_buy("双倍经验丹", "yuanbao", 3)
+	var yuanbao_ok: bool = y_result.get("ok", false) and gm.player.yuanbao_currency == y_before - 300 and gm.inventory_manager.get_item_count("双倍经验丹") == 3
 	gm.player.gold = 0
 	var insufficient: Dictionary = gm.local_shop_buy("新手锦囊", "gold", 1)
 	var balance_ok: bool = not insufficient.get("ok", true) and gm.player.gold == 0 and gm.inventory_manager.get_item_count("新手锦囊") == 2
@@ -277,7 +277,7 @@ func _run_shop_test(ui, gm) -> void:
 	var vip_blocked: bool = not gm.local_shop_buy("宠物经验丹", "yuanbao", 1).get("ok", true)
 	var rollback_before := JSON.stringify(_shop_test_snapshot(gm))
 	gm._local_save_ready = false
-	var disk_failure: Dictionary = gm.local_shop_buy("双倍经验符", "yuanbao", 1)
+	var disk_failure: Dictionary = gm.local_shop_buy("双倍经验丹", "yuanbao", 1)
 	gm._local_save_ready = true
 	var rollback_ok: bool = not disk_failure.get("ok", true) and JSON.parse_string(rollback_before) == JSON.parse_string(JSON.stringify(_shop_test_snapshot(gm)))
 	gm.player.is_vip = true
@@ -321,10 +321,10 @@ func _run_item_test(ui, gm) -> void:
 		get_tree().quit(0 if same else 1)
 		return
 	var inv = gm.inventory_manager
-	inv.add_item("双倍经验符·周", 3)
-	var week = inv.get_items_by_name("双倍经验符·周")[0] if inv.has_method("get_items_by_name") else null
+	inv.add_item("双倍经验丹(周)", 3)
+	var week = inv.get_items_by_name("双倍经验丹(周)")[0] if inv.has_method("get_items_by_name") else null
 	for entry in inv.items:
-		if entry.name == "双倍经验符·周":
+		if entry.name == "双倍经验丹(周)":
 			week = entry
 	ui._ink_enter("bag")
 	ui._show_item_action_popup(week)
@@ -338,7 +338,7 @@ func _run_item_test(ui, gm) -> void:
 	var week_ok: bool = single.get("success", false) and abs(gm.player.double_exp_until - now - 604800) <= 2 and week.count == 2 and gm.player.is_double_exp_active()
 	var until: int = gm.player.double_exp_until
 	var batch: Dictionary = await gm.local_use_item(week.id, 2)
-	var batch_ok: bool = batch.get("success", false) and gm.player.double_exp_until == until + 2 * 604800 and inv.get_item_count("双倍经验符·周") == 0
+	var batch_ok: bool = batch.get("success", false) and gm.player.double_exp_until == until + 2 * 604800 and inv.get_item_count("双倍经验丹(周)") == 0
 	var duplicate: Dictionary = await gm.local_use_item(week.id, 1)
 	var duplicate_ok: bool = not duplicate.get("success", true) and gm.player.double_exp_until == until + 2 * 604800
 	var gift_checks: Array = []
@@ -360,16 +360,16 @@ func _run_item_test(ui, gm) -> void:
 	var pills: Dictionary = await gm.local_use_item(pill_id, 5)
 	var pill_limit: Dictionary = await gm.local_use_item(pill_id, 1)
 	var pills_ok: bool = pills.get("success", false) and not pill_limit.get("success", true) and gm.player.cultivation == cultivation_before + 2500 and inv.get_item_count("开悟丹") == 45
-	inv.add_item("双倍经验符", 1)
+	inv.add_item("双倍经验丹", 1)
 	var day_id := ""
 	for entry in inv.items:
-		if entry.name == "双倍经验符":
+		if entry.name == "双倍经验丹":
 			day_id = entry.id
 	var rollback_until: int = gm.player.double_exp_until
 	gm._local_save_ready = false
 	var failed: Dictionary = await gm.local_use_item(day_id, 1)
 	gm._local_save_ready = true
-	var rollback_ok: bool = not failed.get("success", true) and gm.player.double_exp_until == rollback_until and inv.get_item_count("双倍经验符") == 1
+	var rollback_ok: bool = not failed.get("success", true) and gm.player.double_exp_until == rollback_until and inv.get_item_count("双倍经验丹") == 1
 	inv.add_item("宠物经验丹", 1)
 	var upgrade_id := ""
 	for entry in inv.items:
@@ -405,7 +405,7 @@ func _run_buff_test(ui, gm) -> void:
 	gm.player.is_vip = false
 	ui._ink_enter("battle")
 	var rows: Array = []
-	var names: Array = ["双倍经验符", "双倍经验符·周", "双倍经验符·月"]
+	var names: Array = ["双倍经验丹", "双倍经验丹(周)", "双倍经验丹(月)"]
 	var buffs_ok := true
 	for step in range(4):
 		if step > 0:
@@ -432,9 +432,9 @@ func _run_buff_test(ui, gm) -> void:
 	for step in range(4):
 		ratios_ok = ratios_ok and rows[step].finished and rows[step].started and int(rows[step].player_exp) == int(rows[0].player_exp) * (step + 1) and int(rows[step].pet_exp) == int(rows[0].pet_exp) * (step + 1) and int(rows[step].active) == step
 	var channels_before: Dictionary = gm._local_metadata.double_exp_channels.duplicate(true)
-	var extra: Dictionary = gm.inventory_manager.add_item("双倍经验符", 1)
+	var extra: Dictionary = gm.inventory_manager.add_item("双倍经验丹", 1)
 	await gm.local_use_item(str(extra.item.id), 1)
-	var same_type_ok: bool = gm.local_double_exp_count() == 3 and int(gm._local_metadata.double_exp_channels["双倍经验符"]) == int(channels_before["双倍经验符"]) + 86400 and gm._local_metadata.double_exp_channels["双倍经验符·周"] == channels_before["双倍经验符·周"]
+	var same_type_ok: bool = gm.local_double_exp_count() == 3 and int(gm._local_metadata.double_exp_channels["双倍经验丹"]) == int(channels_before["双倍经验丹"]) + 86400 and gm._local_metadata.double_exp_channels["双倍经验丹(周)"] == channels_before["双倍经验丹(周)"]
 	var now: int = int(Time.get_unix_time_from_system())
 	var expiry_ok: bool = gm.local_double_exp_count(now + 3 * 86400) == 2 and gm.local_double_exp_count(now + 8 * 86400) == 1 and gm.local_double_exp_count(now + 31 * 86400) == 0
 	var metadata_before: Dictionary = gm._local_metadata.duplicate(true)
@@ -444,7 +444,7 @@ func _run_buff_test(ui, gm) -> void:
 		gm._local_metadata.shop_counts["test|" + name] = 1
 	gm.player.double_exp_until = now + 38 * 86400
 	gm._migrate_local_double_exp()
-	var migration_ok: bool = gm.local_double_exp_count() == 3 and int(gm._local_metadata.double_exp_channels["双倍经验符"]) == now + 86400 and int(gm._local_metadata.double_exp_channels["双倍经验符·月"]) == now + 30 * 86400
+	var migration_ok: bool = gm.local_double_exp_count() == 3 and int(gm._local_metadata.double_exp_channels["双倍经验丹"]) == now + 86400 and int(gm._local_metadata.double_exp_channels["双倍经验丹(月)"]) == now + 30 * 86400
 	gm._local_metadata = metadata_before
 	gm._sync_local_double_exp_until()
 	var saved: bool = gm.save_game()
