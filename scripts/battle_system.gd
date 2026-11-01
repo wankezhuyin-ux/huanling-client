@@ -489,7 +489,7 @@ func _apply_pet_armor_pierce_defense(pet: Pet, defense_value, skill_anchor: Stri
 	var pierce: = _pet_skill_battle.try_trigger_armor_pierce(pet, extra)
 	if pierce.is_empty():
 		return {"defense": def_f, "pierced": false}
-	add_log("%s✦破防触发![/color] %s 本下忽视对方一半防御" % [BATTLE_SKILL_LOG, pet.pet_name], _skill_highlight("破防", skill_anchor))
+	add_log("%s✦破防触发![/color] %s 本下忽视对方一半防御" % [BATTLE_SKILL_LOG, pet.pet_name], _skill_highlight("破甲", skill_anchor))
 	return {"defense": maxf(0.0, def_f * 0.5), "pierced": true}
 
 
@@ -505,7 +505,7 @@ func _apply_pet_guard_damage_reduction(pet: Pet, damage: int, skill_anchor: Stri
 	out["damage"] = reduced
 	out["guarded"] = reduced != damage
 	if bool(out["guarded"]):
-		add_log("%s✦挡伤触发![/color] %s 减免部分伤害" % [BATTLE_SKILL_LOG, pet.pet_name], _skill_highlight("挡伤", skill_anchor))
+		add_log("%s✦挡伤触发![/color] %s 减免部分伤害" % [BATTLE_SKILL_LOG, pet.pet_name], _skill_highlight("格挡", skill_anchor))
 	return out
 
 func _log_defend_skip(side: String) -> void :
@@ -811,7 +811,7 @@ func _pick_taunt_pet_target():
 	if active_pet != null and active_pet.is_alive():
 		var taunt: = _pet_skill_battle.try_trigger_taunt(active_pet)
 		if not taunt.is_empty():
-			add_log("%s%s 触发【挑衅】，吸引了怪物注意![/color]" % [BATTLE_SKILL_LOG, active_pet.pet_name], _skill_highlight("挑衅", "pet"))
+			add_log("%s%s 触发【挑衅】，吸引了怪物注意![/color]" % [BATTLE_SKILL_LOG, active_pet.pet_name], _skill_highlight("嘲讽", "pet"))
 			return active_pet
 	for cu in coop_units:
 		if cu == null or not cu.has_method("is_alive") or not cu.is_alive():
@@ -823,7 +823,7 @@ func _pick_taunt_pet_target():
 			continue
 		var coop_taunt: = _pet_skill_battle.try_trigger_taunt(bp)
 		if not coop_taunt.is_empty():
-			add_log("%s%s 触发【挑衅】，吸引了怪物注意![/color]" % [BATTLE_SKILL_LOG, bp.pet_name], _skill_highlight("挑衅", "coop_pet"))
+			add_log("%s%s 触发【挑衅】，吸引了怪物注意![/color]" % [BATTLE_SKILL_LOG, bp.pet_name], _skill_highlight("嘲讽", "coop_pet"))
 			return cu
 	return null
 
@@ -1804,7 +1804,7 @@ func _resolve_joint_player_strike(p: Player, pet: Variant, target: Variant) -> v
 			player_msg += _format_element_effect_message(player_element_result.message)
 		var log_hl: Dictionary = {}
 		if triple_ratio > 0.0 and not triple_banner_shown:
-			log_hl = _skill_highlight("一击三伤", "player")
+			log_hl = _skill_highlight("一箭三雕", "player")
 			triple_banner_shown = true
 		add_log(player_msg, log_hl)
 		_emit_damage_dealt(p.player_name, target_name, player_damage, is_crit, "monster", _monster_index_of(strike_target), wild_el, target_element)
@@ -1929,7 +1929,7 @@ func _resolve_coop_joint_player_strike(cp, cpet, target) -> void :
 			player_msg += _format_element_effect_message(player_element_result.message)
 		var log_hl: Dictionary = {}
 		if triple_ratio > 0.0 and not triple_banner_shown:
-			log_hl = _skill_highlight("一击三伤", "coop_player")
+			log_hl = _skill_highlight("一箭三雕", "coop_player")
 			triple_banner_shown = true
 		add_log(player_msg, log_hl)
 		_emit_damage_dealt(cp_name, target_name, player_damage, is_crit, "monster", _monster_index_of(strike_target), cp_element, target_element)
@@ -2136,7 +2136,7 @@ func _resolve_coop_player_attack(unit, pre_picked_target = null, pre_picked_targ
 		var kuihua_banner_shown: = false
 		var struck: Array = []
 		var skill_anchor: = str(unit.unit_type) if "unit_type" in unit else "coop_player"
-		var kuihua_hl: Dictionary = _skill_highlight("点穴手", skill_anchor)
+		var kuihua_hl: Dictionary = _skill_highlight("葵花点穴", skill_anchor)
 		for ti in range(targets.size()):
 			var target = targets[ti]
 			if target == null or not is_monster_alive(target):
@@ -2201,7 +2201,7 @@ func _resolve_coop_player_attack(unit, pre_picked_target = null, pre_picked_targ
 		var skill_anchor: = str(unit.unit_type) if "unit_type" in unit else "coop_player"
 		var log_hl: Dictionary = {}
 		if triple_ratio > 0.0 and not triple_banner_shown:
-			log_hl = _skill_highlight("一击三伤", skill_anchor)
+			log_hl = _skill_highlight("一箭三雕", skill_anchor)
 			triple_banner_shown = true
 		add_log(msg, log_hl)
 		_emit_damage_dealt(unit.display_name, target_name, damage, is_crit, "monster", _monster_index_of(target), str(unit.element), target_element)
@@ -2264,7 +2264,7 @@ func _resolve_player_attack(p: Player, pre_picked_targets: Array = []) -> void :
 		var kuihua_total: = 0
 		var kuihua_banner_shown: = false
 		var struck: Array = []
-		var kuihua_hl: Dictionary = _skill_highlight("点穴手", "player")
+		var kuihua_hl: Dictionary = _skill_highlight("葵花点穴", "player")
 		for ti in range(targets.size()):
 			var target = targets[ti]
 			if target == null or not is_monster_alive(target):
@@ -2329,7 +2329,7 @@ func _resolve_player_attack(p: Player, pre_picked_targets: Array = []) -> void :
 			msg += _format_element_effect_message(element_result.message)
 		var log_hl: Dictionary = {}
 		if triple_ratio > 0.0 and not triple_banner_shown:
-			log_hl = _skill_highlight("一击三伤", "player")
+			log_hl = _skill_highlight("一箭三雕", "player")
 			triple_banner_shown = true
 		add_log(msg, log_hl)
 		_emit_damage_dealt(p.player_name, target_name, damage, is_crit, "monster", _monster_index_of(target), wild_el, target_element)
@@ -2478,7 +2478,7 @@ func _resolve_pet_attack_body(pet: Pet, allow_pet_splash: bool, skill_anchor: St
 								splash_dmg = int(splash_crit.get("damage", splash_dmg))
 								var splash_is_crit: bool = bool(splash_crit.get("is_critical", false))
 								var tname = _get_monster_stat(next_target, "monster_name", _get_monster_stat(next_target, "name", "怪物"))
-								var splash_hl: Dictionary = _skill_highlight("溅墨", skill_anchor) if extra_idx == 0 else {}
+								var splash_hl: Dictionary = _skill_highlight("溅射", skill_anchor) if extra_idx == 0 else {}
 								splash_hl = _attach_splash_hit_fx(splash_hl, _monster_index_of(next_target))
 								var splash_msg: = "%s✦溅墨触发![/color] %s 对 %s 造成 [color=red]%d[/color] 点溅射伤害" % [BATTLE_SKILL_LOG, pet.pet_name, tname, splash_dmg]
 								if splash_is_crit:
@@ -2494,7 +2494,7 @@ func _resolve_pet_attack_body(pet: Pet, allow_pet_splash: bool, skill_anchor: St
 						var ratio2: float = float(sk_config.get("damage_ratio_per_hit", 1.0))
 						var extra_swings: int = maxi(0, int(sk_config.get("hit_count", 3)) - 1)
 						if extra_swings > 0 and is_monster_alive(target):
-							add_log("%s✦连击触发![/color] %s 对 %s 追加 [color=gray]%d[/color] 段连击" % [BATTLE_SKILL_LOG, pet.pet_name, target_name, extra_swings], _skill_highlight("连击", skill_anchor))
+							add_log("%s✦连击触发![/color] %s 对 %s 追加 [color=gray]%d[/color] 段连击" % [BATTLE_SKILL_LOG, pet.pet_name, target_name, extra_swings], _skill_highlight("连射", skill_anchor))
 						for seg_idx in range(extra_swings):
 							if not is_monster_alive(target):
 								break
@@ -2588,7 +2588,7 @@ func _try_pet_counter_after_being_attacked(pet: Pet, monster, skill_anchor: Stri
 	var counter_msg: = "%s%s 触发【反打】，对 %s 造成 [color=red]%d[/color] 点伤害![/color]" % [BATTLE_SKILL_LOG, pet.pet_name, monster_name, c_dmg]
 	if counter_is_crit:
 		counter_msg += " [color=#ff922b]（暴击）[/color]"
-	add_log(counter_msg, _skill_highlight("反打", skill_anchor))
+	add_log(counter_msg, _skill_highlight("反击", skill_anchor))
 	_emit_damage_dealt(pet.pet_name, monster_name, c_dmg, counter_is_crit, "monster", _monster_index_of(monster), pet.element, _get_monster_stat(monster, "element", "普通"), armor_pierced, true)
 	if m_hp_after <= 0:
 		add_log("[color=red]%s 被反击击败![/color]" % monster_name)
@@ -2677,7 +2677,7 @@ func _monster_attack_pet_target(pet: Pet, monster, skill_anchor: String = "pet",
 			var restore = maxf(1.0, pet.get_max_hp() * float(cfg.get("hp_restore_ratio", 0.5)))
 			pet.hp = restore
 			_sync_coop_unit_hp_from_pet(coop_unit, pet)
-			add_log("%s%s 触发【护主】，复生恢复 %.0f 点生命![/color]" % [BATTLE_SKILL_LOG, target_name, restore], _skill_highlight("护主", skill_anchor))
+			add_log("%s%s 触发【护主】，复生恢复 %.0f 点生命![/color]" % [BATTLE_SKILL_LOG, target_name, restore], _skill_highlight("神佑", skill_anchor))
 			_emit_unit_hp_synced(str(hit_meta.get("hit_target_type", "pet")), int(hit_meta.get("hit_target_index", 0)))
 		else:
 			if skill_anchor != "coop_pet":
@@ -3333,7 +3333,7 @@ func _try_trigger_player_life_steal(attacker: Player, total_damage: int) -> void
 	var ratio: float = clampf(art.get_life_steal_ratio(), 0.0, 1.0)
 	var heal_amount: int = maxi(1, int(floor(float(total_damage) * ratio)))
 	attacker.heal(heal_amount)
-	add_log("%s%s【以血养血】吸血回复 [color=#69db7c]%d[/color] 点生命[/color]" % [BATTLE_SKILL_LOG, attacker.player_name, heal_amount], _skill_highlight("以血养血", "player", heal_amount))
+	add_log("%s%s【以血养血】吸血回复 [color=#69db7c]%d[/color] 点生命[/color]" % [BATTLE_SKILL_LOG, attacker.player_name, heal_amount], _skill_highlight("以战养战", "player", heal_amount))
 	_emit_unit_hp_synced("player", 0)
 
 func _try_trigger_coop_life_steal(unit, total_damage: int) -> void :
@@ -3354,7 +3354,7 @@ func _try_trigger_coop_life_steal(unit, total_damage: int) -> void :
 		unit.hp = mini(int(unit.max_hp), int(unit.hp) + heal_amount)
 	var uname: = str(unit.display_name if "display_name" in unit else "队友")
 	var skill_anchor: = str(unit.unit_type) if "unit_type" in unit else "coop_player"
-	add_log("%s%s【以血养血】吸血回复 [color=#69db7c]%d[/color] 点生命[/color]" % [BATTLE_SKILL_LOG, uname, heal_amount], _skill_highlight("以血养血", skill_anchor, heal_amount))
+	add_log("%s%s【以血养血】吸血回复 [color=#69db7c]%d[/color] 点生命[/color]" % [BATTLE_SKILL_LOG, uname, heal_amount], _skill_highlight("以战养战", skill_anchor, heal_amount))
 	if skill_anchor in ["coop_player", "coop_pet"]:
 		_emit_unit_hp_synced(skill_anchor, _coop_unit_index(unit))
 
@@ -3371,7 +3371,7 @@ func _try_trigger_pet_life_steal(pet: Pet, total_damage: int, skill_anchor: Stri
 		return
 	var heal_amount: int = maxi(1, int(result.get("heal_amount", 0)))
 	pet.heal(float(heal_amount))
-	add_log("%s✦饮血触发![/color] %s 回复 [color=#69db7c]%d[/color] 点生命" % [BATTLE_SKILL_LOG, pet.pet_name, heal_amount], _skill_highlight("饮血", skill_anchor, heal_amount))
+	add_log("%s✦饮血触发![/color] %s 回复 [color=#69db7c]%d[/color] 点生命" % [BATTLE_SKILL_LOG, pet.pet_name, heal_amount], _skill_highlight("吸血", skill_anchor, heal_amount))
 	var hit_type: = "pet"
 	var hit_idx: = 0
 	if skill_anchor == "coop_pet":
@@ -3409,7 +3409,7 @@ func _try_trigger_pet_chase(pet: Pet, killed_target, base_damage: int, skill_anc
 	var chase_msg: = "%s✦追杀触发![/color] %s 对 %s 造成 [color=red]%d[/color] 点追击伤害" % [BATTLE_SKILL_LOG, pet.pet_name, tname, chase_dmg]
 	if chase_is_crit:
 		chase_msg += " [color=#ff922b]（暴击）[/color]"
-	add_log(chase_msg, _skill_highlight("追杀", skill_anchor))
+	add_log(chase_msg, _skill_highlight("追击", skill_anchor))
 	_apply_damage_to_monster(next_target, chase_dmg)
 	_emit_damage_dealt(pet.pet_name, tname, chase_dmg, chase_is_crit, "monster", _monster_index_of(next_target), pet.element, _get_monster_stat(next_target, "element", "普通"))
 	if not is_monster_alive(next_target):
@@ -3425,7 +3425,7 @@ func _try_loyal_intercept(monster, player_target) -> bool:
 	var loyal: = _pet_skill_battle.try_trigger_loyal(active_pet)
 	if loyal.is_empty():
 		return false
-	add_log("%s%s 触发【守主】，替主人承受攻击![/color]" % [BATTLE_SKILL_LOG, active_pet.pet_name], _skill_highlight("守主", "pet"))
+	add_log("%s%s 触发【守主】，替主人承受攻击![/color]" % [BATTLE_SKILL_LOG, active_pet.pet_name], _skill_highlight("忠心", "pet"))
 	_monster_attack_pet_target(active_pet, monster, "pet")
 	return true
 
@@ -3437,7 +3437,7 @@ func _try_apply_pet_self_heal_end_of_round() -> void :
 		if not heal.is_empty():
 			var amt: = int(heal.get("heal_amount", 0))
 			active_pet.heal(float(amt))
-			add_log("%s✦自复触发![/color] %s 回复 [color=#69db7c]%d[/color] 点生命" % [BATTLE_SKILL_LOG, active_pet.pet_name, amt], _skill_highlight("自复", "pet", amt))
+			add_log("%s✦自复触发![/color] %s 回复 [color=#69db7c]%d[/color] 点生命" % [BATTLE_SKILL_LOG, active_pet.pet_name, amt], _skill_highlight("自愈", "pet", amt))
 			_emit_unit_hp_synced("pet", 0)
 	for cu in coop_units:
 		if cu == null or not cu.has_method("get_battle_pet"):
@@ -3451,7 +3451,7 @@ func _try_apply_pet_self_heal_end_of_round() -> void :
 		var camt: = int(coop_heal.get("heal_amount", 0))
 		bp.heal(float(camt))
 		_sync_coop_unit_hp_from_pet(cu, bp)
-		add_log("%s✦自复触发![/color] %s 回复 [color=#69db7c]%d[/color] 点生命" % [BATTLE_SKILL_LOG, bp.pet_name, camt], _skill_highlight("自复", "coop_pet", camt))
+		add_log("%s✦自复触发![/color] %s 回复 [color=#69db7c]%d[/color] 点生命" % [BATTLE_SKILL_LOG, bp.pet_name, camt], _skill_highlight("自愈", "coop_pet", camt))
 
 func _find_monster_index(monster) -> int:
 	return _monster_index_of(monster)
@@ -3651,7 +3651,7 @@ func _apply_prepicked_splash_hits(pet: Pet, splash_plan: Dictionary, primary_tar
 		splash_dmg = int(splash_crit.get("damage", splash_dmg))
 		var splash_is_crit: bool = bool(splash_crit.get("is_critical", false))
 		var tname = _get_monster_stat(next_target, "monster_name", _get_monster_stat(next_target, "name", "怪物"))
-		var splash_hl: Dictionary = _skill_highlight("溅墨", skill_anchor) if extra_idx == 0 else {}
+		var splash_hl: Dictionary = _skill_highlight("溅射", skill_anchor) if extra_idx == 0 else {}
 		splash_hl = _attach_splash_hit_fx(splash_hl, _monster_index_of(next_target))
 		var splash_msg: = ""
 		if is_lv3:
@@ -3661,7 +3661,7 @@ func _apply_prepicked_splash_hits(pet: Pet, splash_plan: Dictionary, primary_tar
 			add_log(splash_msg, splash_hl)
 		else:
 			var auth_cfg: Dictionary = PetSkillConfig.get_skill_definition(skill_key)
-			var splash_name: = str(auth_cfg.get("skill_name", "溅墨"))
+			var splash_name: = str(auth_cfg.get("skill_name", "溅射"))
 			splash_msg = "%s✦ 溅墨触发![/color] %s 对 %s 造成 [color=red]%d[/color] 点溅射伤害" % [BATTLE_SKILL_LOG, pet.pet_name, tname, splash_dmg]
 			if splash_is_crit:
 				splash_msg += " [color=#ff922b]（暴击）[/color]"
@@ -3709,7 +3709,7 @@ func _try_trigger_pet_splash(pet: Pet, primary_target, skill_anchor: String = "p
 	splash_damage = int(splash_crit.get("damage", splash_damage))
 	var splash_is_crit: bool = bool(splash_crit.get("is_critical", false))
 	var second_name = _get_monster_stat(second_target, "monster_name", _get_monster_stat(second_target, "name", "怪物"))
-	var splash_name: = str(auth_cfg.get("skill_name", skill_cfg.get("name", "溅墨")))
+	var splash_name: = str(auth_cfg.get("skill_name", skill_cfg.get("name", "溅射")))
 	var splash_msg: = "%s✦ 溅墨触发![/color] %s 对 %s 造成 [color=red]%d[/color] 点溅射伤害" % [BATTLE_SKILL_LOG, pet.pet_name, second_name, splash_damage]
 	if splash_is_crit:
 		splash_msg += " [color=#ff922b]（暴击）[/color]"

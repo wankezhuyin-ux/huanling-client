@@ -1062,7 +1062,7 @@ func _is_tower_family_gift_item(item_name: String) -> bool:
 	var n: = str(item_name).strip_edges()
 	if n.is_empty():
 		return false
-	if n == "天关锦囊":
+	if n == "天关礼包":
 		return true
 	return n.ends_with("关礼包")
 
@@ -1455,9 +1455,9 @@ func _add_attachments_to_game(attachments: Dictionary, skip_server_currency: boo
 				if raw_custom is Dictionary:
 					extra_data = (raw_custom as Dictionary).duplicate(true)
 
-				if item_name in ["仙魔灵兽锦囊", "仙魔神兽锦囊", "仙魔变异锦囊", "仙魔野生锦囊"] and item_data.has("growth") and not extra_data.has("xianmo_gift_growth"):
+				if item_name in ["仙魔灵兽礼包", "仙魔神兽礼包", "仙魔变异礼包", "仙魔野生礼包"] and item_data.has("growth") and not extra_data.has("xianmo_gift_growth"):
 					extra_data["xianmo_gift_growth"] = float(item_data.get("growth", 0.0))
-				if item_name == "藏宝匣" and item_data.has("treasure_token"):
+				if item_name == "藏宝箱" and item_data.has("treasure_token"):
 					extra_data["treasure_token"] = str(item_data.get("treasure_token", ""))
 				var suit_try: = _try_add_suit_equipment_by_display_name(item_name, item_count)
 				if suit_try.get("handled", false):
@@ -1563,7 +1563,7 @@ func _add_attachments_to_game(attachments: Dictionary, skip_server_currency: boo
 			var item_id = attachments.get("item_id", "")
 			var quantity = attachments.get("quantity", 1)
 			var flat_extra: Dictionary = {}
-			if str(item_id) == "藏宝匣" and attachments.has("treasure_token"):
+			if str(item_id) == "藏宝箱" and attachments.has("treasure_token"):
 				flat_extra["treasure_token"] = str(attachments.get("treasure_token", ""))
 			if defer_tower_gifts_to_finalize and _is_tower_family_gift_item(str(item_id)):
 				pass
@@ -1696,7 +1696,7 @@ func _build_mail_pet_skill_slots(pet_data: Dictionary) -> Array:
 			skill_key = str(sd.get("key", "")).strip_edges()
 		if skill_key.is_empty():
 			var n: String = str(sd.get("name", sd.get("skill_name", ""))).strip_edges()
-			if n == "溅墨":
+			if n == "溅射":
 				skill_key = "splash_lv2" if lv >= 2 else "splash_lv1"
 		var cfg: Dictionary = {}
 		if not skill_key.is_empty():

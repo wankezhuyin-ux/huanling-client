@@ -139,7 +139,7 @@ func apply_rewards_to_player(rewards: Dictionary):
 
 	if rewards.cultivation_pills > 0:
 		if game_manager.inventory_manager:
-			game_manager.inventory_manager.add_item("开悟丹", rewards.cultivation_pills)
+			game_manager.inventory_manager.add_item("悟道仙丹", rewards.cultivation_pills)
 
 	for chest in rewards.chests:
 		if game_manager.xianmo_chest_manager:

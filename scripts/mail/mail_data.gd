@@ -146,7 +146,7 @@ func get_attachment_summary() -> String:
 		if item_type == "item" and attachments.has("item_id"):
 			var raw_id: String = str(attachments.get("item_id", "未知物品"))
 			var quantity = attachments.get("quantity", 1)
-			var disp_name: String = "藏宝匣" if raw_id == "藏宝匣" else raw_id
+			var disp_name: String = "藏宝箱" if raw_id == "藏宝箱" else raw_id
 			parts.append("%sx%d" % [disp_name, quantity])
 		elif item_type == "pet" and attachments.has("pet_id"):
 			var pet_name = _resolve_pet_display_name(attachments)

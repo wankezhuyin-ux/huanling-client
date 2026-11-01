@@ -271,7 +271,7 @@ func _get_chest_name(chest_type: String) -> String:
 
 func _get_item_name(item_id: String) -> String:
 	match item_id:
-		"cultivation_pill": return "开悟丹"
+		"cultivation_pill": return "悟道仙丹"
 		_: return item_id
 
 func _on_confirm_btn_pressed():
@@ -535,9 +535,9 @@ func _create_battle_replay_popup() -> Control:
 				var joint_text = " 合击！" if entry.get("isJointAttack", false) else ""
 				var skill_name: = str(entry.get("skillName", entry.get("skill_name", ""))).strip_edges()
 				if skill_name.is_empty() and str(entry.get("type", "")) == "triple_shot_hit":
-					skill_name = "一击三伤"
+					skill_name = "一箭三雕"
 				elif skill_name.is_empty() and str(entry.get("type", "")) == "kuihua_hit":
-					skill_name = "点穴手"
+					skill_name = "葵花点穴"
 				var skill_text: = ("【%s】" % skill_name) if not skill_name.is_empty() else ""
 
 				var base_text = ""

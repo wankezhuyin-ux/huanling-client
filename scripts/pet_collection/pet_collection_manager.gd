@@ -442,7 +442,13 @@ func get_pet_ids_by_element(element: String, include_display_only: bool = false)
 	return result
 
 
-func get_pet_image_path(pet_id: String) -> String:
+func get_pet_image_path(pet_id: String, evolution_origin: String = "") -> String:
+	# 进化宠物：优先用「链专属」图标（按原物种 + 形态命名），
+	# 没有就退回共用的形态图，老素材照常能用。
+	if not evolution_origin.is_empty():
+		var chain_path := "res://assets/pets/evo/%s_%s.png" % [evolution_origin.to_lower(), pet_id.to_lower()]
+		if ResourceLoader.exists(chain_path):
+			return chain_path
 	return "res://assets/pets/%s.png" % pet_id
 
 

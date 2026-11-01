@@ -5,7 +5,7 @@ const UIConstants = preload("res://scripts/ui_constants.gd")
 const GameData = preload("res://scripts/game_data.gd")
 
 
-const GIFT_ITEM_NAME: = "世界首领锦囊"
+const GIFT_ITEM_NAME: = "世界boss礼包"
 
 const BOSS_PET_IDS: Array[String] = [
 	"huozhiyizhi", 

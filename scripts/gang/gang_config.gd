@@ -1,7 +1,7 @@
 extends RefCounted
 class_name GangConfig
 
-const DOUBLE_EXP_ITEM: = "双倍经验符"
+const DOUBLE_EXP_ITEM: = "双倍经验丹"
 const MATERIAL_ITEM: = "建设材料"
 
 

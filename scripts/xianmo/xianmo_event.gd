@@ -54,7 +54,7 @@ func process_pet_event(event: Dictionary, choice: String = "") -> Dictionary:
 			var score = event.get("score", 2)
 			result.rewards.append({"type": "score", "amount": score})
 			if event.has("growth"):
-				result.rewards.append({"type": "pet_gift", "giftName": event.get("giftName", "仙魔变异锦囊"), "growth": event.growth})
+				result.rewards.append({"type": "pet_gift", "giftName": event.get("giftName", "仙魔变异礼包"), "growth": event.growth})
 		return result
 
 	if event.get("no_capture_roll", false):
@@ -389,7 +389,7 @@ func _get_chest_name(chest_type: String) -> String:
 
 func _get_item_name(item_id: String) -> String:
 	match item_id:
-		"cultivation_pill": return "开悟丹"
+		"cultivation_pill": return "悟道仙丹"
 		_: return item_id
 
 func broadcast_event(event_type: String, details: Dictionary):

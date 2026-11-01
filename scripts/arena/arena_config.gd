@@ -18,7 +18,7 @@ const FALLBACK_MATCH_SCORE_BAND: = 80
 const FALLBACK_RANKING_DISPLAY_LIMIT: = 100
 
 const FALLBACK_SHOP_ITEMS: Array = [
-	{"id": "limit_equip_gift", "itemName": "极限装备锦囊", "cost": 1500}, 
+	{"id": "limit_equip_gift", "itemName": "极限装备礼包", "cost": 1500}, 
 ]
 
 const FALLBACK_TITLE_NAMES: = [
@@ -32,10 +32,10 @@ const FALLBACK_TITLE_CONFIGS: Array = [
 ]
 
 const FALLBACK_GIFT_PACKS: Dictionary = {
-	"champion": {"itemName": "冠军锦囊", "items": [{"name": "极限装备锦囊", "count": 3}], "gold": 5000000000}, 
-	"runner_up": {"itemName": "亚军锦囊", "items": [{"name": "极限装备锦囊", "count": 2}], "gold": 3000000000}, 
-	"third": {"itemName": "季军锦囊", "items": [{"name": "极限装备锦囊", "count": 1}], "gold": 1000000000}, 
-	"top10": {"itemName": "十强锦囊", "items": [{"name": "极限装备之一", "count": 1}], "gold": 500000000}, 
+	"champion": {"itemName": "冠军礼包", "items": [{"name": "极限装备礼包", "count": 3}], "gold": 5000000000}, 
+	"runner_up": {"itemName": "亚军礼包", "items": [{"name": "极限装备礼包", "count": 2}], "gold": 3000000000}, 
+	"third": {"itemName": "季军礼包", "items": [{"name": "极限装备礼包", "count": 1}], "gold": 1000000000}, 
+	"top10": {"itemName": "十强礼包", "items": [{"name": "极限装备之一", "count": 1}], "gold": 500000000}, 
 }
 
 const FALLBACK_RANK_GOLD_TIERS: Array = [
@@ -150,7 +150,7 @@ static func _build_fallback_rules_text(cfg: Dictionary = {}) -> String:
 
 	var top10: Dictionary = FALLBACK_GIFT_PACKS.get("top10", {})
 	if not top10.is_empty():
-		lines.append("第4–10名：%s（%s）" % [str(top10.get("itemName", "十强锦囊")), _format_gift_pack_items(top10)])
+		lines.append("第4–10名：%s（%s）" % [str(top10.get("itemName", "十强礼包")), _format_gift_pack_items(top10)])
 
 	for tier in FALLBACK_RANK_GOLD_TIERS:
 		if typeof(tier) != TYPE_DICTIONARY:

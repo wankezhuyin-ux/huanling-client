@@ -940,31 +940,31 @@ func _highlight_for_entry(entry: Dictionary, slot: Dictionary = {}) -> Dictionar
 	var idx: = int(slot.get("index", -1))
 	match t:
 		"skill_splash":
-			return BattleSystem._skill_highlight("溅墨", anchor, 0, idx)
+			return BattleSystem._skill_highlight("溅射", anchor, 0, idx)
 		"skill_double_shot":
-			return BattleSystem._skill_highlight("连击", anchor, 0, idx)
+			return BattleSystem._skill_highlight("连射", anchor, 0, idx)
 		"triple_shot_hit":
 			return {}
 		"skill_counter_attack":
-			return BattleSystem._skill_highlight("反打", anchor, 0, idx)
+			return BattleSystem._skill_highlight("反击", anchor, 0, idx)
 		"skill_chase":
-			return BattleSystem._skill_highlight("追杀", anchor, 0, idx)
+			return BattleSystem._skill_highlight("追击", anchor, 0, idx)
 		"skill_armor_pierce":
-			return BattleSystem._skill_highlight("破防", anchor, 0, idx)
+			return BattleSystem._skill_highlight("破甲", anchor, 0, idx)
 		"skill_guard":
-			return BattleSystem._skill_highlight("挡伤", anchor, 0, idx)
+			return BattleSystem._skill_highlight("格挡", anchor, 0, idx)
 		"skill_divine_protect":
-			return BattleSystem._skill_highlight("护主", anchor, 0, idx)
+			return BattleSystem._skill_highlight("神佑", anchor, 0, idx)
 		"skill_self_heal":
 			var heal_amt: = int(entry.get("hpRestored", entry.get("hp_restored", entry.get("heal", 0))))
 			var heal_anchor: = str(slot.get("type", ""))
 			if heal_anchor not in ["player", "pet", "coop_player", "coop_pet", "monster"]:
 				heal_anchor = "pet"
-			return BattleSystem._skill_highlight("自复", heal_anchor, heal_amt, idx)
+			return BattleSystem._skill_highlight("自愈", heal_anchor, heal_amt, idx)
 		"kuihua_point_success", "kuihua_point_fail":
 			return {}
 		"skill_life_steal":
-			var steal_name: = str(entry.get("skillName", entry.get("skill_name", "饮血")))
+			var steal_name: = str(entry.get("skillName", entry.get("skill_name", "吸血")))
 			var steal_heal: = int(entry.get("hpRestored", entry.get("hp_restored", 0)))
 			var steal_anchor: = str(slot.get("type", ""))
 			if steal_anchor not in ["player", "pet", "coop_player", "coop_pet"]:
@@ -976,7 +976,7 @@ func _highlight_for_entry(entry: Dictionary, slot: Dictionary = {}) -> Dictionar
 func _should_show_triple_shot_banner(entry: Dictionary) -> bool:
 	if str(entry.get("type", "")) == "triple_shot_hit":
 		return false
-	if str(entry.get("skillName", entry.get("skill_name", ""))) == "一击三伤":
+	if str(entry.get("skillName", entry.get("skill_name", ""))) == "一箭三雕":
 		return true
 	return str(entry.get("skill", "")).to_lower() == "triple_shot"
 
@@ -1239,7 +1239,7 @@ func _apply_miss_float(entry: Dictionary) -> void :
 			var kuihua_anchor: = str(kuihua_atk.get("type", "player"))
 			if kuihua_anchor not in ["player", "pet", "coop_player", "coop_pet", "monster"]:
 				kuihua_anchor = "player"
-			miss_hl = BattleSystem._skill_highlight("点穴手", kuihua_anchor, 0, int(kuihua_atk.get("index", -1)))
+			miss_hl = BattleSystem._skill_highlight("葵花点穴", kuihua_anchor, 0, int(kuihua_atk.get("index", -1)))
 		bs.apply_replay_log(miss_msg, miss_hl)
 	var target_name: = str(entry.get("target", ""))
 	var hit: = _resolve_living_swing_target(entry, _combo_living_hit_slot(entry, _resolve_unit_slot(entry, true)))
@@ -1339,7 +1339,7 @@ func _apply_attack_damage(entry: Dictionary, show_skill_highlight: bool = true, 
 		var kuihua_anchor: = str(kuihua_atk.get("type", "player"))
 		if kuihua_anchor not in ["player", "pet", "coop_player", "coop_pet", "monster"]:
 			kuihua_anchor = "player"
-		var kuihua_hl: Dictionary = BattleSystem._skill_highlight("点穴手", kuihua_anchor, 0, int(kuihua_atk.get("index", -1)))
+		var kuihua_hl: Dictionary = BattleSystem._skill_highlight("葵花点穴", kuihua_anchor, 0, int(kuihua_atk.get("index", -1)))
 		for k in kuihua_hl.keys():
 			hl[k] = kuihua_hl[k]
 	if force_triple_banner or (show_skill_highlight and _should_show_triple_shot_banner(entry)):
@@ -1347,7 +1347,7 @@ func _apply_attack_damage(entry: Dictionary, show_skill_highlight: bool = true, 
 		var t_anchor: = str(atk.get("type", "player"))
 		if t_anchor not in ["player", "pet", "coop_player", "coop_pet", "monster"]:
 			t_anchor = "player"
-		var triple_hl: Dictionary = BattleSystem._skill_highlight("一击三伤", t_anchor, 0, int(atk.get("index", -1)))
+		var triple_hl: Dictionary = BattleSystem._skill_highlight("一箭三雕", t_anchor, 0, int(atk.get("index", -1)))
 		for k in triple_hl.keys():
 			hl[k] = triple_hl[k]
 	if not log_msg.is_empty() or not hl.is_empty():
@@ -1741,7 +1741,7 @@ func _format_life_steal_line(entry: Dictionary) -> String:
 	var who: = str(entry.get("attacker", entry.get("target", "修士")))
 	var amt: = int(entry.get("hpRestored", entry.get("hp_restored", 0)))
 	var skill_name: = str(entry.get("skillName", entry.get("skill_name", "")))
-	if skill_name == "以血养血":
+	if skill_name == "以战养战":
 		return "[color=#69db7c]%s【以血养血】吸血回复 %d 点生命[/color]" % [who, amt]
 	return "[color=#69db7c]✦饮血触发![/color] %s 回复 %d 点生命" % [who, amt]
 

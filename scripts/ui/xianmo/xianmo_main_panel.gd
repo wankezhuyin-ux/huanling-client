@@ -1419,9 +1419,9 @@ func _create_shop_panel() -> Control:
 	scroll.add_child(items_container)
 
 	var shop_items = [
-		{"id": "bronze_chest", "name": "青铜匣", "cost": 150, "desc": "随机获得一件青铜套装部件"}, 
-		{"id": "silver_chest", "name": "白银匣", "cost": 300, "desc": "随机获得一件白银套装部件"}, 
-		{"id": "gold_chest", "name": "黄金匣", "cost": 450, "desc": "随机获得一件黄金套装部件"}, 
+		{"id": "bronze_chest", "name": "青铜宝箱", "cost": 150, "desc": "随机获得一件青铜套装部件"}, 
+		{"id": "silver_chest", "name": "白银宝箱", "cost": 300, "desc": "随机获得一件白银套装部件"}, 
+		{"id": "gold_chest", "name": "黄金宝箱", "cost": 450, "desc": "随机获得一件黄金套装部件"}, 
 		{"id": "fortify_lv1_book", "name": "硬皮lv1技能书", "cost": 5000, "desc": "宠物技能书，可学习硬皮lv1技能，提升宠物基础防御70%"}
 	]
 

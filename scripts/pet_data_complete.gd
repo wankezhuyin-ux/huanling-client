@@ -2345,7 +2345,7 @@ const PET_DATA = {
 		"ratio": [38, 17, 45]
 	}, 
 	"duxing": {
-		"name": "铁嘴鸦", 
+		"name": "独行", 
 		"type": "敏攻型", 
 		"element": "金", 
 		"attack": 5.3, 
@@ -2744,7 +2744,7 @@ const PET_DATA = {
 		"ratio": [34, 35, 31]
 	}, 
 	"linlin": {
-		"name": "赤翅蛾", 
+		"name": "琳琳", 
 		"type": "平均型", 
 		"element": "水", 
 		"attack": 4.8, 
@@ -2865,7 +2865,7 @@ const PET_DATA = {
 		"ratio": [25, 45, 30]
 	}, 
 	"lèngtóuqīng": {
-		"name": "苔背兽", 
+		"name": "愣头青", 
 		"type": "敏防型", 
 		"element": "水", 
 		"attack": 4.0, 
@@ -3261,7 +3261,7 @@ const PET_DATA = {
 		"ratio": [33, 22, 45]
 	}, 
 	"yùlíntù": {
-		"name": "沙耳兔", 
+		"name": "御林兔", 
 		"type": "敏攻型", 
 		"element": "土", 
 		"attack": 5.3, 
@@ -3297,7 +3297,7 @@ const PET_DATA = {
 		"ratio": [34, 35, 31]
 	}, 
 	"xiǎodīngdōng": {
-		"name": "滴水蛙", 
+		"name": "小叮咚", 
 		"type": "平均型", 
 		"element": "土", 
 		"attack": 5.4, 

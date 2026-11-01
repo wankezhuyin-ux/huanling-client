@@ -2036,7 +2036,7 @@ func _build_splash_lv1_skill_slot() -> Dictionary:
 		"slot": 1, 
 		"skill_key": "splash_lv1", 
 		"skill_id": str(skill_cfg.get("skill_id", "splash")), 
-		"skill_name": str(skill_cfg.get("name", "溅墨")), 
+		"skill_name": str(skill_cfg.get("name", "溅射")), 
 		"level": int(skill_cfg.get("level", 1))
 	}
 

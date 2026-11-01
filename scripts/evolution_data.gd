@@ -14,7 +14,7 @@ const EVOLUTION_DATA = {
 		"mutant_evolution": ["yingying", "ling_shan", "bai_yi_xian_zi", "ao_xue_shou"]
 	}, 
 	"linlin": {
-		"name": "赤翅蛾", 
+		"name": "琳琳", 
 		"normal_evolution": ["linlin", "ni_chang", "lv_yi_xian_zi", "di_cang_shou"], 
 		"mutant_evolution": ["linlin", "yu_yi", "fen_yi_xian_zi", "huan_yun_shou"]
 	}, 
