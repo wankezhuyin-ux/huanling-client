@@ -183,7 +183,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 3000, 
 			"gold": 80000, 
-			"items": ["开悟丹 x1"]
+			"items": ["悟道仙丹 x1"]
 		}, 
 		"next_quest": "quest_007"
 	}, 
@@ -777,7 +777,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 50000, 
 			"gold": 1000000, 
-			"items": ["开悟丹 x5"]
+			"items": ["悟道仙丹 x5"]
 		}, 
 		"next_quest": "realm_002"
 	}, 
@@ -799,7 +799,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 100000, 
 			"gold": 2000000, 
-			"items": ["开悟丹 x5"]
+			"items": ["悟道仙丹 x5"]
 		}, 
 		"next_quest": "realm_003"
 	}, 
@@ -821,7 +821,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 200000, 
 			"gold": 5000000, 
-			"items": ["开悟丹 x5"]
+			"items": ["悟道仙丹 x5"]
 		}, 
 		"next_quest": "realm_004"
 	}, 
@@ -843,7 +843,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 500000, 
 			"gold": 10000000, 
-			"items": ["开悟丹 x5"]
+			"items": ["悟道仙丹 x5"]
 		}, 
 		"next_quest": "realm_005"
 	}, 
@@ -865,7 +865,7 @@ const QUESTS = {
 		"rewards": {
 			"exp": 1000000, 
 			"gold": 20000000, 
-			"items": ["开悟丹 x5", "百关锦囊·一 x1"]
+			"items": ["悟道仙丹 x5", "百关锦囊·一 x1"]
 		}, 
 		"next_quest": null
 	}, 

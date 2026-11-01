@@ -3210,7 +3210,7 @@ class InventoryItem:
 					game_manager.network.economy_whitelist_item_consume(op_wudao, "wudao_pill_gift")
 				)
 				if not bool(er_wudao.get("ok", false)):
-					result.message = str(er_wudao.get("err", "开悟丹锦囊校验失败，请稍后重试"))
+					result.message = str(er_wudao.get("err", "悟道仙丹礼包校验失败，请稍后重试"))
 					return result
 				var er_wudao_data: Variant = er_wudao.get("data", {})
 				var wudao_payload: Dictionary = er_wudao_data if er_wudao_data is Dictionary else {}
@@ -3235,9 +3235,9 @@ class InventoryItem:
 				wudao_apply_opts["granted_item_names"] = wudao_granted
 				game_manager.apply_cloud_save(sd_wudao, wudao_apply_opts)
 				if dup_wudao or consumed_wudao <= 0:
-					messages.append("开悟丹锦囊状态已与服务器同步（重复请求未重复扣道具）")
+					messages.append("悟道仙丹礼包状态已与服务器同步（重复请求未重复扣道具）")
 				else:
-					messages.append("获得开悟丹 x50")
+					messages.append("获得悟道仙丹 x50")
 				result.success = true
 				result.message = "\n".join(messages)
 				return result

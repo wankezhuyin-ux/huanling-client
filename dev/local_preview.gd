@@ -343,7 +343,7 @@ func _run_item_test(ui, gm) -> void:
 	var duplicate_ok: bool = not duplicate.get("success", true) and gm.player.double_exp_until == until + 2 * 604800
 	var gift_checks: Array = []
 	var gifts_ok := true
-	for name in ["开悟丹锦囊", "新手锦囊", "开荒宠装锦囊", "开荒锦囊", "金魂魄", "宠物补章器"]:
+	for name in ["悟道仙丹礼包", "新手锦囊", "开荒宠装锦囊", "开荒锦囊", "金魂魄", "宠物补章器"]:
 		inv.add_item(name, 1)
 		var id := ""
 		for entry in inv.items:
@@ -354,12 +354,12 @@ func _run_item_test(ui, gm) -> void:
 		gift_checks.append({"item": name, "success": result.get("success", false), "message": result.get("message", "")})
 	var pill_id := ""
 	for entry in inv.items:
-		if entry.name == "开悟丹":
+		if entry.name == "悟道仙丹":
 			pill_id = entry.id
 	var cultivation_before: int = gm.player.cultivation
 	var pills: Dictionary = await gm.local_use_item(pill_id, 5)
 	var pill_limit: Dictionary = await gm.local_use_item(pill_id, 1)
-	var pills_ok: bool = pills.get("success", false) and not pill_limit.get("success", true) and gm.player.cultivation == cultivation_before + 2500 and inv.get_item_count("开悟丹") == 45
+	var pills_ok: bool = pills.get("success", false) and not pill_limit.get("success", true) and gm.player.cultivation == cultivation_before + 2500 and inv.get_item_count("悟道仙丹") == 45
 	inv.add_item("双倍经验丹", 1)
 	var day_id := ""
 	for entry in inv.items:

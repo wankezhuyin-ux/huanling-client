@@ -136,8 +136,8 @@ static func _apply_one(gm, item) -> Dictionary:
 			return {"success": false, "message": "魂魄配置缺失，道具未消耗"}
 		gm.pet_soul_manager.add_points(element, points)
 		return {"success": true, "message": "%s魂魄+%d" % [element, points]}
-	if name == "开悟丹锦囊":
-		return inv.add_item("开悟丹", 50)
+	if name == "悟道仙丹礼包":
+		return inv.add_item("悟道仙丹", 50)
 	if name == "新手锦囊" or name == "开荒锦囊":
 		var needed_pets := 7 if name == "开荒锦囊" else 0
 		var capacity: Dictionary = inv._check_gift_capacity(gm, name, 5, needed_pets, [])

@@ -109,7 +109,7 @@ func send_rewards_via_mail(player_id: String, rewards: Dictionary):
 	for chest in rewards.chests:
 		content += "- %s宝箱×1\n" % _get_chest_name(chest)
 	if rewards.cultivation_pills > 0:
-		content += "- 开悟丹×%d\n" % rewards.cultivation_pills
+		content += "- 悟道仙丹×%d\n" % rewards.cultivation_pills
 
 	content += "\n请在7天内领取，过期作废。"
 
