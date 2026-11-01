@@ -17,7 +17,7 @@ dest_files=["res://.godot/imported/icon_egg.png-7b97a88697accd132d4d56a20a646103
 
 compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.75
+compress/lossy_quality=0.88
 compress/uastc_level=2
 compress/rdo_quality_loss=0
 compress/hdr_compression=0

@@ -17,7 +17,7 @@ dest_files=["res://.godot/imported/wb_bg_atmosphere.jpg-a349b6e32cf3bd7e8f3fef66
 
 compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.75
+compress/lossy_quality=0.85
 compress/uastc_level=2
 compress/rdo_quality_loss=0
 compress/hdr_compression=0

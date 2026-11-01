@@ -17,7 +17,7 @@ dest_files=["res://.godot/imported/blue_button.png-e9183f3a45c8b26a3449dc32219c7
 
 compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.75
+compress/lossy_quality=0.88
 compress/uastc_level=2
 compress/rdo_quality_loss=0
 compress/hdr_compression=0

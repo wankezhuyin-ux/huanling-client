@@ -17,7 +17,7 @@ dest_files=["res://.godot/imported/bg_tower.jpg-bb27678ac1b9a28835acf1bd3bce766a
 
 compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.75
+compress/lossy_quality=0.85
 compress/uastc_level=2
 compress/rdo_quality_loss=0
 compress/hdr_compression=0

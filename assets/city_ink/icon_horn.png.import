@@ -17,7 +17,7 @@ dest_files=["res://.godot/imported/icon_horn.png-c5da81b97b5467517c9528303e1beba
 
 compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.75
+compress/lossy_quality=0.88
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

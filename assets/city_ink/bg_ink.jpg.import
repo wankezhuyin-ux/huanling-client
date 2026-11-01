@@ -17,7 +17,7 @@ dest_files=["res://.godot/imported/bg_ink.jpg-3e44a7ce14bcc30a7945d6d5dccb5843.c
 
 compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.75
+compress/lossy_quality=0.85
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

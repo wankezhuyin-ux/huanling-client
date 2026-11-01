@@ -15,9 +15,9 @@ dest_files=["res://.godot/imported/zhuidianju.png-7b7648f73227d04a2b45a2846959d5
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.88
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

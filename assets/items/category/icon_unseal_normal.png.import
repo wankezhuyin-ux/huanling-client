@@ -17,7 +17,7 @@ dest_files=["res://.godot/imported/icon_unseal_normal.png-c6a9b65e0b062885c19e92
 
 compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.75
+compress/lossy_quality=0.88
 compress/uastc_level=2
 compress/rdo_quality_loss=0
 compress/hdr_compression=0

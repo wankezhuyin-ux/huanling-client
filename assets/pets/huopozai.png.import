@@ -15,9 +15,9 @@ dest_files=["res://.godot/imported/huopozai.png-98de1e5ff026ef4e8bc9c77f3408899d
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.88
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

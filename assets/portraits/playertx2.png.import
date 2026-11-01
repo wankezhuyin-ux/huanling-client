@@ -17,7 +17,7 @@ dest_files=["res://.godot/imported/playertx2.png-5350ed3b6c50c7c405319a9b2b24d73
 
 compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.75
+compress/lossy_quality=0.88
 compress/uastc_level=2
 compress/rdo_quality_loss=0
 compress/hdr_compression=0

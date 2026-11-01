@@ -15,9 +15,9 @@ dest_files=["res://.godot/imported/tufei.png-6de187e2a3a18d2e2523f9c2be4def7d.ct
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.88
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

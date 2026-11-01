@@ -17,7 +17,7 @@ dest_files=["res://.godot/imported/pet_normal_weapon.png-f0a695e2e788efe226c3432
 
 compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.75
+compress/lossy_quality=0.88
 compress/uastc_level=2
 compress/rdo_quality_loss=0
 compress/hdr_compression=0
