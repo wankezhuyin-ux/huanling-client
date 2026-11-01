@@ -160,7 +160,7 @@ const BGM_LUCKY_DRAW = "res://Music/幸运抽奖.mp3"
 const ALLOW_LEGACY_PLAINTEXT_JSON_SAVE: bool = false
 
 
-var current_map: String = "墨影城郊（0,0）"
+var current_map: String = "浮影水城外郊（0,0）"
 var in_battle: bool = false
 var _wild_replay_busy: bool = false
 var _wild_replay_token: String = ""
@@ -336,6 +336,7 @@ func _begin_field_exp_settlement_window() -> void :
 	_field_fabao_exp_bonus_logged_in_window = false
 	_field_map_diff_exp_bonus_logged_in_window = false
 	_field_noble_exp_bonus_logged_in_window = false
+	_field_weekend_exp_bonus_logged_in_window = false
 	_field_exp_pet_granted_in_window = false
 	_field_exp_level_cap_player = int(player.level) if player else 1
 	var ap = pet_manager.get_active_pet() if pet_manager else null
@@ -988,6 +989,7 @@ var _field_double_exp_bonus_logged_in_window: bool = false
 var _field_fabao_exp_bonus_logged_in_window: bool = false
 var _field_map_diff_exp_bonus_logged_in_window: bool = false
 var _field_noble_exp_bonus_logged_in_window: bool = false
+var _field_weekend_exp_bonus_logged_in_window: bool = false
 var _field_exp_pet_granted_in_window: bool = false
 var _field_exp_level_cap_player: int = 1
 var _field_exp_level_cap_pet: int = 1
@@ -3596,7 +3598,7 @@ func _apply_suit_clear_server_drops(d: Dictionary) -> void :
 				if item_name.is_empty():
 					continue
 				var item_type: = str(row.get("type", "")).strip_edges()
-				if item_type == "stone" or item_name.ends_with("解封石"):
+				if item_type == "stone" or item_name.ends_with("普通解封石"):
 					stones.append(item_name)
 				else:
 					sealed.append(item_name)
@@ -4554,7 +4556,7 @@ const SAVE_FILE_BACKUP_TEMPLATE = "user://save_game_backup_u%d.dat"
 const SAVE_FILE_TEMP_TEMPLATE = "user://save_game_temp_u%d.dat"
 
 const DEFAULT_VALUES = {
-	"current_map": "墨影城郊（0,0）", 
+	"current_map": "浮影水城外郊（0,0）", 
 	"auto_capture_enabled": true, 
 	"min_growth_threshold": 0.0, 
 	"auto_change_map_enabled": false, 
@@ -9090,6 +9092,7 @@ func _log_field_battle_exp_bonuses_once(loot_pd: Dictionary = {}) -> void :
 	print("[DoubleExpLog] 服务端通道数=%d 服务端VIP倍率=%.2f" % [srv_channels, srv_vip_mult])
 	_log_vip_field_exp_bonus_once(srv_vip_mult)
 	_log_double_exp_field_bonus_once(srv_channels)
+	_log_weekend_field_exp_bonus_once(float(loot_pd.get("weekendExpBonus", -1.0)))
 	_log_newbie_field_exp_bonus_once()
 	_log_catchup_field_level_ups_once()
 	_log_gang_field_battle_bonus_once()
@@ -9130,6 +9133,21 @@ func _log_double_exp_field_bonus_once(server_count: int = -1) -> void :
 	if count > 1:
 		suffix = "（%d种叠加）" % count
 	battle_system.add_log("[color=orange]双倍经验符生效：经验 +%d%%!%s[/color]" % [count * 100, suffix])
+
+func _log_weekend_field_exp_bonus_once(server_bonus: float = -1.0) -> void :
+	if _field_weekend_exp_bonus_logged_in_window or battle_system == null:
+		return
+	# 服务端 battle-loot 回包的 weekendExpBonus 是唯一权威来源（0.0 = 今天没有加成）。
+	# 只有旧服务端不回这个字段时才退回本机星期兜底：
+	# Godot 的 weekday 是 0=周日、1=周一…6=周六，和 isoweekday（周一=1、周日=7）差一位。
+	var bonus: = server_bonus
+	if bonus < 0.0:
+		var wd: = int(Time.get_datetime_dict_from_system().get("weekday", 0))
+		bonus = 1.0 if (wd == 6 or wd == 0) else 0.0
+	if bonus <= 0.01:
+		return
+	_field_weekend_exp_bonus_logged_in_window = true
+	battle_system.add_log("[color=#7fe3b0]周末双倍经验：野外经验 +%d%%（全服生效）[/color]" % int(round(bonus * 100.0)))
 
 func _log_gang_field_battle_bonus_once() -> void :
 	if _field_gang_bonus_logged_in_window or battle_system == null:
