@@ -438,15 +438,6 @@ func _build_falls() -> void:
 		var mats: Array = []
 		var w := FALLS_RECT.size.x + (6.0 if layer == 1 else 0.0)
 		var x := FALLS_RECT.position.x - (3.0 if layer == 1 else 0.0)
-		# 同一层的三段参数一样 → 共用一个材质（见 _build_cloud 里的说明）
-		var m: ShaderMaterial = null
-		if fsh != null:
-			m = ShaderMaterial.new()
-			m.shader = fsh
-			# 慢的一层拉更长的淡出，让两层叠起来没有硬边
-			m.set_shader_parameter("fade_top", 34.0 if layer == 0 else 20.0)
-			m.set_shader_parameter("fade_bot", 58.0 if layer == 0 else 40.0)
-			m.set_shader_parameter("strength", FALLS_ALPHA if layer == 0 else FALLS_ALPHA2)
 		for k in range(-1, 2):
 			var r := TextureRect.new()
 			r.texture = t
@@ -455,7 +446,18 @@ func _build_falls() -> void:
 			r.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			r.size = Vector2(w, FALLS_RECT.size.y)
 			r.position = Vector2(x, FALLS_RECT.position.y + float(k) * FALLS_RECT.size.y)
-			if m != null:
+			# 注意：这里的材质**不能**像云那样三点共用。
+			# falls_band.gdshader 的 band 是「本片相对带顶的偏移」，每片各不相同，
+			# 由 _update_falls() 逐片写 uniform。共用一份材质的话后一片会覆盖前一片，
+			# 三片遮罩全部越界 → 整条瀑布被裁成全透明（v2.18 的 bug）。
+			# 只有 2 层 × 3 片 = 6 个材质，共享省下的量可以忽略。
+			if fsh != null:
+				var m := ShaderMaterial.new()
+				m.shader = fsh
+				# 慢的一层拉更长的淡出，让两层叠起来没有硬边
+				m.set_shader_parameter("fade_top", 34.0 if layer == 0 else 20.0)
+				m.set_shader_parameter("fade_bot", 58.0 if layer == 0 else 40.0)
+				m.set_shader_parameter("strength", FALLS_ALPHA if layer == 0 else FALLS_ALPHA2)
 				r.material = m
 				mats.append(m)
 			else:
