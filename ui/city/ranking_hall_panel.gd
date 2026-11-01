@@ -371,7 +371,18 @@ func _display_pet_rankings(list: VBoxContainer, rankings: Array):
 		hbox2.add_child(level_label)
 
 		var growth_label = Label.new()
-		growth_label.text = "总成长:" + str(r.get("growth_rate", 3.0))
+		# 服务端给的是数字（总成长=攻+防+敏成长之和）；Godot 的 JSON 数字统一解析成
+		# float，直接 str() 会冒出多余小数位，这里统一保留一位、缺数据显示「-」。
+		var growth_value = r.get("growth_rate", 0)
+		var growth_text: String = "-"
+		if typeof(growth_value) == TYPE_FLOAT or typeof(growth_value) == TYPE_INT:
+			if float(growth_value) > 0.0:
+				growth_text = "%.3f" % float(growth_value)
+		elif typeof(growth_value) == TYPE_STRING:
+			growth_text = str(growth_value).strip_edges()
+			if growth_text.is_empty():
+				growth_text = "-"
+		growth_label.text = "总成长:" + growth_text
 		growth_label.add_theme_font_size_override("font_size", 18)
 		growth_label.add_theme_color_override("font_color", Color(1, 0.8, 0.3))
 		hbox2.add_child(growth_label)
@@ -383,7 +394,8 @@ func _display_pet_rankings(list: VBoxContainer, rankings: Array):
 		hbox2.add_child(form_label)
 
 		var gen_label = Label.new()
-		gen_label.text = "代数:" + str(r.get("generation", 0))
+		# JSON 数字在 Godot 里是 float，不取整会显示成「代数:0.0」
+		gen_label.text = "代数:" + str(int(r.get("generation", 0)))
 		gen_label.add_theme_font_size_override("font_size", 18)
 		gen_label.add_theme_color_override("font_color", Color(0.9, 0.6, 0.6))
 		hbox2.add_child(gen_label)
