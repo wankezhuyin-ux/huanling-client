@@ -6,16 +6,17 @@ const BLOCKED_MESSAGE: = "贵重物品不可丢弃"
 const EXACT_NAMES: = {
 	"法宝洗练石": true, 
 	"法宝重置石": true, 
-	"人物经验丹": true, 
-	"宠物经验丹": true, 
-	"开悟丹": true, 
+	"人物升级丹": true, 
+	"宠物升级丹": true, 
+	"宠物双倍经验丹": true, 
+	"悟道仙丹": true, 
 	"宠物补章器": true, 
-	"极限装备锦囊": true, 
-	"开荒锦囊": true, 
-	"开荒宠装锦囊": true, 
-	"离线宠物锦囊": true, 
-	"天关锦囊": true, 
-	"天关组队锦囊": true, 
+	"极限装备礼包": true, 
+	"开荒礼包": true, 
+	"开荒宠装礼包": true, 
+	"离线宠物礼包": true, 
+	"天关礼包": true, 
+	"兄弟天关礼包": true, 
 }
 
 const LIMIT_MATERIAL_NAMES: = {
@@ -75,11 +76,11 @@ static func _is_floor_gift_name(name: String) -> bool:
 static func _is_pet_related_gift_or_egg(name: String, type: String) -> bool:
 	if name.is_empty():
 		return false
-	if name.contains("宠物礼包") or name == "离线宠物锦囊":
+	if name.contains("宠物礼包") or name == "离线宠物礼包":
 		return true
 	if name.contains("可进化宠礼包") or name.contains("不可进化宠礼包"):
 		return true
-	if name == "天关锦囊" or name == "天关组队锦囊" or _is_floor_gift_name(name):
+	if name == "天关礼包" or name == "兄弟天关礼包" or _is_floor_gift_name(name):
 		return true
 	if type == "pet_egg" or name.ends_with("宠物蛋"):
 		return true
@@ -109,7 +110,7 @@ static func cannot_discard_inventory_item(item) -> bool:
 		return false
 	if EXACT_NAMES.has(name):
 		return true
-	if name.begins_with("双倍经验符"):
+	if name.begins_with("双倍经验丹"):
 		return true
 	if _is_skill_book(name, type):
 		return true

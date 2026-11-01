@@ -14,24 +14,25 @@ const SEALED_MODULATE: = Color(0.45, 0.45, 0.5, 1.0)
 
 
 const SPECIFIC_ICON_BY_NAME: = {
-	"金魂魄": "icon_soul_jin.png", 
-	"木魂魄": "icon_soul_mu.png", 
-	"水魂魄": "icon_soul_shui.png", 
-	"火魂魄": "icon_soul_huo.png", 
-	"土魂魄": "icon_soul_tu.png", 
-	"定神丹": "icon_pill_ningshen.png", 
-	"开悟丹": "icon_pill_wudao.png", 
-	"人物经验丹": "icon_pill_player_level.png", 
-	"宠物经验丹": "icon_pill_pet_level.png", 
-	"双倍经验符": "icon_pill_double_exp.png", 
-	"双倍经验符·周": "icon_pill_double_exp.png", 
-	"双倍经验符·月": "icon_pill_double_exp.png", 
+	"金魂魄50": "icon_soul_jin.png", 
+	"木魂魄50": "icon_soul_mu.png", 
+	"水魂魄50": "icon_soul_shui.png", 
+	"火魂魄50": "icon_soul_huo.png", 
+	"土魂魄50": "icon_soul_tu.png", 
+	"凝神丹": "icon_pill_ningshen.png", 
+	"悟道仙丹": "icon_pill_wudao.png", 
+	"人物升级丹": "icon_pill_player_level.png", 
+	"宠物升级丹": "icon_pill_pet_level.png", 
+	"双倍经验丹": "icon_pill_double_exp.png", 
+	"双倍经验丹(周)": "icon_pill_double_exp.png", 
+	"双倍经验丹(月)": "icon_pill_double_exp.png", 
+	"宠物双倍经验丹": "icon_pill_double_exp.png", 
 	"宠物补章器": "icon_pet_medal_tool.png", 
-	"墨草": "icon_herb_lingcao.png", 
-	"墨芝": "icon_herb_lingzhi.png", 
-	"雪莲": "icon_herb_xuelian.png", 
-	"还魂草": "icon_herb_jiuzhuan.png", 
-	"墨涎草": "icon_herb_longxian.png", 
+	"灵草": "icon_herb_lingcao.png", 
+	"灵芝": "icon_herb_lingzhi.png", 
+	"天山雪莲": "icon_herb_xuelian.png", 
+	"九转还魂草": "icon_herb_jiuzhuan.png", 
+	"龙涎草": "icon_herb_longxian.png", 
 	"强化石": "icon_stone_enhance.png", 
 	"套装强化石": "icon_stone_suit.png", 
 	"宠装碎片": "icon_frag_pet_equip.png", 
@@ -39,16 +40,16 @@ const SPECIFIC_ICON_BY_NAME: = {
 	"法宝洗练石": "icon_stone_fabao_reroll.png", 
 	"法宝重置石": "icon_stone_fabao_reset.png", 
 	"建设材料": "icon_build_mat.png", 
-	"解封石": "icon_unseal_normal.png", 
+	"普通解封石": "icon_unseal_normal.png", 
 	"高级解封石": "icon_unseal_high.png", 
 	"幻化符": "icon_huanhua_fu.png", 
-	"天关锦囊": "icon_gift_tower.png", 
-	"天关组队锦囊": "icon_gift_brother.png", 
-	"开荒锦囊": "icon_gift_pioneer.png", 
-	"开荒宠装锦囊": "icon_gift_pioneer_pet_equip.png", 
-	"新手锦囊": "icon_gift_newbie.png", 
-	"极限装备锦囊": "icon_gift_limit_equip.png", 
-	"离线宠物锦囊": "icon_gift_offline_pet.png", 
+	"天关礼包": "icon_gift_tower.png", 
+	"兄弟天关礼包": "icon_gift_brother.png", 
+	"开荒礼包": "icon_gift_pioneer.png", 
+	"开荒宠装礼包": "icon_gift_pioneer_pet_equip.png", 
+	"新手礼包": "icon_gift_newbie.png", 
+	"极限装备礼包": "icon_gift_limit_equip.png", 
+	"离线宠物礼包": "icon_gift_offline_pet.png", 
 }
 
 static var _tex_cache: Dictionary = {}
@@ -166,7 +167,7 @@ static func _resolve_gift_or_egg_icon(item_name: String, catalog_t: String) -> T
 		if exact:
 			return exact
 
-	if item_name.ends_with("关礼包") or item_name == "天关锦囊":
+	if item_name.ends_with("关礼包") or item_name == "天关礼包":
 		var tower: = _load_category("icon_gift_tower.png")
 		if tower:
 			return tower
@@ -315,14 +316,14 @@ static func badge_for_inventory_item(item) -> String:
 		return "金"
 	if ForgeData.is_limit_forge_material_name(item_name) or (item is Dictionary and str(item.get("entry_kind", "")) == "limit_material_aggregate"):
 		return "极"
-	if item_name.contains("人物经验丹"):
+	if item_name.contains("人物升级丹"):
 		return "人"
-	if item_name.contains("宠物经验丹"):
+	if item_name.contains("宠物升级丹"):
 		return "宠"
 
-	if item_name == "双倍经验符·周":
+	if item_name == "双倍经验丹(周)":
 		return "周"
-	if item_name == "双倍经验符·月":
+	if item_name == "双倍经验丹(月)":
 		return "月"
 	var catalog_t: = ""
 	if GameData.ALL_ITEMS.has(item_name):

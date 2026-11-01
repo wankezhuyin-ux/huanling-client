@@ -1447,6 +1447,12 @@ const DOUBLE_EXP_WHITELIST_KEYS: = {
 	"双倍经验丹(月)": "double_exp_month", 
 }
 
+# 帮贡商店的「宠物双倍经验丹」：走独立通道，只加灵兽经验，不会连人物一起翻倍。
+# key 必须与 handlers_growth._CONSUME_RULES 一字不差。
+const PET_DOUBLE_EXP_WHITELIST_KEYS: = {
+	"宠物双倍经验丹": "pet_double_exp_day", 
+}
+
 const LIMIT_EQUIPMENT_GIFT_NAME: = "极限装备礼包"
 const LIMIT_EQUIPMENT_GIFT_KEY: = "limit_equipment_gift"
 const LIMIT_EQUIPMENT_GIFT_MATERIAL_SLOTS_PER: = 5
@@ -3273,6 +3279,36 @@ class InventoryItem:
 					messages.append("双倍经验状态已与服务器同步（重复请求未重复扣道具）")
 				else:
 					messages.append(InventoryManager.build_double_exp_activated_message(gm_exp, now_ts, stacked_hours))
+			elif name == "宠物双倍经验丹":
+				# 帮贡商店道具：只加灵兽经验（服务端 pet_exp_multiplier），
+				# 和「双倍经验丹」那条通道完全分开，不会连人物一起翻倍。
+				var gm_petdbl = GameManager.instance
+				if gm_petdbl == null or gm_petdbl.network == null or not gm_petdbl.network.is_logged_in():
+					result.message = "宠物双倍经验丹需联网并由服务器确认，请登录后重试"
+					return result
+				if gm_petdbl.pet_manager == null or gm_petdbl.pet_manager.active_pet == null:
+					result.message = "请先设置一只出战宠物，再使用宠物双倍经验丹"
+					return result
+				var op_petdbl: = "consume_pet_double_exp_%d_%s" % [Time.get_ticks_usec(), str(randi())]
+				var petdbl_key: String = String(PET_DOUBLE_EXP_WHITELIST_KEYS.get(name, "pet_double_exp_day"))
+				var er_petdbl: Dictionary = await gm_petdbl.wait_economy("economy_whitelist_item_consume", func():
+					gm_petdbl.network.economy_whitelist_item_consume(op_petdbl, petdbl_key)
+				)
+				if not bool(er_petdbl.get("ok", false)):
+					result.message = str(er_petdbl.get("err", "宠物双倍经验丹使用失败，请稍后重试"))
+					return result
+				var petdbl_raw: Variant = er_petdbl.get("data", {})
+				var petdbl_payload: Dictionary = petdbl_raw if petdbl_raw is Dictionary else {}
+				if petdbl_payload.has("saveData") and petdbl_payload.get("saveData") is Dictionary:
+					result["authoritative_save_applied"] = true
+					result["reward_sync_policy"] = REWARD_SYNC_NONE
+					gm_petdbl.apply_cloud_save(petdbl_payload.get("saveData"), {"reward_inventory_slice": true})
+				var petdbl_consumed: int = maxi(0, int(petdbl_payload.get("consumed", 0)))
+				var petdbl_dup: bool = bool(petdbl_payload.get("duplicate", false))
+				if petdbl_dup or petdbl_consumed <= 0:
+					messages.append("宠物双倍经验状态已与服务器同步（重复请求未重复扣道具）")
+				else:
+					messages.append("宠物双倍经验已激活：灵兽经验 +100%%，本次 %d 分钟（只加灵兽）" % (petdbl_consumed * 30))
 			elif name == "宠物补章器":
 				var gm_medal = GameManager.instance
 				if gm_medal == null or gm_medal.inventory_manager == null:

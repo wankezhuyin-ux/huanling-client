@@ -670,11 +670,11 @@ const EQUIPMENT_SLOTS = {
 
 
 const MAPS_DATA = {
-	"墨影城郊（0,0）": {
+	"浮影水城外郊（0,0）": {
 		"id": "100014", 
-		"name": "墨影城郊（0,0）", 
+		"name": "浮影水城外郊（0,0）", 
 		"level": 4, 
-		"description": "墨影城郊 - 坐标(0,0)", 
+		"description": "浮影水城外郊 - 坐标(0,0)", 
 		"spawn_min": 1, 
 		"spawn_max": 2, 
 		"monsters": [
@@ -682,1231 +682,1231 @@ const MAPS_DATA = {
 			{"id": "linlin"}
 		]
 	}, 
-	"迷踪林（0,0）": {
+	"徘徊林（0,0）": {
 		"id": "700000", 
-		"name": "迷踪林（0,0）", 
+		"name": "徘徊林（0,0）", 
 		"level": 5, 
-		"description": "迷踪林 - 坐标(0,0)", 
+		"description": "徘徊林 - 坐标(0,0)", 
 		"monsters": [
 			{"id": "duxing"}, 
 			{"id": "yùlíntù"}
 		]
 	}, 
-	"迷踪林（39,54）": {
+	"徘徊林（39,54）": {
 		"id": "700000", 
-		"name": "迷踪林（39,54）", 
+		"name": "徘徊林（39,54）", 
 		"level": 5, 
-		"description": "迷踪林 - 坐标(39,54)", 
+		"description": "徘徊林 - 坐标(39,54)", 
 		"monsters": [
 			{"pet_id": "yùlíntù", "level": 4}, 
 			{"pet_id": "yùlíntù", "level": 5}, 
 		]
 	}, 
-	"墨影城郊（48,44）": {
+	"浮影水城外郊（48,44）": {
 		"id": "100014", 
-		"name": "墨影城郊（48,44）", 
+		"name": "浮影水城外郊（48,44）", 
 		"level": 10, 
-		"description": "墨影城郊 - 坐标(48,44)", 
+		"description": "浮影水城外郊 - 坐标(48,44)", 
 		"monsters": [
 			{"id": "tiějiǎgūi"}, 
 			{"id": "kuiluo"}
 		]
 	}, 
-	"朱漆门（0,0）": {
+	"紫阳门（0,0）": {
 		"id": "500008", 
-		"name": "朱漆门（0,0）", 
+		"name": "紫阳门（0,0）", 
 		"level": 12, 
-		"description": "朱漆门 - 坐标(0,0)", 
+		"description": "紫阳门 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "xiǎodīngdōng", "level": 10}, 
 			{"pet_id": "lèngtóuqīng", "level": 12}, 
 		]
 	}, 
-	"朱漆门（45,35）": {
+	"紫阳门（45,35）": {
 		"id": "500008", 
-		"name": "朱漆门（45,35）", 
+		"name": "紫阳门（45,35）", 
 		"level": 12, 
-		"description": "朱漆门 - 坐标(45,35)", 
+		"description": "紫阳门 - 坐标(45,35)", 
 		"monsters": [
 			{"pet_id": "xiǎodīngdōng", "level": 10}, 
 			{"pet_id": "xiǎodīngdōng", "level": 12}, 
 		]
 	}, 
-	"寒冰渊（0,0）": {
+	"冰封地狱（0,0）": {
 		"id": "600000", 
-		"name": "寒冰渊（0,0）", 
+		"name": "冰封地狱（0,0）", 
 		"level": 12, 
-		"description": "寒冰渊 - 坐标(0,0)", 
+		"description": "冰封地狱 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "zǐtíxiānshēng", "level": 10}, 
 			{"pet_id": "dàdāo", "level": 12}, 
 		]
 	}, 
-	"寒冰渊（34,39）": {
+	"冰封地狱（34,39）": {
 		"id": "600000", 
-		"name": "寒冰渊（34,39）", 
+		"name": "冰封地狱（34,39）", 
 		"level": 12, 
-		"description": "寒冰渊 - 坐标(34,39)", 
+		"description": "冰封地狱 - 坐标(34,39)", 
 		"monsters": [
 			{"pet_id": "zǐtíxiānshēng", "level": 10}, 
 			{"pet_id": "zǐtíxiānshēng", "level": 12}, 
 		]
 	}, 
-	"暮归路（0,0）": {
+	"暮归道（0,0）": {
 		"id": "700007", 
-		"name": "暮归路（0,0）", 
+		"name": "暮归道（0,0）", 
 		"level": 15, 
-		"description": "暮归路 - 坐标(0,0)", 
+		"description": "暮归道 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "lányá", "level": 10}, 
 			{"pet_id": "daicitou", "level": 15}, 
 		]
 	}, 
-	"暮归路（14,42）": {
+	"暮归道（14,42）": {
 		"id": "700007", 
-		"name": "暮归路（14,42）", 
+		"name": "暮归道（14,42）", 
 		"level": 15, 
-		"description": "暮归路 - 坐标(14,42)", 
+		"description": "暮归道 - 坐标(14,42)", 
 		"monsters": [
 			{"pet_id": "xiǎoyāo", "level": 10}, 
 			{"pet_id": "xiǎoyāo", "level": 15}, 
 		]
 	}, 
-	"青风野（0,0）": {
+	"青风原（0,0）": {
 		"id": "100011", 
-		"name": "青风野（0,0）", 
+		"name": "青风原（0,0）", 
 		"level": 20, 
-		"description": "青风野 - 坐标(0,0)", 
+		"description": "青风原 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "fengwu", "level": 15}, 
 			{"pet_id": "tongbao", "level": 20}, 
 		]
 	}, 
-	"青风野（52,36）": {
+	"青风原（52,36）": {
 		"id": "100011", 
-		"name": "青风野（52,36）", 
+		"name": "青风原（52,36）", 
 		"level": 20, 
-		"description": "青风野 - 坐标(52,36)", 
+		"description": "青风原 - 坐标(52,36)", 
 		"monsters": [
 			{"pet_id": "shundi", "level": 15}, 
 			{"pet_id": "lu_lu", "level": 20}, 
 		]
 	}, 
-	"墨影城郊（43,20）": {
+	"浮影水城外郊（43,20）": {
 		"id": "100014", 
-		"name": "墨影城郊（43,20）", 
+		"name": "浮影水城外郊（43,20）", 
 		"level": 25, 
-		"description": "墨影城郊 - 坐标(43,20)", 
+		"description": "浮影水城外郊 - 坐标(43,20)", 
 		"monsters": [
 			{"pet_id": "tiějiǎgūi", "level": 20}, 
 			{"pet_id": "yingying", "level": 25}, 
 		]
 	}, 
-	"青风野（51,80）": {
+	"青风原（51,80）": {
 		"id": "100011", 
-		"name": "青风野（51,80）", 
+		"name": "青风原（51,80）", 
 		"level": 30, 
-		"description": "青风野 - 坐标(51,80)", 
+		"description": "青风原 - 坐标(51,80)", 
 		"monsters": [
 			{"pet_id": "hòupíè", "level": 25}, 
 			{"pet_id": "zhaicitou", "level": 30}, 
 		]
 	}, 
-	"落泪岗（0,0）": {
+	"坠泪岗（0,0）": {
 		"id": "100015", 
-		"name": "落泪岗（0,0）", 
+		"name": "坠泪岗（0,0）", 
 		"level": 35, 
-		"description": "落泪岗 - 坐标(0,0)", 
+		"description": "坠泪岗 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "yingying", "level": 30}, 
 			{"pet_id": "qíshìgūi", "level": 35}, 
 		]
 	}, 
-	"落泪岗（27,18）": {
+	"坠泪岗（27,18）": {
 		"id": "100015", 
-		"name": "落泪岗（27,18）", 
+		"name": "坠泪岗（27,18）", 
 		"level": 35, 
-		"description": "落泪岗 - 坐标(27,18)", 
+		"description": "坠泪岗 - 坐标(27,18)", 
 		"monsters": [
 			{"pet_id": "yingying", "level": 30}, 
 			{"pet_id": "yingying", "level": 35}, 
 		]
 	}, 
-	"云中台（0,0）": {
+	"翔云台（0,0）": {
 		"id": "500006", 
-		"name": "云中台（0,0）", 
+		"name": "翔云台（0,0）", 
 		"level": 35, 
-		"description": "云中台 - 坐标(0,0)", 
+		"description": "翔云台 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "xiàngpíshǔ", "level": 30}, 
 			{"pet_id": "mìmìxióng", "level": 35}, 
 		]
 	}, 
-	"云中台（47,46）": {
+	"翔云台（47,46）": {
 		"id": "500006", 
-		"name": "云中台（47,46）", 
+		"name": "翔云台（47,46）", 
 		"level": 35, 
-		"description": "云中台 - 坐标(47,46)", 
+		"description": "翔云台 - 坐标(47,46)", 
 		"monsters": [
 			{"pet_id": "xiàngpíshǔ", "level": 30}, 
 			{"pet_id": "xiàngpíshǔ", "level": 35}, 
 		]
 	}, 
-	"狂奔渊（0,0）": {
+	"暴走地狱（0,0）": {
 		"id": "600004", 
-		"name": "狂奔渊（0,0）", 
+		"name": "暴走地狱（0,0）", 
 		"level": 35, 
-		"description": "狂奔渊 - 坐标(0,0)", 
+		"description": "暴走地狱 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "xiǎodīngdāng", "level": 30}, 
 			{"pet_id": "yáoyé", "level": 35}, 
 		]
 	}, 
-	"深雪原（0,0）": {
+	"踏雪原（0,0）": {
 		"id": "300010", 
-		"name": "深雪原（0,0）", 
+		"name": "踏雪原（0,0）", 
 		"level": 40, 
-		"description": "深雪原 - 坐标(0,0)", 
+		"description": "踏雪原 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "huanbiantianlang", "level": 30}, 
 			{"pet_id": "tao_tao", "level": 40}, 
 		]
 	}, 
-	"深雪原（60,36）": {
+	"踏雪原（60,36）": {
 		"id": "300010", 
-		"name": "深雪原（60,36）", 
+		"name": "踏雪原（60,36）", 
 		"level": 40, 
-		"description": "深雪原 - 坐标(60,36)", 
+		"description": "踏雪原 - 坐标(60,36)", 
 		"monsters": [
 			{"pet_id": "tao_tao", "level": 30}, 
 			{"pet_id": "tao_tao", "level": 40}, 
 		]
 	}, 
-	"四桥野（0,0）": {
+	"四桥原（0,0）": {
 		"id": "100010", 
-		"name": "四桥野（0,0）", 
+		"name": "四桥原（0,0）", 
 		"level": 50, 
-		"description": "四桥野 - 坐标(0,0)", 
+		"description": "四桥原 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "kucitou", "level": 40}, 
 			{"pet_id": "nununiao", "level": 50}, 
 		]
 	}, 
-	"月影桥（0,0）": {
+	"明月桥（0,0）": {
 		"id": "100016", 
-		"name": "月影桥（0,0）", 
+		"name": "明月桥（0,0）", 
 		"level": 60, 
-		"description": "月影桥 - 坐标(0,0)", 
+		"description": "明月桥 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "dàzǔiè", "level": 50}, 
 			{"pet_id": "tiějiǎgūi", "level": 60}, 
 		]
 	}, 
-	"枯井野（0,0）": {
+	"枯井原（0,0）": {
 		"id": "100021", 
-		"name": "枯井野（0,0）", 
+		"name": "枯井原（0,0）", 
 		"level": 60, 
-		"description": "枯井野 - 坐标(0,0)", 
+		"description": "枯井原 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "zhaicitou", "level": 50}, 
 			{"pet_id": "duxing", "level": 60}, 
 		]
 	}, 
-	"枯井野（38,26）": {
+	"枯井原（38,26）": {
 		"id": "100021", 
-		"name": "枯井野（38,26）", 
+		"name": "枯井原（38,26）", 
 		"level": 60, 
-		"description": "枯井野 - 坐标(38,26)", 
+		"description": "枯井原 - 坐标(38,26)", 
 		"monsters": [
 			{"pet_id": "duxing", "level": 50}, 
 			{"pet_id": "duxing", "level": 60}, 
 		]
 	}, 
-	"四桥野（63,42）": {
+	"四桥原（63,42）": {
 		"id": "100010", 
-		"name": "四桥野（63,42）", 
+		"name": "四桥原（63,42）", 
 		"level": 65, 
-		"description": "四桥野 - 坐标(63,42)", 
+		"description": "四桥原 - 坐标(63,42)", 
 		"monsters": [
 			{"pet_id": "qíshìgūi", "level": 60}, 
 			{"pet_id": "lèlèxióng", "level": 65}, 
 		]
 	}, 
-	"望日桥（0,0）": {
+	"观日桥（0,0）": {
 		"id": "100020", 
-		"name": "望日桥（0,0）", 
+		"name": "观日桥（0,0）", 
 		"level": 75, 
-		"description": "望日桥 - 坐标(0,0)", 
+		"description": "观日桥 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "hòupíè", "level": 60}, 
 			{"pet_id": "tiějiǎgūi", "level": 75}, 
 		]
 	}, 
-	"四桥野（41,69）": {
+	"四桥原（41,69）": {
 		"id": "100010", 
-		"name": "四桥野（41,69）", 
+		"name": "四桥原（41,69）", 
 		"level": 80, 
-		"description": "四桥野 - 坐标(41,69)", 
+		"description": "四桥原 - 坐标(41,69)", 
 		"monsters": [
 			{"pet_id": "qíshìgūi", "level": 70}, 
 			{"pet_id": "zhaicitou", "level": 80}, 
 		]
 	}, 
-	"无声渊（0,0）": {
+	"聋耳地狱（0,0）": {
 		"id": "600003", 
-		"name": "无声渊（0,0）", 
+		"name": "聋耳地狱（0,0）", 
 		"level": 80, 
-		"description": "无声渊 - 坐标(0,0)", 
+		"description": "聋耳地狱 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "hóngdāo", "level": 80}, 
 			{"pet_id": "tiějiǎgūi", "level": 75}, 
 		]
 	}, 
-	"无声渊（34,22）": {
+	"聋耳地狱（34,22）": {
 		"id": "600003", 
-		"name": "无声渊（34,22）", 
+		"name": "聋耳地狱（34,22）", 
 		"level": 80, 
-		"description": "无声渊 - 坐标(34,22)", 
+		"description": "聋耳地狱 - 坐标(34,22)", 
 		"monsters": [
 			{"pet_id": "hóngdāo", "level": 80}, 
 			{"pet_id": "hóngdāo", "level": 75}, 
 		]
 	}, 
-	"犁春野（0,0）": {
+	"犁春原（0,0）": {
 		"id": "300013", 
-		"name": "犁春野（0,0）", 
+		"name": "犁春原（0,0）", 
 		"level": 85, 
-		"description": "犁春野 - 坐标(0,0)", 
+		"description": "犁春原 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "hēitíxiānshēng", "level": 80}, 
 			{"pet_id": "kucitou", "level": 85}, 
 		]
 	}, 
-	"犁春野（38,38）": {
+	"犁春原（38,38）": {
 		"id": "300013", 
-		"name": "犁春野（38,38）", 
+		"name": "犁春原（38,38）", 
 		"level": 85, 
-		"description": "犁春野 - 坐标(38,38)", 
+		"description": "犁春原 - 坐标(38,38)", 
 		"monsters": [
 			{"pet_id": "zhaicitou", "level": 80}, 
 			{"pet_id": "zhaicitou", "level": 85}, 
 		]
 	}, 
-	"石秤台（0,0）": {
+	"衡天台（0,0）": {
 		"id": "500013", 
-		"name": "石秤台（0,0）", 
+		"name": "衡天台（0,0）", 
 		"level": 85, 
-		"description": "石秤台 - 坐标(0,0)", 
+		"description": "衡天台 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "hongdazui", "level": 80}, 
 			{"pet_id": "fuyejiu", "level": 85}, 
 		]
 	}, 
-	"石秤台（32,13）": {
+	"衡天台（32,13）": {
 		"id": "500013", 
-		"name": "石秤台（32,13）", 
+		"name": "衡天台（32,13）", 
 		"level": 85, 
-		"description": "石秤台 - 坐标(32,13)", 
+		"description": "衡天台 - 坐标(32,13)", 
 		"monsters": [
 			{"pet_id": "hongdazui", "level": 80}, 
 			{"pet_id": "hongdazui", "level": 85}, 
 		]
 	}, 
-	"回望亭（0,0）": {
+	"回首亭（0,0）": {
 		"id": "700005", 
-		"name": "回望亭（0,0）", 
+		"name": "回首亭（0,0）", 
 		"level": 85, 
-		"description": "回望亭 - 坐标(0,0)", 
+		"description": "回首亭 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "luluniao", "level": 80}, 
 			{"pet_id": "daicitou", "level": 85}, 
 		]
 	}, 
-	"回望亭（39,33）": {
+	"回首亭（39,33）": {
 		"id": "700005", 
-		"name": "回望亭（39,33）", 
+		"name": "回首亭（39,33）", 
 		"level": 85, 
-		"description": "回望亭 - 坐标(39,33)", 
+		"description": "回首亭 - 坐标(39,33)", 
 		"monsters": [
 			{"pet_id": "nununiao", "level": 80}, 
 			{"pet_id": "nununiao", "level": 85}, 
 		]
 	}, 
-	"枯井野（13,22）": {
+	"枯井原（13,22）": {
 		"id": "100021", 
-		"name": "枯井野（13,22）", 
+		"name": "枯井原（13,22）", 
 		"level": 87, 
-		"description": "枯井野 - 坐标(13,22)", 
+		"description": "枯井原 - 坐标(13,22)", 
 		"monsters": [
 			{"pet_id": "chushane", "level": 83}, 
 			{"pet_id": "kucitou", "level": 87}, 
 		]
 	}, 
-	"荒园（0,0）": {
+	"闲情园（0,0）": {
 		"id": "100017", 
-		"name": "荒园（0,0）", 
+		"name": "闲情园（0,0）", 
 		"level": 90, 
-		"description": "荒园 - 坐标(0,0)", 
+		"description": "闲情园 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "tiějiǎgūi", "level": 70}, 
 			{"pet_id": "yingying", "level": 90}, 
 		]
 	}, 
-	"月影桥（7,15）": {
+	"明月桥（7,15）": {
 		"id": "100016", 
-		"name": "月影桥（7,15）", 
+		"name": "明月桥（7,15）", 
 		"level": 95, 
-		"description": "月影桥 - 坐标(7,15)", 
+		"description": "明月桥 - 坐标(7,15)", 
 		"monsters": [
 			{"pet_id": "duduniao", "level": 80}, 
 			{"pet_id": "duduniao", "level": 95}, 
 		]
 	}, 
-	"望日桥（56,48）": {
+	"观日桥（56,48）": {
 		"id": "100020", 
-		"name": "望日桥（56,48）", 
+		"name": "观日桥（56,48）", 
 		"level": 97, 
-		"description": "望日桥 - 坐标(56,48)", 
+		"description": "观日桥 - 坐标(56,48)", 
 		"monsters": [
 			{"pet_id": "mìmìxióng", "level": 93}, 
 			{"pet_id": "duxing", "level": 97}, 
 		]
 	}, 
-	"望日桥头（0,0）": {
+	"观日桥头（0,0）": {
 		"id": "100019", 
-		"name": "望日桥头（0,0）", 
+		"name": "观日桥头（0,0）", 
 		"level": 105, 
-		"description": "望日桥头 - 坐标(0,0)", 
+		"description": "观日桥头 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "zhaicitou", "level": 100}, 
 			{"pet_id": "duduniao", "level": 105}, 
 		]
 	}, 
-	"泥泞岗（0,0）": {
+	"黄泥岗（0,0）": {
 		"id": "300014", 
-		"name": "泥泞岗（0,0）", 
+		"name": "黄泥岗（0,0）", 
 		"level": 110, 
-		"description": "泥泞岗 - 坐标(0,0)", 
+		"description": "黄泥岗 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "báimáoxiàng", "level": 100}, 
 			{"pet_id": "jiéquándào", "level": 110}, 
 		]
 	}, 
-	"泥泞岗（40,11）": {
+	"黄泥岗（40,11）": {
 		"id": "300014", 
-		"name": "泥泞岗（40,11）", 
+		"name": "黄泥岗（40,11）", 
 		"level": 110, 
-		"description": "泥泞岗 - 坐标(40,11)", 
+		"description": "黄泥岗 - 坐标(40,11)", 
 		"monsters": [
 			{"pet_id": "jiéquándào", "level": 100}, 
 			{"pet_id": "jiéquándào", "level": 110}, 
 		]
 	}, 
-	"黑石门（0,0）": {
+	"宣武门（0,0）": {
 		"id": "500021", 
-		"name": "黑石门（0,0）", 
+		"name": "宣武门（0,0）", 
 		"level": 110, 
-		"description": "黑石门 - 坐标(0,0)", 
+		"description": "宣武门 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "lǎnlǎnxiàng", "level": 100}, 
 			{"pet_id": "duxing", "level": 110}, 
 		]
 	}, 
-	"钉板渊（0,0）": {
+	"钉板地狱（0,0）": {
 		"id": "600002", 
-		"name": "钉板渊（0,0）", 
+		"name": "钉板地狱（0,0）", 
 		"level": 110, 
-		"description": "钉板渊 - 坐标(0,0)", 
+		"description": "钉板地狱 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "xiǎodīngdāng", "level": 100}, 
 			{"pet_id": "yáoyé", "level": 110}, 
 		]
 	}, 
-	"钉板渊（33,44）": {
+	"钉板地狱（33,44）": {
 		"id": "600002", 
-		"name": "钉板渊（33,44）", 
+		"name": "钉板地狱（33,44）", 
 		"level": 110, 
-		"description": "钉板渊 - 坐标(33,44)", 
+		"description": "钉板地狱 - 坐标(33,44)", 
 		"monsters": [
 			{"pet_id": "xiǎodīngdāng", "level": 100}, 
 			{"pet_id": "xiǎodīngdāng", "level": 110}, 
 		]
 	}, 
-	"望日桥头（86,100）": {
+	"观日桥头（86,100）": {
 		"id": "100019", 
-		"name": "望日桥头（86,100）", 
+		"name": "观日桥头（86,100）", 
 		"level": 115, 
-		"description": "望日桥头 - 坐标(86,100)", 
+		"description": "观日桥头 - 坐标(86,100)", 
 		"monsters": [
 			{"pet_id": "tiějiǎgūi", "level": 110}, 
 			{"pet_id": "tao_tao", "level": 115}, 
 		]
 	}, 
-	"断剑潭（0,0）": {
+	"剑池谷（0,0）": {
 		"id": "100012", 
-		"name": "断剑潭（0,0）", 
+		"name": "剑池谷（0,0）", 
 		"level": 120, 
-		"description": "断剑潭 - 坐标(0,0)", 
+		"description": "剑池谷 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "dàzǔiè", "level": 100}, 
 			{"pet_id": "linlin", "level": 120}, 
 		]
 	}, 
-	"望日桥头（37,51）": {
+	"观日桥头（37,51）": {
 		"id": "100019", 
-		"name": "望日桥头（37,51）", 
+		"name": "观日桥头（37,51）", 
 		"level": 135, 
-		"description": "望日桥头 - 坐标(37,51)", 
+		"description": "观日桥头 - 坐标(37,51)", 
 		"monsters": [
 			{"pet_id": "zhaicitou", "level": 120}, 
 			{"pet_id": "lanmengmeng", "level": 135}, 
 		]
 	}, 
-	"断剑潭（57,23）": {
+	"剑池谷（57,23）": {
 		"id": "100012", 
-		"name": "断剑潭（57,23）", 
+		"name": "剑池谷（57,23）", 
 		"level": 150, 
-		"description": "断剑潭 - 坐标(57,23)", 
+		"description": "剑池谷 - 坐标(57,23)", 
 		"monsters": [
 			{"pet_id": "dàzǔiè", "level": 130}, 
 			{"pet_id": "linlin", "level": 150}, 
 		]
 	}, 
-	"断剑潭（41,37）": {
+	"剑池谷（41,37）": {
 		"id": "100012", 
-		"name": "断剑潭（41,37）", 
+		"name": "剑池谷（41,37）", 
 		"level": 160, 
-		"description": "断剑潭 - 坐标(41,37)", 
+		"description": "剑池谷 - 坐标(41,37)", 
 		"monsters": [
 			{"pet_id": "linlin", "level": 150}, 
 			{"pet_id": "linlin", "level": 160}, 
 		]
 	}, 
-	"红枫林（0,0）": {
+	"晚枫林（0,0）": {
 		"id": "700003", 
-		"name": "红枫林（0,0）", 
+		"name": "晚枫林（0,0）", 
 		"level": 160, 
-		"description": "红枫林 - 坐标(0,0)", 
+		"description": "晚枫林 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "lanmengmeng", "level": 150}, 
 			{"pet_id": "dàidāo", "level": 160}, 
 		]
 	}, 
-	"红枫林（30,20）": {
+	"晚枫林（30,20）": {
 		"id": "700003", 
-		"name": "红枫林（30,20）", 
+		"name": "晚枫林（30,20）", 
 		"level": 160, 
-		"description": "红枫林 - 坐标(30,20)", 
+		"description": "晚枫林 - 坐标(30,20)", 
 		"monsters": [
 			{"pet_id": "dàidāo", "level": 150}, 
 			{"pet_id": "dàidāo", "level": 160}, 
 		]
 	}, 
-	"荒园（38,21）": {
+	"闲情园（38,21）": {
 		"id": "100017", 
-		"name": "荒园（38,21）", 
+		"name": "闲情园（38,21）", 
 		"level": 175, 
-		"description": "荒园 - 坐标(38,21)", 
+		"description": "闲情园 - 坐标(38,21)", 
 		"monsters": [
 			{"pet_id": "niefengquan", "level": 170}, 
 			{"pet_id": "dàzǔiè", "level": 175}, 
 		]
 	}, 
-	"松竹坡（0,0）": {
+	"松竹林（0,0）": {
 		"id": "100028", 
-		"name": "松竹坡（0,0）", 
+		"name": "松竹林（0,0）", 
 		"level": 190, 
-		"description": "松竹坡 - 坐标(0,0)", 
+		"description": "松竹林 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "daicitou", "level": 190}, 
 			{"pet_id": "duxing", "level": 160}, 
 		]
 	}, 
-	"松竹坡（11,21）": {
+	"松竹林（11,21）": {
 		"id": "100028", 
-		"name": "松竹坡（11,21）", 
+		"name": "松竹林（11,21）", 
 		"level": 190, 
-		"description": "松竹坡 - 坐标(11,21)", 
+		"description": "松竹林 - 坐标(11,21)", 
 		"monsters": [
 			{"pet_id": "dàidāo", "level": 180}, 
 			{"pet_id": "tufei", "level": 190}, 
 		]
 	}, 
-	"松竹坡（24,10）": {
+	"松竹林（24,10）": {
 		"id": "100028", 
-		"name": "松竹坡（24,10）", 
+		"name": "松竹林（24,10）", 
 		"level": 190, 
-		"description": "松竹坡 - 坐标(24,10)", 
+		"description": "松竹林 - 坐标(24,10)", 
 		"monsters": [
 			{"pet_id": "daicitou", "level": 190}, 
 			{"pet_id": "daicitou", "level": 185}, 
 		]
 	}, 
-	"独木野（0,0）": {
+	"独木原（0,0）": {
 		"id": "300017", 
-		"name": "独木野（0,0）", 
+		"name": "独木原（0,0）", 
 		"level": 190, 
-		"description": "独木野 - 坐标(0,0)", 
+		"description": "独木原 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "ouou", "level": 180}, 
 			{"pet_id": "huanbiantianlang", "level": 190}, 
 		]
 	}, 
-	"独木野（29,22）": {
+	"独木原（29,22）": {
 		"id": "300017", 
-		"name": "独木野（29,22）", 
+		"name": "独木原（29,22）", 
 		"level": 190, 
-		"description": "独木野 - 坐标(29,22)", 
+		"description": "独木原 - 坐标(29,22)", 
 		"monsters": [
 			{"pet_id": "ouou", "level": 180}, 
 			{"pet_id": "ouou", "level": 190}, 
 		]
 	}, 
-	"印痕谷（0,0）": {
+	"双印谷（0,0）": {
 		"id": "700008", 
-		"name": "印痕谷（0,0）", 
+		"name": "双印谷（0,0）", 
 		"level": 190, 
-		"description": "印痕谷 - 坐标(0,0)", 
+		"description": "双印谷 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "lányá", "level": 180}, 
 			{"pet_id": "dàidāo", "level": 190}, 
 		]
 	}, 
-	"印痕谷（48,20）": {
+	"双印谷（48,20）": {
 		"id": "700008", 
-		"name": "印痕谷（48,20）", 
+		"name": "双印谷（48,20）", 
 		"level": 190, 
-		"description": "印痕谷 - 坐标(48,20)", 
+		"description": "双印谷 - 坐标(48,20)", 
 		"monsters": [
 			{"pet_id": "lèlèxióng", "level": 180}, 
 			{"pet_id": "lèlèxióng", "level": 190}, 
 		]
 	}, 
-	"绞轮渊（0,0）": {
+	"绞肉地狱（0,0）": {
 		"id": "600006", 
-		"name": "绞轮渊（0,0）", 
+		"name": "绞肉地狱（0,0）", 
 		"level": 200, 
-		"description": "绞轮渊 - 坐标(0,0)", 
+		"description": "绞肉地狱 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "xiǎodīngdāng", "level": 200}, 
 			{"pet_id": "yáoyé", "level": 190}, 
 		]
 	}, 
-	"雪松林（0,0）": {
+	"松雪野（0,0）": {
 		"id": "300009", 
-		"name": "雪松林（0,0）", 
+		"name": "松雪野（0,0）", 
 		"level": 210, 
-		"description": "雪松林 - 坐标(0,0)", 
+		"description": "松雪野 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "báimáoxiàng", "level": 200}, 
 			{"pet_id": "lèngtóuqīng", "level": 210}, 
 		]
 	}, 
-	"旧祭坛（0,0）": {
+	"降尘台（0,0）": {
 		"id": "500014", 
-		"name": "旧祭坛（0,0）", 
+		"name": "降尘台（0,0）", 
 		"level": 210, 
-		"description": "旧祭坛 - 坐标(0,0)", 
+		"description": "降尘台 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "xiàngpíshǔ", "level": 200}, 
 			{"pet_id": "mìmìxióng", "level": 210}, 
 		]
 	}, 
-	"旧祭坛（93,77）": {
+	"降尘台（93,77）": {
 		"id": "500014", 
-		"name": "旧祭坛（93,77）", 
+		"name": "降尘台（93,77）", 
 		"level": 210, 
-		"description": "旧祭坛 - 坐标(93,77)", 
+		"description": "降尘台 - 坐标(93,77)", 
 		"monsters": [
 			{"pet_id": "mìmìxióng", "level": 200}, 
 			{"pet_id": "mìmìxióng", "level": 210}, 
 		]
 	}, 
-	"猎户洞（0,0）": {
+	"猎人洞窟（0,0）": {
 		"id": "100061", 
-		"name": "猎户洞（0,0）", 
+		"name": "猎人洞窟（0,0）", 
 		"level": 220, 
-		"description": "猎户洞 - 坐标(0,0)", 
+		"description": "猎人洞窟 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "luluniao", "level": 200}, 
 			{"pet_id": "nununiao", "level": 220}, 
 		]
 	}, 
-	"云上坪（0,0）": {
+	"碧野云天（0,0）": {
 		"id": "131001", 
-		"name": "云上坪（0,0）", 
+		"name": "碧野云天（0,0）", 
 		"level": 220, 
-		"description": "云上坪 - 坐标(0,0)", 
+		"description": "碧野云天 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "huahua", "level": 200}, 
 			{"pet_id": "zhenzhen", "level": 220}, 
 		]
 	}, 
-	"东渡口（0,0）": {
+	"东码头（0,0）": {
 		"id": "100023", 
-		"name": "东渡口（0,0）", 
+		"name": "东码头（0,0）", 
 		"level": 225, 
-		"description": "东渡口 - 坐标(0,0)", 
+		"description": "东码头 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "dàidāo", "level": 220}, 
 			{"pet_id": "yìnggǔè", "level": 225}, 
 		]
 	}, 
-	"东渡口（28,9）": {
+	"东码头（28,9）": {
 		"id": "100023", 
-		"name": "东渡口（28,9）", 
+		"name": "东码头（28,9）", 
 		"level": 225, 
-		"description": "东渡口 - 坐标(28,9)", 
+		"description": "东码头 - 坐标(28,9)", 
 		"monsters": [
 			{"pet_id": "yìnggǔè", "level": 220}, 
 			{"pet_id": "yìnggǔè", "level": 225}, 
 		]
 	}, 
-	"断墙（0,0）": {
+	"断壁（0,0）": {
 		"id": "100026", 
-		"name": "断墙（0,0）", 
+		"name": "断壁（0,0）", 
 		"level": 230, 
-		"description": "断墙 - 坐标(0,0)", 
+		"description": "断壁 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "duxing", "level": 220}, 
 			{"pet_id": "duduniao", "level": 230}, 
 		]
 	}, 
-	"猎户洞（55,52）": {
+	"猎人洞窟（55,52）": {
 		"id": "100061", 
-		"name": "猎户洞（55,52）", 
+		"name": "猎人洞窟（55,52）", 
 		"level": 230, 
-		"description": "猎户洞 - 坐标(55,52)", 
+		"description": "猎人洞窟 - 坐标(55,52)", 
 		"monsters": [
 			{"pet_id": "luluniao", "level": 220}, 
 			{"pet_id": "nununiao", "level": 230}, 
 		]
 	}, 
-	"东渡口（58,62）": {
+	"东码头（58,62）": {
 		"id": "100023", 
-		"name": "东渡口（58,62）", 
+		"name": "东码头（58,62）", 
 		"level": 235, 
-		"description": "东渡口 - 坐标(58,62)", 
+		"description": "东码头 - 坐标(58,62)", 
 		"monsters": [
 			{"pet_id": "dàidāo", "level": 230}, 
 			{"pet_id": "yìnggǔè", "level": 235}, 
 		]
 	}, 
-	"断墙（50,62）": {
+	"断壁（50,62）": {
 		"id": "100126", 
-		"name": "断墙（50,62）", 
+		"name": "断壁（50,62）", 
 		"level": 240, 
-		"description": "断墙 - 坐标(50,62)", 
+		"description": "断壁 - 坐标(50,62)", 
 		"monsters": [
 			{"pet_id": "kubixiang", "level": 230}, 
 			{"pet_id": "linlin", "level": 240}, 
 		]
 	}, 
-	"猎户洞（15,33）": {
+	"猎人洞窟（15,33）": {
 		"id": "100061", 
-		"name": "猎户洞（15,33）", 
+		"name": "猎人洞窟（15,33）", 
 		"level": 250, 
-		"description": "猎户洞 - 坐标(15,33)", 
+		"description": "猎人洞窟 - 坐标(15,33)", 
 		"monsters": [
 			{"pet_id": "aoririquan", "level": 250}, 
 			{"pet_id": "luluniao", "level": 230}, 
 		]
 	}, 
-	"藏墨洞（0,0）": {
+	"宝洞（0,0）": {
 		"id": "100079", 
-		"name": "藏墨洞（0,0）", 
+		"name": "宝洞（0,0）", 
 		"level": 250, 
-		"description": "藏墨洞 - 坐标(0,0)", 
+		"description": "宝洞 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "baidazui", "level": 200}, 
 			{"pet_id": "baidazui", "level": 250}, 
 		]
 	}, 
-	"解冻桥（0,0）": {
+	"春水桥（0,0）": {
 		"id": "300018", 
-		"name": "解冻桥（0,0）", 
+		"name": "春水桥（0,0）", 
 		"level": 250, 
-		"description": "解冻桥 - 坐标(0,0)", 
+		"description": "春水桥 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "jiéquándào", "level": 220}, 
 			{"pet_id": "dàdāo", "level": 250}, 
 		]
 	}, 
-	"解冻桥（39,51）": {
+	"春水桥（39,51）": {
 		"id": "300018", 
-		"name": "解冻桥（39,51）", 
+		"name": "春水桥（39,51）", 
 		"level": 250, 
-		"description": "解冻桥 - 坐标(39,51)", 
+		"description": "春水桥 - 坐标(39,51)", 
 		"monsters": [
 			{"pet_id": "zhōngdāo", "level": 220}, 
 			{"pet_id": "zhōngdāo", "level": 250}, 
 		]
 	}, 
-	"心象境（0,0）": {
+	"逆之心情（0,0）": {
 		"id": "700010", 
-		"name": "心象境（0,0）", 
+		"name": "逆之心情（0,0）", 
 		"level": 250, 
-		"description": "心象境 - 坐标(0,0)", 
+		"description": "逆之心情 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "qiāoqiāoshǔ", "level": 220}, 
 			{"pet_id": "daicitou", "level": 250}, 
 		]
 	}, 
-	"西渡口（0,0）": {
+	"西码头（0,0）": {
 		"id": "100018", 
-		"name": "西渡口（0,0）", 
+		"name": "西码头（0,0）", 
 		"level": 255, 
-		"description": "西渡口 - 坐标(0,0)", 
+		"description": "西码头 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "qíshìgūi", "level": 250}, 
 			{"pet_id": "dàzǔiè", "level": 255}, 
 		]
 	}, 
-	"西渡口（59,86）": {
+	"西码头（59,86）": {
 		"id": "100018", 
-		"name": "西渡口（59,86）", 
+		"name": "西码头（59,86）", 
 		"level": 255, 
-		"description": "西渡口 - 坐标(59,86)", 
+		"description": "西码头 - 坐标(59,86)", 
 		"monsters": [
 			{"pet_id": "qíshìgūi", "level": 250}, 
 			{"pet_id": "qíshìgūi", "level": 255}, 
 		]
 	}, 
-	"融雪谷（0,0）": {
+	"雪融谷（0,0）": {
 		"id": "300019", 
-		"name": "融雪谷（0,0）", 
+		"name": "雪融谷（0,0）", 
 		"level": 260, 
-		"description": "融雪谷 - 坐标(0,0)", 
+		"description": "雪融谷 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "báimáoxiàng", "level": 250}, 
 			{"pet_id": "mìmìxióng", "level": 260}, 
 		]
 	}, 
-	"融雪谷（45,42）": {
+	"雪融谷（45,42）": {
 		"id": "300019", 
-		"name": "融雪谷（45,42）", 
+		"name": "雪融谷（45,42）", 
 		"level": 260, 
-		"description": "融雪谷 - 坐标(45,42)", 
+		"description": "雪融谷 - 坐标(45,42)", 
 		"monsters": [
 			{"pet_id": "lǎnlǎnxiàng", "level": 250}, 
 			{"pet_id": "lǎnlǎnxiàng", "level": 260}, 
 		]
 	}, 
-	"倒流境（0,0）": {
+	"逆之往事（0,0）": {
 		"id": "700011", 
-		"name": "倒流境（0,0）", 
+		"name": "逆之往事（0,0）", 
 		"level": 260, 
-		"description": "倒流境 - 坐标(0,0)", 
+		"description": "逆之往事 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "qiāoqiāoshǔ", "level": 250}, 
 			{"pet_id": "dàdāo", "level": 260}, 
 		]
 	}, 
-	"西渡口（42,57）": {
+	"西码头（42,57）": {
 		"id": "100018", 
-		"name": "西渡口（42,57）", 
+		"name": "西码头（42,57）", 
 		"level": 270, 
-		"description": "西渡口 - 坐标(42,57)", 
+		"description": "西码头 - 坐标(42,57)", 
 		"monsters": [
 			{"pet_id": "qíshìgūi", "level": 260}, 
 			{"pet_id": "lanmengmeng", "level": 270}, 
 		]
 	}, 
-	"断桨滩（0,0）": {
+	"不归海岸（0,0）": {
 		"id": "700009", 
-		"name": "断桨滩（0,0）", 
+		"name": "不归海岸（0,0）", 
 		"level": 270, 
-		"description": "断桨滩 - 坐标(0,0)", 
+		"description": "不归海岸 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "jiájiá", "level": 260}, 
 			{"pet_id": "lányá", "level": 270}, 
 		]
 	}, 
-	"断桨滩（47,32）": {
+	"不归海岸（47,32）": {
 		"id": "700009", 
-		"name": "断桨滩（47,32）", 
+		"name": "不归海岸（47,32）", 
 		"level": 270, 
-		"description": "断桨滩 - 坐标(47,32)", 
+		"description": "不归海岸 - 坐标(47,32)", 
 		"monsters": [
 			{"pet_id": "lányá", "level": 260}, 
 			{"pet_id": "lányá", "level": 270}, 
 		]
 	}, 
-	"断魂崖（0,0）": {
+	"断魂涯（0,0）": {
 		"id": "100025", 
-		"name": "断魂崖（0,0）", 
+		"name": "断魂涯（0,0）", 
 		"level": 280, 
-		"description": "断魂崖 - 坐标(0,0)", 
+		"description": "断魂涯 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "daicitou", "level": 270}, 
 			{"pet_id": "linlin", "level": 280}, 
 		]
 	}, 
-	"羊肠路（0,0）": {
+	"羊肠道（0,0）": {
 		"id": "300016", 
-		"name": "羊肠路（0,0）", 
+		"name": "羊肠道（0,0）", 
 		"level": 280, 
-		"description": "羊肠路 - 坐标(0,0)", 
+		"description": "羊肠道 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "ātài", "level": 250}, 
 			{"pet_id": "báimáoxiàng", "level": 280}, 
 		]
 	}, 
-	"羊肠路（45,38）": {
+	"羊肠道（45,38）": {
 		"id": "300016", 
-		"name": "羊肠路（45,38）", 
+		"name": "羊肠道（45,38）", 
 		"level": 280, 
-		"description": "羊肠路 - 坐标(45,38)", 
+		"description": "羊肠道 - 坐标(45,38)", 
 		"monsters": [
 			{"pet_id": "lv̀jǐnbǎo", "level": 250}, 
 			{"pet_id": "lv̀jǐnbǎo", "level": 280}, 
 		]
 	}, 
-	"怨魂洞口（0,0）": {
+	"怨灵洞口（0,0）": {
 		"id": "200005", 
-		"name": "怨魂洞口（0,0）", 
+		"name": "怨灵洞口（0,0）", 
 		"level": 285, 
-		"description": "怨魂洞口 - 坐标(0,0)", 
+		"description": "怨灵洞口 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "wudidan", "level": 280}, 
 			{"pet_id": "xi_pi", "level": 285}, 
 		]
 	}, 
-	"怨魂洞口（66,58）": {
+	"怨灵洞口（66,58）": {
 		"id": "200005", 
-		"name": "怨魂洞口（66,58）", 
+		"name": "怨灵洞口（66,58）", 
 		"level": 285, 
-		"description": "怨魂洞口 - 坐标(66,58)", 
+		"description": "怨灵洞口 - 坐标(66,58)", 
 		"monsters": [
 			{"pet_id": "xi_pi", "level": 280}, 
 			{"pet_id": "xi_pi", "level": 285}, 
 		]
 	}, 
-	"石壁洞（0,0）": {
+	"石壁洞口（0,0）": {
 		"id": "100027", 
-		"name": "石壁洞（0,0）", 
+		"name": "石壁洞口（0,0）", 
 		"level": 290, 
-		"description": "石壁洞 - 坐标(0,0)", 
+		"description": "石壁洞口 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "dàdāo", "level": 280}, 
 			{"pet_id": "fengwu", "level": 290}, 
 		]
 	}, 
-	"石壁洞（48,28）": {
+	"石壁洞口（48,28）": {
 		"id": "100027", 
-		"name": "石壁洞（48,28）", 
+		"name": "石壁洞口（48,28）", 
 		"level": 290, 
-		"description": "石壁洞 - 坐标(48,28)", 
+		"description": "石壁洞口 - 坐标(48,28)", 
 		"monsters": [
 			{"pet_id": "fengwu", "level": 280}, 
 			{"pet_id": "fengwu", "level": 290}, 
 		]
 	}, 
-	"怨魂洞口（35,63）": {
+	"怨灵洞口（35,63）": {
 		"id": "200005", 
-		"name": "怨魂洞口（35,63）", 
+		"name": "怨灵洞口（35,63）", 
 		"level": 290, 
-		"description": "怨魂洞口 - 坐标(35,63)", 
+		"description": "怨灵洞口 - 坐标(35,63)", 
 		"monsters": [
 			{"pet_id": "fengwu", "level": 275}, 
 			{"pet_id": "xi_pi", "level": 290}, 
 		]
 	}, 
-	"断魂崖（34,40）": {
+	"断魂涯（34,40）": {
 		"id": "100025", 
-		"name": "断魂崖（34,40）", 
+		"name": "断魂涯（34,40）", 
 		"level": 295, 
-		"description": "断魂崖 - 坐标(34,40)", 
+		"description": "断魂涯 - 坐标(34,40)", 
 		"monsters": [
 			{"pet_id": "dàdāo", "level": 290}, 
 			{"pet_id": "fengwu", "level": 295}, 
 		]
 	}, 
-	"怨魂洞（0,0）": {
+	"怨灵洞（0,0）": {
 		"id": "700090", 
-		"name": "怨魂洞（0,0）", 
+		"name": "怨灵洞（0,0）", 
 		"level": 295, 
-		"description": "怨魂洞 - 坐标(0,0)", 
+		"description": "怨灵洞 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "zhōngdāo", "level": 290}, 
 			{"pet_id": "lèlèxióng", "level": 295}, 
 		]
 	}, 
-	"石壁洞（25,32）": {
+	"石壁洞口（25,32）": {
 		"id": "100027", 
-		"name": "石壁洞（25,32）", 
+		"name": "石壁洞口（25,32）", 
 		"level": 305, 
-		"description": "石壁洞 - 坐标(25,32)", 
+		"description": "石壁洞口 - 坐标(25,32)", 
 		"monsters": [
 			{"pet_id": "dàdāo", "level": 300}, 
 			{"pet_id": "fengwu", "level": 305}, 
 		]
 	}, 
-	"巨炉渊（0,0）": {
+	"炉烧地狱（0,0）": {
 		"id": "600007", 
-		"name": "巨炉渊（0,0）", 
+		"name": "炉烧地狱（0,0）", 
 		"level": 305, 
-		"description": "巨炉渊 - 坐标(0,0)", 
+		"description": "炉烧地狱 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "qiāoqiāoshǔ", "level": 300}, 
 			{"pet_id": "yìnggǔè", "level": 305}, 
 		]
 	}, 
-	"怨魂洞（28,13）": {
+	"怨灵洞（28,13）": {
 		"id": "700090", 
-		"name": "怨魂洞（28,13）", 
+		"name": "怨灵洞（28,13）", 
 		"level": 305, 
-		"description": "怨魂洞 - 坐标(28,13)", 
+		"description": "怨灵洞 - 坐标(28,13)", 
 		"monsters": [
 			{"pet_id": "zhōngdāo", "level": 295}, 
 			{"pet_id": "lèlèxióng", "level": 305}, 
 		]
 	}, 
-	"怨魂洞（19,25）": {
+	"怨灵洞（19,25）": {
 		"id": "700090", 
-		"name": "怨魂洞（19,25）", 
+		"name": "怨灵洞（19,25）", 
 		"level": 305, 
-		"description": "怨魂洞 - 坐标(19,25)", 
+		"description": "怨灵洞 - 坐标(19,25)", 
 		"monsters": [
 			{"pet_id": "zhōngdāo", "level": 300}, 
 			{"pet_id": "lèlèxióng", "level": 305}, 
 		]
 	}, 
-	"惊魂洞·下（0,0）": {
+	"吓死人洞窟2（0,0）": {
 		"id": "100087", 
-		"name": "惊魂洞·下（0,0）", 
+		"name": "吓死人洞窟2（0,0）", 
 		"level": 320, 
-		"description": "惊魂洞·下 - 坐标(0,0)", 
+		"description": "吓死人洞窟2 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "mímáng", "level": 310}, 
 			{"pet_id": "zhenzhen", "level": 320}, 
 		]
 	}, 
-	"惊魂洞·下（38,66）": {
+	"吓死人洞窟2（38,66）": {
 		"id": "100087", 
-		"name": "惊魂洞·下（38,66）", 
+		"name": "吓死人洞窟2（38,66）", 
 		"level": 320, 
-		"description": "惊魂洞·下 - 坐标(38,66)", 
+		"description": "吓死人洞窟2 - 坐标(38,66)", 
 		"monsters": [
 			{"pet_id": "zhenzhen", "level": 310}, 
 			{"pet_id": "zhenzhen", "level": 320}, 
 		]
 	}, 
-	"云中城（0,0）": {
+	"翔云幻城（0,0）": {
 		"id": "500015", 
-		"name": "云中城（0,0）", 
+		"name": "翔云幻城（0,0）", 
 		"level": 320, 
-		"description": "云中城 - 坐标(0,0)", 
+		"description": "翔云幻城 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "gang_lei_fei", "level": 300}, 
 			{"pet_id": "ātài", "level": 320}, 
 		]
 	}, 
-	"石卵谷（0,0）": {
+	"凰之谷（0,0）": {
 		"id": "700013", 
-		"name": "石卵谷（0,0）", 
+		"name": "凰之谷（0,0）", 
 		"level": 320, 
-		"description": "石卵谷 - 坐标(0,0)", 
+		"description": "凰之谷 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "luluniao", "level": 300}, 
 			{"pet_id": "xuefenghuang", "level": 320}, 
 		]
 	}, 
-	"石卵谷（31,27）": {
+	"凰之谷（31,27）": {
 		"id": "700013", 
-		"name": "石卵谷（31,27）", 
+		"name": "凰之谷（31,27）", 
 		"level": 320, 
-		"description": "石卵谷 - 坐标(31,27)", 
+		"description": "凰之谷 - 坐标(31,27)", 
 		"monsters": [
 			{"pet_id": "luluniao", "level": 300}, 
 			{"pet_id": "luluniao", "level": 320}, 
 		]
 	}, 
-	"惊魂洞·上（0,0）": {
+	"吓死人洞窟1（0,0）": {
 		"id": "100086", 
-		"name": "惊魂洞·上（0,0）", 
+		"name": "吓死人洞窟1（0,0）", 
 		"level": 330, 
-		"description": "惊魂洞·上 - 坐标(0,0)", 
+		"description": "吓死人洞窟1 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "wen_di_long", "level": 330}, 
 			{"pet_id": "tiějiǎgūi", "level": 320}, 
 		]
 	}, 
-	"惊魂洞·上（43,42）": {
+	"吓死人洞窟1（43,42）": {
 		"id": "100086", 
-		"name": "惊魂洞·上（43,42）", 
+		"name": "吓死人洞窟1（43,42）", 
 		"level": 330, 
-		"description": "惊魂洞·上 - 坐标(43,42)", 
+		"description": "吓死人洞窟1 - 坐标(43,42)", 
 		"monsters": [
 			{"pet_id": "wen_di_long", "level": 330}, 
 			{"pet_id": "wen_di_long", "level": 320}, 
 		]
 	}, 
-	"惊魂洞·下（46,38）": {
+	"吓死人洞窟2（46,38）": {
 		"id": "100087", 
-		"name": "惊魂洞·下（46,38）", 
+		"name": "吓死人洞窟2（46,38）", 
 		"level": 330, 
-		"description": "惊魂洞·下 - 坐标(46,38)", 
+		"description": "吓死人洞窟2 - 坐标(46,38)", 
 		"monsters": [
 			{"pet_id": "mímáng", "level": 320}, 
 			{"pet_id": "zhenzhen", "level": 330}, 
 		]
 	}, 
-	"烟村谷（0,0）": {
+	"炊烟谷（0,0）": {
 		"id": "300020", 
-		"name": "烟村谷（0,0）", 
+		"name": "炊烟谷（0,0）", 
 		"level": 330, 
-		"description": "烟村谷 - 坐标(0,0)", 
+		"description": "炊烟谷 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "jiéquándào", "level": 300}, 
 			{"pet_id": "hēitíxiānshēng", "level": 330}, 
 		]
 	}, 
-	"烟村谷（42,24）": {
+	"炊烟谷（42,24）": {
 		"id": "300020", 
-		"name": "烟村谷（42,24）", 
+		"name": "炊烟谷（42,24）", 
 		"level": 330, 
-		"description": "烟村谷 - 坐标(42,24)", 
+		"description": "炊烟谷 - 坐标(42,24)", 
 		"monsters": [
 			{"pet_id": "hēitíxiānshēng", "level": 300}, 
 			{"pet_id": "hēitíxiānshēng", "level": 330}, 
 		]
 	}, 
-	"雪岭西坡（0,0）": {
+	"西雪岭（0,0）": {
 		"id": "300036", 
-		"name": "雪岭西坡（0,0）", 
+		"name": "西雪岭（0,0）", 
 		"level": 330, 
-		"description": "雪岭西坡 - 坐标(0,0)", 
+		"description": "西雪岭 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "báimáoxiàng", "level": 300}, 
 			{"pet_id": "báimáoxiàng", "level": 330}, 
 		]
 	}, 
-	"双生谷（0,0）": {
+	"情人谷（0,0）": {
 		"id": "200019", 
-		"name": "双生谷（0,0）", 
+		"name": "情人谷（0,0）", 
 		"level": 335, 
-		"description": "双生谷 - 坐标(0,0)", 
+		"description": "情人谷 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "ben_lei_fei", "level": 330}, 
 			{"pet_id": "ādá", "level": 335}, 
 		]
 	}, 
-	"双生谷（12,26）": {
+	"情人谷（12,26）": {
 		"id": "200019", 
-		"name": "双生谷（12,26）", 
+		"name": "情人谷（12,26）", 
 		"level": 335, 
-		"description": "双生谷 - 坐标(12,26)", 
+		"description": "情人谷 - 坐标(12,26)", 
 		"monsters": [
 			{"pet_id": "ādá", "level": 330}, 
 			{"pet_id": "ādá", "level": 335}, 
 		]
 	}, 
-	"双生谷（30,30）": {
+	"情人谷（30,30）": {
 		"id": "200019", 
-		"name": "双生谷（30,30）", 
+		"name": "情人谷（30,30）", 
 		"level": 340, 
-		"description": "双生谷 - 坐标(30,30)", 
+		"description": "情人谷 - 坐标(30,30)", 
 		"monsters": [
 			{"pet_id": "ben_lei_fei", "level": 335}, 
 			{"pet_id": "ādá", "level": 340}, 
 		]
 	}, 
-	"望月谷（0,0）": {
+	"赏月谷（0,0）": {
 		"id": "200020", 
-		"name": "望月谷（0,0）", 
+		"name": "赏月谷（0,0）", 
 		"level": 340, 
-		"description": "望月谷 - 坐标(0,0)", 
+		"description": "赏月谷 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "minixiang", "level": 335}, 
 			{"pet_id": "gang_lei_fei", "level": 340}, 
 		]
 	}, 
-	"望月谷（50,71）": {
+	"赏月谷（50,71）": {
 		"id": "200020", 
-		"name": "望月谷（50,71）", 
+		"name": "赏月谷（50,71）", 
 		"level": 340, 
-		"description": "望月谷 - 坐标(50,71)", 
+		"description": "赏月谷 - 坐标(50,71)", 
 		"monsters": [
 			{"pet_id": "minixiang", "level": 335}, 
 			{"pet_id": "minixiang", "level": 340}, 
 		]
 	}, 
-	"惊魂洞·上（34,61）": {
+	"吓死人洞窟1（34,61）": {
 		"id": "100086", 
-		"name": "惊魂洞·上（34,61）", 
+		"name": "吓死人洞窟1（34,61）", 
 		"level": 350, 
-		"description": "惊魂洞·上 - 坐标(34,61)", 
+		"description": "吓死人洞窟1 - 坐标(34,61)", 
 		"monsters": [
 			{"pet_id": "wen_di_long", "level": 340}, 
 			{"pet_id": "tiějiǎgūi", "level": 350}, 
 		]
 	}, 
-	"望月谷（30,38）": {
+	"赏月谷（30,38）": {
 		"id": "200020", 
-		"name": "望月谷（30,38）", 
+		"name": "赏月谷（30,38）", 
 		"level": 350, 
-		"description": "望月谷 - 坐标(30,38)", 
+		"description": "赏月谷 - 坐标(30,38)", 
 		"monsters": [
 			{"pet_id": "minixiang", "level": 340}, 
 			{"pet_id": "gang_lei_fei", "level": 350}, 
 		]
 	}, 
-	"萤火洞（0,0）": {
+	"绿幽洞（0,0）": {
 		"id": "200040", 
-		"name": "萤火洞（0,0）", 
+		"name": "绿幽洞（0,0）", 
 		"level": 370, 
-		"description": "萤火洞 - 坐标(0,0)", 
+		"description": "绿幽洞 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "minixiang", "level": 350}, 
 			{"pet_id": "wang_wang", "level": 370}, 
 		]
 	}, 
-	"霜井台（0,0）": {
+	"寒井台（0,0）": {
 		"id": "300037", 
-		"name": "霜井台（0,0）", 
+		"name": "寒井台（0,0）", 
 		"level": 370, 
-		"description": "霜井台 - 坐标(0,0)", 
+		"description": "寒井台 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "báimáoxiàng", "level": 350}, 
 			{"pet_id": "báimáoxiàng", "level": 370}, 
 		]
 	}, 
-	"青草洲（0,0）": {
+	"青之绿洲（0,0）": {
 		"id": "200039", 
-		"name": "青草洲（0,0）", 
+		"name": "青之绿洲（0,0）", 
 		"level": 380, 
-		"description": "青草洲 - 坐标(0,0)", 
+		"description": "青之绿洲 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "jiéquándào", "level": 360}, 
 			{"pet_id": "yingying", "level": 380}, 
 		]
 	}, 
-	"萤火洞（35,54）": {
+	"绿幽洞（35,54）": {
 		"id": "200040", 
-		"name": "萤火洞（35,54）", 
+		"name": "绿幽洞（35,54）", 
 		"level": 380, 
-		"description": "萤火洞 - 坐标(35,54)", 
+		"description": "绿幽洞 - 坐标(35,54)", 
 		"monsters": [
 			{"pet_id": "minixiang", "level": 380}, 
 			{"pet_id": "niefengquan", "level": 360}, 
 		]
 	}, 
-	"斧痕谷（0,0）": {
+	"斧青谷（0,0）": {
 		"id": "300011", 
-		"name": "斧痕谷（0,0）", 
+		"name": "斧青谷（0,0）", 
 		"level": 380, 
-		"description": "斧痕谷 - 坐标(0,0)", 
+		"description": "斧青谷 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "qíshìgūi", "level": 350}, 
 			{"pet_id": "yingying", "level": 380}, 
 		]
 	}, 
-	"斑鸠小屋（0,0）": {
+	"斑鸠小舍（0,0）": {
 		"id": "700004", 
-		"name": "斑鸠小屋（0,0）", 
+		"name": "斑鸠小舍（0,0）", 
 		"level": 380, 
-		"description": "斑鸠小屋 - 坐标(0,0)", 
+		"description": "斑鸠小舍 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "yùlíntù", "level": 350}, 
 			{"pet_id": "luluniao", "level": 380}, 
@@ -1932,1421 +1932,1421 @@ const MAPS_DATA = {
 			{"pet_id": "zhōngdāo", "level": 400}, 
 		]
 	}, 
-	"铜像殿（57,81）": {
+	"铜人殿（57,81）": {
 		"id": "200032", 
-		"name": "铜像殿（57,81）", 
+		"name": "铜人殿（57,81）", 
 		"level": 400, 
-		"description": "铜像殿 - 坐标(57,81)", 
+		"description": "铜人殿 - 坐标(57,81)", 
 		"monsters": [
 			{"pet_id": "cong_cong", "level": 400}, 
 			{"pet_id": "wang_wang", "level": 380}, 
 		]
 	}, 
-	"石牢五层（0,0）": {
+	"监狱第五层（0,0）": {
 		"id": "800004", 
-		"name": "石牢五层（0,0）", 
+		"name": "监狱第五层（0,0）", 
 		"level": 400, 
-		"description": "石牢五层 - 坐标(0,0)", 
+		"description": "监狱第五层 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "landazui", "level": 200}, 
 			{"pet_id": "landazui", "level": 400}, 
 		]
 	}, 
-	"青草东滩（0,0）": {
+	"绿洲东郊（0,0）": {
 		"id": "200006", 
-		"name": "青草东滩（0,0）", 
+		"name": "绿洲东郊（0,0）", 
 		"level": 410, 
-		"description": "青草东滩 - 坐标(0,0)", 
+		"description": "绿洲东郊 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "kubixiang", "level": 400}, 
 			{"pet_id": "wang_wang", "level": 410}, 
 		]
 	}, 
-	"青草东滩（41,72）": {
+	"绿洲东郊（41,72）": {
 		"id": "200006", 
-		"name": "青草东滩（41,72）", 
+		"name": "绿洲东郊（41,72）", 
 		"level": 410, 
-		"description": "青草东滩 - 坐标(41,72)", 
+		"description": "绿洲东郊 - 坐标(41,72)", 
 		"monsters": [
 			{"pet_id": "kubixiang", "level": 400}, 
 			{"pet_id": "kubixiang", "level": 410}, 
 		]
 	}, 
-	"陶瓮谷（0,0）": {
+	"银罐谷（0,0）": {
 		"id": "200008", 
-		"name": "陶瓮谷（0,0）", 
+		"name": "银罐谷（0,0）", 
 		"level": 410, 
-		"description": "陶瓮谷 - 坐标(0,0)", 
+		"description": "银罐谷 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "zhuiyingquan", "level": 400}, 
 			{"pet_id": "cong_cong", "level": 410}, 
 		]
 	}, 
-	"陶瓮谷（41,35）": {
+	"银罐谷（41,35）": {
 		"id": "200008", 
-		"name": "陶瓮谷（41,35）", 
+		"name": "银罐谷（41,35）", 
 		"level": 410, 
-		"description": "陶瓮谷 - 坐标(41,35)", 
+		"description": "银罐谷 - 坐标(41,35)", 
 		"monsters": [
 			{"pet_id": "cong_cong", "level": 400}, 
 			{"pet_id": "cong_cong", "level": 410}, 
 		]
 	}, 
-	"石碾渊·下（0,0）": {
+	"辗肢地狱（0,0）": {
 		"id": "600008", 
-		"name": "石碾渊·下（0,0）", 
+		"name": "辗肢地狱（0,0）", 
 		"level": 410, 
-		"description": "石碾渊·下 - 坐标(0,0)", 
+		"description": "辗肢地狱 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "xiǎodīngdāng", "level": 400}, 
 			{"pet_id": "yáoyé", "level": 410}, 
 		]
 	}, 
-	"石碾渊·下（33,48）": {
+	"辗肢地狱（33,48）": {
 		"id": "600008", 
-		"name": "石碾渊·下（33,48）", 
+		"name": "辗肢地狱（33,48）", 
 		"level": 410, 
-		"description": "石碾渊·下 - 坐标(33,48)", 
+		"description": "辗肢地狱 - 坐标(33,48)", 
 		"monsters": [
 			{"pet_id": "yáoyé", "level": 400}, 
 			{"pet_id": "yáoyé", "level": 410}, 
 		]
 	}, 
-	"青草洲（45,47）": {
+	"青之绿洲（45,47）": {
 		"id": "200039", 
-		"name": "青草洲（45,47）", 
+		"name": "青之绿洲（45,47）", 
 		"level": 415, 
-		"description": "青草洲 - 坐标(45,47)", 
+		"description": "青之绿洲 - 坐标(45,47)", 
 		"monsters": [
 			{"pet_id": "jiéquándào", "level": 400}, 
 			{"pet_id": "linlin", "level": 415}, 
 		]
 	}, 
-	"菇王洞（0,0）": {
+	"巨菇洞（0,0）": {
 		"id": "200041", 
-		"name": "菇王洞（0,0）", 
+		"name": "巨菇洞（0,0）", 
 		"level": 415, 
-		"description": "菇王洞 - 坐标(0,0)", 
+		"description": "巨菇洞 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "shuaidaixiang", "level": 400}, 
 			{"pet_id": "xi_pi", "level": 415}, 
 		]
 	}, 
-	"相思坡（0,0）": {
+	"情思坡（0,0）": {
 		"id": "131010", 
-		"name": "相思坡（0,0）", 
+		"name": "情思坡（0,0）", 
 		"level": 420, 
-		"description": "相思坡 - 坐标(0,0)", 
+		"description": "情思坡 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "guihuojun", "level": 400}, 
 			{"pet_id": "wen_di_long", "level": 420}, 
 		]
 	}, 
-	"陶瓮谷（21,21）": {
+	"银罐谷（21,21）": {
 		"id": "200008", 
-		"name": "陶瓮谷（21,21）", 
+		"name": "银罐谷（21,21）", 
 		"level": 420, 
-		"description": "陶瓮谷 - 坐标(21,21)", 
+		"description": "银罐谷 - 坐标(21,21)", 
 		"monsters": [
 			{"pet_id": "zhuiyingquan", "level": 415}, 
 			{"pet_id": "cong_cong", "level": 420}, 
 		]
 	}, 
-	"铜像殿（0,0）": {
+	"铜人殿（0,0）": {
 		"id": "200032", 
-		"name": "铜像殿（0,0）", 
+		"name": "铜人殿（0,0）", 
 		"level": 420, 
-		"description": "铜像殿 - 坐标(0,0)", 
+		"description": "铜人殿 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "cong_cong", "level": 420}, 
 			{"pet_id": "wang_wang", "level": 410}, 
 		]
 	}, 
-	"铜像殿（82,45）": {
+	"铜人殿（82,45）": {
 		"id": "200032", 
-		"name": "铜像殿（82,45）", 
+		"name": "铜人殿（82,45）", 
 		"level": 420, 
-		"description": "铜像殿 - 坐标(82,45)", 
+		"description": "铜人殿 - 坐标(82,45)", 
 		"monsters": [
 			{"pet_id": "wang_wang", "level": 420}, 
 			{"pet_id": "wang_wang", "level": 410}, 
 		]
 	}, 
-	"听鸟谷（0,0）": {
+	"鸟鸣谷（0,0）": {
 		"id": "300015", 
-		"name": "听鸟谷（0,0）", 
+		"name": "鸟鸣谷（0,0）", 
 		"level": 420, 
-		"description": "听鸟谷 - 坐标(0,0)", 
+		"description": "鸟鸣谷 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "tao_tao", "level": 400}, 
 			{"pet_id": "hēitíxiānshēng", "level": 420}, 
 		]
 	}, 
-	"空院（0,0）": {
+	"空灵园（0,0）": {
 		"id": "500023", 
-		"name": "空院（0,0）", 
+		"name": "空灵园（0,0）", 
 		"level": 420, 
-		"description": "空院 - 坐标(0,0)", 
+		"description": "空灵园 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "xiǎodīngdōng", "level": 400}, 
 			{"pet_id": "lèngtóuqīng", "level": 420}, 
 		]
 	}, 
-	"盘根谷（0,0）": {
+	"榕盘谷（0,0）": {
 		"id": "700001", 
-		"name": "盘根谷（0,0）", 
+		"name": "榕盘谷（0,0）", 
 		"level": 420, 
-		"description": "盘根谷 - 坐标(0,0)", 
+		"description": "榕盘谷 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "lányá", "level": 400}, 
 			{"pet_id": "qiāoqiāoshǔ", "level": 420}, 
 		]
 	}, 
-	"盘根谷（40,28）": {
+	"榕盘谷（40,28）": {
 		"id": "700001", 
-		"name": "盘根谷（40,28）", 
+		"name": "榕盘谷（40,28）", 
 		"level": 420, 
-		"description": "盘根谷 - 坐标(40,28)", 
+		"description": "榕盘谷 - 坐标(40,28)", 
 		"monsters": [
 			{"pet_id": "qiāoqiāoshǔ", "level": 400}, 
 			{"pet_id": "qiāoqiāoshǔ", "level": 420}, 
 		]
 	}, 
-	"虚实境（0,0）": {
+	"逆之虚幻（0,0）": {
 		"id": "700012", 
-		"name": "虚实境（0,0）", 
+		"name": "逆之虚幻（0,0）", 
 		"level": 420, 
-		"description": "虚实境 - 坐标(0,0)", 
+		"description": "逆之虚幻 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "lv̀jǐnbǎo", "level": 400}, 
 			{"pet_id": "qiāoqiāoshǔ", "level": 420}, 
 		]
 	}, 
-	"青草东滩（41,35）": {
+	"绿洲东郊（41,35）": {
 		"id": "200006", 
-		"name": "青草东滩（41,35）", 
+		"name": "绿洲东郊（41,35）", 
 		"level": 425, 
-		"description": "青草东滩 - 坐标(41,35)", 
+		"description": "绿洲东郊 - 坐标(41,35)", 
 		"monsters": [
 			{"pet_id": "kubixiang", "level": 415}, 
 			{"pet_id": "meng_meng", "level": 425}, 
 		]
 	}, 
-	"冰镜原（0,0）": {
+	"镜雪原（0,0）": {
 		"id": "300008", 
-		"name": "冰镜原（0,0）", 
+		"name": "镜雪原（0,0）", 
 		"level": 430, 
-		"description": "冰镜原 - 坐标(0,0)", 
+		"description": "镜雪原 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "tiějiǎgūi", "level": 400}, 
 			{"pet_id": "dàzǔiè", "level": 430}, 
 		]
 	}, 
-	"冰镜原（39,55）": {
+	"镜雪原（39,55）": {
 		"id": "300008", 
-		"name": "冰镜原（39,55）", 
+		"name": "镜雪原（39,55）", 
 		"level": 430, 
-		"description": "冰镜原 - 坐标(39,55)", 
+		"description": "镜雪原 - 坐标(39,55)", 
 		"monsters": [
 			{"pet_id": "dàzǔiè", "level": 400}, 
 			{"pet_id": "dàzǔiè", "level": 430}, 
 		]
 	}, 
-	"斑鸠小屋（65,50）": {
+	"斑鸠小舍（65,50）": {
 		"id": "700004", 
-		"name": "斑鸠小屋（65,50）", 
+		"name": "斑鸠小舍（65,50）", 
 		"level": 435, 
-		"description": "斑鸠小屋 - 坐标(65,50)", 
+		"description": "斑鸠小舍 - 坐标(65,50)", 
 		"monsters": [
 			{"pet_id": "yùlíntù", "level": 410}, 
 			{"pet_id": "nununiao", "level": 435}, 
 		]
 	}, 
-	"青草洲（14,41）": {
+	"青之绿洲（14,41）": {
 		"id": "200039", 
-		"name": "青草洲（14,41）", 
+		"name": "青之绿洲（14,41）", 
 		"level": 440, 
-		"description": "青草洲 - 坐标(14,41)", 
+		"description": "青之绿洲 - 坐标(14,41)", 
 		"monsters": [
 			{"pet_id": "jiéquándào", "level": 430}, 
 			{"pet_id": "yingying", "level": 440}, 
 		]
 	}, 
-	"菇王洞（26,38）": {
+	"巨菇洞（26,38）": {
 		"id": "200041", 
-		"name": "菇王洞（26,38）", 
+		"name": "巨菇洞（26,38）", 
 		"level": 440, 
-		"description": "菇王洞 - 坐标(26,38)", 
+		"description": "巨菇洞 - 坐标(26,38)", 
 		"monsters": [
 			{"pet_id": "shuaidaixiang", "level": 425}, 
 			{"pet_id": "xi_pi", "level": 440}, 
 		]
 	}, 
-	"净沙野（36,38）": {
+	"净沙原（36,38）": {
 		"id": "200017", 
-		"name": "净沙野（36,38）", 
+		"name": "净沙原（36,38）", 
 		"level": 445, 
-		"description": "净沙野 - 坐标(36,38)", 
+		"description": "净沙原 - 坐标(36,38)", 
 		"monsters": [
 			{"pet_id": "niefengquan", "level": 445}, 
 			{"pet_id": "hòupíè", "level": 435}, 
 		]
 	}, 
-	"净沙野（0,0）": {
+	"净沙原（0,0）": {
 		"id": "200017", 
-		"name": "净沙野（0,0）", 
+		"name": "净沙原（0,0）", 
 		"level": 450, 
-		"description": "净沙野 - 坐标(0,0)", 
+		"description": "净沙原 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "niefengquan", "level": 450}, 
 			{"pet_id": "hòupíè", "level": 445}, 
 		]
 	}, 
-	"净沙野（58,32）": {
+	"净沙原（58,32）": {
 		"id": "200017", 
-		"name": "净沙野（58,32）", 
+		"name": "净沙原（58,32）", 
 		"level": 450, 
-		"description": "净沙野 - 坐标(58,32)", 
+		"description": "净沙原 - 坐标(58,32)", 
 		"monsters": [
 			{"pet_id": "hòupíè", "level": 450}, 
 			{"pet_id": "hòupíè", "level": 445}, 
 		]
 	}, 
-	"菇王洞（47,54）": {
+	"巨菇洞（47,54）": {
 		"id": "200041", 
-		"name": "菇王洞（47,54）", 
+		"name": "巨菇洞（47,54）", 
 		"level": 460, 
-		"description": "菇王洞 - 坐标(47,54)", 
+		"description": "巨菇洞 - 坐标(47,54)", 
 		"monsters": [
 			{"pet_id": "shuaidaixiang", "level": 450}, 
 			{"pet_id": "xi_pi", "level": 460}, 
 		]
 	}, 
-	"酒瓮冢（0,0）": {
+	"酒鬼冢（0,0）": {
 		"id": "200013", 
-		"name": "酒瓮冢（0,0）", 
+		"name": "酒鬼冢（0,0）", 
 		"level": 470, 
-		"description": "酒瓮冢 - 坐标(0,0)", 
+		"description": "酒鬼冢 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "minixiang", "level": 470}, 
 			{"pet_id": "ādǒu", "level": 460}, 
 		]
 	}, 
-	"酒瓮冢（38,23）": {
+	"酒鬼冢（38,23）": {
 		"id": "200013", 
-		"name": "酒瓮冢（38,23）", 
+		"name": "酒鬼冢（38,23）", 
 		"level": 470, 
-		"description": "酒瓮冢 - 坐标(38,23)", 
+		"description": "酒鬼冢 - 坐标(38,23)", 
 		"monsters": [
 			{"pet_id": "ādǒu", "level": 470}, 
 			{"pet_id": "ādǒu", "level": 460}, 
 		]
 	}, 
-	"青磷洞（0,0）": {
+	"青灵洞（0,0）": {
 		"id": "200042", 
-		"name": "青磷洞（0,0）", 
+		"name": "青灵洞（0,0）", 
 		"level": 470, 
-		"description": "青磷洞 - 坐标(0,0)", 
+		"description": "青灵洞 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "kubixiang", "level": 455}, 
 			{"pet_id": "cong_cong", "level": 470}, 
 		]
 	}, 
-	"铜柱渊（0,0）": {
+	"炮烙地狱（0,0）": {
 		"id": "600009", 
-		"name": "铜柱渊（0,0）", 
+		"name": "炮烙地狱（0,0）", 
 		"level": 470, 
-		"description": "铜柱渊 - 坐标(0,0)", 
+		"description": "炮烙地狱 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "hóngdāo", "level": 450}, 
 			{"pet_id": "tiějiǎgūi", "level": 470}, 
 		]
 	}, 
-	"铜柱渊（27,50）": {
+	"炮烙地狱（27,50）": {
 		"id": "600009", 
-		"name": "铜柱渊（27,50）", 
+		"name": "炮烙地狱（27,50）", 
 		"level": 470, 
-		"description": "铜柱渊 - 坐标(27,50)", 
+		"description": "炮烙地狱 - 坐标(27,50)", 
 		"monsters": [
 			{"pet_id": "tiějiǎgūi", "level": 450}, 
 			{"pet_id": "tiějiǎgūi", "level": 470}, 
 		]
 	}, 
-	"旧城废墟（0,0）": {
+	"古城遗址（0,0）": {
 		"id": "200056", 
-		"name": "旧城废墟（0,0）", 
+		"name": "古城遗址（0,0）", 
 		"level": 480, 
-		"description": "旧城废墟 - 坐标(0,0)", 
+		"description": "古城遗址 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "dàdāo", "level": 480}, 
 			{"pet_id": "gang_lei_fei", "level": 470}, 
 		]
 	}, 
-	"旧城废墟（98,62）": {
+	"古城遗址（98,62）": {
 		"id": "200056", 
-		"name": "旧城废墟（98,62）", 
+		"name": "古城遗址（98,62）", 
 		"level": 480, 
-		"description": "旧城废墟 - 坐标(98,62)", 
+		"description": "古城遗址 - 坐标(98,62)", 
 		"monsters": [
 			{"pet_id": "dàdāo", "level": 480}, 
 			{"pet_id": "dàdāo", "level": 470}, 
 		]
 	}, 
-	"霜桥（0,0）": {
+	"冰清桥（0,0）": {
 		"id": "300038", 
-		"name": "霜桥（0,0）", 
+		"name": "冰清桥（0,0）", 
 		"level": 480, 
-		"description": "霜桥 - 坐标(0,0)", 
+		"description": "冰清桥 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "jiájiá", "level": 450}, 
 			{"pet_id": "yáoyé", "level": 480}, 
 		]
 	}, 
-	"守林屋（0,0）": {
+	"守望林场（0,0）": {
 		"id": "700006", 
-		"name": "守林屋（0,0）", 
+		"name": "守望林场（0,0）", 
 		"level": 480, 
-		"description": "守林屋 - 坐标(0,0)", 
+		"description": "守望林场 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "fengwu", "level": 460}, 
 			{"pet_id": "yùlíntù", "level": 480}, 
 		]
 	}, 
-	"石轮谷（0,0）": {
+	"金轮谷（0,0）": {
 		"id": "200009", 
-		"name": "石轮谷（0,0）", 
+		"name": "金轮谷（0,0）", 
 		"level": 485, 
-		"description": "石轮谷 - 坐标(0,0)", 
+		"description": "金轮谷 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "kōngshǒudào", "level": 460}, 
 			{"pet_id": "linlin", "level": 485}, 
 		]
 	}, 
-	"酒瓮冢（26,28）": {
+	"酒鬼冢（26,28）": {
 		"id": "200013", 
-		"name": "酒瓮冢（26,28）", 
+		"name": "酒鬼冢（26,28）", 
 		"level": 490, 
-		"description": "酒瓮冢 - 坐标(26,28)", 
+		"description": "酒鬼冢 - 坐标(26,28)", 
 		"monsters": [
 			{"pet_id": "minixiang", "level": 490}, 
 			{"pet_id": "ādǒu", "level": 490}, 
 		]
 	}, 
-	"旧城废墟（42,48）": {
+	"古城遗址（42,48）": {
 		"id": "200056", 
-		"name": "旧城废墟（42,48）", 
+		"name": "古城遗址（42,48）", 
 		"level": 490, 
-		"description": "旧城废墟 - 坐标(42,48)", 
+		"description": "古城遗址 - 坐标(42,48)", 
 		"monsters": [
 			{"pet_id": "dàdāo", "level": 460}, 
 			{"pet_id": "gang_lei_fei", "level": 490}, 
 		]
 	}, 
-	"水淹城（53,84）": {
+	"沉没的城市（53,84）": {
 		"id": "200057", 
-		"name": "水淹城（53,84）", 
+		"name": "沉没的城市（53,84）", 
 		"level": 500, 
-		"description": "水淹城 - 坐标(53,84)", 
+		"description": "沉没的城市 - 坐标(53,84)", 
 		"monsters": [
 			{"pet_id": "ātài", "level": 500}, 
 			{"pet_id": "wang_wang", "level": 480}, 
 		]
 	}, 
-	"青磷洞（43,40）": {
+	"青灵洞（43,40）": {
 		"id": "200042", 
-		"name": "青磷洞（43,40）", 
+		"name": "青灵洞（43,40）", 
 		"level": 510, 
-		"description": "青磷洞 - 坐标(43,40)", 
+		"description": "青灵洞 - 坐标(43,40)", 
 		"monsters": [
 			{"pet_id": "kubixiang", "level": 490}, 
 			{"pet_id": "cong_cong", "level": 510}, 
 		]
 	}, 
-	"水淹城（0,0）": {
+	"沉没的城市（0,0）": {
 		"id": "200057", 
-		"name": "水淹城（0,0）", 
+		"name": "沉没的城市（0,0）", 
 		"level": 510, 
-		"description": "水淹城 - 坐标(0,0)", 
+		"description": "沉没的城市 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "ātài", "level": 510}, 
 			{"pet_id": "wang_wang", "level": 500}, 
 		]
 	}, 
-	"水淹城（64,29）": {
+	"沉没的城市（64,29）": {
 		"id": "200057", 
-		"name": "水淹城（64,29）", 
+		"name": "沉没的城市（64,29）", 
 		"level": 510, 
-		"description": "水淹城 - 坐标(64,29)", 
+		"description": "沉没的城市 - 坐标(64,29)", 
 		"monsters": [
 			{"pet_id": "ātài", "level": 510}, 
 			{"pet_id": "ātài", "level": 500}, 
 		]
 	}, 
-	"霜桥（34,31）": {
+	"冰清桥（34,31）": {
 		"id": "300038", 
-		"name": "霜桥（34,31）", 
+		"name": "冰清桥（34,31）", 
 		"level": 520, 
-		"description": "霜桥 - 坐标(34,31)", 
+		"description": "冰清桥 - 坐标(34,31)", 
 		"monsters": [
 			{"pet_id": "jiájiá", "level": 500}, 
 			{"pet_id": "yáoyé", "level": 520}, 
 		]
 	}, 
-	"断碑谷（0,0）": {
+	"将军碑谷（0,0）": {
 		"id": "100009", 
-		"name": "断碑谷（0,0）", 
+		"name": "将军碑谷（0,0）", 
 		"level": 525, 
-		"description": "断碑谷 - 坐标(0,0)", 
+		"description": "将军碑谷 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "cong_cong", "level": 520}, 
 			{"pet_id": "yìnggǔè", "level": 525}, 
 		]
 	}, 
-	"断碑谷（61,44）": {
+	"将军碑谷（61,44）": {
 		"id": "100009", 
-		"name": "断碑谷（61,44）", 
+		"name": "将军碑谷（61,44）", 
 		"level": 525, 
-		"description": "断碑谷 - 坐标(61,44)", 
+		"description": "将军碑谷 - 坐标(61,44)", 
 		"monsters": [
 			{"pet_id": "míhuò", "level": 520}, 
 			{"pet_id": "míhuò", "level": 525}, 
 		]
 	}, 
-	"石轮谷（50,39）": {
+	"金轮谷（50,39）": {
 		"id": "200009", 
-		"name": "石轮谷（50,39）", 
+		"name": "金轮谷（50,39）", 
 		"level": 525, 
-		"description": "石轮谷 - 坐标(50,39)", 
+		"description": "金轮谷 - 坐标(50,39)", 
 		"monsters": [
 			{"pet_id": "kōngshǒudào", "level": 510}, 
 			{"pet_id": "zhenzhen", "level": 525}, 
 		]
 	}, 
-	"守林屋（58,52）": {
+	"守望林场（58,52）": {
 		"id": "700006", 
-		"name": "守林屋（58,52）", 
+		"name": "守望林场（58,52）", 
 		"level": 530, 
-		"description": "守林屋 - 坐标(58,52)", 
+		"description": "守望林场 - 坐标(58,52)", 
 		"monsters": [
 			{"pet_id": "duxing", "level": 510}, 
 			{"pet_id": "cǎomǎngtù", "level": 530}, 
 		]
 	}, 
-	"断碑谷（19,52）": {
+	"将军碑谷（19,52）": {
 		"id": "100009", 
-		"name": "断碑谷（19,52）", 
+		"name": "将军碑谷（19,52）", 
 		"level": 535, 
-		"description": "断碑谷 - 坐标(19,52)", 
+		"description": "将军碑谷 - 坐标(19,52)", 
 		"monsters": [
 			{"pet_id": "cong_cong", "level": 530}, 
 			{"pet_id": "yìnggǔè", "level": 535}, 
 		]
 	}, 
-	"青磷洞（59,67）": {
+	"青灵洞（59,67）": {
 		"id": "200042", 
-		"name": "青磷洞（59,67）", 
+		"name": "青灵洞（59,67）", 
 		"level": 550, 
-		"description": "青磷洞 - 坐标(59,67)", 
+		"description": "青灵洞 - 坐标(59,67)", 
 		"monsters": [
 			{"pet_id": "kubixiang", "level": 530}, 
 			{"pet_id": "cong_cong", "level": 550}, 
 		]
 	}, 
-	"石牢（0,0）": {
+	"地牢（0,0）": {
 		"id": "200058", 
-		"name": "石牢（0,0）", 
+		"name": "地牢（0,0）", 
 		"level": 550, 
-		"description": "石牢 - 坐标(0,0)", 
+		"description": "地牢 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "meng_meng", "level": 550}, 
 			{"pet_id": "linlin", "level": 540}, 
 		]
 	}, 
-	"石牢（51,53）": {
+	"地牢（51,53）": {
 		"id": "200058", 
-		"name": "石牢（51,53）", 
+		"name": "地牢（51,53）", 
 		"level": 550, 
-		"description": "石牢 - 坐标(51,53)", 
+		"description": "地牢 - 坐标(51,53)", 
 		"monsters": [
 			{"pet_id": "meng_meng", "level": 550}, 
 			{"pet_id": "meng_meng", "level": 540}, 
 		]
 	}, 
-	"霜桥（28,6）": {
+	"冰清桥（28,6）": {
 		"id": "300038", 
-		"name": "霜桥（28,6）", 
+		"name": "冰清桥（28,6）", 
 		"level": 550, 
-		"description": "霜桥 - 坐标(28,6)", 
+		"description": "冰清桥 - 坐标(28,6)", 
 		"monsters": [
 			{"pet_id": "jiájiá", "level": 535}, 
 			{"pet_id": "yáoyé", "level": 550}, 
 		]
 	}, 
-	"石牢（28,34）": {
+	"地牢（28,34）": {
 		"id": "200058", 
-		"name": "石牢（28,34）", 
+		"name": "地牢（28,34）", 
 		"level": 570, 
-		"description": "石牢 - 坐标(28,34)", 
+		"description": "地牢 - 坐标(28,34)", 
 		"monsters": [
 			{"pet_id": "meng_meng", "level": 530}, 
 			{"pet_id": "linlin", "level": 570}, 
 		]
 	}, 
-	"落雁滩（0,0）": {
+	"落雁谷（0,0）": {
 		"id": "200010", 
-		"name": "落雁滩（0,0）", 
+		"name": "落雁谷（0,0）", 
 		"level": 575, 
-		"description": "落雁滩 - 坐标(0,0)", 
+		"description": "落雁谷 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "jiéquándào", "level": 550}, 
 			{"pet_id": "qíshìgūi", "level": 575}, 
 		]
 	}, 
-	"白玉桥（0,0）": {
+	"玉洁桥（0,0）": {
 		"id": "300039", 
-		"name": "白玉桥（0,0）", 
+		"name": "玉洁桥（0,0）", 
 		"level": 580, 
-		"description": "白玉桥 - 坐标(0,0)", 
+		"description": "玉洁桥 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "lèngtóuqīng", "level": 560}, 
 			{"pet_id": "ouou", "level": 580}, 
 		]
 	}, 
-	"刀轮渊（0,0）": {
+	"旋割地狱（0,0）": {
 		"id": "600010", 
-		"name": "刀轮渊（0,0）", 
+		"name": "旋割地狱（0,0）", 
 		"level": 580, 
-		"description": "刀轮渊 - 坐标(0,0)", 
+		"description": "旋割地狱 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "xiǎodīngdāng", "level": 550}, 
 			{"pet_id": "yáoyé", "level": 580}, 
 		]
 	}, 
-	"独坐亭（0,0）": {
+	"独孤独亭（0,0）": {
 		"id": "700002", 
-		"name": "独坐亭（0,0）", 
+		"name": "独孤独亭（0,0）", 
 		"level": 580, 
-		"description": "独坐亭 - 坐标(0,0)", 
+		"description": "独孤独亭 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "cǎomǎngtù", "level": 560}, 
 			{"pet_id": "fuyejiu", "level": 580}, 
 		]
 	}, 
-	"悬空台（0,0）": {
+	"悬台（0,0）": {
 		"id": "200059", 
-		"name": "悬空台（0,0）", 
+		"name": "悬台（0,0）", 
 		"level": 590, 
-		"description": "悬空台 - 坐标(0,0)", 
+		"description": "悬台 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "tao_tao", "level": 580}, 
 			{"pet_id": "shuaidaixiang", "level": 590}, 
 		]
 	}, 
-	"悬空台（55,55）": {
+	"悬台（55,55）": {
 		"id": "200059", 
-		"name": "悬空台（55,55）", 
+		"name": "悬台（55,55）", 
 		"level": 590, 
-		"description": "悬空台 - 坐标(55,55)", 
+		"description": "悬台 - 坐标(55,55)", 
 		"monsters": [
 			{"pet_id": "shuaidaixiang", "level": 580}, 
 			{"pet_id": "shuaidaixiang", "level": 590}, 
 		]
 	}, 
-	"流沙滩（0,0）": {
+	"流沙原（0,0）": {
 		"id": "200023", 
-		"name": "流沙滩（0,0）", 
+		"name": "流沙原（0,0）", 
 		"level": 600, 
-		"description": "流沙滩 - 坐标(0,0)", 
+		"description": "流沙原 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "lanmengmeng", "level": 590}, 
 			{"pet_id": "mímáng", "level": 600}, 
 		]
 	}, 
-	"流沙滩（38,22）": {
+	"流沙原（38,22）": {
 		"id": "200023", 
-		"name": "流沙滩（38,22）", 
+		"name": "流沙原（38,22）", 
 		"level": 600, 
-		"description": "流沙滩 - 坐标(38,22)", 
+		"description": "流沙原 - 坐标(38,22)", 
 		"monsters": [
 			{"pet_id": "lanmengmeng", "level": 600}, 
 			{"pet_id": "mímáng", "level": 598}, 
 		]
 	}, 
-	"流沙滩（74,85）": {
+	"流沙原（74,85）": {
 		"id": "200023", 
-		"name": "流沙滩（74,85）", 
+		"name": "流沙原（74,85）", 
 		"level": 600, 
-		"description": "流沙滩 - 坐标(74,85)", 
+		"description": "流沙原 - 坐标(74,85)", 
 		"monsters": [
 			{"pet_id": "lanmengmeng", "level": 590}, 
 			{"pet_id": "lanmengmeng", "level": 600}, 
 		]
 	}, 
-	"落雁滩（24,34）": {
+	"落雁谷（24,34）": {
 		"id": "200010", 
-		"name": "落雁滩（24,34）", 
+		"name": "落雁谷（24,34）", 
 		"level": 620, 
-		"description": "落雁滩 - 坐标(24,34)", 
+		"description": "落雁谷 - 坐标(24,34)", 
 		"monsters": [
 			{"pet_id": "kōngshǒudào", "level": 600}, 
 			{"pet_id": "qíshìgūi", "level": 620}, 
 		]
 	}, 
-	"遗恨野（0,0）": {
+	"遗恨原（0,0）": {
 		"id": "200022", 
-		"name": "遗恨野（0,0）", 
+		"name": "遗恨原（0,0）", 
 		"level": 620, 
-		"description": "遗恨野 - 坐标(0,0)", 
+		"description": "遗恨原 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "wang_wang", "level": 610}, 
 			{"pet_id": "kubixiang", "level": 620}, 
 		]
 	}, 
-	"悬空台（40,42）": {
+	"悬台（40,42）": {
 		"id": "200059", 
-		"name": "悬空台（40,42）", 
+		"name": "悬台（40,42）", 
 		"level": 620, 
-		"description": "悬空台 - 坐标(40,42)", 
+		"description": "悬台 - 坐标(40,42)", 
 		"monsters": [
 			{"pet_id": "tao_tao", "level": 600}, 
 			{"pet_id": "shuaidaixiang", "level": 620}, 
 		]
 	}, 
-	"白玉桥（53,33）": {
+	"玉洁桥（53,33）": {
 		"id": "300039", 
-		"name": "白玉桥（53,33）", 
+		"name": "玉洁桥（53,33）", 
 		"level": 620, 
-		"description": "白玉桥 - 坐标(53,33)", 
+		"description": "玉洁桥 - 坐标(53,33)", 
 		"monsters": [
 			{"pet_id": "lèngtóuqīng", "level": 600}, 
 			{"pet_id": "ouou", "level": 620}, 
 		]
 	}, 
-	"遗恨野（13,20）": {
+	"遗恨原（13,20）": {
 		"id": "200022", 
-		"name": "遗恨野（13,20）", 
+		"name": "遗恨原（13,20）", 
 		"level": 640, 
-		"description": "遗恨野 - 坐标(13,20)", 
+		"description": "遗恨原 - 坐标(13,20)", 
 		"monsters": [
 			{"pet_id": "wang_wang", "level": 630}, 
 			{"pet_id": "yunhu", "level": 640}, 
 		]
 	}, 
-	"落雁滩（64,70）": {
+	"落雁谷（64,70）": {
 		"id": "200010", 
-		"name": "落雁滩（64,70）", 
+		"name": "落雁谷（64,70）", 
 		"level": 650, 
-		"description": "落雁滩 - 坐标(64,70)", 
+		"description": "落雁谷 - 坐标(64,70)", 
 		"monsters": [
 			{"pet_id": "jiéquándào", "level": 630}, 
 			{"pet_id": "qíshìgūi", "level": 650}, 
 		]
 	}, 
-	"白玉桥（22,15）": {
+	"玉洁桥（22,15）": {
 		"id": "300039", 
-		"name": "白玉桥（22,15）", 
+		"name": "玉洁桥（22,15）", 
 		"level": 650, 
-		"description": "白玉桥 - 坐标(22,15)", 
+		"description": "玉洁桥 - 坐标(22,15)", 
 		"monsters": [
 			{"pet_id": "lèngtóuqīng", "level": 630}, 
 			{"pet_id": "ouou", "level": 650}, 
 		]
 	}, 
-	"沉海城（0,0）": {
+	"深蓝海城（0,0）": {
 		"id": "400001", 
-		"name": "沉海城（0,0）", 
+		"name": "深蓝海城（0,0）", 
 		"level": 650, 
-		"description": "沉海城 - 坐标(0,0)", 
+		"description": "深蓝海城 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "lèngtóuqīng", "level": 600}, 
 			{"pet_id": "lv̀jiǎ", "level": 650}, 
 		]
 	}, 
-	"独坐亭（32,19）": {
+	"独孤独亭（32,19）": {
 		"id": "700002", 
-		"name": "独坐亭（32,19）", 
+		"name": "独孤独亭（32,19）", 
 		"level": 650, 
-		"description": "独坐亭 - 坐标(32,19)", 
+		"description": "独孤独亭 - 坐标(32,19)", 
 		"monsters": [
 			{"pet_id": "lanmengmeng", "level": 620}, 
 			{"pet_id": "cǎomǎngtù", "level": 650}, 
 		]
 	}, 
-	"铁钩渊（0,0）": {
+	"吊烤地狱（0,0）": {
 		"id": "600011", 
-		"name": "铁钩渊（0,0）", 
+		"name": "吊烤地狱（0,0）", 
 		"level": 670, 
-		"description": "铁钩渊 - 坐标(0,0)", 
+		"description": "吊烤地狱 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "qiāoqiāoshǔ", "level": 650}, 
 			{"pet_id": "yìnggǔè", "level": 670}, 
 		]
 	}, 
-	"乱石坡（0,0）": {
+	"华山脚（0,0）": {
 		"id": "100042", 
-		"name": "乱石坡（0,0）", 
+		"name": "华山脚（0,0）", 
 		"level": 740, 
-		"description": "乱石坡 - 坐标(0,0)", 
+		"description": "华山脚 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "tao_tao", "level": 710}, 
 			{"pet_id": "qiāoqiāoshǔ", "level": 740}, 
 		]
 	}, 
-	"劫沙洞口（39,39）": {
+	"沙盗洞口（39,39）": {
 		"id": "200024", 
-		"name": "劫沙洞口（39,39）", 
+		"name": "沙盗洞口（39,39）", 
 		"level": 750, 
-		"description": "劫沙洞口 - 坐标(39,39)", 
+		"description": "沙盗洞口 - 坐标(39,39)", 
 		"monsters": [
 			{"pet_id": "mímáng", "level": 750}, 
 			{"pet_id": "fengwu", "level": 750}, 
 		]
 	}, 
-	"紫苔洞·上（0,0）": {
+	"紫苔洞窟（0,0）": {
 		"id": "200044", 
-		"name": "紫苔洞·上（0,0）", 
+		"name": "紫苔洞窟（0,0）", 
 		"level": 770, 
-		"description": "紫苔洞·上 - 坐标(0,0)", 
+		"description": "紫苔洞窟 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "zhaicitou", "level": 720}, 
 			{"pet_id": "lv̀jǐnbǎo", "level": 770}, 
 		]
 	}, 
-	"铜锈洞·甲（0,0）": {
+	"古铜洞窟（0,0）": {
 		"id": "200043", 
-		"name": "铜锈洞·甲（0,0）", 
+		"name": "古铜洞窟（0,0）", 
 		"level": 780, 
-		"description": "铜锈洞·甲 - 坐标(0,0)", 
+		"description": "古铜洞窟 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "lèlèxióng", "level": 730}, 
 			{"pet_id": "báimáoxiàng", "level": 780}, 
 		]
 	}, 
-	"铜钟洞（0,0）": {
+	"金钟洞窟（0,0）": {
 		"id": "200045", 
-		"name": "铜钟洞（0,0）", 
+		"name": "金钟洞窟（0,0）", 
 		"level": 780, 
-		"description": "铜钟洞 - 坐标(0,0)", 
+		"description": "金钟洞窟 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "míhuò", "level": 720}, 
 			{"pet_id": "zhōngdāo", "level": 780}, 
 		]
 	}, 
-	"沉海城底（0,0）": {
+	"深蓝海底（0,0）": {
 		"id": "400002", 
-		"name": "沉海城底（0,0）", 
+		"name": "深蓝海底（0,0）", 
 		"level": 780, 
-		"description": "沉海城底 - 坐标(0,0)", 
+		"description": "深蓝海底 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "lèngtóuqīng", "level": 720}, 
 			{"pet_id": "lv̀jiǎ", "level": 780}, 
 		]
 	}, 
-	"铁棘渊（0,0）": {
+	"钉床地狱（0,0）": {
 		"id": "600012", 
-		"name": "铁棘渊（0,0）", 
+		"name": "钉床地狱（0,0）", 
 		"level": 780, 
-		"description": "铁棘渊 - 坐标(0,0)", 
+		"description": "钉床地狱 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "xiǎodīngdāng", "level": 750}, 
 			{"pet_id": "yáoyé", "level": 780}, 
 		]
 	}, 
-	"劫沙洞口（0,0）": {
+	"沙盗洞口（0,0）": {
 		"id": "200024", 
-		"name": "劫沙洞口（0,0）", 
+		"name": "沙盗洞口（0,0）", 
 		"level": 800, 
-		"description": "劫沙洞口 - 坐标(0,0)", 
+		"description": "沙盗洞口 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "mímáng", "level": 800}, 
 			{"pet_id": "fengwu", "level": 795}, 
 		]
 	}, 
-	"劫沙洞口（24,24）": {
+	"沙盗洞口（24,24）": {
 		"id": "200024", 
-		"name": "劫沙洞口（24,24）", 
+		"name": "沙盗洞口（24,24）", 
 		"level": 800, 
-		"description": "劫沙洞口 - 坐标(24,24)", 
+		"description": "沙盗洞口 - 坐标(24,24)", 
 		"monsters": [
 			{"pet_id": "mímáng", "level": 800}, 
 			{"pet_id": "mímáng", "level": 795}, 
 		]
 	}, 
-	"乱石坡（51,31）": {
+	"华山脚（51,31）": {
 		"id": "100042", 
-		"name": "乱石坡（51,31）", 
+		"name": "华山脚（51,31）", 
 		"level": 820, 
-		"description": "乱石坡 - 坐标(51,31)", 
+		"description": "华山脚 - 坐标(51,31)", 
 		"monsters": [
 			{"pet_id": "tao_tao", "level": 780}, 
 			{"pet_id": "qiāoqiāoshǔ", "level": 820}, 
 		]
 	}, 
-	"剥壁渊（0,0）": {
+	"剥皮地狱（0,0）": {
 		"id": "600001", 
-		"name": "剥壁渊（0,0）", 
+		"name": "剥皮地狱（0,0）", 
 		"level": 825, 
-		"description": "剥壁渊 - 坐标(0,0)", 
+		"description": "剥皮地狱 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "qiāoqiāoshǔ", "level": 800}, 
 			{"pet_id": "yìnggǔè", "level": 825}, 
 		]
 	}, 
-	"铜钟洞（50,37）": {
+	"金钟洞窟（50,37）": {
 		"id": "200045", 
-		"name": "铜钟洞（50,37）", 
+		"name": "金钟洞窟（50,37）", 
 		"level": 850, 
-		"description": "铜钟洞 - 坐标(50,37)", 
+		"description": "金钟洞窟 - 坐标(50,37)", 
 		"monsters": [
 			{"pet_id": "míhuò", "level": 820}, 
 			{"pet_id": "zhōngdāo", "level": 850}, 
 		]
 	}, 
-	"铜锈洞·甲（35,49）": {
+	"古铜洞窟（35,49）": {
 		"id": "200043", 
-		"name": "铜锈洞·甲（35,49）", 
+		"name": "古铜洞窟（35,49）", 
 		"level": 870, 
-		"description": "铜锈洞·甲 - 坐标(35,49)", 
+		"description": "古铜洞窟 - 坐标(35,49)", 
 		"monsters": [
 			{"pet_id": "lèlèxióng", "level": 820}, 
 			{"pet_id": "qiāoqiāoshǔ", "level": 870}, 
 		]
 	}, 
-	"石磨渊（0,0）": {
+	"磨骨地狱（0,0）": {
 		"id": "600013", 
-		"name": "石磨渊（0,0）", 
+		"name": "磨骨地狱（0,0）", 
 		"level": 870, 
-		"description": "石磨渊 - 坐标(0,0)", 
+		"description": "磨骨地狱 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "zǐtíxiānshēng", "level": 850}, 
 			{"pet_id": "dàdāo", "level": 870}, 
 		]
 	}, 
-	"乱石坡（35,52）": {
+	"华山脚（35,52）": {
 		"id": "100042", 
-		"name": "乱石坡（35,52）", 
+		"name": "华山脚（35,52）", 
 		"level": 880, 
-		"description": "乱石坡 - 坐标(35,52)", 
+		"description": "华山脚 - 坐标(35,52)", 
 		"monsters": [
 			{"pet_id": "tao_tao", "level": 850}, 
 			{"pet_id": "qiāoqiāoshǔ", "level": 880}, 
 		]
 	}, 
-	"紫苔洞·上（32,40）": {
+	"紫苔洞窟（32,40）": {
 		"id": "200044", 
-		"name": "紫苔洞·上（32,40）", 
+		"name": "紫苔洞窟（32,40）", 
 		"level": 880, 
-		"description": "紫苔洞·上 - 坐标(32,40)", 
+		"description": "紫苔洞窟 - 坐标(32,40)", 
 		"monsters": [
 			{"pet_id": "daicitou", "level": 820}, 
 			{"pet_id": "lv̀jǐnbǎo", "level": 880}, 
 		]
 	}, 
-	"小石室（0,0）": {
+	"小小房间（0,0）": {
 		"id": "400009", 
-		"name": "小石室（0,0）", 
+		"name": "小小房间（0,0）", 
 		"level": 880, 
-		"description": "小石室 - 坐标(0,0)", 
+		"description": "小小房间 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "ouou", "level": 830}, 
 			{"pet_id": "lv̀jiǎ", "level": 880}, 
 		]
 	}, 
-	"铜钟洞（29,43）": {
+	"金钟洞窟（29,43）": {
 		"id": "200045", 
-		"name": "铜钟洞（29,43）", 
+		"name": "金钟洞窟（29,43）", 
 		"level": 900, 
-		"description": "铜钟洞 - 坐标(29,43)", 
+		"description": "金钟洞窟 - 坐标(29,43)", 
 		"monsters": [
 			{"pet_id": "míhuò", "level": 870}, 
 			{"pet_id": "zhōngdāo", "level": 900}, 
 		]
 	}, 
-	"云顶（0,0）": {
+	"华山顶（0,0）": {
 		"id": "100047", 
-		"name": "云顶（0,0）", 
+		"name": "华山顶（0,0）", 
 		"level": 930, 
-		"description": "云顶 - 坐标(0,0)", 
+		"description": "华山顶 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "dàdāo", "level": 920}, 
 			{"pet_id": "dàidāo", "level": 930}, 
 		]
 	}, 
-	"云顶（22,23）": {
+	"华山顶（22,23）": {
 		"id": "100047", 
-		"name": "云顶（22,23）", 
+		"name": "华山顶（22,23）", 
 		"level": 960, 
-		"description": "云顶 - 坐标(22,23)", 
+		"description": "华山顶 - 坐标(22,23)", 
 		"monsters": [
 			{"pet_id": "dàdāo", "level": 940}, 
 			{"pet_id": "dàidāo", "level": 960}, 
 		]
 	}, 
-	"半山亭（0,0）": {
+	"华山亭（0,0）": {
 		"id": "100043", 
-		"name": "半山亭（0,0）", 
+		"name": "华山亭（0,0）", 
 		"level": 970, 
-		"description": "半山亭 - 坐标(0,0)", 
+		"description": "华山亭 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "jiéquándào", "level": 930}, 
 			{"pet_id": "yìnggǔè", "level": 970}, 
 		]
 	}, 
-	"铜锈洞·乙（0,0）": {
+	"古铜洞窟2（0,0）": {
 		"id": "200047", 
-		"name": "铜锈洞·乙（0,0）", 
+		"name": "古铜洞窟2（0,0）", 
 		"level": 980, 
-		"description": "铜锈洞·乙 - 坐标(0,0)", 
+		"description": "古铜洞窟2 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "mìmìxióng", "level": 920}, 
 			{"pet_id": "lǎnlǎnxiàng", "level": 980}, 
 		]
 	}, 
-	"铜锈洞·丙（0,0）": {
+	"青铜洞窟（0,0）": {
 		"id": "200048", 
-		"name": "铜锈洞·丙（0,0）", 
+		"name": "青铜洞窟（0,0）", 
 		"level": 980, 
-		"description": "铜锈洞·丙 - 坐标(0,0)", 
+		"description": "青铜洞窟 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "fengwu", "level": 920}, 
 			{"pet_id": "hóngjǐnbǎo", "level": 980}, 
 		]
 	}, 
-	"碧水潭（0,0）": {
+	"碧水洞窟（0,0）": {
 		"id": "200050", 
-		"name": "碧水潭（0,0）", 
+		"name": "碧水洞窟（0,0）", 
 		"level": 980, 
-		"description": "碧水潭 - 坐标(0,0)", 
+		"description": "碧水洞窟 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "mímáng", "level": 920}, 
 			{"pet_id": "lv̀jǐnbǎo", "level": 980}, 
 		]
 	}, 
-	"侧石室（0,0）": {
+	"小房间（0,0）": {
 		"id": "400010", 
-		"name": "侧石室（0,0）", 
+		"name": "小房间（0,0）", 
 		"level": 980, 
-		"description": "侧石室 - 坐标(0,0)", 
+		"description": "小房间 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "yáoyé", "level": 930}, 
 			{"pet_id": "lv̀jiǎ", "level": 980}, 
 		]
 	}, 
-	"巨铡渊（0,0）": {
+	"铡头地狱（0,0）": {
 		"id": "600014", 
-		"name": "巨铡渊（0,0）", 
+		"name": "铡头地狱（0,0）", 
 		"level": 990, 
-		"description": "巨铡渊 - 坐标(0,0)", 
+		"description": "铡头地狱 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "xiǎodīngdāng", "level": 950}, 
 			{"pet_id": "yáoyé", "level": 990}, 
 		]
 	}, 
-	"碧水潭（29,14）": {
+	"碧水洞窟（29,14）": {
 		"id": "200050", 
-		"name": "碧水潭（29,14）", 
+		"name": "碧水洞窟（29,14）", 
 		"level": 1000, 
-		"description": "碧水潭 - 坐标(29,14)", 
+		"description": "碧水洞窟 - 坐标(29,14)", 
 		"monsters": [
 			{"pet_id": "meng_meng", "level": 900}, 
 			{"pet_id": "mímáng", "level": 1000}, 
 		]
 	}, 
-	"半山路（0,0）": {
+	"华山腰道（0,0）": {
 		"id": "100044", 
-		"name": "半山路（0,0）", 
+		"name": "华山腰道（0,0）", 
 		"level": 1050, 
-		"description": "半山路 - 坐标(0,0)", 
+		"description": "华山腰道 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "linlin", "level": 1020}, 
 			{"pet_id": "lu_lu", "level": 1050}, 
 		]
 	}, 
-	"黑沼渊（0,0）": {
+	"污秽地狱（0,0）": {
 		"id": "600015", 
-		"name": "黑沼渊（0,0）", 
+		"name": "污秽地狱（0,0）", 
 		"level": 1050, 
-		"description": "黑沼渊 - 坐标(0,0)", 
+		"description": "污秽地狱 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "hóngdāo", "level": 1050}, 
 			{"pet_id": "tiějiǎgūi", "level": 1010}, 
 		]
 	}, 
-	"铜锈洞·乙（49,38）": {
+	"古铜洞窟2（49,38）": {
 		"id": "200047", 
-		"name": "铜锈洞·乙（49,38）", 
+		"name": "古铜洞窟2（49,38）", 
 		"level": 1060, 
-		"description": "铜锈洞·乙 - 坐标(49,38)", 
+		"description": "古铜洞窟2 - 坐标(49,38)", 
 		"monsters": [
 			{"pet_id": "mìmìxióng", "level": 1030}, 
 			{"pet_id": "lǎnlǎnxiàng", "level": 1060}, 
 		]
 	}, 
-	"铜锈洞·丙（51,44）": {
+	"青铜洞窟（51,44）": {
 		"id": "200048", 
-		"name": "铜锈洞·丙（51,44）", 
+		"name": "青铜洞窟（51,44）", 
 		"level": 1080, 
-		"description": "铜锈洞·丙 - 坐标(51,44)", 
+		"description": "青铜洞窟 - 坐标(51,44)", 
 		"monsters": [
 			{"pet_id": "duxing", "level": 1020}, 
 			{"pet_id": "hóngjǐnbǎo", "level": 1080}, 
 		]
 	}, 
-	"碧水潭（28,34）": {
+	"碧水洞窟（28,34）": {
 		"id": "200050", 
-		"name": "碧水潭（28,34）", 
+		"name": "碧水洞窟（28,34）", 
 		"level": 1080, 
-		"description": "碧水潭 - 坐标(28,34)", 
+		"description": "碧水洞窟 - 坐标(28,34)", 
 		"monsters": [
 			{"pet_id": "mímáng", "level": 1030}, 
 			{"pet_id": "dàidāo", "level": 1080}, 
 		]
 	}, 
-	"长过道（0,0）": {
+	"过道（0,0）": {
 		"id": "400011", 
-		"name": "长过道（0,0）", 
+		"name": "过道（0,0）", 
 		"level": 1080, 
-		"description": "长过道 - 坐标(0,0)", 
+		"description": "过道 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "jiájiá", "level": 1030}, 
 			{"pet_id": "lányá", "level": 1080}, 
 		]
 	}, 
-	"铜锈洞·乙（30,47）": {
+	"古铜洞窟2（30,47）": {
 		"id": "200047", 
-		"name": "铜锈洞·乙（30,47）", 
+		"name": "古铜洞窟2（30,47）", 
 		"level": 1100, 
-		"description": "铜锈洞·乙 - 坐标(30,47)", 
+		"description": "古铜洞窟2 - 坐标(30,47)", 
 		"monsters": [
 			{"pet_id": "mìmìxióng", "level": 1080}, 
 			{"pet_id": "báimáoxiàng", "level": 1100}, 
 		]
 	}, 
-	"铜锈洞·丙（26,55）": {
+	"青铜洞窟（26,55）": {
 		"id": "200048", 
-		"name": "铜锈洞·丙（26,55）", 
+		"name": "青铜洞窟（26,55）", 
 		"level": 1100, 
-		"description": "铜锈洞·丙 - 坐标(26,55)", 
+		"description": "青铜洞窟 - 坐标(26,55)", 
 		"monsters": [
 			{"pet_id": "lanmengmeng", "level": 1090}, 
 			{"pet_id": "hóngjǐnbǎo", "level": 1100}, 
 		]
 	}, 
-	"半山路（18,49）": {
+	"华山腰道（18,49）": {
 		"id": "100044", 
-		"name": "半山路（18,49）", 
+		"name": "华山腰道（18,49）", 
 		"level": 1120, 
-		"description": "半山路 - 坐标(18,49)", 
+		"description": "华山腰道 - 坐标(18,49)", 
 		"monsters": [
 			{"pet_id": "lu_lu", "level": 1080}, 
 			{"pet_id": "linlin", "level": 1120}, 
 		]
 	}, 
-	"半山路（50,26）": {
+	"华山腰道（50,26）": {
 		"id": "100044", 
-		"name": "半山路（50,26）", 
+		"name": "华山腰道（50,26）", 
 		"level": 1180, 
-		"description": "半山路 - 坐标(50,26)", 
+		"description": "华山腰道 - 坐标(50,26)", 
 		"monsters": [
 			{"pet_id": "linlin", "level": 1150}, 
 			{"pet_id": "lu_lu", "level": 1180}, 
 		]
 	}, 
-	"龙骨洞·上（0,0）": {
+	"盘龙洞窟（0,0）": {
 		"id": "200051", 
-		"name": "龙骨洞·上（0,0）", 
+		"name": "盘龙洞窟（0,0）", 
 		"level": 1180, 
-		"description": "龙骨洞·上 - 坐标(0,0)", 
+		"description": "盘龙洞窟 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "lèlèxióng", "level": 1150}, 
 			{"pet_id": "qiāoqiāoshǔ", "level": 1180}, 
 		]
 	}, 
-	"紫苔洞·下（0,0）": {
+	"紫苔洞窟2（0,0）": {
 		"id": "200052", 
-		"name": "紫苔洞·下（0,0）", 
+		"name": "紫苔洞窟2（0,0）", 
 		"level": 1180, 
-		"description": "紫苔洞·下 - 坐标(0,0)", 
+		"description": "紫苔洞窟2 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "fengwu", "level": 1130}, 
 			{"pet_id": "lv̀jǐnbǎo", "level": 1180}, 
 		]
 	}, 
-	"铜锈洞·丁（0,0）": {
+	"黄铜洞窟2（0,0）": {
 		"id": "200053", 
-		"name": "铜锈洞·丁（0,0）", 
+		"name": "黄铜洞窟2（0,0）", 
 		"level": 1180, 
-		"description": "铜锈洞·丁 - 坐标(0,0)", 
+		"description": "黄铜洞窟2 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "zhōngdāo", "level": 1130}, 
 			{"pet_id": "xiǎoyāo", "level": 1180}, 
 		]
 	}, 
-	"窄过道（0,0）": {
+	"窄窄的过道（0,0）": {
 		"id": "400012", 
-		"name": "窄过道（0,0）", 
+		"name": "窄窄的过道（0,0）", 
 		"level": 1180, 
-		"description": "窄过道 - 坐标(0,0)", 
+		"description": "窄窄的过道 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "lèngtóuqīng", "level": 1130}, 
 			{"pet_id": "lv̀jiǎ", "level": 1180}, 
 		]
 	}, 
-	"青灯渊（0,0）": {
+	"天灯地狱（0,0）": {
 		"id": "600016", 
-		"name": "青灯渊（0,0）", 
+		"name": "天灯地狱（0,0）", 
 		"level": 1180, 
-		"description": "青灯渊 - 坐标(0,0)", 
+		"description": "天灯地狱 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "xiǎodīngdāng", "level": 1150}, 
 			{"pet_id": "yáoyé", "level": 1180}, 
 		]
 	}, 
-	"岩浆渊（0,0）": {
+	"焰浆地狱（0,0）": {
 		"id": "600017", 
-		"name": "岩浆渊（0,0）", 
+		"name": "焰浆地狱（0,0）", 
 		"level": 1250, 
-		"description": "岩浆渊 - 坐标(0,0)", 
+		"description": "焰浆地狱 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "zǐtíxiānshēng", "level": 1200}, 
 			{"pet_id": "dàdāo", "level": 1250}, 
 		]
 	}, 
-	"紫苔洞·下（32,38）": {
+	"紫苔洞窟2（32,38）": {
 		"id": "200052", 
-		"name": "紫苔洞·下（32,38）", 
+		"name": "紫苔洞窟2（32,38）", 
 		"level": 1280, 
-		"description": "紫苔洞·下 - 坐标(32,38)", 
+		"description": "紫苔洞窟2 - 坐标(32,38)", 
 		"monsters": [
 			{"pet_id": "duxing", "level": 1220}, 
 			{"pet_id": "hóngjǐnbǎo", "level": 1280}, 
 		]
 	}, 
-	"铜锈洞·丁（17,33）": {
+	"黄铜洞窟2（17,33）": {
 		"id": "200053", 
-		"name": "铜锈洞·丁（17,33）", 
+		"name": "黄铜洞窟2（17,33）", 
 		"level": 1280, 
-		"description": "铜锈洞·丁 - 坐标(17,33)", 
+		"description": "黄铜洞窟2 - 坐标(17,33)", 
 		"monsters": [
 			{"pet_id": "xiǎoyāo", "level": 1230}, 
 			{"pet_id": "dàidāo", "level": 1280}, 
 		]
 	}, 
-	"极窄过道（0,0）": {
+	"很窄的过道（0,0）": {
 		"id": "400013", 
-		"name": "极窄过道（0,0）", 
+		"name": "很窄的过道（0,0）", 
 		"level": 1280, 
-		"description": "极窄过道 - 坐标(0,0)", 
+		"description": "很窄的过道 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "jiájiá", "level": 1250}, 
 			{"pet_id": "lányá", "level": 1280}, 
 		]
 	}, 
-	"断崖瀑（0,0）": {
+	"华山瀑布（0,0）": {
 		"id": "100045", 
-		"name": "断崖瀑（0,0）", 
+		"name": "华山瀑布（0,0）", 
 		"level": 1290, 
-		"description": "断崖瀑 - 坐标(0,0)", 
+		"description": "华山瀑布 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "jiéquándào", "level": 1250}, 
 			{"pet_id": "yìnggǔè", "level": 1290}, 
 		]
 	}, 
-	"龙骨洞·上（46,65）": {
+	"盘龙洞窟（46,65）": {
 		"id": "200051", 
-		"name": "龙骨洞·上（46,65）", 
+		"name": "盘龙洞窟（46,65）", 
 		"level": 1300, 
-		"description": "龙骨洞·上 - 坐标(46,65)", 
+		"description": "盘龙洞窟 - 坐标(46,65)", 
 		"monsters": [
 			{"pet_id": "mìmìxióng", "level": 1250}, 
 			{"pet_id": "báimáoxiàng", "level": 1300}, 
 		]
 	}, 
-	"黑瘴林（0,0）": {
+	"魔界之森（0,0）": {
 		"id": "600122", 
-		"name": "黑瘴林（0,0）", 
+		"name": "魔界之森（0,0）", 
 		"level": 1300, 
-		"description": "黑瘴林 - 坐标(0,0)", 
+		"description": "魔界之森 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "youling", "level": 1300}, 
 			{"pet_id": "youling", "level": 1300}, 
 		]
 	}, 
-	"无名冢（0,0）": {
+	"传说中的英雄冢（0,0）": {
 		"id": "300028", 
-		"name": "无名冢（0,0）", 
+		"name": "传说中的英雄冢（0,0）", 
 		"level": 1305, 
-		"description": "无名冢 - 坐标(0,0)", 
+		"description": "传说中的英雄冢 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "huángjǐnbǎo", "level": 1300}, 
 			{"pet_id": "huángjǐnbǎo", "level": 1305}, 
 		]
 	}, 
-	"断崖瀑（5,14）": {
+	"华山瀑布（5,14）": {
 		"id": "100045", 
-		"name": "断崖瀑（5,14）", 
+		"name": "华山瀑布（5,14）", 
 		"level": 1380, 
-		"description": "断崖瀑 - 坐标(5,14)", 
+		"description": "华山瀑布 - 坐标(5,14)", 
 		"monsters": [
 			{"pet_id": "jiéquándào", "level": 1330}, 
 			{"pet_id": "yìnggǔè", "level": 1380}, 
 		]
 	}, 
-	"石笋洞（0,0）": {
+	"石笋洞窟（0,0）": {
 		"id": "200054", 
-		"name": "石笋洞（0,0）", 
+		"name": "石笋洞窟（0,0）", 
 		"level": 1450, 
-		"description": "石笋洞 - 坐标(0,0)", 
+		"description": "石笋洞窟 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "duoluotianlang", "level": 1430}, 
 			{"pet_id": "zǐtíxiānshēng", "level": 1450}, 
 		]
 	}, 
-	"石笋洞（71,27）": {
+	"石笋洞窟（71,27）": {
 		"id": "200054", 
-		"name": "石笋洞（71,27）", 
+		"name": "石笋洞窟（71,27）", 
 		"level": 1450, 
-		"description": "石笋洞 - 坐标(71,27)", 
+		"description": "石笋洞窟 - 坐标(71,27)", 
 		"monsters": [
 			{"pet_id": "duoluotianlang", "level": 1450}, 
 			{"pet_id": "zǐtíxiānshēng", "level": 1430}, 
 		]
 	}, 
-	"龙骨洞·下（0,0）": {
+	"盘龙洞窟2（0,0）": {
 		"id": "200055", 
-		"name": "龙骨洞·下（0,0）", 
+		"name": "盘龙洞窟2（0,0）", 
 		"level": 1450, 
-		"description": "龙骨洞·下 - 坐标(0,0)", 
+		"description": "盘龙洞窟2 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "qibiantianlang", "level": 1430}, 
 			{"pet_id": "dong_yue_shen_yuan", "level": 1450}, 
 		]
 	}, 
-	"龙骨洞·下（25,24）": {
+	"盘龙洞窟2（25,24）": {
 		"id": "200055", 
-		"name": "龙骨洞·下（25,24）", 
+		"name": "盘龙洞窟2（25,24）", 
 		"level": 1450, 
-		"description": "龙骨洞·下 - 坐标(25,24)", 
+		"description": "盘龙洞窟2 - 坐标(25,24)", 
 		"monsters": [
 			{"pet_id": "qibiantianlang", "level": 1450}, 
 			{"pet_id": "dong_yue_shen_yuan", "level": 1430}, 
 		]
 	}, 
-	"接露台（0,0）": {
+	"盈露台看守区（0,0）": {
 		"id": "500016", 
-		"name": "接露台（0,0）", 
+		"name": "盈露台看守区（0,0）", 
 		"level": 1500, 
-		"description": "接露台 - 坐标(0,0)", 
+		"description": "盈露台看守区 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "fuyejiu", "level": 1500}, 
 			{"pet_id": "fuyejiu", "level": 1500}, 
 		]
 	}, 
-	"接露台（39,28）": {
+	"盈露台看守区（39,28）": {
 		"id": "500016", 
-		"name": "接露台（39,28）", 
+		"name": "盈露台看守区（39,28）", 
 		"level": 1500, 
-		"description": "接露台 - 坐标(39,28)", 
+		"description": "盈露台看守区 - 坐标(39,28)", 
 		"monsters": [
 			{"pet_id": "fuyejiu", "level": 1500}, 
 			{"pet_id": "huang_long_shi", "level": 1500}, 
 		]
 	}, 
-	"滚油渊（0,0）": {
+	"油锅地狱（0,0）": {
 		"id": "600018", 
-		"name": "滚油渊（0,0）", 
+		"name": "油锅地狱（0,0）", 
 		"level": 1500, 
-		"description": "滚油渊 - 坐标(0,0)", 
+		"description": "油锅地狱 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "dàdāo", "level": 1500}, 
 			{"pet_id": "dàdāo", "level": 1500}, 
 		]
 	}, 
-	"滚油渊（31,31）": {
+	"油锅地狱（31,31）": {
 		"id": "600018", 
-		"name": "滚油渊（31,31）", 
+		"name": "油锅地狱（31,31）", 
 		"level": 1500, 
-		"description": "滚油渊 - 坐标(31,31)", 
+		"description": "油锅地狱 - 坐标(31,31)", 
 		"monsters": [
 			{"pet_id": "dàdāo", "level": 1500}, 
 			{"pet_id": "lv_yi_xian_zi", "level": 1500}, 
 		]
 	}, 
-	"九曲廊（16,21）": {
+	"九曲回廊（16,21）": {
 		"id": "131007", 
-		"name": "九曲廊（16,21）", 
+		"name": "九曲回廊（16,21）", 
 		"level": 1970, 
-		"description": "九曲廊 - 坐标(16,21)", 
+		"description": "九曲回廊 - 坐标(16,21)", 
 		"monsters": [
 			{"pet_id": "xiǎoyāo", "level": 1930}, 
 			{"pet_id": "kucitou", "level": 1970}, 
 		]
 	}, 
-	"九曲廊（0,0）": {
+	"九曲回廊（0,0）": {
 		"id": "131008", 
-		"name": "九曲廊（0,0）", 
+		"name": "九曲回廊（0,0）", 
 		"level": 2235, 
-		"description": "九曲廊 - 坐标(0,0)", 
+		"description": "九曲回廊 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "tiějiǎgūi", "level": 2210}, 
 			{"pet_id": "cǎomǎngtù", "level": 2235}, 
 		]
 	}, 
-	"九曲廊（29,39）": {
+	"九曲回廊（29,39）": {
 		"id": "131008", 
-		"name": "九曲廊（29,39）", 
+		"name": "九曲回廊（29,39）", 
 		"level": 2270, 
-		"description": "九曲廊 - 坐标(29,39)", 
+		"description": "九曲回廊 - 坐标(29,39)", 
 		"monsters": [
 			{"pet_id": "tao_tao", "level": 2230}, 
 			{"pet_id": "nununiao", "level": 2270}, 
 		]
 	}, 
-	"冷泉洞（0,0）": {
+	"清幽古洞（0,0）": {
 		"id": "131009", 
-		"name": "冷泉洞（0,0）", 
+		"name": "清幽古洞（0,0）", 
 		"level": 2500, 
-		"description": "冷泉洞 - 坐标(0,0)", 
+		"description": "清幽古洞 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "zhenzhen", "level": 2500}, 
 			{"pet_id": "xi_pi", "level": 2500}, 
 		]
 	}, 
-	"冷泉洞（37,17）": {
+	"清幽古洞（37,17）": {
 		"id": "131009", 
-		"name": "冷泉洞（37,17）", 
+		"name": "清幽古洞（37,17）", 
 		"level": 2500, 
-		"description": "冷泉洞 - 坐标(37,17)", 
+		"description": "清幽古洞 - 坐标(37,17)", 
 		"monsters": [
 			{"pet_id": "luluniao", "level": 2500}, 
 			{"pet_id": "wen_di_long", "level": 2500}, 
 		]
 	}, 
-	"九曲廊（34,39）": {
+	"九曲回廊（34,39）": {
 		"id": "131007", 
-		"name": "九曲廊（34,39）", 
+		"name": "九曲回廊（34,39）", 
 		"level": 2500, 
-		"description": "九曲廊 - 坐标(34,39)", 
+		"description": "九曲回廊 - 坐标(34,39)", 
 		"monsters": [
 			{"pet_id": "lèngtóuqīng", "level": 2500}, 
 			{"pet_id": "xiǎoyāo", "level": 2500}, 
 		]
 	}, 
-	"九曲廊（42,29）": {
+	"九曲回廊（42,29）": {
 		"id": "131008", 
-		"name": "九曲廊（42,29）", 
+		"name": "九曲回廊（42,29）", 
 		"level": 2500, 
-		"description": "九曲廊 - 坐标(42,29)", 
+		"description": "九曲回廊 - 坐标(42,29)", 
 		"monsters": [
 			{"pet_id": "tiějiǎgūi", "level": 2500}, 
 			{"pet_id": "tao_tao", "level": 2500}, 
 		]
 	}, 
-	"冷泉洞（66,44）": {
+	"清幽古洞（66,44）": {
 		"id": "131009", 
-		"name": "冷泉洞（66,44）", 
+		"name": "清幽古洞（66,44）", 
 		"level": 2500, 
-		"description": "冷泉洞 - 坐标(66,44)", 
+		"description": "清幽古洞 - 坐标(66,44)", 
 		"monsters": [
 			{"pet_id": "zhenzhen", "level": 2500}, 
 			{"pet_id": "luluniao", "level": 2500}, 
@@ -5701,7 +5701,7 @@ const PET_DATA = {
 		"ratio": [38, 17, 45]
 	}, 
 	"duxing": {
-		"name": "铁嘴鸦", 
+		"name": "独行", 
 		"type": "敏攻型", 
 		"element": "金", 
 		"attack": 5.3, 
@@ -6097,7 +6097,7 @@ const PET_DATA = {
 		"ratio": [34, 35, 31]
 	}, 
 	"linlin": {
-		"name": "赤翅蛾", 
+		"name": "琳琳", 
 		"type": "平均型", 
 		"element": "水", 
 		"attack": 4.8, 
@@ -6217,7 +6217,7 @@ const PET_DATA = {
 		"ratio": [25, 45, 30]
 	}, 
 	"lèngtóuqīng": {
-		"name": "苔背兽", 
+		"name": "愣头青", 
 		"type": "敏防型", 
 		"element": "水", 
 		"attack": 4.0, 
@@ -6613,7 +6613,7 @@ const PET_DATA = {
 		"ratio": [33, 22, 45]
 	}, 
 	"yùlíntù": {
-		"name": "沙耳兔", 
+		"name": "御林兔", 
 		"type": "敏防型", 
 		"element": "土", 
 		"attack": 5.3, 
@@ -6649,7 +6649,7 @@ const PET_DATA = {
 		"ratio": [34, 35, 31]
 	}, 
 	"xiǎodīngdōng": {
-		"name": "滴水蛙", 
+		"name": "小叮咚", 
 		"type": "平均型", 
 		"element": "土", 
 		"attack": 5.4, 
@@ -7457,56 +7457,56 @@ const PET_DATA = {
 
 const MARTIAL_ARTS_POOL = {
 	"凡人": [
-		{"name": "吐纳功", "effect_type": "all_stats", "base_value": 2, "desc": "调息匀笔，全属性小幅提升"}, 
-		{"name": "强身术", "effect_type": "hp", "base_value": 5, "desc": "层层积染，生命上限提升"}, 
+		{"name": "基础吐纳术", "effect_type": "all_stats", "base_value": 2, "desc": "调息匀笔，全属性小幅提升"}, 
+		{"name": "强身健体", "effect_type": "hp", "base_value": 5, "desc": "层层积染，生命上限提升"}, 
 		{"name": "铁布衫", "effect_type": "defense", "base_value": 3, "desc": "罩一层色护住纸骨，防御提升"}, 
 		{"name": "疾风步", "effect_type": "agility", "base_value": 3, "desc": "笔掠留白，身法轻捷"}, 
 		{"name": "蛮牛劲", "effect_type": "attack", "base_value": 3, "desc": "重按顿笔，出手沉猛"}, 
-		{"name": "蓄墨诀", "effect_type": "mp_max", "base_value": 3, "desc": "含毫蓄墨，内力上限提升"}, 
+		{"name": "蓄灵诀", "effect_type": "mp_max", "base_value": 3, "desc": "含毫蓄墨，内力上限提升"}, 
 		{"name": "养生诀", "effect_type": "exp", "base_value": 2, "desc": "日日养砚，阅历渐长"}, 
 	], 
 	"散仙": [
-		{"name": "仙鹤功", "effect_type": "all_stats", "base_value": 4, "desc": "游丝细笔，全属性提升"}, 
-		{"name": "金刚身", "effect_type": "defense", "base_value": 6, "desc": "重彩多层，防御大幅提升"}, 
-		{"name": "踏水步", "effect_type": "agility", "base_value": 6, "desc": "笔尖掠水，身法迅疾"}, 
-		{"name": "破山掌", "effect_type": "attack", "base_value": 6, "desc": "锋破防面，掌力大增"}, 
-		{"name": "行墨诀", "effect_type": "mp_max", "base_value": 6, "desc": "行云流水，内力上限大幅提升"}, 
-		{"name": "长春功", "effect_type": "hp", "base_value": 8, "desc": "宿墨醇厚，气血绵长"}, 
+		{"name": "仙鹤吐纳", "effect_type": "all_stats", "base_value": 4, "desc": "游丝细笔，全属性提升"}, 
+		{"name": "金刚不坏", "effect_type": "defense", "base_value": 6, "desc": "重彩多层，防御大幅提升"}, 
+		{"name": "凌波微步", "effect_type": "agility", "base_value": 6, "desc": "笔尖掠水，身法迅疾"}, 
+		{"name": "降龙掌", "effect_type": "attack", "base_value": 6, "desc": "锋破防面，掌力大增"}, 
+		{"name": "行气诀", "effect_type": "mp_max", "base_value": 6, "desc": "行云流水，内力上限大幅提升"}, 
+		{"name": "长生诀", "effect_type": "hp", "base_value": 8, "desc": "宿墨醇厚，气血绵长"}, 
 	], 
 	"地仙": [
-		{"name": "紫云功", "effect_type": "all_stats", "base_value": 6, "desc": "紫毫落纸，全属性提升"}, 
-		{"name": "不动身", "effect_type": "defense", "base_value": 10, "desc": "铁线绷紧，防御极大提升"}, 
-		{"name": "踏雪步", "effect_type": "agility", "base_value": 10, "desc": "不着一笔，身法极大提升"}, 
-		{"name": "移山劲", "effect_type": "attack", "base_value": 10, "desc": "泼墨横扫，攻击极大提升"}, 
+		{"name": "紫霞神功", "effect_type": "all_stats", "base_value": 6, "desc": "紫毫落纸，全属性提升"}, 
+		{"name": "不动明王", "effect_type": "defense", "base_value": 10, "desc": "铁线绷紧，防御极大提升"}, 
+		{"name": "踏雪无痕", "effect_type": "agility", "base_value": 10, "desc": "不着一笔，身法极大提升"}, 
+		{"name": "乾坤大挪移", "effect_type": "attack", "base_value": 10, "desc": "泼墨横扫，攻击极大提升"}, 
 		{"name": "归真诀", "effect_type": "mp_max", "base_value": 10, "desc": "锋藏画内，内力上限极大提升"}, 
-		{"name": "烈阳功", "effect_type": "hp", "base_value": 12, "desc": "朱砂点护，生命极大提升"}, 
+		{"name": "九阳神功", "effect_type": "hp", "base_value": 12, "desc": "朱砂点护，生命极大提升"}, 
 	], 
 	"天仙": [
-		{"name": "无字经", "effect_type": "all_stats", "base_value": 9, "desc": "永字八法，全属性大幅提升"}, 
-		{"name": "不坏身", "effect_type": "defense", "base_value": 15, "desc": "金碧覆身，防御巨幅提升"}, 
-		{"name": "缩地功", "effect_type": "agility", "base_value": 15, "desc": "一笔纵贯，敏捷巨幅提升"}, 
-		{"name": "万剑归一", "effect_type": "attack", "base_value": 15, "desc": "万毫并下，攻击巨幅提升"}, 
-		{"name": "凝墨诀", "effect_type": "mp_max", "base_value": 15, "desc": "毫端凝墨，内力上限巨幅提升"}, 
-		{"name": "不死身", "effect_type": "hp", "base_value": 18, "desc": "青绿长皴，生命巨幅提升"}, 
+		{"name": "太玄经", "effect_type": "all_stats", "base_value": 9, "desc": "永字八法，全属性大幅提升"}, 
+		{"name": "不灭金身", "effect_type": "defense", "base_value": 15, "desc": "金碧覆身，防御巨幅提升"}, 
+		{"name": "缩地成寸", "effect_type": "agility", "base_value": 15, "desc": "一笔纵贯，敏捷巨幅提升"}, 
+		{"name": "万剑归宗", "effect_type": "attack", "base_value": 15, "desc": "万毫并下，攻击巨幅提升"}, 
+		{"name": "凝神诀", "effect_type": "mp_max", "base_value": 15, "desc": "毫端凝墨，内力上限巨幅提升"}, 
+		{"name": "不死神功", "effect_type": "hp", "base_value": 18, "desc": "青绿长皴，生命巨幅提升"}, 
 	], 
 	"大罗金仙": [
-		{"name": "混元劲", "effect_type": "all_stats", "base_value": 12, "desc": "一笔贯气，全属性巨幅提升"}, 
-		{"name": "万劫身", "effect_type": "defense", "base_value": 20, "desc": "丹青不坏，防御极大提升"}, 
-		{"name": "瞬息千里", "effect_type": "agility", "base_value": 20, "desc": "意到笔到，敏捷极大提升"}, 
-		{"name": "开天劲", "effect_type": "attack", "base_value": 20, "desc": "侧锋劈斫，攻击极大提升"}, 
+		{"name": "混元一气", "effect_type": "all_stats", "base_value": 12, "desc": "一笔贯气，全属性巨幅提升"}, 
+		{"name": "万劫不灭", "effect_type": "defense", "base_value": 20, "desc": "丹青不坏，防御极大提升"}, 
+		{"name": "瞬息万里", "effect_type": "agility", "base_value": 20, "desc": "意到笔到，敏捷极大提升"}, 
+		{"name": "开天辟地", "effect_type": "attack", "base_value": 20, "desc": "侧锋劈斫，攻击极大提升"}, 
 		{"name": "玄罡诀", "effect_type": "mp_max", "base_value": 20, "desc": "玄墨成渊，内力上限极大提升"}, 
-		{"name": "长生身", "effect_type": "hp", "base_value": 25, "desc": "绢本不朽，生命极大提升"}, 
+		{"name": "永恒生命", "effect_type": "hp", "base_value": 25, "desc": "绢本不朽，生命极大提升"}, 
 	], 
 	"幻灵天神": [
-		{"name": "同寿功", "effect_type": "all_stats", "base_value": 15, "desc": "墨与寿齐，全属性极大提升"}, 
-		{"name": "铁壁功", "effect_type": "defense", "base_value": 25, "desc": "金刚为色，终极防御提升"}, 
-		{"name": "破空行", "effect_type": "agility", "base_value": 25, "desc": "行出画外，终极敏捷提升"}, 
-		{"name": "破灭劲", "effect_type": "attack", "base_value": 25, "desc": "焦墨起火，终极攻击提升"}, 
-		{"name": "造化功", "effect_type": "mp_max", "base_value": 25, "desc": "造化凝于锋端，终极内力提升"}, 
-		{"name": "生生不息", "effect_type": "hp", "base_value": 25, "desc": "生宣不蛀，终极生命提升"}, 
-		{"name": "点穴手", "effect_type": "acupoint_seal", "base_value": 25, "desc": "有内力时普攻打3目标各1点，点中清空内力"}, 
+		{"name": "天地同寿", "effect_type": "all_stats", "base_value": 15, "desc": "墨与寿齐，全属性极大提升"}, 
+		{"name": "绝对防御", "effect_type": "defense", "base_value": 25, "desc": "金刚为色，终极防御提升"}, 
+		{"name": "超越时空", "effect_type": "agility", "base_value": 25, "desc": "行出画外，终极敏捷提升"}, 
+		{"name": "毁灭之力", "effect_type": "attack", "base_value": 25, "desc": "焦墨起火，终极攻击提升"}, 
+		{"name": "造化玄罡", "effect_type": "mp_max", "base_value": 25, "desc": "造化凝于锋端，终极内力提升"}, 
+		{"name": "无限生命", "effect_type": "hp", "base_value": 25, "desc": "生宣不蛀，终极生命提升"}, 
+		{"name": "葵花点穴", "effect_type": "acupoint_seal", "base_value": 25, "desc": "有内力时普攻打3目标各1点，点中清空内力"}, 
 		{"name": "破军劲", "effect_type": "crit_rate", "base_value": 10, "desc": "出锋锐利，暴击率提升（1层10%，9层20%）"}, 
-		{"name": "重击诀", "effect_type": "crit_damage", "base_value": 10, "desc": "枯笔重压，暴击伤害提升（1层+10%，9层+50%；默认暴击1.5倍）"}, 
+		{"name": "重创诀", "effect_type": "crit_damage", "base_value": 10, "desc": "枯笔重压，暴击伤害提升（1层+10%，9层+50%；默认暴击1.5倍）"}, 
 	], 
 }
 
@@ -7521,37 +7521,37 @@ const ITEM_RARITY = {
 
 
 const SHOP_PRICES = {
-	"小还墨": {"buy": 50, "sell": 20}, 
-	"中还墨": {"buy": 150, "sell": 60}, 
-	"大还墨": {"buy": 500, "sell": 200}, 
-	"回血墨": {"buy": 80, "sell": 30}, 
-	"疗伤墨": {"buy": 250, "sell": 100}, 
-	"金刚墨": {"buy": 800, "sell": 320}, 
-	"聚气墨": {"buy": 100, "sell": 40}, 
-	"仙露墨": {"buy": 600, "sell": 240}, 
-	"通灵墨": {"buy": 2000, "sell": 800}, 
-	"长生墨": {"buy": 5000, "sell": 2000}, 
-	"造化墨": {"buy": 20000, "sell": 8000}, 
-	"黑铁": {"buy": 30, "sell": 10}, 
+	"小还丹": {"buy": 50, "sell": 20}, 
+	"中还丹": {"buy": 150, "sell": 60}, 
+	"大还丹": {"buy": 500, "sell": 200}, 
+	"回血丹": {"buy": 80, "sell": 30}, 
+	"疗伤丹": {"buy": 250, "sell": 100}, 
+	"金刚药": {"buy": 800, "sell": 320}, 
+	"聚气丹": {"buy": 100, "sell": 40}, 
+	"仙露丹": {"buy": 600, "sell": 240}, 
+	"神灵丹": {"buy": 2000, "sell": 800}, 
+	"长生丹": {"buy": 5000, "sell": 2000}, 
+	"造化丹": {"buy": 20000, "sell": 8000}, 
+	"玄铁": {"buy": 30, "sell": 10}, 
 	"精铁": {"buy": 50, "sell": 20}, 
 	"金刚石": {"buy": 200, "sell": 80}, 
-	"墨木": {"buy": 40, "sell": 15}, 
-	"寒冰石": {"buy": 180, "sell": 70}, 
+	"灵木": {"buy": 40, "sell": 15}, 
+	"寒冰精": {"buy": 180, "sell": 70}, 
 	"烈火石": {"buy": 180, "sell": 70}, 
 	"天雷石": {"buy": 500, "sell": 200}, 
 	"星辰砂": {"buy": 800, "sell": 320}, 
 	"龙鳞": {"buy": 5000, "sell": 2000}, 
 	"凤羽": {"buy": 5000, "sell": 2000}, 
 	"混沌石": {"buy": 20000, "sell": 8000}, 
-	"墨晶": {"buy": 30000, "sell": 12000}, 
-	"墨草": {"buy": 20, "sell": 8}, 
-	"墨芝": {"buy": 100, "sell": 40}, 
-	"雪莲": {"buy": 400, "sell": 160}, 
-	"还魂草": {"buy": 2000, "sell": 800}, 
-	"墨涎草": {"buy": 10000, "sell": 4000}, 
-	"蓄灵丹": {"buy": 500, "sell": 200}, 
-	"定神丹": {"buy": 1500, "sell": 600}, 
-	"开悟丹": {"buy": 5000, "sell": 2000}, 
+	"仙晶": {"buy": 30000, "sell": 12000}, 
+	"灵草": {"buy": 20, "sell": 8}, 
+	"灵芝": {"buy": 100, "sell": 40}, 
+	"天山雪莲": {"buy": 400, "sell": 160}, 
+	"九转还魂草": {"buy": 2000, "sell": 800}, 
+	"龙涎草": {"buy": 10000, "sell": 4000}, 
+	"聚灵丹": {"buy": 500, "sell": 200}, 
+	"凝神丹": {"buy": 1500, "sell": 600}, 
+	"悟道仙丹": {"buy": 5000, "sell": 2000}, 
 }
 
 
@@ -7559,21 +7559,21 @@ const PET_SKILLS = {
 
 	"splash_lv1": {
 		"skill_id": "splash", 
-		"name": "溅墨", 
+		"name": "溅射", 
 		"level": 1, 
 		"trigger_chance": 0.5, 
 		"secondary_damage_ratio": 0.8
 	}, 
 	"splash_lv2": {
 		"skill_id": "splash", 
-		"name": "溅墨", 
+		"name": "溅射", 
 		"level": 2, 
 		"trigger_chance": 1.0, 
 		"secondary_damage_ratio": 1.0
 	}, 
 	"splash_lv3": {
 		"skill_id": "splash", 
-		"name": "溅墨", 
+		"name": "溅射", 
 		"level": 3, 
 		"trigger_chance": 1.0, 
 		"secondary_damage_ratio": 1.2
@@ -7581,40 +7581,40 @@ const PET_SKILLS = {
 
 	"double_shot_lv1": {
 		"skill_id": "double_shot", 
-		"name": "连击", 
+		"name": "连射", 
 		"level": 1, 
 		"extra_attacks": 2
 	}, 
 	"double_shot_lv2": {
 		"skill_id": "double_shot", 
-		"name": "连击", 
+		"name": "连射", 
 		"level": 2, 
 		"extra_attacks": 2
 	}, 
 	"double_shot_lv3": {
 		"skill_id": "double_shot", 
-		"name": "连击", 
+		"name": "连射", 
 		"level": 3, 
 		"extra_attacks": 2
 	}, 
 
 	"divine_protect_lv1": {
 		"skill_id": "divine_protect", 
-		"name": "护主", 
+		"name": "神佑", 
 		"level": 1, 
 		"survival_hp_ratio": 0.5, 
 		"max_use_per_battle": 5
 	}, 
 	"divine_protect_lv2": {
 		"skill_id": "divine_protect", 
-		"name": "护主", 
+		"name": "神佑", 
 		"level": 2, 
 		"survival_hp_ratio": 0.5, 
 		"max_use_per_battle": 5
 	}, 
 	"divine_protect_lv3": {
 		"skill_id": "divine_protect", 
-		"name": "护主", 
+		"name": "神佑", 
 		"level": 3, 
 		"survival_hp_ratio": 1.0, 
 		"max_use_per_battle": 5
@@ -7622,21 +7622,21 @@ const PET_SKILLS = {
 
 	"counter_attack_lv1": {
 		"skill_id": "counter_attack", 
-		"name": "反打", 
+		"name": "反击", 
 		"level": 1, 
 		"counter_damage_ratio": 0.5, 
 		"counter_chance": 0.2
 	}, 
 	"counter_attack_lv2": {
 		"skill_id": "counter_attack", 
-		"name": "反打", 
+		"name": "反击", 
 		"level": 2, 
 		"counter_damage_ratio": 0.8, 
 		"counter_chance": 0.3
 	}, 
 	"counter_attack_lv3": {
 		"skill_id": "counter_attack", 
-		"name": "反打", 
+		"name": "反击", 
 		"level": 3, 
 		"counter_damage_ratio": 1.0, 
 		"counter_chance": 0.5
@@ -7644,125 +7644,125 @@ const PET_SKILLS = {
 
 	"fortify_lv1": {
 		"skill_id": "fortify", 
-		"name": "硬皮", 
+		"name": "坚固", 
 		"level": 1, 
 		"defense_bonus_percent": 70
 	}, 
 	"fortify_lv2": {
 		"skill_id": "fortify", 
-		"name": "硬皮", 
+		"name": "坚固", 
 		"level": 2, 
 		"defense_bonus_percent": 140
 	}, 
 	"fortify_lv3": {
 		"skill_id": "fortify", 
-		"name": "硬皮", 
+		"name": "坚固", 
 		"level": 3, 
 		"defense_bonus_percent": 210
 	}, 
 
 	"life_steal_lv1": {
 		"skill_id": "life_steal", 
-		"name": "饮血", 
+		"name": "吸血", 
 		"level": 1, 
 		"trigger_chance": 0.1, 
 		"lifesteal_ratio": 0.1
 	}, 
 	"life_steal_lv2": {
 		"skill_id": "life_steal", 
-		"name": "饮血", 
+		"name": "吸血", 
 		"level": 2, 
 		"trigger_chance": 0.2, 
 		"lifesteal_ratio": 0.15
 	}, 
 	"life_steal_lv3": {
 		"skill_id": "life_steal", 
-		"name": "饮血", 
+		"name": "吸血", 
 		"level": 3, 
 		"trigger_chance": 0.3, 
 		"lifesteal_ratio": 0.2
 	}, 
-	"splash_lv4": {"skill_id": "splash", "name": "溅墨", "level": 4}, 
-	"splash_lv5": {"skill_id": "splash", "name": "溅墨", "level": 5}, 
-	"double_shot_lv4": {"skill_id": "double_shot", "name": "连击", "level": 4}, 
-	"double_shot_lv5": {"skill_id": "double_shot", "name": "连击", "level": 5}, 
-	"divine_protect_lv4": {"skill_id": "divine_protect", "name": "护主", "level": 4}, 
-	"divine_protect_lv5": {"skill_id": "divine_protect", "name": "护主", "level": 5}, 
-	"counter_attack_lv4": {"skill_id": "counter_attack", "name": "反打", "level": 4}, 
-	"counter_attack_lv5": {"skill_id": "counter_attack", "name": "反打", "level": 5}, 
-	"fortify_lv4": {"skill_id": "fortify", "name": "硬皮", "level": 4, "defense_bonus_percent": 230}, 
-	"fortify_lv5": {"skill_id": "fortify", "name": "硬皮", "level": 5, "defense_bonus_percent": 250}, 
-	"life_steal_lv4": {"skill_id": "life_steal", "name": "饮血", "level": 4, "trigger_chance": 0.4, "lifesteal_ratio": 0.25}, 
-	"life_steal_lv5": {"skill_id": "life_steal", "name": "饮血", "level": 5, "trigger_chance": 0.5, "lifesteal_ratio": 0.3}, 
-	"swift_lv1": {"skill_id": "swift", "name": "轻身", "level": 1, "agility_bonus_percent": 5}, 
-	"swift_lv2": {"skill_id": "swift", "name": "轻身", "level": 2, "agility_bonus_percent": 10}, 
-	"swift_lv3": {"skill_id": "swift", "name": "轻身", "level": 3, "agility_bonus_percent": 15}, 
-	"swift_lv4": {"skill_id": "swift", "name": "轻身", "level": 4, "agility_bonus_percent": 20}, 
-	"swift_lv5": {"skill_id": "swift", "name": "轻身", "level": 5, "agility_bonus_percent": 25}, 
-	"longevity_lv1": {"skill_id": "longevity", "name": "长命", "level": 1, "hp_bonus_percent": 5}, 
-	"longevity_lv2": {"skill_id": "longevity", "name": "长命", "level": 2, "hp_bonus_percent": 10}, 
-	"longevity_lv3": {"skill_id": "longevity", "name": "长命", "level": 3, "hp_bonus_percent": 15}, 
-	"longevity_lv4": {"skill_id": "longevity", "name": "长命", "level": 4, "hp_bonus_percent": 20}, 
-	"longevity_lv5": {"skill_id": "longevity", "name": "长命", "level": 5, "hp_bonus_percent": 25}, 
-	"mighty_lv1": {"skill_id": "mighty", "name": "力壮", "level": 1, "attack_bonus_percent": 5}, 
-	"mighty_lv2": {"skill_id": "mighty", "name": "力壮", "level": 2, "attack_bonus_percent": 10}, 
-	"mighty_lv3": {"skill_id": "mighty", "name": "力壮", "level": 3, "attack_bonus_percent": 15}, 
-	"mighty_lv4": {"skill_id": "mighty", "name": "力壮", "level": 4, "attack_bonus_percent": 20}, 
-	"mighty_lv5": {"skill_id": "mighty", "name": "力壮", "level": 5, "attack_bonus_percent": 25}, 
-	"fierce_lv1": {"skill_id": "fierce", "name": "凶性", "level": 1, "crit_damage_bonus_percent": 5}, 
-	"fierce_lv2": {"skill_id": "fierce", "name": "凶性", "level": 2, "crit_damage_bonus_percent": 10}, 
-	"fierce_lv3": {"skill_id": "fierce", "name": "凶性", "level": 3, "crit_damage_bonus_percent": 15}, 
-	"fierce_lv4": {"skill_id": "fierce", "name": "凶性", "level": 4, "crit_damage_bonus_percent": 20}, 
-	"fierce_lv5": {"skill_id": "fierce", "name": "凶性", "level": 5, "crit_damage_bonus_percent": 25}, 
-	"fatal_lv1": {"skill_id": "fatal", "name": "致命", "level": 1, "crit_rate_bonus_percent": 5}, 
-	"fatal_lv2": {"skill_id": "fatal", "name": "致命", "level": 2, "crit_rate_bonus_percent": 10}, 
-	"fatal_lv3": {"skill_id": "fatal", "name": "致命", "level": 3, "crit_rate_bonus_percent": 15}, 
-	"fatal_lv4": {"skill_id": "fatal", "name": "致命", "level": 4, "crit_rate_bonus_percent": 20}, 
-	"fatal_lv5": {"skill_id": "fatal", "name": "致命", "level": 5, "crit_rate_bonus_percent": 25}, 
-	"self_heal_lv1": {"skill_id": "self_heal", "name": "自复", "level": 1, "heal_ratio": 0.05}, 
-	"self_heal_lv2": {"skill_id": "self_heal", "name": "自复", "level": 2, "heal_ratio": 0.1}, 
-	"self_heal_lv3": {"skill_id": "self_heal", "name": "自复", "level": 3, "heal_ratio": 0.15}, 
-	"self_heal_lv4": {"skill_id": "self_heal", "name": "自复", "level": 4, "heal_ratio": 0.2}, 
-	"self_heal_lv5": {"skill_id": "self_heal", "name": "自复", "level": 5, "heal_ratio": 0.25}, 
-	"chase_lv1": {"skill_id": "chase", "name": "追杀", "level": 1}, 
-	"chase_lv2": {"skill_id": "chase", "name": "追杀", "level": 2}, 
-	"chase_lv3": {"skill_id": "chase", "name": "追杀", "level": 3}, 
-	"chase_lv4": {"skill_id": "chase", "name": "追杀", "level": 4}, 
-	"chase_lv5": {"skill_id": "chase", "name": "追杀", "level": 5}, 
-	"loyal_lv1": {"skill_id": "loyal", "name": "守主", "level": 1}, 
-	"loyal_lv2": {"skill_id": "loyal", "name": "守主", "level": 2}, 
-	"loyal_lv3": {"skill_id": "loyal", "name": "守主", "level": 3}, 
-	"loyal_lv4": {"skill_id": "loyal", "name": "守主", "level": 4}, 
-	"loyal_lv5": {"skill_id": "loyal", "name": "守主", "level": 5}, 
-	"taunt_lv1": {"skill_id": "taunt", "name": "挑衅", "level": 1}, 
-	"taunt_lv2": {"skill_id": "taunt", "name": "挑衅", "level": 2}, 
-	"taunt_lv3": {"skill_id": "taunt", "name": "挑衅", "level": 3}, 
-	"taunt_lv4": {"skill_id": "taunt", "name": "挑衅", "level": 4}, 
-	"taunt_lv5": {"skill_id": "taunt", "name": "挑衅", "level": 5}, 
-	"armor_pierce_lv1": {"skill_id": "armor_pierce", "name": "破防", "level": 1}, 
-	"armor_pierce_lv2": {"skill_id": "armor_pierce", "name": "破防", "level": 2}, 
-	"armor_pierce_lv3": {"skill_id": "armor_pierce", "name": "破防", "level": 3}, 
-	"armor_pierce_lv4": {"skill_id": "armor_pierce", "name": "破防", "level": 4}, 
-	"armor_pierce_lv5": {"skill_id": "armor_pierce", "name": "破防", "level": 5}, 
-	"guard_lv1": {"skill_id": "guard", "name": "挡伤", "level": 1}, 
-	"guard_lv2": {"skill_id": "guard", "name": "挡伤", "level": 2}, 
-	"guard_lv3": {"skill_id": "guard", "name": "挡伤", "level": 3}, 
-	"guard_lv4": {"skill_id": "guard", "name": "挡伤", "level": 4}, 
-	"guard_lv5": {"skill_id": "guard", "name": "挡伤", "level": 5}, 
+	"splash_lv4": {"skill_id": "splash", "name": "溅射", "level": 4}, 
+	"splash_lv5": {"skill_id": "splash", "name": "溅射", "level": 5}, 
+	"double_shot_lv4": {"skill_id": "double_shot", "name": "连射", "level": 4}, 
+	"double_shot_lv5": {"skill_id": "double_shot", "name": "连射", "level": 5}, 
+	"divine_protect_lv4": {"skill_id": "divine_protect", "name": "神佑", "level": 4}, 
+	"divine_protect_lv5": {"skill_id": "divine_protect", "name": "神佑", "level": 5}, 
+	"counter_attack_lv4": {"skill_id": "counter_attack", "name": "反击", "level": 4}, 
+	"counter_attack_lv5": {"skill_id": "counter_attack", "name": "反击", "level": 5}, 
+	"fortify_lv4": {"skill_id": "fortify", "name": "坚固", "level": 4, "defense_bonus_percent": 230}, 
+	"fortify_lv5": {"skill_id": "fortify", "name": "坚固", "level": 5, "defense_bonus_percent": 250}, 
+	"life_steal_lv4": {"skill_id": "life_steal", "name": "吸血", "level": 4, "trigger_chance": 0.4, "lifesteal_ratio": 0.25}, 
+	"life_steal_lv5": {"skill_id": "life_steal", "name": "吸血", "level": 5, "trigger_chance": 0.5, "lifesteal_ratio": 0.3}, 
+	"swift_lv1": {"skill_id": "swift", "name": "迅捷", "level": 1, "agility_bonus_percent": 5}, 
+	"swift_lv2": {"skill_id": "swift", "name": "迅捷", "level": 2, "agility_bonus_percent": 10}, 
+	"swift_lv3": {"skill_id": "swift", "name": "迅捷", "level": 3, "agility_bonus_percent": 15}, 
+	"swift_lv4": {"skill_id": "swift", "name": "迅捷", "level": 4, "agility_bonus_percent": 20}, 
+	"swift_lv5": {"skill_id": "swift", "name": "迅捷", "level": 5, "agility_bonus_percent": 25}, 
+	"longevity_lv1": {"skill_id": "longevity", "name": "长寿", "level": 1, "hp_bonus_percent": 5}, 
+	"longevity_lv2": {"skill_id": "longevity", "name": "长寿", "level": 2, "hp_bonus_percent": 10}, 
+	"longevity_lv3": {"skill_id": "longevity", "name": "长寿", "level": 3, "hp_bonus_percent": 15}, 
+	"longevity_lv4": {"skill_id": "longevity", "name": "长寿", "level": 4, "hp_bonus_percent": 20}, 
+	"longevity_lv5": {"skill_id": "longevity", "name": "长寿", "level": 5, "hp_bonus_percent": 25}, 
+	"mighty_lv1": {"skill_id": "mighty", "name": "强壮", "level": 1, "attack_bonus_percent": 5}, 
+	"mighty_lv2": {"skill_id": "mighty", "name": "强壮", "level": 2, "attack_bonus_percent": 10}, 
+	"mighty_lv3": {"skill_id": "mighty", "name": "强壮", "level": 3, "attack_bonus_percent": 15}, 
+	"mighty_lv4": {"skill_id": "mighty", "name": "强壮", "level": 4, "attack_bonus_percent": 20}, 
+	"mighty_lv5": {"skill_id": "mighty", "name": "强壮", "level": 5, "attack_bonus_percent": 25}, 
+	"fierce_lv1": {"skill_id": "fierce", "name": "凶猛", "level": 1, "crit_damage_bonus_percent": 5}, 
+	"fierce_lv2": {"skill_id": "fierce", "name": "凶猛", "level": 2, "crit_damage_bonus_percent": 10}, 
+	"fierce_lv3": {"skill_id": "fierce", "name": "凶猛", "level": 3, "crit_damage_bonus_percent": 15}, 
+	"fierce_lv4": {"skill_id": "fierce", "name": "凶猛", "level": 4, "crit_damage_bonus_percent": 20}, 
+	"fierce_lv5": {"skill_id": "fierce", "name": "凶猛", "level": 5, "crit_damage_bonus_percent": 25}, 
+	"fatal_lv1": {"skill_id": "fatal", "name": "必杀", "level": 1, "crit_rate_bonus_percent": 5}, 
+	"fatal_lv2": {"skill_id": "fatal", "name": "必杀", "level": 2, "crit_rate_bonus_percent": 10}, 
+	"fatal_lv3": {"skill_id": "fatal", "name": "必杀", "level": 3, "crit_rate_bonus_percent": 15}, 
+	"fatal_lv4": {"skill_id": "fatal", "name": "必杀", "level": 4, "crit_rate_bonus_percent": 20}, 
+	"fatal_lv5": {"skill_id": "fatal", "name": "必杀", "level": 5, "crit_rate_bonus_percent": 25}, 
+	"self_heal_lv1": {"skill_id": "self_heal", "name": "自愈", "level": 1, "heal_ratio": 0.05}, 
+	"self_heal_lv2": {"skill_id": "self_heal", "name": "自愈", "level": 2, "heal_ratio": 0.1}, 
+	"self_heal_lv3": {"skill_id": "self_heal", "name": "自愈", "level": 3, "heal_ratio": 0.15}, 
+	"self_heal_lv4": {"skill_id": "self_heal", "name": "自愈", "level": 4, "heal_ratio": 0.2}, 
+	"self_heal_lv5": {"skill_id": "self_heal", "name": "自愈", "level": 5, "heal_ratio": 0.25}, 
+	"chase_lv1": {"skill_id": "chase", "name": "追击", "level": 1}, 
+	"chase_lv2": {"skill_id": "chase", "name": "追击", "level": 2}, 
+	"chase_lv3": {"skill_id": "chase", "name": "追击", "level": 3}, 
+	"chase_lv4": {"skill_id": "chase", "name": "追击", "level": 4}, 
+	"chase_lv5": {"skill_id": "chase", "name": "追击", "level": 5}, 
+	"loyal_lv1": {"skill_id": "loyal", "name": "忠心", "level": 1}, 
+	"loyal_lv2": {"skill_id": "loyal", "name": "忠心", "level": 2}, 
+	"loyal_lv3": {"skill_id": "loyal", "name": "忠心", "level": 3}, 
+	"loyal_lv4": {"skill_id": "loyal", "name": "忠心", "level": 4}, 
+	"loyal_lv5": {"skill_id": "loyal", "name": "忠心", "level": 5}, 
+	"taunt_lv1": {"skill_id": "taunt", "name": "嘲讽", "level": 1}, 
+	"taunt_lv2": {"skill_id": "taunt", "name": "嘲讽", "level": 2}, 
+	"taunt_lv3": {"skill_id": "taunt", "name": "嘲讽", "level": 3}, 
+	"taunt_lv4": {"skill_id": "taunt", "name": "嘲讽", "level": 4}, 
+	"taunt_lv5": {"skill_id": "taunt", "name": "嘲讽", "level": 5}, 
+	"armor_pierce_lv1": {"skill_id": "armor_pierce", "name": "破甲", "level": 1}, 
+	"armor_pierce_lv2": {"skill_id": "armor_pierce", "name": "破甲", "level": 2}, 
+	"armor_pierce_lv3": {"skill_id": "armor_pierce", "name": "破甲", "level": 3}, 
+	"armor_pierce_lv4": {"skill_id": "armor_pierce", "name": "破甲", "level": 4}, 
+	"armor_pierce_lv5": {"skill_id": "armor_pierce", "name": "破甲", "level": 5}, 
+	"guard_lv1": {"skill_id": "guard", "name": "格挡", "level": 1}, 
+	"guard_lv2": {"skill_id": "guard", "name": "格挡", "level": 2}, 
+	"guard_lv3": {"skill_id": "guard", "name": "格挡", "level": 3}, 
+	"guard_lv4": {"skill_id": "guard", "name": "格挡", "level": 4}, 
+	"guard_lv5": {"skill_id": "guard", "name": "格挡", "level": 5}, 
 }
 
 const MARTIAL_SKILL_BOOKS = {
-	"一击三伤": {
-		"name": "一击三伤", 
-		"martial_name": "一击三伤", 
+	"一箭三雕": {
+		"name": "一箭三雕", 
+		"martial_name": "一箭三雕", 
 		"effect_type": "triple_shot", 
 		"base_value": 80.0, 
 		"desc": "装备后普攻最多同时攻击3个目标；每箭伤害1层80%、9层120%", 
 		"realm": "技能书", 
 	}, 
-	"以血养血": {
-		"name": "以血养血", 
-		"martial_name": "以血养血", 
+	"以战养战": {
+		"name": "以战养战", 
+		"martial_name": "以战养战", 
 		"effect_type": "life_steal", 
 		"base_value": 5.0, 
 		"desc": "装备后普攻有50%概率按伤害吸血回血（1层5%，9层20%）", 
@@ -7945,62 +7945,7 @@ const PET_SKILL_BOOKS = {
 }
 
 
-const ITEM_NAME_MIGRATION: = {
-	"002995bd": "护主lv5技能书", "012df4ac": "凶性lv2技能书", "03660813": "白银匣", "03ef3cfe": "墨涎草", "041af138": "土魂魄", "079f0680": "十三阶不可进化宠锦囊",
-	"091d087a": "火纹异蛋", "09304c88": "百关锦囊·十八", "09fcdc17": "追杀lv3技能书", "0b052503": "挡伤lv1技能书", "0b308f26": "追杀lv1技能书", "0b800399": "挡伤lv4技能书",
-	"0d294aa6": "中还墨", "0ed93fd7": "力壮lv3技能书", "0ef5f238": "试炼衣服", "0f664e8e": "守主lv2技能书", "0f67ed90": "七阶不可进化宠锦囊（变异）", "10c31e8b": "长命lv3技能书",
-	"10d8563a": "溅墨lv3技能书", "1204b955": "五阶宠物锦囊", "12278fb1": "追杀lv4技能书", "161a13f9": "护主lv2技能书", "169e32b7": "二阶法宝碎片", "17959c6b": "六阶不可进化宠锦囊（变异）",
-	"17ff17e2": "双倍经验符·周", "185cc457": "三阶法宝碎片", "188e4eda": "轻身lv3技能书", "1a0e32fc": "试炼塔锦囊·三", "1aa822dc": "十一阶可进化宠锦囊（变异）", "1b8b2473": "十二阶可进化宠锦囊（变异）",
-	"1c4e66d8": "大还墨", "20a4b38d": "百关锦囊·一", "20cd7911": "人物经验丹", "219ec82e": "十至十三阶变异宠锦囊", "224a0a2c": "长命lv3技能书", "23a2fb68": "自复lv3技能书",
-	"255387a6": "连击lv5技能书", "25bc7ce2": "饮血lv4技能书", "2640cc62": "八阶不可进化宠锦囊", "269a733d": "长命lv5技能书", "26b29b96": "护主lv3技能书", "26c101bb": "挑衅lv1技能书",
-	"277951cb": "守主lv4技能书", "27a4b1dd": "护主lv1技能书", "28651d08": "土系转生令", "28cb3771": "九阶可进化宠锦囊（变异）", "28e242a9": "连击lv5技能书", "292070cd": "护主lv4技能书",
-	"2bd5210b": "长命lv2技能书", "2d476a51": "溅墨lv4技能书", "2d611f78": "饮血lv2技能书", "2d9ee372": "黑铁", "2daaa8e2": "天关锦囊", "2f0d8b09": "六阶可进化宠锦囊",
-	"302d64e2": "九阶可进化宠锦囊", "31d2380b": "力壮lv4技能书", "31f240a4": "五阶宠物蛋", "32b50cc2": "凶性lv1技能书", "34077d7c": "十二阶不可进化宠锦囊（变异）", "34df9054": "破防lv4技能书",
-	"352cfcc1": "反打lv5技能书", "36368565": "八阶不可进化宠锦囊（变异）", "36a86ba9": "自复lv4技能书", "37bd1a95": "追杀lv2技能书", "37e2a595": "通灵墨", "38c0d8ac": "木魂魄",
-	"39a8e55e": "致命lv3技能书", "39e5e9d3": "试炼武器", "39fa511a": "百关锦囊·九", "3cce58e6": "以血养血", "3d2c0b48": "破防lv2技能书", "3d9b28b0": "反打lv4技能书",
-	"3e4e81e9": "百关锦囊·十六", "3e98b904": "饮血lv3技能书", "3eb240fb": "长生墨", "3ed1f189": "五阶法宝碎片", "4080e93a": "墨芝", "41817f6e": "十阶可进化宠锦囊",
-	"41e80367": "水纹蛋", "41fe4ba8": "一阶法宝碎片", "430c3668": "百关锦囊·十三", "431b129f": "追杀lv4技能书", "43512431": "七至九阶晶儿锦囊", "43759077": "试炼塔锦囊·五",
-	"43a9d12d": "守主lv3技能书", "44cca32e": "饮血lv1技能书", "450351e8": "寒冰石", "45efbd27": "青铜匣", "47276446": "守主lv2技能书", "486bcc24": "连击lv4技能书",
-	"48a10062": "还魂草", "48bdfeb5": "破防lv4技能书", "4a2f0e54": "护主lv3技能书", "4b5233ca": "守主lv5技能书", "4ccac018": "新人扶持锦囊", "4d1705e3": "反打lv2技能书",
-	"4d85afb6": "百关锦囊·十五", "4e7b2dfe": "饮血lv1技能书", "4e87b174": "仙魔变异锦囊", "4e98d447": "十阶不可进化宠锦囊", "4e9aabda": "五一锦囊", "4ed91138": "长命lv1技能书",
-	"4f1b5e26": "破防lv1技能书", "4fc43ad4": "黄金匣", "50dd7864": "百关锦囊·十", "51a4d7cd": "力壮lv1技能书", "5233305b": "挡伤lv2技能书", "53262889": "护主lv4技能书",
-	"54186ad8": "藏宝匣", "54f9d7d6": "连击lv2技能书", "56924aea": "力壮lv5技能书", "58b75274": "凶性lv1技能书", "58c18417": "十一阶不可进化宠锦囊", "5936c946": "十阶不可进化宠锦囊（变异）",
-	"59d6b73c": "轻身lv1技能书", "5b97ea08": "百关锦囊·十九", "5ca6dd4e": "季军锦囊", "5caeddbe": "世界首领锦囊", "5d11bba6": "自复lv4技能书", "5d44f9c7": "凶性lv2技能书",
-	"5e06ae68": "七夕锦囊", "5f59b54e": "十三阶可进化宠锦囊（变异）", "5f8777f1": "连击lv3技能书", "609cde3f": "六阶法宝碎片", "60c3e89a": "一击三伤", "60c523f0": "致命lv4技能书",
-	"60d686c5": "挡伤lv2技能书", "61b4cfbd": "试炼塔锦囊·二", "622dc2b3": "土纹蛋", "632a897d": "百关锦囊·十七", "637b5dbe": "火系转生令", "649884e6": "硬皮lv5技能书",
-	"65006a3b": "周年法宝碎片", "673b057a": "破防lv5技能书", "67b1d25e": "七阶可进化宠锦囊", "67f3dc72": "护主lv5技能书", "680e4eea": "护主lv1技能书", "68bbe649": "十一阶不可进化宠锦囊（变异）",
-	"6929240e": "九阶不可进化宠锦囊", "69560240": "轻身lv5技能书", "6a7b2ef3": "追杀lv2技能书", "6a8dd2e2": "饮血lv5技能书", "6b7cfd1d": "百关锦囊·三", "6b9cb1e5": "追杀lv5技能书",
-	"6bd2de13": "开悟丹锦囊", "6c62e243": "致命lv3技能书", "6c668e77": "聚气墨", "6dcadda7": "饮血lv4技能书", "6de3d1c9": "硬皮lv4技能书", "7030ac28": "百关锦囊·七",
-	"70ea9bbc": "墨晶", "71925236": "端午锦囊", "72d7794d": "八阶可进化宠锦囊（变异）", "7424e6ad": "连击lv4技能书", "75547039": "溅墨lv5技能书", "761e0d7b": "轻身lv2技能书",
-	"78fe9e5b": "新手锦囊", "7aac829a": "双倍经验符·月", "7ccd6c20": "硬皮lv5技能书", "7ce442df": "八阶法宝碎片", "7ecc9995": "开荒宠装锦囊", "7edec6d8": "生死塔参与锦囊",
-	"7ef18aeb": "十三阶可进化宠锦囊", "7ef5ee3b": "冠军锦囊", "7f4ff27e": "一击三伤", "7fb72049": "疗伤墨", "7fbfaa1b": "长命lv1技能书", "801adfeb": "轻身lv4技能书",
-	"80f103a5": "饮血lv5技能书", "830f919f": "仙露墨", "83848da0": "破防lv1技能书", "84e40afb": "破防lv3技能书", "8698219a": "开悟丹", "86f40f1d": "火纹蛋",
-	"8859b3ac": "凶性lv3技能书", "88959a4a": "反打lv5技能书", "89dd9c2a": "墨木", "8a3e77b1": "挑衅lv2技能书", "8a46d699": "百关锦囊·五", "8a8b154b": "致命lv5技能书",
-	"8aac3678": "极限装备锦囊", "8ad42de9": "力壮lv2技能书", "8b62331e": "连击lv2技能书", "8c9aa53a": "守主lv5技能书", "8e964dde": "守主lv1技能书", "8fcda4bf": "护主lv2技能书",
-	"90758cee": "百关锦囊·六", "9081909a": "百关锦囊·二", "90aac394": "连击lv1技能书", "90f0e082": "长命lv5技能书", "922d3221": "蓄灵丹", "93096d13": "挑衅lv2技能书",
-	"938fd0b9": "轻身lv5技能书", "93af32dd": "试炼塔锦囊·一", "94a5aa9b": "追杀lv1技能书", "94ef612d": "八阶可进化宠锦囊", "957b04d8": "回血墨", "95dbfded": "造化墨",
-	"96cfa783": "金刚墨", "975d0d7a": "长命lv4技能书", "9787abdf": "挑衅lv4技能书", "97fada90": "自复lv2技能书", "98889fd6": "连击lv3技能书", "99891ea1": "自复lv1技能书",
-	"99974253": "饮血lv3技能书", "99ec6edb": "挑衅lv1技能书", "9aaf4885": "凶性lv5技能书", "9adf6220": "七至九阶梦晶锦囊", "9c1515ea": "反打lv3技能书", "9c708ba8": "试炼塔锦囊·四",
-	"9d4c13c2": "挡伤lv5技能书", "9d633beb": "离线宠物锦囊", "a01020f3": "七阶可进化宠锦囊（变异）", "a1098612": "六阶不可进化宠锦囊", "a2295aa8": "百关锦囊·十四", "a28a962f": "连击lv1技能书",
-	"a2e9ce6f": "自复lv5技能书", "a40eab18": "破防lv5技能书", "a4330393": "反打lv2技能书", "a50fbe68": "挑衅lv3技能书", "a57e3832": "致命lv1技能书", "a6f1e2b0": "金纹异蛋",
-	"a6fc81bb": "溅墨lv1技能书", "a7106ba9": "追杀lv5技能书", "a9f64995": "测试锦囊", "aafaa7e3": "以血养血", "ab20f241": "十三阶不可进化宠锦囊（变异）", "ab9b3d92": "反打lv1技能书",
-	"ac0bdbb5": "七阶法宝碎片", "acddb82d": "自复lv2技能书", "ad26f572": "雪莲", "b06eba77": "追杀lv3技能书", "b2e1f1c5": "自复lv3技能书", "b353e5c4": "天关组队锦囊",
-	"b3705a9b": "试炼饰品", "b3d789a6": "百关锦囊·四", "b40bd2b6": "挡伤lv5技能书", "b46719f0": "百关锦囊·二十", "b4c1e48f": "十至十三阶变异可进化锦囊", "b59f07f2": "仙魔野生锦囊",
-	"b5d9d37a": "凶性lv4技能书", "b6a93b12": "金魂魄", "b74aff08": "百关锦囊·十一", "b7568362": "轻身lv3技能书", "b7bb2f5d": "自复lv1技能书", "b95c3613": "九阶不可进化宠锦囊（变异）",
-	"ba9f731c": "守主lv1技能书", "bebf7b16": "试炼鞋子", "bf7bd8c7": "力壮lv5技能书", "bfa686f2": "力壮lv1技能书", "c0c6d74b": "火魂魄", "c10e1803": "仙魔灵兽锦囊",
-	"c1ba36dc": "亚军锦囊", "c2124213": "反打lv1技能书", "c42c1f4a": "百关锦囊·八", "c48c9390": "十强锦囊", "c5a75fb5": "致命lv5技能书", "c61e565f": "七阶不可进化宠锦囊",
-	"c7ad9f6e": "十一阶可进化宠锦囊", "c7ccb247": "解封石", "c8740154": "仙魔神兽锦囊", "c8b451b4": "木纹蛋", "cb510b7a": "致命lv2技能书", "cbeee78f": "力壮lv3技能书",
-	"ccd56b00": "金系转生令", "cd8a21df": "水系转生令", "ce89a14b": "反打lv3技能书", "cefb184f": "挑衅lv5技能书", "cf2dfef2": "凶性lv3技能书", "d080e8dd": "木纹异蛋",
-	"d284376b": "土纹异蛋", "d3c9fb15": "轻身lv4技能书", "d4cb2551": "挡伤lv3技能书", "d4ced04f": "破防lv2技能书", "d4e0389b": "水纹异蛋", "d58c7630": "宠物经验丹",
-	"d5b9261d": "自复lv5技能书", "d5caef47": "四阶法宝碎片", "d645f44b": "反打lv4技能书", "d68e8c32": "凶性lv4技能书", "d70ff00b": "力壮lv2技能书", "d7dee275": "轻身lv2技能书",
-	"d87edc2e": "致命lv2技能书", "d9b26169": "挑衅lv4技能书", "df275214": "挑衅lv5技能书", "dfb64c14": "挡伤lv3技能书", "e13c1cdc": "凶性lv5技能书", "e20c0ac6": "六阶可进化宠锦囊（变异）",
-	"e4ac55f3": "先锋锦囊", "e5f11777": "挡伤lv4技能书", "e80929ec": "致命lv4技能书", "e8433a45": "金纹蛋", "e9b289f1": "水魂魄", "ea421907": "守主lv3技能书",
-	"eb960830": "天关令牌", "ec6da727": "十阶可进化宠锦囊（变异）", "eddac99f": "试炼帽子", "ee180ad8": "十二阶可进化宠锦囊", "f0780cb3": "七至九阶阿弟锦囊", "f0d2456d": "长命lv4技能书",
-	"f1ae778c": "小还墨", "f2671d1a": "十二阶不可进化宠锦囊", "f27f2c6f": "挑衅lv3技能书", "f2c9e1a2": "开荒锦囊", "f31ab96f": "双倍经验符", "f41f540f": "溅墨lv2技能书",
-	"f5a01d66": "破防lv3技能书", "f5d5ff1b": "硬皮lv4技能书", "f613e0da": "力壮lv4技能书", "f658a033": "饮血lv2技能书", "f6704e2b": "木系转生令", "f9c5c0e1": "墨草",
-	"fb1fde9a": "守主lv4技能书", "fe031d65": "百关锦囊·十二", "fee1a887": "定神丹", "ff81ba46": "轻身lv1技能书", "ffcbf7aa": "挡伤lv1技能书", "fff095e7": "长命lv2技能书",
-	"fffe09cd": "致命lv1技能书",
-}
+const ITEM_NAME_MIGRATION: = {}
 
 
 # 老存档、老邮件、老帮派仓库里存的是改名前的物品名。读进来先过这一道：
@@ -8015,33 +7960,7 @@ static func migrate_item_name(item_name: String) -> String:
 	return str(hit)
 
 
-const MAP_NAME_MIGRATION: = {
-	"01f7291c": "雪岭西坡", "0428b36a": "墨源洞", "07d0bdf3": "铜柱渊", "099f9960": "宿月谷", "09fc8efc": "石轮谷", "0ac307be": "怨魂洞口",
-	"0ac97dc3": "酒瓮冢", "0cf06a2f": "听鸟谷", "13089d59": "惊魂洞·下", "139b13fc": "松竹坡", "15650a4e": "旧城废墟", "1646e710": "铁棘渊",
-	"18e4c2c2": "白玉桥", "1a13e69a": "寒冰渊", "1d0aedf6": "青风野", "1f6865e9": "剥壁渊", "1fa46169": "孤亭", "2061eabd": "双生谷",
-	"264ba6bd": "狂奔渊", "2744381a": "半山路", "282baa9d": "石卵谷", "287fb659": "黑沼渊", "28b1ad8f": "流沙滩", "2af44e61": "迷踪林",
-	"2b04773f": "石牢", "2e51df9b": "望日桥头", "2e9e89e0": "遗恨野", "2fab107f": "石笋洞", "30a4af24": "云中台", "31c2e8de": "落雁滩",
-	"33ac0836": "回望亭", "351d738d": "小石室", "351e6036": "石秤台", "36478aa4": "西渡口", "368b9726": "无声渊", "3d42ab4c": "铜锈洞·丁",
-	"3e6f0b85": "接露台", "3f2e689e": "铜钟洞", "427ae0b1": "虚实境", "435fdad0": "惊魂洞·上", "454c7cc0": "长过道", "45dc18db": "朱漆门",
-	"46bbefad": "冻土原", "47d35101": "水淹城", "49f7d308": "落泪岗", "4ba5e56b": "冰镜原", "4d80ee32": "望日桥", "4e03ad8b": "断虹桥",
-	"4f06bdb8": "深雪原", "52513ec4": "四桥野", "52ffceae": "乱石坡", "5614d762": "倒流境", "58b83dca": "独木野", "5b7cdf5c": "冷泉洞",
-	"5bbb0ac0": "解冻桥", "5bbceb8a": "断桨滩", "613edcfa": "斧痕谷", "619aa4d5": "犁春野", "61b282d9": "钉板渊", "61d30dc0": "龙骨洞·下",
-	"6354dcd4": "西城门", "6526ec5d": "默认战场", "6668b84d": "相思坡", "692d9a63": "断魂崖", "72d58dc5": "陶瓮谷", "73123645": "藏墨洞",
-	"754918d5": "空院", "77d0c50b": "心象境", "7aa0895c": "紫苔洞·上", "7b23890a": "青磷洞", "7b5da6cc": "巨炉渊", "7c270e1f": "迎风台",
-	"7c6a04b7": "泥泞岗", "7e6ca572": "红溪谷", "7ea28195": "羊肠路", "8072e33d": "紫苔洞·下", "809638fd": "冷泉洞·二层", "86363ad3": "黑瘴林",
-	"8718e061": "断墙", "895cf4d6": "云顶", "8bbc19e0": "菇王洞", "8c6069bc": "烟村谷", "8c77dba5": "月影桥", "8e6e9dcd": "守林屋",
-	"8e94b7bd": "融雪谷", "902441ec": "怨魂洞", "904cc08b": "碧水潭", "93dba7ae": "铜锈洞·乙", "945ed48d": "萤火洞", "95e832d7": "印痕谷",
-	"961fc8c9": "悬空台", "9919f6c3": "云上坪", "99d3f77c": "滚油渊", "9e2fe5ed": "猎户洞", "9ffab7a1": "霜桥", "a0eb72d9": "盘根谷",
-	"a1571a37": "望月谷", "a2624e9c": "石牢五层", "a6eb0f8d": "枯井野", "ab6c8985": "净沙野", "b005df3b": "九曲廊", "b041d1e9": "青草洲",
-	"b0eac63b": "斑鸠小屋", "b0fbe456": "绞轮渊", "b2745f74": "荒园", "b282957b": "铁钩渊", "b74af879": "石壁洞", "b98a9ab4": "岩浆渊",
-	"bcf30262": "无名冢", "bd81bc63": "云中城", "bf24e07c": "劫沙洞口", "c5450519": "雪松林", "c7dfa551": "铜锈洞·丙", "c88ae8d6": "冷泉洞·三层",
-	"c9daa722": "天关城", "ca0fb54b": "独坐亭", "cce9155b": "冷泉洞口", "d072e309": "极窄过道", "d0e97723": "暮归路", "d1246f5d": "尽头石室",
-	"d15606ae": "墨影城郊", "d1f4aabb": "铜像殿", "d39b1d79": "铜锈洞·甲", "d4f78b0a": "龙骨洞·上", "d5a075db": "霜井台", "d61f0f5e": "石碾渊·下",
-	"d620555b": "冷泉洞·四层", "dad767c2": "窄过道", "dbdf6ad0": "断剑潭", "de16d9fb": "侧石室", "df564bca": "拴马谷", "e10b5585": "巨铡渊",
-	"e1106991": "旧祭坛", "e8c53648": "沉海城", "ece2708f": "断碑谷", "ed2052f7": "石磨渊", "ed2cefc3": "黑石门", "ef1aee2b": "沉海城底",
-	"f3ecf6e3": "断崖瀑", "f40293b6": "青灯渊", "f55ca01e": "东渡口", "f64e48c5": "望月台", "f7e63dd4": "石碾渊", "f8dcde0a": "青草东滩",
-	"fdd151ea": "刀轮渊", "fdd31715": "半山亭", "fedb9742": "红枫林", "ffba7aef": "云海桥",
-}
+const MAP_NAME_MIGRATION: = {}
 
 
 static func migrate_map_id(map_id: String) -> String:
@@ -8061,13 +7980,7 @@ static func migrate_map_id(map_id: String) -> String:
 # 宠物图鉴改名表。老存档里宠物存的是显示名（pet_name），名字一换就会变成未知宠物，
 # 而且 pet_id 缺失时还要靠名字反查图鉴键 —— 两头都会断，所以读档时先过这道归一。
 # 键同样是 md5 前 8 位，磁盘与包内不留旧名明文。
-const PET_NAME_MIGRATION: = {
-	"37591cf9": "苔背兽",
-	"434a1f53": "赤翅蛾",
-	"4edbc283": "铁嘴鸦",
-	"89d23793": "滴水蛙",
-	"e8cbf1fc": "沙耳兔",
-}
+const PET_NAME_MIGRATION: = {}
 
 
 static func migrate_pet_name(pet_name: String) -> String:
@@ -8081,179 +7994,180 @@ static func migrate_pet_name(pet_name: String) -> String:
 
 
 const ALL_ITEMS = {
-	"小还墨": {"name": "小还墨", "type": "pill", "rarity": "common", "mp_restore": 10, "hp_restore": 0, "desc": "恢复10点内力", "drop_rate": 0}, 
-	"中还墨": {"name": "中还墨", "type": "pill", "rarity": "uncommon", "mp_restore": 30, "hp_restore": 0, "desc": "恢复30点内力", "drop_rate": 0}, 
-	"大还墨": {"name": "大还墨", "type": "pill", "rarity": "rare", "mp_restore": 100, "hp_restore": 0, "desc": "恢复100点内力", "drop_rate": 0}, 
-	"回血墨": {"name": "回血墨", "type": "pill", "rarity": "common", "mp_restore": 0, "hp_restore": 50, "desc": "恢复50点生命", "drop_rate": 0}, 
-	"疗伤墨": {"name": "疗伤墨", "type": "pill", "rarity": "uncommon", "mp_restore": 0, "hp_restore": 200, "desc": "恢复200点生命", "drop_rate": 0}, 
-	"金刚墨": {"name": "金刚墨", "type": "pill", "rarity": "rare", "mp_restore": 0, "hp_restore": 500, "desc": "恢复500点生命", "drop_rate": 0}, 
-	"聚气墨": {"name": "聚气墨", "type": "pill", "rarity": "common", "mp_restore": 20, "hp_restore": 20, "desc": "恢复20点内力和20点生命", "drop_rate": 0}, 
-	"仙露墨": {"name": "仙露墨", "type": "pill", "rarity": "rare", "mp_restore": 50, "hp_restore": 100, "desc": "恢复50点内力和100点生命", "drop_rate": 0}, 
-	"通灵墨": {"name": "通灵墨", "type": "pill", "rarity": "epic", "mp_restore": 200, "hp_restore": 300, "desc": "恢复200点内力和300点生命", "drop_rate": 0}, 
-	"长生墨": {"name": "长生墨", "type": "pill", "rarity": "epic", "mp_restore": 300, "hp_restore": 500, "desc": "恢复300点内力和500点生命", "drop_rate": 0}, 
-	"造化墨": {"name": "造化墨", "type": "pill", "rarity": "legendary", "mp_restore": 800, "hp_restore": 800, "desc": "恢复800点内力和800点生命", "drop_rate": 0}, 
-	"黑铁": {"name": "黑铁", "type": "material", "rarity": "common", "desc": "基础锻造材料", "drop_rate": 0}, 
+	"小还丹": {"name": "小还丹", "type": "pill", "rarity": "common", "mp_restore": 10, "hp_restore": 0, "desc": "恢复10点内力", "drop_rate": 0}, 
+	"中还丹": {"name": "中还丹", "type": "pill", "rarity": "uncommon", "mp_restore": 30, "hp_restore": 0, "desc": "恢复30点内力", "drop_rate": 0}, 
+	"大还丹": {"name": "大还丹", "type": "pill", "rarity": "rare", "mp_restore": 100, "hp_restore": 0, "desc": "恢复100点内力", "drop_rate": 0}, 
+	"回血丹": {"name": "回血丹", "type": "pill", "rarity": "common", "mp_restore": 0, "hp_restore": 50, "desc": "恢复50点生命", "drop_rate": 0}, 
+	"疗伤丹": {"name": "疗伤丹", "type": "pill", "rarity": "uncommon", "mp_restore": 0, "hp_restore": 200, "desc": "恢复200点生命", "drop_rate": 0}, 
+	"金刚药": {"name": "金刚药", "type": "pill", "rarity": "rare", "mp_restore": 0, "hp_restore": 500, "desc": "恢复500点生命", "drop_rate": 0}, 
+	"聚气丹": {"name": "聚气丹", "type": "pill", "rarity": "common", "mp_restore": 20, "hp_restore": 20, "desc": "恢复20点内力和20点生命", "drop_rate": 0}, 
+	"仙露丹": {"name": "仙露丹", "type": "pill", "rarity": "rare", "mp_restore": 50, "hp_restore": 100, "desc": "恢复50点内力和100点生命", "drop_rate": 0}, 
+	"神灵丹": {"name": "神灵丹", "type": "pill", "rarity": "epic", "mp_restore": 200, "hp_restore": 300, "desc": "恢复200点内力和300点生命", "drop_rate": 0}, 
+	"长生丹": {"name": "长生丹", "type": "pill", "rarity": "epic", "mp_restore": 300, "hp_restore": 500, "desc": "恢复300点内力和500点生命", "drop_rate": 0}, 
+	"造化丹": {"name": "造化丹", "type": "pill", "rarity": "legendary", "mp_restore": 800, "hp_restore": 800, "desc": "恢复800点内力和800点生命", "drop_rate": 0}, 
+	"玄铁": {"name": "玄铁", "type": "material", "rarity": "common", "desc": "基础锻造材料", "drop_rate": 0}, 
 	"精铁": {"name": "精铁", "type": "material", "rarity": "common", "desc": "精炼过的铁块", "drop_rate": 0}, 
 	"金刚石": {"name": "金刚石", "type": "material", "rarity": "uncommon", "desc": "坚硬无比的宝石", "drop_rate": 0}, 
-	"墨木": {"name": "墨木", "type": "material", "rarity": "common", "desc": "蕴含灵气的木材", "drop_rate": 0}, 
-	"寒冰石": {"name": "寒冰石", "type": "material", "rarity": "uncommon", "desc": "蕴含寒冰之力的稀有材料", "drop_rate": 0}, 
+	"灵木": {"name": "灵木", "type": "material", "rarity": "common", "desc": "蕴含灵气的木材", "drop_rate": 0}, 
+	"寒冰精": {"name": "寒冰精", "type": "material", "rarity": "uncommon", "desc": "蕴含寒冰之力的稀有材料", "drop_rate": 0}, 
 	"烈火石": {"name": "烈火石", "type": "material", "rarity": "uncommon", "desc": "蕴含烈火之力的稀有材料", "drop_rate": 0}, 
 	"天雷石": {"name": "天雷石", "type": "material", "rarity": "rare", "desc": "蕴含天雷之力的珍贵材料", "drop_rate": 0}, 
 	"星辰砂": {"name": "星辰砂", "type": "material", "rarity": "rare", "desc": "来自天外陨石的珍贵材料", "drop_rate": 0}, 
 	"龙鳞": {"name": "龙鳞", "type": "material", "rarity": "epic", "desc": "传说中的龙鳞", "drop_rate": 0}, 
 	"凤羽": {"name": "凤羽", "type": "material", "rarity": "epic", "desc": "传说中的凤羽", "drop_rate": 0}, 
 	"混沌石": {"name": "混沌石", "type": "material", "rarity": "legendary", "desc": "天地初开时的混沌之石", "drop_rate": 0}, 
-	"墨晶": {"name": "墨晶", "type": "material", "rarity": "legendary", "desc": "蕴含仙气的晶石", "drop_rate": 0}, 
-	"墨草": {"name": "墨草", "type": "herb", "rarity": "common", "desc": "常见的灵气草药", "drop_rate": 0.002}, 
-	"墨芝": {"name": "墨芝", "type": "herb", "rarity": "uncommon", "desc": "珍稀的墨芝，蕴含灵气", "drop_rate": 0.001}, 
-	"雪莲": {"name": "雪莲", "type": "herb", "rarity": "rare", "desc": "生长于天山之巅的雪莲", "drop_rate": 0.001}, 
-	"还魂草": {"name": "还魂草", "type": "herb", "rarity": "epic", "desc": "传说中的仙草", "drop_rate": 0.0005}, 
-	"墨涎草": {"name": "墨涎草", "type": "herb", "rarity": "legendary", "desc": "龙息孕育的神草", "drop_rate": 0.0001}, 
-	"蓄灵丹": {"name": "蓄灵丹", "type": "cultivation_pill", "rarity": "common", "cultivation_bonus": 100, "desc": "增加100点修行值（每世限用5颗）", "drop_rate": 0}, 
-	"定神丹": {"name": "定神丹", "type": "cultivation_pill", "rarity": "uncommon", "cultivation_bonus": 200, "desc": "增加200点修行值（每世限用5颗）", "drop_rate": 0}, 
-	"开悟丹": {"name": "开悟丹", "type": "cultivation_pill", "rarity": "rare", "cultivation_bonus": 500, "desc": "增加500点修行值（每世限用5颗）", "drop_rate": 0}, 
-	"双倍经验符": {"name": "双倍经验符", "type": "gift", "rarity": "legendary", "desc": "使用后野外战斗和离线经验提升100%，持续24小时，可与VIP经验加成叠加", "drop_rate": 0}, 
-	"双倍经验符·月": {"name": "双倍经验符·月", "type": "gift", "rarity": "legendary", "desc": "使用后野外战斗和离线经验提升100%，持续30天，可与VIP经验加成叠加", "drop_rate": 0}, 
-	"双倍经验符·周": {"name": "双倍经验符·周", "type": "gift", "rarity": "legendary", "desc": "使用后野外战斗和离线经验提升100%，持续7天，可与VIP经验加成叠加", "drop_rate": 0}, 
+	"仙晶": {"name": "仙晶", "type": "material", "rarity": "legendary", "desc": "蕴含仙气的晶石", "drop_rate": 0}, 
+	"灵草": {"name": "灵草", "type": "herb", "rarity": "common", "desc": "常见的灵气草药", "drop_rate": 0.002}, 
+	"灵芝": {"name": "灵芝", "type": "herb", "rarity": "uncommon", "desc": "珍稀的墨芝，蕴含灵气", "drop_rate": 0.001}, 
+	"天山雪莲": {"name": "天山雪莲", "type": "herb", "rarity": "rare", "desc": "生长于天山之巅的雪莲", "drop_rate": 0.001}, 
+	"九转还魂草": {"name": "九转还魂草", "type": "herb", "rarity": "epic", "desc": "传说中的仙草", "drop_rate": 0.0005}, 
+	"龙涎草": {"name": "龙涎草", "type": "herb", "rarity": "legendary", "desc": "龙息孕育的神草", "drop_rate": 0.0001}, 
+	"聚灵丹": {"name": "聚灵丹", "type": "cultivation_pill", "rarity": "common", "cultivation_bonus": 100, "desc": "增加100点修行值（每世限用5颗）", "drop_rate": 0}, 
+	"凝神丹": {"name": "凝神丹", "type": "cultivation_pill", "rarity": "uncommon", "cultivation_bonus": 200, "desc": "增加200点修行值（每世限用5颗）", "drop_rate": 0}, 
+	"悟道仙丹": {"name": "悟道仙丹", "type": "cultivation_pill", "rarity": "rare", "cultivation_bonus": 500, "desc": "增加500点修行值（每世限用5颗）", "drop_rate": 0}, 
+	"双倍经验丹": {"name": "双倍经验丹", "type": "gift", "rarity": "legendary", "desc": "使用后野外战斗和离线经验提升100%，持续24小时，可与VIP经验加成叠加", "drop_rate": 0}, 
+	"双倍经验丹(月)": {"name": "双倍经验丹(月)", "type": "gift", "rarity": "legendary", "desc": "使用后野外战斗和离线经验提升100%，持续30天，可与VIP经验加成叠加", "drop_rate": 0}, 
+	"双倍经验丹(周)": {"name": "双倍经验丹(周)", "type": "gift", "rarity": "legendary", "desc": "使用后野外战斗和离线经验提升100%，持续7天，可与VIP经验加成叠加", "drop_rate": 0}, 
+	"宠物双倍经验丹": {"name": "宠物双倍经验丹", "type": "gift", "rarity": "epic", "desc": "使用后出战灵兽获得的经验翻倍（野外/离线都算），持续30分钟；只加灵兽，不影响人物", "drop_rate": 0}, 
 	"宠物补章器": {"name": "宠物补章器", "type": "gift", "rarity": "epic", "desc": "使用后为当前出战宠物随机增加1个勋章（总上限15）", "drop_rate": 0}, 
-	"天关锦囊": {"name": "天关锦囊", "type": "gift", "rarity": "rare", "desc": "每10关BOSS掉落的天关锦囊", "drop_rate": 0}, 
-	"天关令牌": {"name": "天关令牌", "type": "material", "rarity": "rare", "desc": "兄弟天关队长开战消耗，仙魔战场兄弟天关遗址事件产出", "drop_rate": 0}, 
+	"天关礼包": {"name": "天关礼包", "type": "gift", "rarity": "rare", "desc": "每10关BOSS掉落的天关锦囊", "drop_rate": 0}, 
+	"兄弟天关令牌": {"name": "兄弟天关令牌", "type": "material", "rarity": "rare", "desc": "兄弟天关队长开战消耗，仙魔战场兄弟天关遗址事件产出", "drop_rate": 0}, 
 	"建设材料": {"name": "建设材料", "type": "material", "rarity": "uncommon", "desc": "帮派建设捐献材料，可捐献至帮派仓库", "drop_rate": 0}, 
-	"天关组队锦囊": {"name": "天关组队锦囊", "type": "gift", "rarity": "epic", "desc": "兄弟天关通关奖励礼包，服务端开箱", "drop_rate": 0}, 
-	"试炼塔锦囊·一": {"name": "试炼塔锦囊·一", "type": "gift", "rarity": "epic", "desc": "生死塔第1层塔主奖励。开箱随机：1亿金币77%、五行变异宠物蛋5%、开悟丹5%、6+可进化/不可进化宠礼包各5%、宠物经验丹/人物经验丹/法宝洗练石各1%", "drop_rate": 0}, 
-	"试炼塔锦囊·二": {"name": "试炼塔锦囊·二", "type": "gift", "rarity": "epic", "desc": "生死塔第2层塔主奖励。开箱随机：2亿金币77%、五行变异宠物蛋5%、开悟丹5%、7+可进化/不可进化宠礼包各5%、宠物经验丹/人物经验丹/法宝洗练石各1%", "drop_rate": 0}, 
-	"试炼塔锦囊·三": {"name": "试炼塔锦囊·三", "type": "gift", "rarity": "legendary", "desc": "生死塔第3层塔主奖励。开箱随机：3亿金币77%、五行变异宠物蛋5%、开悟丹5%、8+可进化/不可进化宠礼包各5%、宠物经验丹/人物经验丹/法宝洗练石各1%", "drop_rate": 0}, 
-	"试炼塔锦囊·四": {"name": "试炼塔锦囊·四", "type": "gift", "rarity": "legendary", "desc": "生死塔第4层塔主奖励。开箱随机：4亿金币76%、五行变异宠物蛋5%、开悟丹5%、9+可进化/不可进化宠礼包各5%、宠物经验丹/人物经验丹/法宝洗练石/套装强化石各1%", "drop_rate": 0}, 
-	"试炼塔锦囊·五": {"name": "试炼塔锦囊·五", "type": "gift", "rarity": "divine", "desc": "生死塔第5层塔主奖励。开箱随机：5亿金币75%、五行变异宠物蛋5%、开悟丹5%、10+可进化/不可进化宠礼包各5%、宠物经验丹/人物经验丹/法宝洗练石/法宝重置石/套装强化石各1%", "drop_rate": 0}, 
-	"生死塔参与锦囊": {"name": "生死塔参与锦囊", "type": "gift", "rarity": "epic", "desc": "生死塔开赛参与奖励。开箱随机：1亿金币98.5%、五行变异宠物蛋之一1%、法宝洗练石0.5%", "drop_rate": 0}, 
-	"世界首领锦囊": {"name": "世界首领锦囊", "type": "gift", "rarity": "legendary", "desc": "世界boss排名奖励礼包，服务端开箱", "drop_rate": 0}, 
-	"冠军锦囊": {"name": "冠军锦囊", "type": "gift", "rarity": "divine", "desc": "竞技场周榜冠军奖励礼包，服务端开箱", "drop_rate": 0}, 
-	"亚军锦囊": {"name": "亚军锦囊", "type": "gift", "rarity": "legendary", "desc": "竞技场周榜亚军奖励礼包，服务端开箱", "drop_rate": 0}, 
-	"季军锦囊": {"name": "季军锦囊", "type": "gift", "rarity": "legendary", "desc": "竞技场周榜季军奖励礼包，服务端开箱", "drop_rate": 0}, 
-	"十强锦囊": {"name": "十强锦囊", "type": "gift", "rarity": "epic", "desc": "竞技场周榜4-10名奖励礼包，服务端开箱", "drop_rate": 0}, 
-	"一击三伤": {"name": "一击三伤", "type": "martial_skill_book", "rarity": "legendary", "desc": "人物技能书，使用后随机领悟1-9层。装备后普攻最多打3个目标，每箭伤害1层80%、9层120%", "drop_rate": 0}, 
-	"以血养血": {"name": "以血养血", "type": "martial_skill_book", "rarity": "legendary", "desc": "人物技能书，使用后随机领悟1-9层。装备后普攻50%概率吸血，1层回伤害的5%、9层回20%", "drop_rate": 0}, 
+	"兄弟天关礼包": {"name": "兄弟天关礼包", "type": "gift", "rarity": "epic", "desc": "兄弟天关通关奖励礼包，服务端开箱", "drop_rate": 0}, 
+	"塔1礼包": {"name": "塔1礼包", "type": "gift", "rarity": "epic", "desc": "生死塔第1层塔主奖励。开箱随机：1亿金币77%、五行变异宠物蛋5%、开悟丹5%、6+可进化/不可进化宠礼包各5%、宠物经验丹/人物经验丹/法宝洗练石各1%", "drop_rate": 0}, 
+	"塔2礼包": {"name": "塔2礼包", "type": "gift", "rarity": "epic", "desc": "生死塔第2层塔主奖励。开箱随机：2亿金币77%、五行变异宠物蛋5%、开悟丹5%、7+可进化/不可进化宠礼包各5%、宠物经验丹/人物经验丹/法宝洗练石各1%", "drop_rate": 0}, 
+	"塔3礼包": {"name": "塔3礼包", "type": "gift", "rarity": "legendary", "desc": "生死塔第3层塔主奖励。开箱随机：3亿金币77%、五行变异宠物蛋5%、开悟丹5%、8+可进化/不可进化宠礼包各5%、宠物经验丹/人物经验丹/法宝洗练石各1%", "drop_rate": 0}, 
+	"塔4礼包": {"name": "塔4礼包", "type": "gift", "rarity": "legendary", "desc": "生死塔第4层塔主奖励。开箱随机：4亿金币76%、五行变异宠物蛋5%、开悟丹5%、9+可进化/不可进化宠礼包各5%、宠物经验丹/人物经验丹/法宝洗练石/套装强化石各1%", "drop_rate": 0}, 
+	"塔5礼包": {"name": "塔5礼包", "type": "gift", "rarity": "divine", "desc": "生死塔第5层塔主奖励。开箱随机：5亿金币75%、五行变异宠物蛋5%、开悟丹5%、10+可进化/不可进化宠礼包各5%、宠物经验丹/人物经验丹/法宝洗练石/法宝重置石/套装强化石各1%", "drop_rate": 0}, 
+	"生死塔参与礼包": {"name": "生死塔参与礼包", "type": "gift", "rarity": "epic", "desc": "生死塔开赛参与奖励。开箱随机：1亿金币98.5%、五行变异宠物蛋之一1%、法宝洗练石0.5%", "drop_rate": 0}, 
+	"世界boss礼包": {"name": "世界boss礼包", "type": "gift", "rarity": "legendary", "desc": "世界boss排名奖励礼包，服务端开箱", "drop_rate": 0}, 
+	"冠军礼包": {"name": "冠军礼包", "type": "gift", "rarity": "divine", "desc": "竞技场周榜冠军奖励礼包，服务端开箱", "drop_rate": 0}, 
+	"亚军礼包": {"name": "亚军礼包", "type": "gift", "rarity": "legendary", "desc": "竞技场周榜亚军奖励礼包，服务端开箱", "drop_rate": 0}, 
+	"季军礼包": {"name": "季军礼包", "type": "gift", "rarity": "legendary", "desc": "竞技场周榜季军奖励礼包，服务端开箱", "drop_rate": 0}, 
+	"十强礼包": {"name": "十强礼包", "type": "gift", "rarity": "epic", "desc": "竞技场周榜4-10名奖励礼包，服务端开箱", "drop_rate": 0}, 
+	"一箭三雕": {"name": "一箭三雕", "type": "martial_skill_book", "rarity": "legendary", "desc": "人物技能书，使用后随机领悟1-9层。装备后普攻最多打3个目标，每箭伤害1层80%、9层120%", "drop_rate": 0}, 
+	"以战养战": {"name": "以战养战", "type": "martial_skill_book", "rarity": "legendary", "desc": "人物技能书，使用后随机领悟1-9层。装备后普攻50%概率吸血，1层回伤害的5%、9层回20%", "drop_rate": 0}, 
 	"套装强化石": {"name": "套装强化石", "type": "material", "rarity": "legendary", "desc": "套装强化道具", "drop_rate": 0}, 
-	"新手锦囊": {"name": "新手锦囊", "type": "gift", "rarity": "rare", "desc": "打开后获得一套单属性+50装备", "drop_rate": 0}, 
+	"新手礼包": {"name": "新手礼包", "type": "gift", "rarity": "rare", "desc": "打开后获得一套单属性+50装备", "drop_rate": 0}, 
 	"钱币袋": {"name": "钱币袋", "type": "gift", "rarity": "rare", "desc": "打开获得10万金币。所有赞助钱袋已合并为这一种。", "drop_rate": 0.13}, 
-	"先锋锦囊": {"name": "先锋锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后获得1亿金币、1只成长6.0赤翅蛾和一套单属性+100装备", "drop_rate": 0}, 
-	"新人扶持锦囊": {"name": "新人扶持锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后获得1亿金币、1只成长6.0赤翅蛾和一套单属性+100装备", "drop_rate": 0}, 
-	"开荒锦囊": {"name": "开荒锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后获得5亿金币、7只成长6.0赤翅蛾和一套单属性+400装备", "drop_rate": 0}, 
-	"五一锦囊": {"name": "五一锦囊", "type": "gift", "rarity": "legendary", "desc": "2026五一活动限定礼包，打开后随机获得节日奖励。", "drop_rate": 0}, 
-	"端午锦囊": {"name": "端午锦囊", "type": "gift", "rarity": "legendary", "desc": "2026端午节活动限定礼包，打开后随机获得节日奖励。", "drop_rate": 0}, 
-	"七夕锦囊": {"name": "七夕锦囊", "type": "gift", "rarity": "legendary", "desc": "2026七夕节活动限定礼包，打开后随机获得节日奖励。", "drop_rate": 0},               
-	"极限装备锦囊": {"name": "极限装备锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后获得极限武器、极限衣服、极限鞋子、极限血佩和极限内带", "drop_rate": 0}, 
-	"开悟丹锦囊": {"name": "开悟丹锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后获得开悟丹 x50", "drop_rate": 0}, 
-	"百关锦囊·一": {"name": "百关锦囊·一", "type": "gift", "rarity": "legendary", "desc": "闯过天关100层的里程碑奖励", "drop_rate": 0}, 
-	"百关锦囊·二": {"name": "百关锦囊·二", "type": "gift", "rarity": "legendary", "desc": "闯过天关200层的里程碑奖励", "drop_rate": 0}, 
-	"百关锦囊·三": {"name": "百关锦囊·三", "type": "gift", "rarity": "legendary", "desc": "闯过天关300层的里程碑奖励", "drop_rate": 0}, 
-	"百关锦囊·四": {"name": "百关锦囊·四", "type": "gift", "rarity": "legendary", "desc": "闯过天关400层的里程碑奖励", "drop_rate": 0}, 
-	"百关锦囊·五": {"name": "百关锦囊·五", "type": "gift", "rarity": "legendary", "desc": "闯过天关500层的里程碑奖励", "drop_rate": 0}, 
-	"百关锦囊·六": {"name": "百关锦囊·六", "type": "gift", "rarity": "legendary", "desc": "闯过天关600层的里程碑奖励", "drop_rate": 0}, 
-	"百关锦囊·七": {"name": "百关锦囊·七", "type": "gift", "rarity": "legendary", "desc": "闯过天关700层的里程碑奖励", "drop_rate": 0}, 
-	"百关锦囊·八": {"name": "百关锦囊·八", "type": "gift", "rarity": "legendary", "desc": "闯过天关800层的里程碑奖励", "drop_rate": 0}, 
-	"百关锦囊·九": {"name": "百关锦囊·九", "type": "gift", "rarity": "legendary", "desc": "闯过天关900层的里程碑奖励", "drop_rate": 0}, 
-	"百关锦囊·十": {"name": "百关锦囊·十", "type": "gift", "rarity": "legendary", "desc": "闯过天关1000层的里程碑奖励", "drop_rate": 0}, 
-	"百关锦囊·十一": {"name": "百关锦囊·十一", "type": "gift", "rarity": "legendary", "desc": "闯过天关1100层的里程碑奖励", "drop_rate": 0}, 
-	"百关锦囊·十二": {"name": "百关锦囊·十二", "type": "gift", "rarity": "legendary", "desc": "闯过天关1200层的里程碑奖励", "drop_rate": 0}, 
-	"百关锦囊·十三": {"name": "百关锦囊·十三", "type": "gift", "rarity": "legendary", "desc": "闯过天关1300层的里程碑奖励", "drop_rate": 0}, 
-	"百关锦囊·十四": {"name": "百关锦囊·十四", "type": "gift", "rarity": "legendary", "desc": "闯过天关1400层的里程碑奖励", "drop_rate": 0}, 
-	"百关锦囊·十五": {"name": "百关锦囊·十五", "type": "gift", "rarity": "legendary", "desc": "闯过天关1500层的里程碑奖励", "drop_rate": 0}, 
-	"百关锦囊·十六": {"name": "百关锦囊·十六", "type": "gift", "rarity": "legendary", "desc": "闯过天关1600层的里程碑奖励", "drop_rate": 0}, 
-	"百关锦囊·十七": {"name": "百关锦囊·十七", "type": "gift", "rarity": "legendary", "desc": "闯过天关1700层的里程碑奖励", "drop_rate": 0}, 
-	"百关锦囊·十八": {"name": "百关锦囊·十八", "type": "gift", "rarity": "legendary", "desc": "闯过天关1800层的里程碑奖励", "drop_rate": 0}, 
-	"百关锦囊·十九": {"name": "百关锦囊·十九", "type": "gift", "rarity": "legendary", "desc": "闯过天关1900层的里程碑奖励", "drop_rate": 0}, 
-	"百关锦囊·二十": {"name": "百关锦囊·二十", "type": "gift", "rarity": "legendary", "desc": "闯过天关2000层的里程碑奖励，天关终极挑战！", "drop_rate": 0}, 
-	"离线宠物锦囊": {"name": "离线宠物锦囊", "type": "gift", "rarity": "rare", "desc": "打开可获得一只极品宠物，宠物来自离线挂机地图", "drop_rate": 0}, 
-	"人物经验丹": {"name": "人物经验丹", "type": "gift", "rarity": "legendary", "desc": "使用后人物直接提升到1200级（满级），获得所有升级属性", "drop_rate": 0}, 
-	"宠物经验丹": {"name": "宠物经验丹", "type": "gift", "rarity": "legendary", "desc": "使用后出战宠物直接升到满级（可进化宠1200级，不可进化宠1500级）", "drop_rate": 0}, 
-	"五阶宠物锦囊": {"name": "五阶宠物锦囊", "type": "gift", "rarity": "rare", "desc": "打开后随机获得一只成长5.0-6.0的宠物", "drop_rate": 0}, 
-	"六阶可进化宠锦囊": {"name": "六阶可进化宠锦囊", "type": "gift", "rarity": "epic", "desc": "打开后随机获得一只成长6.0-6.9的1级初级形态可进化宠（超稀有总概率1%）", "drop_rate": 0}, 
-	"七阶可进化宠锦囊": {"name": "七阶可进化宠锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长7.0-7.3的1级初级形态可进化宠（超稀有总概率1%）", "drop_rate": 0}, 
-	"六阶不可进化宠锦囊": {"name": "六阶不可进化宠锦囊", "type": "gift", "rarity": "epic", "desc": "打开后随机获得一只1级0代不可进化宠，成长6.0-6.5；不含活动限定宠物", "drop_rate": 0}, 
-	"七阶不可进化宠锦囊": {"name": "七阶不可进化宠锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级0代不可进化宠，成长7.0-7.5；不含活动限定宠物", "drop_rate": 0}, 
-	"八阶不可进化宠锦囊": {"name": "八阶不可进化宠锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级0代不可进化宠，成长8.0-8.5；不含活动限定宠物", "drop_rate": 0}, 
-	"八阶可进化宠锦囊": {"name": "八阶可进化宠锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长8.0-8.9的1级初级形态可进化宠（超稀有总概率1%）", "drop_rate": 0}, 
-	"九阶可进化宠锦囊": {"name": "九阶可进化宠锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长9.0-9.9的1级初级形态可进化宠（超稀有总概率1%）", "drop_rate": 0}, 
-	"九阶不可进化宠锦囊": {"name": "九阶不可进化宠锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级0代不可进化宠，成长9.0-9.5；不含活动限定宠物", "drop_rate": 0}, 
-	"十阶不可进化宠锦囊": {"name": "十阶不可进化宠锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级0代不可进化宠，成长10.0-10.5；不含活动限定宠物", "drop_rate": 0}, 
-	"十一阶不可进化宠锦囊": {"name": "十一阶不可进化宠锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级0代不可进化宠，成长11.0-11.5；不含活动限定宠物", "drop_rate": 0}, 
-	"十阶可进化宠锦囊": {"name": "十阶可进化宠锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长10.0-10.9的1级初级形态可进化宠（超稀有总概率1%）", "drop_rate": 0}, 
-	"十一阶可进化宠锦囊": {"name": "十一阶可进化宠锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长11.0-11.9的1级初级形态可进化宠（超稀有总概率1%）", "drop_rate": 0}, 
-	"十二阶不可进化宠锦囊": {"name": "十二阶不可进化宠锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级0代不可进化宠，成长12.0-12.5；不含活动限定宠物", "drop_rate": 0}, 
-	"十二阶可进化宠锦囊": {"name": "十二阶可进化宠锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长12.0-12.99的1级初级形态可进化宠（超稀有总概率1%）", "drop_rate": 0}, 
-	"十三阶不可进化宠锦囊": {"name": "十三阶不可进化宠锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级0代不可进化宠，成长13.0-13.5；不含活动限定宠物", "drop_rate": 0}, 
-	"十三阶可进化宠锦囊": {"name": "十三阶可进化宠锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长13.0-13.99的1级初级形态可进化宠（超稀有总概率1%）", "drop_rate": 0}, 
-	"六阶可进化宠锦囊（变异）": {"name": "六阶可进化宠锦囊（变异）", "type": "gift", "rarity": "epic", "desc": "打开后随机获得一只成长6.0-6.9的1级可进化宠，约10%几率获得变异1", "drop_rate": 0}, 
-	"七阶可进化宠锦囊（变异）": {"name": "七阶可进化宠锦囊（变异）", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长7.0-7.3的1级可进化宠，约10%几率获得变异1", "drop_rate": 0}, 
-	"八阶可进化宠锦囊（变异）": {"name": "八阶可进化宠锦囊（变异）", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长8.0-8.9的1级可进化宠，约10%几率获得变异1", "drop_rate": 0}, 
-	"九阶可进化宠锦囊（变异）": {"name": "九阶可进化宠锦囊（变异）", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长9.0-9.9的1级可进化宠，约10%几率获得变异1", "drop_rate": 0}, 
-	"十阶可进化宠锦囊（变异）": {"name": "十阶可进化宠锦囊（变异）", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长10.0-10.9的1级可进化宠，约10%几率获得变异1", "drop_rate": 0}, 
-	"十一阶可进化宠锦囊（变异）": {"name": "十一阶可进化宠锦囊（变异）", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长11.0-11.9的1级可进化宠，约10%几率获得变异1", "drop_rate": 0}, 
-	"十二阶可进化宠锦囊（变异）": {"name": "十二阶可进化宠锦囊（变异）", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长12.0-12.99的1级可进化宠，约10%几率获得变异1", "drop_rate": 0}, 
-	"十三阶可进化宠锦囊（变异）": {"name": "十三阶可进化宠锦囊（变异）", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长13.0-13.99的1级可进化宠，约10%几率获得变异1", "drop_rate": 0}, 
-	"六阶不可进化宠锦囊（变异）": {"name": "六阶不可进化宠锦囊（变异）", "type": "gift", "rarity": "epic", "desc": "打开后随机获得一只1级不可进化宠，成长6.0-6.5，约10%几率获得变异1；不含活动限定宠物", "drop_rate": 0}, 
-	"七阶不可进化宠锦囊（变异）": {"name": "七阶不可进化宠锦囊（变异）", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级不可进化宠，成长7.0-7.5，约10%几率获得变异1；不含活动限定宠物", "drop_rate": 0}, 
-	"八阶不可进化宠锦囊（变异）": {"name": "八阶不可进化宠锦囊（变异）", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级不可进化宠，成长8.0-8.5，约10%几率获得变异1；不含活动限定宠物", "drop_rate": 0}, 
-	"九阶不可进化宠锦囊（变异）": {"name": "九阶不可进化宠锦囊（变异）", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级不可进化宠，成长9.0-9.5，约10%几率获得变异1；不含活动限定宠物", "drop_rate": 0}, 
-	"十阶不可进化宠锦囊（变异）": {"name": "十阶不可进化宠锦囊（变异）", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级不可进化宠，成长10.0-10.5，约10%几率获得变异1；不含活动限定宠物", "drop_rate": 0}, 
-	"十一阶不可进化宠锦囊（变异）": {"name": "十一阶不可进化宠锦囊（变异）", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级不可进化宠，成长11.0-11.5，约10%几率获得变异1；不含活动限定宠物", "drop_rate": 0}, 
-	"十二阶不可进化宠锦囊（变异）": {"name": "十二阶不可进化宠锦囊（变异）", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级不可进化宠，成长12.0-12.5，约10%几率获得变异1；不含活动限定宠物", "drop_rate": 0}, 
-	"十三阶不可进化宠锦囊（变异）": {"name": "十三阶不可进化宠锦囊（变异）", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级不可进化宠，成长13.0-13.5，约10%几率获得变异1；不含活动限定宠物", "drop_rate": 0}, 
-	"十至十三阶变异宠锦囊": {"name": "十至十三阶变异宠锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级变异1不可进化宠，成长10.0-13.5；不含活动限定宠物", "drop_rate": 0}, 
-	"十至十三阶变异可进化锦囊": {"name": "十至十三阶变异可进化锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级幼年形态变异1可进化宠，成长10.0-13.99（超稀有总概率1%）", "drop_rate": 0}, 
-	"七至九阶晶儿锦囊": {"name": "七至九阶晶儿锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长7.0-9.9的1级初级形态水晶儿", "drop_rate": 0}, 
-	"七至九阶梦晶锦囊": {"name": "七至九阶梦晶锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长7.0-9.9的1级初级形态梦晶儿", "drop_rate": 0}, 
-	"七至九阶阿弟锦囊": {"name": "七至九阶阿弟锦囊", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长7.0-9.9的1级初级形态阿弟达斯", "drop_rate": 0}, 
-	"金系转生令": {"name": "金系转生令", "type": "material", "rarity": "epic", "desc": "金系宠物转生材料", "drop_rate": 0}, 
-	"木系转生令": {"name": "木系转生令", "type": "material", "rarity": "epic", "desc": "木系宠物转生材料", "drop_rate": 0}, 
-	"水系转生令": {"name": "水系转生令", "type": "material", "rarity": "epic", "desc": "水系宠物转生材料", "drop_rate": 0}, 
-	"火系转生令": {"name": "火系转生令", "type": "material", "rarity": "epic", "desc": "火系宠物转生材料", "drop_rate": 0}, 
-	"土系转生令": {"name": "土系转生令", "type": "material", "rarity": "epic", "desc": "土系宠物转生材料", "drop_rate": 0}, 
-	"金魂魄": {"name": "金魂魄", "type": "pet_soul_item", "rarity": "rare", "desc": "使用后获得金属性宠物魂魄50点", "soul_element": "金", "soul_points": 50, "drop_rate": 0}, 
-	"木魂魄": {"name": "木魂魄", "type": "pet_soul_item", "rarity": "rare", "desc": "使用后获得木属性宠物魂魄50点", "soul_element": "木", "soul_points": 50, "drop_rate": 0}, 
-	"水魂魄": {"name": "水魂魄", "type": "pet_soul_item", "rarity": "rare", "desc": "使用后获得水属性宠物魂魄50点", "soul_element": "水", "soul_points": 50, "drop_rate": 0}, 
-	"火魂魄": {"name": "火魂魄", "type": "pet_soul_item", "rarity": "rare", "desc": "使用后获得火属性宠物魂魄50点", "soul_element": "火", "soul_points": 50, "drop_rate": 0}, 
-	"土魂魄": {"name": "土魂魄", "type": "pet_soul_item", "rarity": "rare", "desc": "使用后获得土属性宠物魂魄50点", "soul_element": "土", "soul_points": 50, "drop_rate": 0}, 
+	"内测先锋礼包": {"name": "内测先锋礼包", "type": "gift", "rarity": "legendary", "desc": "打开后获得1亿金币、1只成长6.0赤翅蛾和一套单属性+100装备", "drop_rate": 0}, 
+	"新人扶持礼包": {"name": "新人扶持礼包", "type": "gift", "rarity": "legendary", "desc": "打开后获得1亿金币、1只成长6.0赤翅蛾和一套单属性+100装备", "drop_rate": 0}, 
+	"开荒礼包": {"name": "开荒礼包", "type": "gift", "rarity": "legendary", "desc": "打开后获得5亿金币、7只成长6.0赤翅蛾和一套单属性+400装备", "drop_rate": 0}, 
+	"五一活动礼包": {"name": "五一活动礼包", "type": "gift", "rarity": "legendary", "desc": "2026五一活动限定礼包，打开后随机获得节日奖励。", "drop_rate": 0}, 
+	"端午节礼包": {"name": "端午节礼包", "type": "gift", "rarity": "legendary", "desc": "2026端午节活动限定礼包，打开后随机获得节日奖励。", "drop_rate": 0}, 
+	"七夕节礼包": {"name": "七夕节礼包", "type": "gift", "rarity": "legendary", "desc": "2026七夕节活动限定礼包，打开后随机获得节日奖励。", "drop_rate": 0},               
+	"极限装备礼包": {"name": "极限装备礼包", "type": "gift", "rarity": "legendary", "desc": "打开后获得极限武器、极限衣服、极限鞋子、极限血佩和极限内带", "drop_rate": 0}, 
+	"悟道仙丹礼包": {"name": "悟道仙丹礼包", "type": "gift", "rarity": "legendary", "desc": "打开后获得开悟丹 x50", "drop_rate": 0}, 
+	"100关礼包": {"name": "100关礼包", "type": "gift", "rarity": "legendary", "desc": "闯过天关100层的里程碑奖励", "drop_rate": 0}, 
+	"200关礼包": {"name": "200关礼包", "type": "gift", "rarity": "legendary", "desc": "闯过天关200层的里程碑奖励", "drop_rate": 0}, 
+	"300关礼包": {"name": "300关礼包", "type": "gift", "rarity": "legendary", "desc": "闯过天关300层的里程碑奖励", "drop_rate": 0}, 
+	"400关礼包": {"name": "400关礼包", "type": "gift", "rarity": "legendary", "desc": "闯过天关400层的里程碑奖励", "drop_rate": 0}, 
+	"500关礼包": {"name": "500关礼包", "type": "gift", "rarity": "legendary", "desc": "闯过天关500层的里程碑奖励", "drop_rate": 0}, 
+	"600关礼包": {"name": "600关礼包", "type": "gift", "rarity": "legendary", "desc": "闯过天关600层的里程碑奖励", "drop_rate": 0}, 
+	"700关礼包": {"name": "700关礼包", "type": "gift", "rarity": "legendary", "desc": "闯过天关700层的里程碑奖励", "drop_rate": 0}, 
+	"800关礼包": {"name": "800关礼包", "type": "gift", "rarity": "legendary", "desc": "闯过天关800层的里程碑奖励", "drop_rate": 0}, 
+	"900关礼包": {"name": "900关礼包", "type": "gift", "rarity": "legendary", "desc": "闯过天关900层的里程碑奖励", "drop_rate": 0}, 
+	"1000关礼包": {"name": "1000关礼包", "type": "gift", "rarity": "legendary", "desc": "闯过天关1000层的里程碑奖励", "drop_rate": 0}, 
+	"1100关礼包": {"name": "1100关礼包", "type": "gift", "rarity": "legendary", "desc": "闯过天关1100层的里程碑奖励", "drop_rate": 0}, 
+	"1200关礼包": {"name": "1200关礼包", "type": "gift", "rarity": "legendary", "desc": "闯过天关1200层的里程碑奖励", "drop_rate": 0}, 
+	"1300关礼包": {"name": "1300关礼包", "type": "gift", "rarity": "legendary", "desc": "闯过天关1300层的里程碑奖励", "drop_rate": 0}, 
+	"1400关礼包": {"name": "1400关礼包", "type": "gift", "rarity": "legendary", "desc": "闯过天关1400层的里程碑奖励", "drop_rate": 0}, 
+	"1500关礼包": {"name": "1500关礼包", "type": "gift", "rarity": "legendary", "desc": "闯过天关1500层的里程碑奖励", "drop_rate": 0}, 
+	"1600关礼包": {"name": "1600关礼包", "type": "gift", "rarity": "legendary", "desc": "闯过天关1600层的里程碑奖励", "drop_rate": 0}, 
+	"1700关礼包": {"name": "1700关礼包", "type": "gift", "rarity": "legendary", "desc": "闯过天关1700层的里程碑奖励", "drop_rate": 0}, 
+	"1800关礼包": {"name": "1800关礼包", "type": "gift", "rarity": "legendary", "desc": "闯过天关1800层的里程碑奖励", "drop_rate": 0}, 
+	"1900关礼包": {"name": "1900关礼包", "type": "gift", "rarity": "legendary", "desc": "闯过天关1900层的里程碑奖励", "drop_rate": 0}, 
+	"2000关礼包": {"name": "2000关礼包", "type": "gift", "rarity": "legendary", "desc": "闯过天关2000层的里程碑奖励，天关终极挑战！", "drop_rate": 0}, 
+	"离线宠物礼包": {"name": "离线宠物礼包", "type": "gift", "rarity": "rare", "desc": "打开可获得一只极品宠物，宠物来自离线挂机地图", "drop_rate": 0}, 
+	"人物升级丹": {"name": "人物升级丹", "type": "gift", "rarity": "legendary", "desc": "使用后人物直接提升到1200级（满级），获得所有升级属性", "drop_rate": 0}, 
+	"宠物升级丹": {"name": "宠物升级丹", "type": "gift", "rarity": "legendary", "desc": "使用后出战宠物直接升到满级（可进化宠1200级，不可进化宠1500级）", "drop_rate": 0}, 
+	"5+宠物礼包": {"name": "5+宠物礼包", "type": "gift", "rarity": "rare", "desc": "打开后随机获得一只成长5.0-6.0的宠物", "drop_rate": 0}, 
+	"6+可进化宠礼包": {"name": "6+可进化宠礼包", "type": "gift", "rarity": "epic", "desc": "打开后随机获得一只成长6.0-6.9的1级初级形态可进化宠（超稀有总概率1%）", "drop_rate": 0}, 
+	"7+可进化宠礼包": {"name": "7+可进化宠礼包", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长7.0-7.3的1级初级形态可进化宠（超稀有总概率1%）", "drop_rate": 0}, 
+	"6+不可进化宠礼包": {"name": "6+不可进化宠礼包", "type": "gift", "rarity": "epic", "desc": "打开后随机获得一只1级0代不可进化宠，成长6.0-6.5；不含活动限定宠物", "drop_rate": 0}, 
+	"7+不可进化宠礼包": {"name": "7+不可进化宠礼包", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级0代不可进化宠，成长7.0-7.5；不含活动限定宠物", "drop_rate": 0}, 
+	"8+不可进化宠礼包": {"name": "8+不可进化宠礼包", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级0代不可进化宠，成长8.0-8.5；不含活动限定宠物", "drop_rate": 0}, 
+	"8+可进化宠礼包": {"name": "8+可进化宠礼包", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长8.0-8.9的1级初级形态可进化宠（超稀有总概率1%）", "drop_rate": 0}, 
+	"9+可进化宠礼包": {"name": "9+可进化宠礼包", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长9.0-9.9的1级初级形态可进化宠（超稀有总概率1%）", "drop_rate": 0}, 
+	"9+不可进化宠礼包": {"name": "9+不可进化宠礼包", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级0代不可进化宠，成长9.0-9.5；不含活动限定宠物", "drop_rate": 0}, 
+	"10+不可进化宠礼包": {"name": "10+不可进化宠礼包", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级0代不可进化宠，成长10.0-10.5；不含活动限定宠物", "drop_rate": 0}, 
+	"11+不可进化宠礼包": {"name": "11+不可进化宠礼包", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级0代不可进化宠，成长11.0-11.5；不含活动限定宠物", "drop_rate": 0}, 
+	"10+可进化宠礼包": {"name": "10+可进化宠礼包", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长10.0-10.9的1级初级形态可进化宠（超稀有总概率1%）", "drop_rate": 0}, 
+	"11+可进化宠礼包": {"name": "11+可进化宠礼包", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长11.0-11.9的1级初级形态可进化宠（超稀有总概率1%）", "drop_rate": 0}, 
+	"12+不可进化宠礼包": {"name": "12+不可进化宠礼包", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级0代不可进化宠，成长12.0-12.5；不含活动限定宠物", "drop_rate": 0}, 
+	"12+可进化宠礼包": {"name": "12+可进化宠礼包", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长12.0-12.99的1级初级形态可进化宠（超稀有总概率1%）", "drop_rate": 0}, 
+	"13+不可进化宠礼包": {"name": "13+不可进化宠礼包", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级0代不可进化宠，成长13.0-13.5；不含活动限定宠物", "drop_rate": 0}, 
+	"13+可进化宠礼包": {"name": "13+可进化宠礼包", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长13.0-13.99的1级初级形态可进化宠（超稀有总概率1%）", "drop_rate": 0}, 
+	"6+可进化宠礼包(可能变异)": {"name": "6+可进化宠礼包(可能变异)", "type": "gift", "rarity": "epic", "desc": "打开后随机获得一只成长6.0-6.9的1级可进化宠，约10%几率获得变异1", "drop_rate": 0}, 
+	"7+可进化宠礼包(可能变异)": {"name": "7+可进化宠礼包(可能变异)", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长7.0-7.3的1级可进化宠，约10%几率获得变异1", "drop_rate": 0}, 
+	"8+可进化宠礼包(可能变异)": {"name": "8+可进化宠礼包(可能变异)", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长8.0-8.9的1级可进化宠，约10%几率获得变异1", "drop_rate": 0}, 
+	"9+可进化宠礼包(可能变异)": {"name": "9+可进化宠礼包(可能变异)", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长9.0-9.9的1级可进化宠，约10%几率获得变异1", "drop_rate": 0}, 
+	"10+可进化宠礼包(可能变异)": {"name": "10+可进化宠礼包(可能变异)", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长10.0-10.9的1级可进化宠，约10%几率获得变异1", "drop_rate": 0}, 
+	"11+可进化宠礼包(可能变异)": {"name": "11+可进化宠礼包(可能变异)", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长11.0-11.9的1级可进化宠，约10%几率获得变异1", "drop_rate": 0}, 
+	"12+可进化宠礼包(可能变异)": {"name": "12+可进化宠礼包(可能变异)", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长12.0-12.99的1级可进化宠，约10%几率获得变异1", "drop_rate": 0}, 
+	"13+可进化宠礼包(可能变异)": {"name": "13+可进化宠礼包(可能变异)", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长13.0-13.99的1级可进化宠，约10%几率获得变异1", "drop_rate": 0}, 
+	"6+不可进化宠礼包(可能变异)": {"name": "6+不可进化宠礼包(可能变异)", "type": "gift", "rarity": "epic", "desc": "打开后随机获得一只1级不可进化宠，成长6.0-6.5，约10%几率获得变异1；不含活动限定宠物", "drop_rate": 0}, 
+	"7+不可进化宠礼包(可能变异)": {"name": "7+不可进化宠礼包(可能变异)", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级不可进化宠，成长7.0-7.5，约10%几率获得变异1；不含活动限定宠物", "drop_rate": 0}, 
+	"8+不可进化宠礼包(可能变异)": {"name": "8+不可进化宠礼包(可能变异)", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级不可进化宠，成长8.0-8.5，约10%几率获得变异1；不含活动限定宠物", "drop_rate": 0}, 
+	"9+不可进化宠礼包(可能变异)": {"name": "9+不可进化宠礼包(可能变异)", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级不可进化宠，成长9.0-9.5，约10%几率获得变异1；不含活动限定宠物", "drop_rate": 0}, 
+	"10+不可进化宠礼包(可能变异)": {"name": "10+不可进化宠礼包(可能变异)", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级不可进化宠，成长10.0-10.5，约10%几率获得变异1；不含活动限定宠物", "drop_rate": 0}, 
+	"11+不可进化宠礼包(可能变异)": {"name": "11+不可进化宠礼包(可能变异)", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级不可进化宠，成长11.0-11.5，约10%几率获得变异1；不含活动限定宠物", "drop_rate": 0}, 
+	"12+不可进化宠礼包(可能变异)": {"name": "12+不可进化宠礼包(可能变异)", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级不可进化宠，成长12.0-12.5，约10%几率获得变异1；不含活动限定宠物", "drop_rate": 0}, 
+	"13+不可进化宠礼包(可能变异)": {"name": "13+不可进化宠礼包(可能变异)", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级不可进化宠，成长13.0-13.5，约10%几率获得变异1；不含活动限定宠物", "drop_rate": 0}, 
+	"10-13变异不可进化宠礼包": {"name": "10-13变异不可进化宠礼包", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级变异1不可进化宠，成长10.0-13.5；不含活动限定宠物", "drop_rate": 0}, 
+	"10-13变异可进化宠礼包": {"name": "10-13变异可进化宠礼包", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级幼年形态变异1可进化宠，成长10.0-13.99（超稀有总概率1%）", "drop_rate": 0}, 
+	"7-9水晶儿礼包": {"name": "7-9水晶儿礼包", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长7.0-9.9的1级初级形态水晶儿", "drop_rate": 0}, 
+	"7-9梦晶儿礼包": {"name": "7-9梦晶儿礼包", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长7.0-9.9的1级初级形态梦晶儿", "drop_rate": 0}, 
+	"7-9阿弟达斯礼包": {"name": "7-9阿弟达斯礼包", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长7.0-9.9的1级初级形态阿弟达斯", "drop_rate": 0}, 
+	"金宠物转生令牌": {"name": "金宠物转生令牌", "type": "material", "rarity": "epic", "desc": "金系宠物转生材料", "drop_rate": 0}, 
+	"木宠物转生令牌": {"name": "木宠物转生令牌", "type": "material", "rarity": "epic", "desc": "木系宠物转生材料", "drop_rate": 0}, 
+	"水宠物转生令牌": {"name": "水宠物转生令牌", "type": "material", "rarity": "epic", "desc": "水系宠物转生材料", "drop_rate": 0}, 
+	"火宠物转生令牌": {"name": "火宠物转生令牌", "type": "material", "rarity": "epic", "desc": "火系宠物转生材料", "drop_rate": 0}, 
+	"土宠物转生令牌": {"name": "土宠物转生令牌", "type": "material", "rarity": "epic", "desc": "土系宠物转生材料", "drop_rate": 0}, 
+	"金魂魄50": {"name": "金魂魄50", "type": "pet_soul_item", "rarity": "rare", "desc": "使用后获得金属性宠物魂魄50点", "soul_element": "金", "soul_points": 50, "drop_rate": 0}, 
+	"木魂魄50": {"name": "木魂魄50", "type": "pet_soul_item", "rarity": "rare", "desc": "使用后获得木属性宠物魂魄50点", "soul_element": "木", "soul_points": 50, "drop_rate": 0}, 
+	"水魂魄50": {"name": "水魂魄50", "type": "pet_soul_item", "rarity": "rare", "desc": "使用后获得水属性宠物魂魄50点", "soul_element": "水", "soul_points": 50, "drop_rate": 0}, 
+	"火魂魄50": {"name": "火魂魄50", "type": "pet_soul_item", "rarity": "rare", "desc": "使用后获得火属性宠物魂魄50点", "soul_element": "火", "soul_points": 50, "drop_rate": 0}, 
+	"土魂魄50": {"name": "土魂魄50", "type": "pet_soul_item", "rarity": "rare", "desc": "使用后获得土属性宠物魂魄50点", "soul_element": "土", "soul_points": 50, "drop_rate": 0}, 
 	"幻化符": {"name": "幻化符", "type": "material", "rarity": "epic", "desc": "宠物幻化时勾选使用，消耗一张可使本次完美幻化几率提升15%", "drop_rate": 0}, 
-	"五阶宠物蛋": {"name": "五阶宠物蛋", "type": "pet_egg", "rarity": "rare", "desc": "打开后随机获得一只成长约5.0～6.0的宠物（与五行属性宠物蛋不同）", "drop_rate": 0}, 
-	"藏宝匣": {"name": "藏宝匣", "type": "treasure_chest", "rarity": "epic", "desc": "藏宝洞争夺获胜所得，在背包中使用可开启并获得随机奖励", "drop_rate": 0}, 
-	"青铜匣": {"name": "青铜匣", "type": "chest", "rarity": "uncommon", "desc": "幸运抽奖奖励物品，可在对应玩法中使用", "drop_rate": 0}, 
-	"白银匣": {"name": "白银匣", "type": "chest", "rarity": "rare", "desc": "幸运抽奖奖励物品，可在对应玩法中使用", "drop_rate": 0}, 
-	"黄金匣": {"name": "黄金匣", "type": "chest", "rarity": "epic", "desc": "幸运抽奖奖励物品，可在对应玩法中使用", "drop_rate": 0}, 
+	"5+宠物蛋": {"name": "5+宠物蛋", "type": "pet_egg", "rarity": "rare", "desc": "打开后随机获得一只成长约5.0～6.0的宠物（与五行属性宠物蛋不同）", "drop_rate": 0}, 
+	"藏宝箱": {"name": "藏宝箱", "type": "treasure_chest", "rarity": "epic", "desc": "藏宝洞争夺获胜所得，在背包中使用可开启并获得随机奖励", "drop_rate": 0}, 
+	"青铜宝箱": {"name": "青铜宝箱", "type": "chest", "rarity": "uncommon", "desc": "幸运抽奖奖励物品，可在对应玩法中使用", "drop_rate": 0}, 
+	"白银宝箱": {"name": "白银宝箱", "type": "chest", "rarity": "rare", "desc": "幸运抽奖奖励物品，可在对应玩法中使用", "drop_rate": 0}, 
+	"黄金宝箱": {"name": "黄金宝箱", "type": "chest", "rarity": "epic", "desc": "幸运抽奖奖励物品，可在对应玩法中使用", "drop_rate": 0}, 
 	"极限武器": {"name": "极限武器", "type": "material", "rarity": "legendary", "desc": "可用于锻造属性转移的极限装备材料", "drop_rate": 0}, 
 	"极限衣服": {"name": "极限衣服", "type": "material", "rarity": "legendary", "desc": "可用于锻造属性转移的极限装备材料", "drop_rate": 0}, 
 	"极限鞋子": {"name": "极限鞋子", "type": "material", "rarity": "legendary", "desc": "可用于锻造属性转移的极限装备材料", "drop_rate": 0}, 
 	"极限血佩": {"name": "极限血佩", "type": "material", "rarity": "legendary", "desc": "可用于锻造属性转移的极限装备材料", "drop_rate": 0}, 
 	"极限血配": {"name": "极限血佩", "type": "material", "rarity": "legendary", "desc": "可用于锻造属性转移的极限装备材料", "drop_rate": 0}, 
 	"极限内带": {"name": "极限内带", "type": "material", "rarity": "legendary", "desc": "可用于锻造属性转移的极限装备材料", "drop_rate": 0}, 
-	"测试锦囊": {"name": "测试锦囊", "type": "gift", "rarity": "divine", "desc": "GM测试专用礼包，打开获得测试装备、8只赤翅蛾和1亿金币", "drop_rate": 0}, 
-	"开荒宠装锦囊": {"name": "开荒宠装锦囊", "type": "gift", "rarity": "legendary", "desc": "打开获得一套各单属性+500的宠物装备（开荒武器/护甲等，带宠字后缀）", "drop_rate": 0}, 
+	"测试礼包": {"name": "测试礼包", "type": "gift", "rarity": "divine", "desc": "GM测试专用礼包，打开获得测试装备、8只赤翅蛾和1亿金币", "drop_rate": 0}, 
+	"开荒宠装礼包": {"name": "开荒宠装礼包", "type": "gift", "rarity": "legendary", "desc": "打开获得一套各单属性+500的宠物装备（开荒武器/护甲等，带宠字后缀）", "drop_rate": 0}, 
 
-	"仙魔灵兽锦囊": {"name": "仙魔灵兽锦囊", "type": "gift", "rarity": "epic", "desc": "仙魔战场获得的灵兽礼包，打开后随机获得一只宠物库中的宠物，成长5.0-6.0", "drop_rate": 0}, 
-	"仙魔神兽锦囊": {"name": "仙魔神兽锦囊", "type": "gift", "rarity": "legendary", "desc": "仙魔战场获得的神兽礼包，打开后随机获得一只宠物库中的宠物，成长6.2-6.8", "drop_rate": 0}, 
-	"仙魔变异锦囊": {"name": "仙魔变异锦囊", "type": "gift", "rarity": "legendary", "desc": "仙魔战场获得的变异灵兽礼包，打开后随机获得一只宠物库中的宠物，成长6.0-6.5", "drop_rate": 0}, 
-	"仙魔野生锦囊": {"name": "仙魔野生锦囊", "type": "gift", "rarity": "rare", "desc": "仙魔战场获得的野生灵兽礼包，打开后随机获得一只宠物库中的宠物，成长4.5-5.5", "drop_rate": 0}, 
+	"仙魔灵兽礼包": {"name": "仙魔灵兽礼包", "type": "gift", "rarity": "epic", "desc": "仙魔战场获得的灵兽礼包，打开后随机获得一只宠物库中的宠物，成长5.0-6.0", "drop_rate": 0}, 
+	"仙魔神兽礼包": {"name": "仙魔神兽礼包", "type": "gift", "rarity": "legendary", "desc": "仙魔战场获得的神兽礼包，打开后随机获得一只宠物库中的宠物，成长6.2-6.8", "drop_rate": 0}, 
+	"仙魔变异礼包": {"name": "仙魔变异礼包", "type": "gift", "rarity": "legendary", "desc": "仙魔战场获得的变异灵兽礼包，打开后随机获得一只宠物库中的宠物，成长6.0-6.5", "drop_rate": 0}, 
+	"仙魔野生礼包": {"name": "仙魔野生礼包", "type": "gift", "rarity": "rare", "desc": "仙魔战场获得的野生灵兽礼包，打开后随机获得一只宠物库中的宠物，成长4.5-5.5", "drop_rate": 0}, 
 
 
-	"试炼武器": {"name": "试炼武器", "type": "equipment", "rarity": "divine", "desc": "GM测试专用武器，攻击+500", "drop_rate": 0}, 
-	"试炼衣服": {"name": "试炼衣服", "type": "equipment", "rarity": "divine", "desc": "GM测试专用衣服，防御+500", "drop_rate": 0}, 
-	"试炼帽子": {"name": "试炼帽子", "type": "equipment", "rarity": "divine", "desc": "GM测试专用帽子，敏捷+500", "drop_rate": 0}, 
-	"试炼鞋子": {"name": "试炼鞋子", "type": "equipment", "rarity": "divine", "desc": "GM测试专用鞋子，生命+500", "drop_rate": 0}, 
-	"试炼饰品": {"name": "试炼饰品", "type": "equipment", "rarity": "divine", "desc": "GM测试专用饰品，法力+500", "drop_rate": 0}, 
+	"测试武器": {"name": "测试武器", "type": "equipment", "rarity": "divine", "desc": "GM测试专用武器，攻击+500", "drop_rate": 0}, 
+	"测试衣服": {"name": "测试衣服", "type": "equipment", "rarity": "divine", "desc": "GM测试专用衣服，防御+500", "drop_rate": 0}, 
+	"测试帽子": {"name": "测试帽子", "type": "equipment", "rarity": "divine", "desc": "GM测试专用帽子，敏捷+500", "drop_rate": 0}, 
+	"测试鞋子": {"name": "测试鞋子", "type": "equipment", "rarity": "divine", "desc": "GM测试专用鞋子，生命+500", "drop_rate": 0}, 
+	"测试饰品": {"name": "测试饰品", "type": "equipment", "rarity": "divine", "desc": "GM测试专用饰品，法力+500", "drop_rate": 0}, 
 
 
 	"强化石": {"name": "强化石", "type": "material", "rarity": "uncommon", "desc": "用于强化装备的材料", "drop_rate": 0}, 
 	"宠装碎片": {"name": "宠装碎片", "type": "material", "rarity": "uncommon", "desc": "分解由青铜、白银、黄金类宝箱产出的宠物装备可得；按装备档次，青铜系得1片、银月系得2片、金鳞系得3片。集齐10片可合成1枚宠装强化石。", "drop_rate": 0}, 
-	"一阶法宝碎片": {"name": "一阶法宝碎片", "type": "material", "rarity": "common", "desc": "仅1000级及以上野外地图、普通难度掉落，100片可合成普通法宝。", "drop_rate": 0}, 
-	"二阶法宝碎片": {"name": "二阶法宝碎片", "type": "material", "rarity": "uncommon", "desc": "仅1000级及以上野外地图、困难难度掉落，100片可合成困难法宝。", "drop_rate": 0}, 
-	"三阶法宝碎片": {"name": "三阶法宝碎片", "type": "material", "rarity": "uncommon", "desc": "仅1000级及以上野外地图、地狱难度掉落，100片可合成地狱法宝。", "drop_rate": 0}, 
-	"四阶法宝碎片": {"name": "四阶法宝碎片", "type": "material", "rarity": "rare", "desc": "仅1000级及以上野外地图、史诗难度掉落，100片可合成史诗法宝。", "drop_rate": 0}, 
-	"五阶法宝碎片": {"name": "五阶法宝碎片", "type": "material", "rarity": "rare", "desc": "仅1000级及以上野外地图、传说难度掉落，100片可合成传说法宝。", "drop_rate": 0}, 
-	"六阶法宝碎片": {"name": "六阶法宝碎片", "type": "material", "rarity": "epic", "desc": "仅1000级及以上野外地图、至尊难度掉落，100片可合成至尊法宝。", "drop_rate": 0}, 
-	"七阶法宝碎片": {"name": "七阶法宝碎片", "type": "material", "rarity": "epic", "desc": "仅1000级及以上野外地图、混沌难度掉落，100片可合成混沌法宝。", "drop_rate": 0}, 
-	"八阶法宝碎片": {"name": "八阶法宝碎片", "type": "material", "rarity": "legendary", "desc": "仅1000级及以上野外地图、无上难度掉落，100片可合成无上法宝。", "drop_rate": 0}, 
-	"周年法宝碎片": {"name": "周年法宝碎片", "type": "material", "rarity": "legendary", "desc": "仅元宝抽奖获得，100片可合成2026纪念法宝。", "drop_rate": 0}, 
+	"普通法宝碎片": {"name": "普通法宝碎片", "type": "material", "rarity": "common", "desc": "仅1000级及以上野外地图、普通难度掉落，100片可合成普通法宝。", "drop_rate": 0}, 
+	"困难法宝碎片": {"name": "困难法宝碎片", "type": "material", "rarity": "uncommon", "desc": "仅1000级及以上野外地图、困难难度掉落，100片可合成困难法宝。", "drop_rate": 0}, 
+	"地狱法宝碎片": {"name": "地狱法宝碎片", "type": "material", "rarity": "uncommon", "desc": "仅1000级及以上野外地图、地狱难度掉落，100片可合成地狱法宝。", "drop_rate": 0}, 
+	"史诗法宝碎片": {"name": "史诗法宝碎片", "type": "material", "rarity": "rare", "desc": "仅1000级及以上野外地图、史诗难度掉落，100片可合成史诗法宝。", "drop_rate": 0}, 
+	"传说法宝碎片": {"name": "传说法宝碎片", "type": "material", "rarity": "rare", "desc": "仅1000级及以上野外地图、传说难度掉落，100片可合成传说法宝。", "drop_rate": 0}, 
+	"至尊法宝碎片": {"name": "至尊法宝碎片", "type": "material", "rarity": "epic", "desc": "仅1000级及以上野外地图、至尊难度掉落，100片可合成至尊法宝。", "drop_rate": 0}, 
+	"混沌法宝碎片": {"name": "混沌法宝碎片", "type": "material", "rarity": "epic", "desc": "仅1000级及以上野外地图、混沌难度掉落，100片可合成混沌法宝。", "drop_rate": 0}, 
+	"无上法宝碎片": {"name": "无上法宝碎片", "type": "material", "rarity": "legendary", "desc": "仅1000级及以上野外地图、无上难度掉落，100片可合成无上法宝。", "drop_rate": 0}, 
+	"2026纪念法宝碎片": {"name": "2026纪念法宝碎片", "type": "material", "rarity": "legendary", "desc": "仅元宝抽奖获得，100片可合成2026纪念法宝。", "drop_rate": 0}, 
 	"法宝洗练石": {"name": "法宝洗练石", "type": "material", "rarity": "rare", "desc": "用于洗练未穿戴法宝的词条数值（种类不变）。商店街友情点商店可购买。", "drop_rate": 0}, 
 	"法宝重置石": {"name": "法宝重置石", "type": "material", "rarity": "rare", "desc": "用于重置未穿戴法宝的未锁定词条种类（锁定条不动，词条不重复）。由邮件发放。", "drop_rate": 0}, 
 	"宠装强化石": {"name": "宠装强化石", "type": "material", "rarity": "rare", "desc": "在打造坊宠装强化中使用，可为任意宠物装备提升强化等级（最高+9）", "drop_rate": 0}, 
@@ -8271,20 +8185,20 @@ const ALL_ITEMS = {
 
 
 
-	"解封石": {"name": "解封石", "type": "material", "rarity": "rare", "desc": "可用于解封1-10层的封印套装；10颗可合成1颗高级解封石", "drop_rate": 0}, 
+	"普通解封石": {"name": "普通解封石", "type": "material", "rarity": "rare", "desc": "可用于解封1-10层的封印套装；10颗可合成1颗高级解封石", "drop_rate": 0}, 
 	"高级解封石": {"name": "高级解封石", "type": "material", "rarity": "epic", "desc": "可用于解封11-21层的封印套装", "drop_rate": 0}, 
 
 
-	"火纹蛋": {"name": "火纹蛋", "type": "pet_egg", "rarity": "epic", "desc": "五行属性宠物蛋之一，打开随机获得火属性宠物，成长约4.0～7.0", "drop_rate": 0}, 
-	"水纹蛋": {"name": "水纹蛋", "type": "pet_egg", "rarity": "epic", "desc": "五行属性宠物蛋之一，打开随机获得水属性宠物，成长约4.0～7.0", "drop_rate": 0}, 
-	"木纹蛋": {"name": "木纹蛋", "type": "pet_egg", "rarity": "epic", "desc": "五行属性宠物蛋之一，打开随机获得木属性宠物，成长约4.0～7.0", "drop_rate": 0}, 
-	"金纹蛋": {"name": "金纹蛋", "type": "pet_egg", "rarity": "epic", "desc": "五行属性宠物蛋之一，打开随机获得金属性宠物，成长约4.0～7.0", "drop_rate": 0}, 
-	"土纹蛋": {"name": "土纹蛋", "type": "pet_egg", "rarity": "epic", "desc": "五行属性宠物蛋之一，打开随机获得土属性宠物，成长约4.0～7.0", "drop_rate": 0}, 
-	"金纹异蛋": {"name": "金纹异蛋", "type": "pet_egg", "rarity": "legendary", "desc": "打开获得一只1级0代变异1金属性宠物，成长约6.0～7.9（不含活动限定/BOSS等特殊宠）", "drop_rate": 0}, 
-	"木纹异蛋": {"name": "木纹异蛋", "type": "pet_egg", "rarity": "legendary", "desc": "打开获得一只1级0代变异1木属性宠物，成长约6.0～7.9（不含活动限定/BOSS等特殊宠）", "drop_rate": 0}, 
-	"水纹异蛋": {"name": "水纹异蛋", "type": "pet_egg", "rarity": "legendary", "desc": "打开获得一只1级0代变异1水属性宠物，成长约6.0～7.9（不含活动限定/BOSS等特殊宠）", "drop_rate": 0}, 
-	"火纹异蛋": {"name": "火纹异蛋", "type": "pet_egg", "rarity": "legendary", "desc": "打开获得一只1级0代变异1火属性宠物，成长约6.0～7.9（不含活动限定/BOSS等特殊宠）", "drop_rate": 0}, 
-	"土纹异蛋": {"name": "土纹异蛋", "type": "pet_egg", "rarity": "legendary", "desc": "打开获得一只1级0代变异1土属性宠物，成长约6.0～7.9（不含活动限定/BOSS等特殊宠）", "drop_rate": 0}, 
+	"火属性宠物蛋": {"name": "火属性宠物蛋", "type": "pet_egg", "rarity": "epic", "desc": "五行属性宠物蛋之一，打开随机获得火属性宠物，成长约4.0～7.0", "drop_rate": 0}, 
+	"水属性宠物蛋": {"name": "水属性宠物蛋", "type": "pet_egg", "rarity": "epic", "desc": "五行属性宠物蛋之一，打开随机获得水属性宠物，成长约4.0～7.0", "drop_rate": 0}, 
+	"木属性宠物蛋": {"name": "木属性宠物蛋", "type": "pet_egg", "rarity": "epic", "desc": "五行属性宠物蛋之一，打开随机获得木属性宠物，成长约4.0～7.0", "drop_rate": 0}, 
+	"金属性宠物蛋": {"name": "金属性宠物蛋", "type": "pet_egg", "rarity": "epic", "desc": "五行属性宠物蛋之一，打开随机获得金属性宠物，成长约4.0～7.0", "drop_rate": 0}, 
+	"土属性宠物蛋": {"name": "土属性宠物蛋", "type": "pet_egg", "rarity": "epic", "desc": "五行属性宠物蛋之一，打开随机获得土属性宠物，成长约4.0～7.0", "drop_rate": 0}, 
+	"金变异宠物蛋": {"name": "金变异宠物蛋", "type": "pet_egg", "rarity": "legendary", "desc": "打开获得一只1级0代变异1金属性宠物，成长约6.0～7.9（不含活动限定/BOSS等特殊宠）", "drop_rate": 0}, 
+	"木变异宠物蛋": {"name": "木变异宠物蛋", "type": "pet_egg", "rarity": "legendary", "desc": "打开获得一只1级0代变异1木属性宠物，成长约6.0～7.9（不含活动限定/BOSS等特殊宠）", "drop_rate": 0}, 
+	"水变异宠物蛋": {"name": "水变异宠物蛋", "type": "pet_egg", "rarity": "legendary", "desc": "打开获得一只1级0代变异1水属性宠物，成长约6.0～7.9（不含活动限定/BOSS等特殊宠）", "drop_rate": 0}, 
+	"火变异宠物蛋": {"name": "火变异宠物蛋", "type": "pet_egg", "rarity": "legendary", "desc": "打开获得一只1级0代变异1火属性宠物，成长约6.0～7.9（不含活动限定/BOSS等特殊宠）", "drop_rate": 0}, 
+	"土变异宠物蛋": {"name": "土变异宠物蛋", "type": "pet_egg", "rarity": "legendary", "desc": "打开获得一只1级0代变异1土属性宠物，成长约6.0～7.9（不含活动限定/BOSS等特殊宠）", "drop_rate": 0}, 
 
 
 	"溅墨lv1技能书": {"name": "溅墨lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习溅射lv1技能，攻击时50%概率额外打击1个目标，溅射伤害为80%", "drop_rate": 0}, 
@@ -8377,34 +8291,34 @@ const ALL_ITEMS = {
 
 
 const CRAFTING_RECIPES = {
-	"common_weapon": {"name": "普通武器", "type": "equipment", "slot": "weapon", "rarity": "common", "materials": {"黑铁": 3, "精铁": 2}, "realm_req": "凡人", "success_rate": 0.9}, 
-	"common_armor": {"name": "普通衣服", "type": "equipment", "slot": "armor", "rarity": "common", "materials": {"黑铁": 2, "精铁": 3}, "realm_req": "凡人", "success_rate": 0.9}, 
-	"common_helmet": {"name": "普通帽子", "type": "equipment", "slot": "helmet", "rarity": "common", "materials": {"黑铁": 2, "精铁": 2}, "realm_req": "凡人", "success_rate": 0.9}, 
-	"common_boots": {"name": "普通鞋子", "type": "equipment", "slot": "boots", "rarity": "common", "materials": {"黑铁": 2, "精铁": 2}, "realm_req": "凡人", "success_rate": 0.9}, 
-	"common_accessory": {"name": "普通饰品", "type": "equipment", "slot": "accessory", "rarity": "common", "materials": {"精铁": 3, "墨木": 2}, "realm_req": "凡人", "success_rate": 0.9}, 
-	"uncommon_weapon": {"name": "优秀武器", "type": "equipment", "slot": "weapon", "rarity": "uncommon", "materials": {"黑铁": 5, "寒冰石": 1, "烈火石": 1}, "realm_req": "凡人", "success_rate": 0.8}, 
-	"uncommon_armor": {"name": "优秀衣服", "type": "equipment", "slot": "armor", "rarity": "uncommon", "materials": {"黑铁": 5, "金刚石": 1, "墨木": 2}, "realm_req": "凡人", "success_rate": 0.8}, 
-	"uncommon_helmet": {"name": "优秀帽子", "type": "equipment", "slot": "helmet", "rarity": "uncommon", "materials": {"黑铁": 4, "金刚石": 1, "墨木": 1}, "realm_req": "凡人", "success_rate": 0.8}, 
-	"uncommon_boots": {"name": "优秀鞋子", "type": "equipment", "slot": "boots", "rarity": "uncommon", "materials": {"黑铁": 4, "寒冰石": 1, "墨木": 1}, "realm_req": "凡人", "success_rate": 0.8}, 
-	"uncommon_accessory": {"name": "优秀饰品", "type": "equipment", "slot": "accessory", "rarity": "uncommon", "materials": {"金刚石": 2, "墨木": 3, "寒冰石": 1}, "realm_req": "凡人", "success_rate": 0.8}, 
-	"rare_weapon": {"name": "稀有武器", "type": "equipment", "slot": "weapon", "rarity": "rare", "materials": {"寒冰石": 3, "烈火石": 3, "天雷石": 1}, "realm_req": "散仙", "success_rate": 0.6}, 
+	"common_weapon": {"name": "普通武器", "type": "equipment", "slot": "weapon", "rarity": "common", "materials": {"玄铁": 3, "精铁": 2}, "realm_req": "凡人", "success_rate": 0.9}, 
+	"common_armor": {"name": "普通衣服", "type": "equipment", "slot": "armor", "rarity": "common", "materials": {"玄铁": 2, "精铁": 3}, "realm_req": "凡人", "success_rate": 0.9}, 
+	"common_helmet": {"name": "普通帽子", "type": "equipment", "slot": "helmet", "rarity": "common", "materials": {"玄铁": 2, "精铁": 2}, "realm_req": "凡人", "success_rate": 0.9}, 
+	"common_boots": {"name": "普通鞋子", "type": "equipment", "slot": "boots", "rarity": "common", "materials": {"玄铁": 2, "精铁": 2}, "realm_req": "凡人", "success_rate": 0.9}, 
+	"common_accessory": {"name": "普通饰品", "type": "equipment", "slot": "accessory", "rarity": "common", "materials": {"精铁": 3, "灵木": 2}, "realm_req": "凡人", "success_rate": 0.9}, 
+	"uncommon_weapon": {"name": "优秀武器", "type": "equipment", "slot": "weapon", "rarity": "uncommon", "materials": {"玄铁": 5, "寒冰精": 1, "烈火石": 1}, "realm_req": "凡人", "success_rate": 0.8}, 
+	"uncommon_armor": {"name": "优秀衣服", "type": "equipment", "slot": "armor", "rarity": "uncommon", "materials": {"玄铁": 5, "金刚石": 1, "灵木": 2}, "realm_req": "凡人", "success_rate": 0.8}, 
+	"uncommon_helmet": {"name": "优秀帽子", "type": "equipment", "slot": "helmet", "rarity": "uncommon", "materials": {"玄铁": 4, "金刚石": 1, "灵木": 1}, "realm_req": "凡人", "success_rate": 0.8}, 
+	"uncommon_boots": {"name": "优秀鞋子", "type": "equipment", "slot": "boots", "rarity": "uncommon", "materials": {"玄铁": 4, "寒冰精": 1, "灵木": 1}, "realm_req": "凡人", "success_rate": 0.8}, 
+	"uncommon_accessory": {"name": "优秀饰品", "type": "equipment", "slot": "accessory", "rarity": "uncommon", "materials": {"金刚石": 2, "灵木": 3, "寒冰精": 1}, "realm_req": "凡人", "success_rate": 0.8}, 
+	"rare_weapon": {"name": "稀有武器", "type": "equipment", "slot": "weapon", "rarity": "rare", "materials": {"寒冰精": 3, "烈火石": 3, "天雷石": 1}, "realm_req": "散仙", "success_rate": 0.6}, 
 	"rare_armor": {"name": "稀有衣服", "type": "equipment", "slot": "armor", "rarity": "rare", "materials": {"金刚石": 3, "星辰砂": 2, "天雷石": 1}, "realm_req": "散仙", "success_rate": 0.6}, 
 	"rare_helmet": {"name": "稀有帽子", "type": "equipment", "slot": "helmet", "rarity": "rare", "materials": {"金刚石": 2, "天雷石": 1, "星辰砂": 1}, "realm_req": "散仙", "success_rate": 0.6}, 
-	"rare_boots": {"name": "稀有鞋子", "type": "equipment", "slot": "boots", "rarity": "rare", "materials": {"寒冰石": 2, "天雷石": 1, "星辰砂": 1}, "realm_req": "散仙", "success_rate": 0.6}, 
-	"rare_accessory": {"name": "稀有饰品", "type": "equipment", "slot": "accessory", "rarity": "rare", "materials": {"天雷石": 2, "星辰砂": 2, "墨木": 3}, "realm_req": "散仙", "success_rate": 0.6}, 
+	"rare_boots": {"name": "稀有鞋子", "type": "equipment", "slot": "boots", "rarity": "rare", "materials": {"寒冰精": 2, "天雷石": 1, "星辰砂": 1}, "realm_req": "散仙", "success_rate": 0.6}, 
+	"rare_accessory": {"name": "稀有饰品", "type": "equipment", "slot": "accessory", "rarity": "rare", "materials": {"天雷石": 2, "星辰砂": 2, "灵木": 3}, "realm_req": "散仙", "success_rate": 0.6}, 
 	"epic_weapon": {"name": "史诗武器", "type": "equipment", "slot": "weapon", "rarity": "epic", "materials": {"天雷石": 3, "星辰砂": 2, "龙鳞": 1}, "realm_req": "地仙", "success_rate": 0.4}, 
 	"epic_armor": {"name": "史诗衣服", "type": "equipment", "slot": "armor", "rarity": "epic", "materials": {"星辰砂": 3, "龙鳞": 1, "凤羽": 1}, "realm_req": "地仙", "success_rate": 0.4}, 
 	"epic_helmet": {"name": "史诗帽子", "type": "equipment", "slot": "helmet", "rarity": "epic", "materials": {"天雷石": 2, "龙鳞": 1, "凤羽": 1}, "realm_req": "地仙", "success_rate": 0.4}, 
 	"epic_boots": {"name": "史诗鞋子", "type": "equipment", "slot": "boots", "rarity": "epic", "materials": {"星辰砂": 2, "龙鳞": 1, "凤羽": 1}, "realm_req": "地仙", "success_rate": 0.4}, 
 	"epic_accessory": {"name": "史诗饰品", "type": "equipment", "slot": "accessory", "rarity": "epic", "materials": {"龙鳞": 2, "凤羽": 2, "星辰砂": 3}, "realm_req": "地仙", "success_rate": 0.4}, 
 	"legendary_weapon": {"name": "传说武器", "type": "equipment", "slot": "weapon", "rarity": "legendary", "materials": {"龙鳞": 3, "凤羽": 2, "混沌石": 1}, "realm_req": "天仙", "success_rate": 0.2}, 
-	"legendary_armor": {"name": "传说衣服", "type": "equipment", "slot": "armor", "rarity": "legendary", "materials": {"凤羽": 3, "混沌石": 1, "墨晶": 1}, "realm_req": "天仙", "success_rate": 0.2}, 
-	"legendary_helmet": {"name": "传说帽子", "type": "equipment", "slot": "helmet", "rarity": "legendary", "materials": {"龙鳞": 2, "混沌石": 1, "墨晶": 1}, "realm_req": "天仙", "success_rate": 0.2}, 
-	"legendary_boots": {"name": "传说鞋子", "type": "equipment", "slot": "boots", "rarity": "legendary", "materials": {"凤羽": 2, "混沌石": 1, "墨晶": 1}, "realm_req": "天仙", "success_rate": 0.2}, 
-	"legendary_accessory": {"name": "传说饰品", "type": "equipment", "slot": "accessory", "rarity": "legendary", "materials": {"混沌石": 2, "墨晶": 2, "龙鳞": 2}, "realm_req": "天仙", "success_rate": 0.2}, 
-	"juling_pill": {"name": "蓄灵丹", "type": "cultivation_pill", "result": "蓄灵丹", "materials": {"墨草": 5, "墨芝": 1}, "realm_req": "凡人", "success_rate": 0.9}, 
-	"ningshen_pill": {"name": "定神丹", "type": "cultivation_pill", "result": "定神丹", "materials": {"墨芝": 3, "雪莲": 1}, "realm_req": "散仙", "success_rate": 0.9}, 
-	"wudao_pill": {"name": "开悟丹", "type": "cultivation_pill", "result": "开悟丹", "materials": {"雪莲": 3, "还魂草": 1, "墨涎草": 1}, "realm_req": "地仙", "success_rate": 0.9}, 
+	"legendary_armor": {"name": "传说衣服", "type": "equipment", "slot": "armor", "rarity": "legendary", "materials": {"凤羽": 3, "混沌石": 1, "仙晶": 1}, "realm_req": "天仙", "success_rate": 0.2}, 
+	"legendary_helmet": {"name": "传说帽子", "type": "equipment", "slot": "helmet", "rarity": "legendary", "materials": {"龙鳞": 2, "混沌石": 1, "仙晶": 1}, "realm_req": "天仙", "success_rate": 0.2}, 
+	"legendary_boots": {"name": "传说鞋子", "type": "equipment", "slot": "boots", "rarity": "legendary", "materials": {"凤羽": 2, "混沌石": 1, "仙晶": 1}, "realm_req": "天仙", "success_rate": 0.2}, 
+	"legendary_accessory": {"name": "传说饰品", "type": "equipment", "slot": "accessory", "rarity": "legendary", "materials": {"混沌石": 2, "仙晶": 2, "龙鳞": 2}, "realm_req": "天仙", "success_rate": 0.2}, 
+	"juling_pill": {"name": "聚灵丹", "type": "cultivation_pill", "result": "聚灵丹", "materials": {"灵草": 5, "灵芝": 1}, "realm_req": "凡人", "success_rate": 0.9}, 
+	"ningshen_pill": {"name": "凝神丹", "type": "cultivation_pill", "result": "凝神丹", "materials": {"灵芝": 3, "天山雪莲": 1}, "realm_req": "散仙", "success_rate": 0.9}, 
+	"wudao_pill": {"name": "悟道仙丹", "type": "cultivation_pill", "result": "悟道仙丹", "materials": {"天山雪莲": 3, "九转还魂草": 1, "龙涎草": 1}, "realm_req": "地仙", "success_rate": 0.9}, 
 }
 
 
