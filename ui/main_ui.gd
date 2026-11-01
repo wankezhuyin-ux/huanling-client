@@ -27529,8 +27529,14 @@ func _bind_ink_volumetric_anim(anim: AnimatedSprite2D, sprite_id: String, mirror
 	anim.set_meta("ink_sprite_id", sprite_id)
 	anim.set_meta("ink_mirror_x", mirror_x)
 	_apply_ink_volumetric(anim, mirror_x, _creature_idle_sprite_path(sprite_id))
-	if not anim.animation_changed.is_connected(_on_battle_sprite_animation_changed):
-		anim.animation_changed.connect(_on_battle_sprite_animation_changed)
+	# AnimatedSprite2D.animation_changed 是**无参信号**，直接连一个「要求 1 个参数」的
+	# 回调，Godot 每次切动画都会报：
+	#   Method expected 1 argument(s), but called with 0.
+	# 战斗中怪物每切一次 idle/attack/death 就报一串，模拟器上肉眼可见地拖帧。
+	# 用 bind 把 anim 自己带进回调即可（每个 sprite 只连一次）。
+	if not bool(anim.get_meta("ink_anim_bound", false)):
+		anim.animation_changed.connect(_on_battle_sprite_animation_changed.bind(anim))
+		anim.set_meta("ink_anim_bound", true)
 
 func _on_battle_sprite_animation_changed(anim: AnimatedSprite2D) -> void:
 	if anim == null or not is_instance_valid(anim):
