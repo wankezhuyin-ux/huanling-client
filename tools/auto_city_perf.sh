@@ -20,9 +20,9 @@ for attempt in 1 2 3; do
   echo "  第 $attempt 次安装失败，重试…（$(tail -1 /tmp/city_install.log)）"
   sleep 3
 done
-GOT_CODE="$(adb shell dumpsys package "$PKG" 2>/dev/null | sed -n "s/^\s*versionCode=\([0-9]*\).*/\1/p" | head -1)"
+GOT_CODE="$(adb shell dumpsys package "$PKG" 2>/dev/null | sed -n "s/^[[:space:]]*versionCode=\([0-9]*\).*/\1/p" | head -1)"
 if [ -n "$WANT_CODE" ] && [ "$WANT_CODE" != "$GOT_CODE" ]; then
-  echo "❌ 安装没生效：期望 versionCode=$WANT_CODE，模拟器上是 ${GOT_CODE:-未知}。"
+  echo "❌ 安装没生效：期望 versionCode=${WANT_CODE}，模拟器上是 ${GOT_CODE:-未知}。"
   echo "   中止，避免拿旧包当新包验收。"
   exit 1
 fi
