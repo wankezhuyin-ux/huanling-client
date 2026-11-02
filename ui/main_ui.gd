@@ -28467,10 +28467,13 @@ const DEFAULT_BATTLE_BG_PATH: = "res://assets/backgrounds/morenzhandoubj.jpg"
 const DEFAULT_BATTLE_BG_TEX: Texture2D = preload("res://assets/backgrounds/morenzhandoubj.jpg")
 const TOWER_BATTLE_BG_PATH: = "res://assets/backgrounds/天关.jpg"
 const DUNGEON_BATTLE_BG_PATH: = "res://assets/backgrounds/副本.jpg"
-const BATTLE_BG_VIGNETTE_EDGE_ALPHA: = 0.55
-const BATTLE_BG_VIGNETTE_CENTER_ALPHA: = 0.05
+## 暗角不能太重：横版背景上方现在是一条淡墨远景（远山／雾林），
+## 边缘 alpha 0.55 会把远景压掉四成亮度，看着就是一团灰。
+## 0.34 还留得住画面四角收边，远景又能透出来。
+const BATTLE_BG_VIGNETTE_EDGE_ALPHA: = 0.34
+const BATTLE_BG_VIGNETTE_CENTER_ALPHA: = 0.03
 const BATTLE_BG_VIGNETTE_CENTER_RADIUS: = 0.1
-const BATTLE_BG_VIGNETTE_SOFTNESS: = 0.8
+const BATTLE_BG_VIGNETTE_SOFTNESS: = 0.9
 
 var _battle_bg_vignette_texture: GradientTexture2D = null
 var _battle_bg_tex_cache: Dictionary = {}

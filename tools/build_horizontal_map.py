@@ -186,6 +186,49 @@ def edge_diff(im: Image.Image, inset: int = 0) -> float:
     return float(np.abs(a[:, x0] - a[:, x1]).mean())
 
 
+def detect_period(im: Image.Image, band: tuple = (0.20, 0.36), lo: int = 28, hi: int = 96) -> int:
+    """估建筑/垛口这类「有固定节奏」的水平周期（像素）。
+
+    在 band（画面高度比例）里取每列均值做一维自相关，取差最小的位移。
+    band 默认压在墙体那一带（0.20~0.36）；纯雾/纯树林这段没有节奏，返回 0。
+    lo 不能太小——砖缝本身也有十几像素的重复，会把垛口的真周期盖掉。
+    """
+    a = np.asarray(im.convert("L")).astype(np.float32)
+    h, w = a.shape
+    prof = a[int(h * band[0]):int(h * band[1]), :].mean(axis=0)
+    prof = prof - prof.mean()
+    if float(np.abs(prof).max()) < 6.0:
+        return 0
+    best_d, best_s = 1e18, 0
+    for s in range(lo, min(hi, w // 3)):
+        d = float(np.abs(prof[s:] - prof[:w - s]).mean())
+        if d < best_d:
+            best_d, best_s = d, s
+    # 强度 = 1 - 残差/起伏。城墙 0.4 上下，树林/雾气约 0（自己跟自己都对不上），
+    # 不过这一关的话「对齐」会把好图裁歪，所以宁可跳过。
+    strength = 1.0 - best_d / max(float(prof.std()), 1e-6)
+    if strength < 0.30:
+        return 0
+    return best_s
+
+
+def align_period(im: Image.Image, period: int) -> Image.Image:
+    """把画幅裁成周期的整数倍，再缩放回原宽度。
+
+    这样首尾正好差整数个垛口，同图拼接时图案是连续往下走的，
+    不需要大面积羽化（羽化会把一个垛口擦成"缺牙"）。
+    """
+    if period <= 0:
+        return im
+    w, h = im.size
+    n = w // period
+    if n < 6:
+        return im
+    cw = n * period
+    x0 = (w - cw) // 2
+    return im.crop((x0, 0, x0 + cw, h)).resize((w, h), Image.LANCZOS)
+
+
 def edge_match(im: Image.Image, width: int) -> Image.Image:
     """把左右两条边羽化成**同一份内容**，让「同图首尾相接」真正无接缝。
 
@@ -247,6 +290,9 @@ def main():
     ap.add_argument("--edge-match", type=int, default=0, metavar="PX",
                     help="把左右边缘羽化成同一份内容（羽化带宽 PX 像素），让同图首尾相接无接缝。"
                          "前提是两端画的是同类东西（雾/远景），否则会出现鬼影")
+    ap.add_argument("--period-align", action="store_true",
+                    help="把画幅裁成「建筑节奏整数倍」再缩放回来：城墙垛口/栏杆这类有固定周期的图，"
+                         "首尾会正好差整数个节奏，同图拼接不用大面积羽化也不会缺牙")
     ap.add_argument("--check-seam", action="store_true",
                     help="量左右边缘色差：<15 才算能走「重复铺」且不用压阴影带")
     ap.add_argument("--crop-aspect", type=float, default=0.0, metavar="R",
@@ -269,6 +315,14 @@ def main():
 
     # 接缝：先量原始边缘色差，再做（可选的）边缘同质化。顺序不能反，
     # 否则量到的是羽化后的 0.0，等于没检。
+    if args.period_align:
+        period = detect_period(im)
+        if period > 0:
+            im = align_period(im, period)
+            print("  [周期] 检出 %.0fpx 节奏，画幅已对齐到整数倍（羽化带可以给得很小）" % period)
+        else:
+            print("  [周期] 没检出明显节奏（纯雾/树林），跳过对齐")
+
     seam_before = edge_diff(im, 0)
     seam_before_vis = edge_diff(im, VIS_EDGE_INSET)
     if args.edge_match > 0:
