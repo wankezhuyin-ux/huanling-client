@@ -22,7 +22,7 @@ PANEL = (10, 270, 710, 1275)     # 战场面板矩形
 VISIBLE_BOTTOM = 930             # 战报框上沿 = 玩家可见下沿
 CHROME_TOP = 270                 # 顶部信息栏下沿
 CHROME_BAR = 1065                # 按钮行上沿
-HORIZON = 0.45                   # 成图地平线位置
+HORIZON = 0.46                   # 成图地平线位置
 
 FONT_CANDIDATES = [
     "/System/Library/Fonts/PingFang.ttc",
@@ -110,9 +110,8 @@ def side_by_side(old: str, new: str, out_path: str, title_old="原图", title_ne
 
 
 def main():
-    new_dir = "/Users/a1111/WorkBuddy/2026-10-22-23-24-31/outputs/horizontal-maps/new"
-    old_dir = os.path.expanduser(
-        "~/Documents/Codex/2026-10-21/n/outputs/recovered-godot-project/assets/backgrounds")
+    new_dir = os.environ.get("HMP_NEW", "/Users/a1111/WorkBuddy/2026-10-22-23-24-31/outputs/horizontal-maps/new2")
+    old_dir = os.environ.get("HMP_OLD", "/Users/a1111/WorkBuddy/2026-10-22-23-24-31/outputs/horizontal-maps/backup_original")
     pairs = [("浮影水城外郊", "浮影水城外郊"), ("徘徊林", "徘徊林")]
     made = []
     for new_name, only in pairs:

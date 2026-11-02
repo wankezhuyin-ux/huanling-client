@@ -80,10 +80,12 @@ def warp_horizon(im: Image.Image, horizon: float, target: float) -> Image.Image:
     return Image.fromarray(np.clip(out, 0, 255).astype(np.uint8))
 
 
-def grade(im: Image.Image, contrast: float, sat: float) -> Image.Image:
+def grade(im: Image.Image, contrast: float, sat: float, gamma: float = 1.0) -> Image.Image:
     """水墨要压一版调子再进游戏：AI 出的淡墨在手机上会显得发灰、没分量。
     contrast<1 压平，>1 加对比；sat 是饱和度倍数（围绕亮度混合）。"""
     a = np.asarray(im).astype(np.float32) / 255.0
+    if abs(gamma - 1.0) > 0.001:
+        a = np.power(np.clip(a, 0.0, 1.0), gamma)
     a = np.clip((a - 0.5) * contrast + 0.5, 0.0, 1.0)
     if abs(sat - 1.0) > 0.001:
         luma = (a[..., 0] * 0.299 + a[..., 1] * 0.587 + a[..., 2] * 0.114)[..., None]
@@ -134,6 +136,8 @@ def main():
     ap.add_argument("--trim-top", type=float, default=0.015)
     ap.add_argument("--contrast", type=float, default=1.10)
     ap.add_argument("--sat", type=float, default=1.06)
+    ap.add_argument("--gamma", type=float, default=1.0,
+                    help="<1 提亮，>1 压暗；墨色发闷时用 0.85~0.92")
     ap.add_argument("--save-preview", default="")
     args = ap.parse_args()
 
@@ -144,7 +148,7 @@ def main():
     im = warp_horizon(im, args.horizon, args.target_horizon)
     # 轻微锐化：重采样后水墨笔触会发糊
     im = im.filter(ImageFilter.UnsharpMask(radius=1.2, percent=55, threshold=2))
-    im = grade(im, args.contrast, args.sat)
+    im = grade(im, args.contrast, args.sat, args.gamma)
     im = edge_burn(im)
 
     size = save_jpeg(im, args.out, args.target_kb)
