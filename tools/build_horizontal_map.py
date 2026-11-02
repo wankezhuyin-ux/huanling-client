@@ -38,8 +38,19 @@ SEAM_FEATHER = 3               # 接缝羽化像素，避免一条硬边
 FOOT_BAND = (0.527, 0.617)
 # 主道建议带：比脚底带上下各留 ~6%，同时不越过可见下沿 66%（再往下被战报框挡住）。
 ROAD_TARGET = (0.46, 0.68)
-# 判「土路」用的行判据：整行平均 R-B 大于这个值，视为暖色土面。
+# 判「可站立路面」用的行判据。前面几张都是黄土路，用 R-B 判暖色就够了；
+# 但冰面（青蓝）、青石板（浅灰白）这两类根本判不出来，所以按「色调」分开判：
+#   warm：R-B >= 26，黄土/砂石路
+#   cold：B-R >= 18，冰面/雪道
+#   pale：亮度 >= 150 且 |R-B| <= 30，青石板/白石广场
+# auto 依次尝试，取第一段能判出来的。
 ROAD_WARM_DIFF = 26.0
+ROAD_COLD_DIFF = 18.0
+ROAD_PALE_LUM = 120.0
+# 饱和度阈值（0~255）：石面大约 10~30，黄土约 45~70，冰面 15~35（冰靠 cold 先命中）
+ROAD_PALE_SAT = 46.0
+# 同一条路会被路缘石阴影、车辙、水渍打断成几段，间隙小于这个比例就接回去
+ROAD_MERGE_GAP = 0.05
 
 # —— 「同图首尾相接」的硬指标 ——
 # 战斗面板 700x1005、图片 512x700 走 STRETCH_KEEP_ASPECT_COVERED 时，
@@ -50,18 +61,95 @@ VIS_EDGE_INSET = 12
 SEAM_OK = 14.0
 
 
-def detect_road_band(im: Image.Image) -> tuple:
-    """按「暖色偏黄」判出土路所在的高度带，返回 (top, bottom) 比例；判不出返回 None。"""
+def _merge_runs(runs: list, max_gap: int) -> list:
+    """合并间隔很小的相邻区间（阴影、车辙会把同一条路面切成几段）。"""
+    if not runs:
+        return []
+    merged = [list(runs[0])]
+    for start, end in runs[1:]:
+        if start - merged[-1][1] - 1 <= max_gap:
+            merged[-1][1] = end
+        else:
+            merged.append([start, end])
+    return [(a, b) for a, b in merged]
+
+
+def _mask_runs(mask: list) -> list:
+    """把布尔序列切成连续为真的区间，返回 [(start, end), ...]（闭区间）。"""
+    runs = []
+    start = None
+    for i, v in enumerate(mask):
+        if v and start is None:
+            start = i
+        elif not v and start is not None:
+            runs.append((start, i - 1))
+            start = None
+    if start is not None:
+        runs.append((start, len(mask) - 1))
+    return runs
+
+
+def detect_road_band(im: Image.Image, tone: str = "auto") -> tuple:
+    """判出「可站立路面」所在的高度带，返回 (top, bottom, tone)；判不出返回 None。
+
+    按行找连续区间，而不是取首末行——否则上方的墙面（冰崖也是青蓝色）会被一起算进路面，
+    报告出「25%~100% 全是路」这种没用的结论。区间还要求起点落在画面 30% 以下，
+    并且足够厚（≥ 2% 图高），才当作一条路。
+    """
     a = np.asarray(im.convert("RGB")).astype(np.float32)
     h, w, _ = a.shape
     # 只看中间 70%：两侧有暗角/收边，会把平均值拉低
     x0, x1 = int(w * 0.15), int(w * 0.85)
     band = a[:, x0:x1]
-    warm = band[..., 0].mean(axis=1) - band[..., 2].mean(axis=1)
-    ys = [y for y in range(int(h * 0.30), h) if warm[y] >= ROAD_WARM_DIFF]
-    if not ys:
+    r = band[..., 0]
+    g = band[..., 1]
+    b = band[..., 2]
+    warm = r.mean(axis=1) - b.mean(axis=1)
+    cold = b.mean(axis=1) - r.mean(axis=1)
+    lum = (r * 0.299 + g * 0.587 + b * 0.114).mean(axis=1)
+    # 石面：不靠色相判（青石板带苔痕水渍，R-B 会正负跳），改判「低饱和 + 够亮」。
+    # 每像素先算 (max-min)/max，再按行取平均——单看 R-B 会被墙面和苔斑带偏。
+    px_max = band.max(axis=2)
+    px_min = band.min(axis=2)
+    sat = ((px_max - px_min) / np.maximum(px_max, 1.0)).mean(axis=1) * 255.0
+
+    tests = {
+        "warm": warm >= ROAD_WARM_DIFF,
+        "cold": cold >= ROAD_COLD_DIFF,
+        "pale": (lum >= ROAD_PALE_LUM) & (sat <= ROAD_PALE_SAT),
+    }
+    order = ["warm", "cold", "pale"] if tone == "auto" else [tone]
+    y_lo = int(h * 0.30)
+    min_thick = max(2, int(h * 0.02))
+
+    candidates = []
+    for name in order:
+        mask = list(tests[name])
+        for y in range(min(y_lo, len(mask))):
+            mask[y] = False
+        runs = _merge_runs(_mask_runs(mask), int(h * ROAD_MERGE_GAP))
+        for run in runs:
+            if run[1] - run[0] + 1 >= min_thick:
+                candidates.append((name, run[0] / float(h), run[1] / float(h)))
+    if not candidates:
         return None
-    return (ys[0] / float(h), ys[-1] / float(h))
+
+    def foot_overlap(c):
+        """候选带与脚底带的重叠比例（0~1）——路面必须罩住脚底，墙面罩不住。"""
+        top, bottom = c[1], c[2]
+        lo = max(top, FOOT_BAND[0])
+        hi = min(bottom, FOOT_BAND[1])
+        return max(0.0, hi - lo) / (FOOT_BAND[1] - FOOT_BAND[0])
+
+    if tone == "auto":
+        # 先看覆盖脚底带的能力，再看厚度：红墙/远处屋顶这类暖色大块会被脚底带淘汰。
+        best = max(candidates, key=lambda c: (round(foot_overlap(c), 2), c[2] - c[1]))
+        if foot_overlap(best) <= 0.0:
+            # 谁都不罩脚底，就退化成「最厚的那段」，让 WARN 报出来
+            best = max(candidates, key=lambda c: c[2] - c[1])
+        return (best[1], best[2], best[0])
+    best = max(candidates, key=lambda c: c[2] - c[1])
+    return (best[1], best[2], best[0])
 
 
 
@@ -286,7 +374,9 @@ def main():
                     help="上下墨色收边的高度（占图高比例）")
     ap.add_argument("--save-preview", default="")
     ap.add_argument("--check-road", action="store_true",
-                    help="检一遍土路是否盖住人物脚底那一带（52.7%%~61.7%%）")
+                    help="检一遍路面是否盖住人物脚底那一带（52.7%%~61.7%%）")
+    ap.add_argument("--road-tone", default="auto", choices=["auto", "warm", "cold", "pale"],
+                    help="路面色调：warm 黄土/砂石、cold 冰面/雪道、pale 青石板/白石；auto 依次尝试")
     ap.add_argument("--edge-match", type=int, default=0, metavar="PX",
                     help="把左右边缘羽化成同一份内容（羽化带宽 PX 像素），让同图首尾相接无接缝。"
                          "前提是两端画的是同类东西（雾/远景），否则会出现鬼影")
@@ -338,15 +428,17 @@ def main():
         print("  [接缝] 原始边缘差 %.1f（可见边缘 %.1f）→ 处理后 %.1f   %s" % (
             seam_before, seam_before_vis, seam_after, verdict))
     if args.check_road:
-        band = detect_road_band(im)
+        band = detect_road_band(im, args.road_tone)
+        tone_label = {"warm": "暖色路面", "cold": "冷色路面", "pale": "浅色石面"}
         if band is None:
-            print("  [主道] 没检出土路（整行都不够暖）—— 人和宠会站在草上，重画时把主道画宽一点")
+            print("  [主道] 没检出连续路面（暖/冷/浅三种色调都对不上）—— 人和宠会站在背景上，重画时把主道画宽一点")
         else:
-            top, bot = band
+            top, bot, tone = band
             covers_foot = top <= FOOT_BAND[0] and bot >= FOOT_BAND[1]
-            print("  [主道] y=%.0f%%~%.0f%%  脚底带 %.0f%%~%.0f%%  %s" % (
-                top * 100, bot * 100, FOOT_BAND[0] * 100, FOOT_BAND[1] * 100,
-                "OK（站得住）" if covers_foot else "WARN（脚会踩在草上，建议主道上沿 ≤%.0f%%、下沿 ≥%.0f%%）"
+            print("  [主道] %s y=%.0f%%~%.0f%%  脚底带 %.0f%%~%.0f%%  %s" % (
+                tone_label.get(tone, tone), top * 100, bot * 100,
+                FOOT_BAND[0] * 100, FOOT_BAND[1] * 100,
+                "OK（站得住）" if covers_foot else "WARN（脚会踩在背景上，建议主道上沿 ≤%.0f%%、下沿 ≥%.0f%%）"
                 % (FOOT_BAND[0] * 100, FOOT_BAND[1] * 100)))
     if args.save_preview:
         im.save(args.save_preview, "PNG")
