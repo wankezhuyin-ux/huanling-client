@@ -41,6 +41,14 @@ ROAD_TARGET = (0.46, 0.68)
 # 判「土路」用的行判据：整行平均 R-B 大于这个值，视为暖色土面。
 ROAD_WARM_DIFF = 26.0
 
+# —— 「同图首尾相接」的硬指标 ——
+# 战斗面板 700x1005、图片 512x700 走 STRETCH_KEEP_ASPECT_COVERED 时，
+# 会被放大到 735x1005 再左右各裁 17.5px，所以真正露在接缝处的是源图第 12 列和第 499 列，
+# 不是第 0 列和第 511 列。这里按可见列来量，别量成「原始边缘好看、游戏里还是有缝」。
+VIS_EDGE_INSET = 12
+# 边缘色差阈值，和 Game 里 BattleScrollWorld.TILEABLE_MAX_DIFF 保持一致。
+SEAM_OK = 14.0
+
 
 def detect_road_band(im: Image.Image) -> tuple:
     """按「暖色偏黄」判出土路所在的高度带，返回 (top, bottom) 比例；判不出返回 None。"""
@@ -145,6 +153,60 @@ def edge_burn(im: Image.Image, side: float = 0.075, top: float = 0.045,
     return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8))
 
 
+def crop_center_aspect(im: Image.Image, ratio: float) -> Image.Image:
+    """把图居中裁成指定宽高比。
+
+    为什么需要：warp_horizon 是「横向压到 512 宽」，它不做裁切——喂一张 1536x1024 的
+    横幅进去，整幅会被横向压扁三倍。超宽构图（长卷）必须先按目标比例裁出一段竖构图，
+    再进地平线重采样。裁中间不裁两边，是因为长卷的左右两端本来就是「可以继续延伸」的部分，
+    真正有内容的中段才该留下。
+    """
+    if ratio <= 0.0:
+        return im
+    w, h = im.size
+    cur = w / float(h)
+    if abs(cur - ratio) < 0.005:
+        return im
+    if cur > ratio:                      # 太宽 → 裁左右
+        nw = max(16, int(round(h * ratio)))
+        x0 = (w - nw) // 2
+        return im.crop((x0, 0, x0 + nw, h))
+    nh = max(16, int(round(w / ratio)))  # 太高 → 裁上下
+    y0 = (h - nh) // 2
+    return im.crop((0, y0, w, y0 + nh))
+
+
+def edge_diff(im: Image.Image, inset: int = 0) -> float:
+    """左右两列的平均通道差（0~255 口径）。inset>0 时按 COVERED 裁切后的可见边缘量，
+    因为游戏里 512 宽的图会被放大到 735 再左右各裁 17.5px，真正露在接缝处的是第 12 列和第 499 列。"""
+    a = np.asarray(im.convert("RGB")).astype(np.float32)
+    h, w, _ = a.shape
+    x0 = min(inset, w // 2 - 1)
+    x1 = w - 1 - x0
+    return float(np.abs(a[:, x0] - a[:, x1]).mean())
+
+
+def edge_match(im: Image.Image, width: int) -> Image.Image:
+    """把左右两条边羽化成**同一份内容**，让「同图首尾相接」真正无接缝。
+
+    做法不是压黑也不是裁切，而是让第 0 列和第 w-1 列取两张边缘的均值，然后从边缘向里
+    用余弦斜坡（外 1 内 0）过渡回原图。结果是：接缝处两边像素完全相同（差 0.0），
+    而羽化带里只是把两边内容按比例混了一点——只要画的时候两端都是雾/远景，
+    混起来看不出痕迹；两端如果不是同类内容，会看到一层薄薄的鬼影，
+    这时候要回去重画，而不是把 width 调大。
+    """
+    a = np.asarray(im.convert("RGB")).astype(np.float32)
+    h, w, _ = a.shape
+    n = max(1, min(width, w // 2 - 1))
+    for x in range(n):
+        # 权重：最外列 1.0，向内衰减到 0
+        wgt = 0.5 * (np.cos(np.pi * x / float(n)) + 1.0)
+        avg = 0.5 * (a[:, x] + a[:, w - 1 - x])
+        a[:, x] = a[:, x] * (1.0 - wgt) + avg * wgt
+        a[:, w - 1 - x] = a[:, w - 1 - x] * (1.0 - wgt) + avg * wgt
+    return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8))
+
+
 def save_jpeg(im: Image.Image, path: str, target_kb: int) -> int:
     """按目标体积挑质量：从 92 往下试，取第一个不超过 target_kb 的。"""
     os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
@@ -182,10 +244,20 @@ def main():
     ap.add_argument("--save-preview", default="")
     ap.add_argument("--check-road", action="store_true",
                     help="检一遍土路是否盖住人物脚底那一带（52.7%%~61.7%%）")
+    ap.add_argument("--edge-match", type=int, default=0, metavar="PX",
+                    help="把左右边缘羽化成同一份内容（羽化带宽 PX 像素），让同图首尾相接无接缝。"
+                         "前提是两端画的是同类东西（雾/远景），否则会出现鬼影")
+    ap.add_argument("--check-seam", action="store_true",
+                    help="量左右边缘色差：<15 才算能走「重复铺」且不用压阴影带")
+    ap.add_argument("--crop-aspect", type=float, default=0.0, metavar="R",
+                    help="居中裁成宽高比 R 再处理（如 0.7314 = 512/700）。喂超宽长卷时必须给，"
+                         "否则会被横向压扁。0 表示不裁")
     args = ap.parse_args()
 
     im = Image.open(args.src).convert("RGB")
     im = trim_edges(im, args.trim_side, args.trim_bottom, args.trim_top)
+    if args.crop_aspect > 0.0:
+        im = crop_center_aspect(im, args.crop_aspect)
     if not args.no_patch:
         im = patch_watermark(im)
     im = warp_horizon(im, args.horizon, args.target_horizon)
@@ -195,8 +267,22 @@ def main():
     if args.burn_side > 0.0 or args.burn_top > 0.0:
         im = edge_burn(im, args.burn_side, args.burn_top)
 
+    # 接缝：先量原始边缘色差，再做（可选的）边缘同质化。顺序不能反，
+    # 否则量到的是羽化后的 0.0，等于没检。
+    seam_before = edge_diff(im, 0)
+    seam_before_vis = edge_diff(im, VIS_EDGE_INSET)
+    if args.edge_match > 0:
+        if args.burn_side > 0.0:
+            print("  [接缝] 警告：--burn-side>0 会在左右压出墨边，和 --edge-match 相冲，卷轴图应给 0")
+        im = edge_match(im, args.edge_match)
+    seam_after = edge_diff(im, 0)
+
     size = save_jpeg(im, args.out, args.target_kb)
     print(f"{os.path.basename(args.out)}  {OUT_W}x{OUT_H}  {size/1024:.0f}KB  horizon={args.target_horizon:.0%}")
+    if args.check_seam or args.edge_match > 0:
+        verdict = "可重复铺（不用镜像、不用阴影带）" if seam_after <= SEAM_OK else "边缘还对不上 → 仍走镜像"
+        print("  [接缝] 原始边缘差 %.1f（可见边缘 %.1f）→ 处理后 %.1f   %s" % (
+            seam_before, seam_before_vis, seam_after, verdict))
     if args.check_road:
         band = detect_road_band(im)
         if band is None:

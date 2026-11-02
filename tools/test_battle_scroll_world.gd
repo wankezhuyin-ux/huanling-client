@@ -179,7 +179,41 @@ func _initialize() -> void:
 	print("可平铺图（不强制镜像时）→ 三张同图、周期一屏: ", "OK" if tile_ok else "FAIL")
 	if not tile_ok:
 		fails += 1
-	ScrollWorldScript.FORCE_MIRROR = true
+	ScrollWorldScript.FORCE_MIRROR = false
+
+	# 7) 真素材：重画成「左右边缘同质」的密林图，应该自动走重复铺——
+	#    不镜像、不压阴影带、周期一屏。这是方案 C 的验收点。
+	var forest: Texture2D = load("res://assets/backgrounds/徘徊林.jpg") as Texture2D
+	if forest == null:
+		print("FAIL 密林图加载失败")
+		fails += 1
+	else:
+		world.prepare(forest)
+		var forest_ok: bool = not world._mirror_mode and not world._seam_needed \
+			and not seam.visible and _texture_of(next) == forest \
+			and absf(world._cycle - PANEL_SIZE.x) < 0.01
+		print("真素材（边缘同质的密林）自动走重复铺、不镜像不压带: ", "OK" if forest_ok else "FAIL")
+		if not forest_ok:
+			fails += 1
+		var f_img: Image = forest.get_image()
+		if f_img != null:
+			if f_img.is_compressed():
+				f_img.decompress()
+			var fw: int = f_img.get_width()
+			var fh: int = f_img.get_height()
+			var acc: float = 0.0
+			var cnt: int = 0
+			for y in range(0, fh, 3):
+				var ca: Color = f_img.get_pixel(0, y)
+				var cb: Color = f_img.get_pixel(fw - 1, y)
+				acc += absf(ca.r - cb.r) + absf(ca.g - cb.g) + absf(ca.b - cb.b)
+				cnt += 1
+			var avg: float = acc / maxf(1.0, float(cnt)) / 3.0 * 255.0
+			var edge_ok: bool = avg <= ScrollWorldScript.TILEABLE_MAX_DIFF
+			print("重复铺接缝：首尾列平均通道差 %.1f（阈值 %.0f）: %s" % [
+				avg, ScrollWorldScript.TILEABLE_MAX_DIFF, "OK" if edge_ok else "FAIL"])
+			if not edge_ok:
+				fails += 1
 
 	ScrollWorldScript.ENABLED = false
 	print("FAIL_COUNT=", fails)

@@ -23,11 +23,11 @@ static var ENABLED: bool = true
 
 ## 强制走「镜像拼接」：A | 镜像A | A | 镜像A …
 ##
-## 为什么不做「自动判定可平铺」：AI 出的图左右边缘本来就不相干（实测平均通道差 46~61），
-## 判不过就退到镜像；既然所有图都会走到镜像这条路，不如直接钉死，行为可预测。
-## 镜像拼接的好处是接缝处两边是**同一列像素**，像素级连续，不需要任何遮罩去盖。
-## 代价是每隔一屏会出现一次左右对称（城墙/树会照镜子），这是拿无缝换来的。
-static var FORCE_MIRROR: bool = true
+## 现在默认关掉，改由「左右边缘色差」自动判定（见 _is_tileable）：
+##   · 边缘同质（新出的图，色差 ≤ TILEABLE_MAX_DIFF）→ 同图重复铺，一屏一个周期，既无接缝也无镜像对称
+##   · 边缘对不上（老图，实测色差 43~61）→ 退回镜像拼接，接缝像素级连续
+## 把这里固定成 true 会把所有图都拉回镜像模式，只在排查「到底走的是哪条路」时临时打开。
+static var FORCE_MIRROR: bool = false
 
 ## 接缝阴影带的宽度（像素）。压在接缝正中，两侧各一半。
 ## 做得宽一点、软一点：窄而深的黑带反而像一条竖着画上去的线。
@@ -52,9 +52,13 @@ var force_repeat_maps: Array[String] = [
 
 ## 可平铺判定：AI 生成背景时把左右边缘做成相同（无缝平铺图），
 ## 这种图接缝天然对齐，不再需要阴影带。用左右边缘窄条的平均色差判断：
-## 低于阈值视为可平铺。老图（边缘无关）判不过，继续走阴影带兜底。
+## 低于阈值视为可平铺。老图（边缘无关）判不过，继续走镜像兜底。
 const TILEABLE_EDGE_STRIP: int = 2
 const TILEABLE_MAX_DIFF: float = 14.0
+## 量色差时要从边缘往里缩几列。512x700 的图铺进 700x1005 面板时会被放大到 735x1005、
+## 左右各裁 17.5px，真正露在接缝处的是**源图第 12 列和第 499 列**。
+## 量第 0 列/第 511 列会得到「边缘对得上」，游戏里却看得出来——差的就是这 12 列。
+const TILEABLE_EDGE_INSET: int = 12
 
 var _panel: Control = null
 var _bg: TextureRect = null
@@ -163,12 +167,16 @@ func _is_tileable(tex: Texture2D) -> bool:
 	if w < 64 or h < 32:
 		return false
 	var s: int = mini(TILEABLE_EDGE_STRIP, w / 4)
+	# 缩进 TILEABLE_EDGE_INSET 列再量（见常量注释），宽图不够缩就退回贴边量。
+	var off: int = 0
+	if w > (TILEABLE_EDGE_INSET + 2) * 4:
+		off = TILEABLE_EDGE_INSET
 	var total: float = 0.0
 	var n: int = 0
 	for y in range(0, h, 4):
 		for i in range(s):
-			var ca: Color = img.get_pixel(i, y)
-			var cb: Color = img.get_pixel(w - 1 - i, y)
+			var ca: Color = img.get_pixel(off + i, y)
+			var cb: Color = img.get_pixel(w - 1 - off - i, y)
 			total += absf(ca.r - cb.r) + absf(ca.g - cb.g) + absf(ca.b - cb.b)
 			n += 1
 	if n == 0:
