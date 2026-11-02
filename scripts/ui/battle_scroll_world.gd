@@ -1,30 +1,33 @@
-## 战斗背景的拼接与卷动（**当前是关闭的**）。
+## 战斗背景的横向卷动与无缝拼接（**当前是打开的**）。
 ##
-## 用户最终决定：背景不卷动、不拼接，一张图铺满战场，靠斜站位（我方左下、
-## 敌方阵列朝右上铺开）表达纵深。所以 ENABLED 默认 false，走静态背景这条路：
-## 只换贴图，不建第二/第三张铺贴，也不建接缝阴影带，更没有速度线。
-##
-## 下面是卷动那套的完整实现（用户说「先不重绘新图」时试过一段时间），
-## 开关一翻就能回来，自检脚本两条路都验：
-##   · 可平铺的新图（AI 出图时左右边缘做成一样的）：A=B=C=原图，周期 = 一屏。
-##     接缝像素级连续，也没有镜像对称。
-##   · 不可平铺的老图：A=原图，B=**原图的水平镜像**，C=原图，周期 = 两屏。
-##     原图的右边缘与镜像图的左边缘是**同一列像素**，接缝天然无缝。
-##     代价：屏幕上会出现左右镜像对称（一座山对称着出现两次）。
+## 做法：把同一张背景铺三块（`BattleBackground` / `Next` / `Next2`），
+## 中间那块用原图的**水平镜像**，然后整体往左平移：
+##   A | 镜像A | A | 镜像A …
+## 镜像图的第一列和原图的最后一列是**同一列像素**，所以接缝像素级连续，
+## 不用阴影带也不需要左右边缘对齐的专门素材（拿现成的图就能用）。
+## 内容周期是两屏，走满两屏折回 0，贴图不换、画面完全一样，看不出来。
 ##
 ## 只平移背景，不碰战场格子：怪物站在格子上，格子坐标一旦跟着移，
 ## 飘字、受击、突进的落点全要跟着改，风险远大于收益。
+## 所以「往前移动」只靠背景位移来表达，单位留在原地打——就是 DNF 过门那种感觉。
 extends Node
 class_name BattleScrollWorld
 
 ## —— 背景卷动总开关 ——
 ##
-## false = 静态背景：一张图铺满战场，**不拼接、不卷动、没有速度线**（当前用的就是这个）。
-## true  = 老行为：横向卷动 + 无缝拼接（镜像）。
+## true  = 横向卷动 + 无缝拼接（当前用的就是这个）：背景一直往左走，做出「队伍在往前赶路」的观感。
+## false = 静态背景：一张图铺满战场，**不拼接、不卷动**（老行为）。
 ##
-## 想再开卷动，把这里改成 true 即可，代码都还在。
 ## 做成 static var 而不是 const：自检脚本要能把它翻来翻去，两条路都得验。
-static var ENABLED: bool = false
+static var ENABLED: bool = true
+
+## 强制走「镜像拼接」：A | 镜像A | A | 镜像A …
+##
+## 为什么不做「自动判定可平铺」：AI 出的图左右边缘本来就不相干（实测平均通道差 46~61），
+## 判不过就退到镜像；既然所有图都会走到镜像这条路，不如直接钉死，行为可预测。
+## 镜像拼接的好处是接缝处两边是**同一列像素**，像素级连续，不需要任何遮罩去盖。
+## 代价是每隔一屏会出现一次左右对称（城墙/树会照镜子），这是拿无缝换来的。
+static var FORCE_MIRROR: bool = true
 
 ## 接缝阴影带的宽度（像素）。压在接缝正中，两侧各一半。
 ## 做得宽一点、软一点：窄而深的黑带反而像一条竖着画上去的线。
@@ -104,13 +107,19 @@ func prepare(source: Texture2D) -> void:
 			_bg.texture = source
 		return
 	var tileable: bool = _is_tileable(source)
-	var want_mirror: bool = not tileable and not _is_force_repeat(source)
+	var want_mirror: bool = false
+	if FORCE_MIRROR:
+		want_mirror = not _is_force_repeat(source)
+	else:
+		want_mirror = not tileable and not _is_force_repeat(source)
 	# 同一张图重复调用时也要重新判一次：强制重复铺名单可能刚被改过。
 	if _source_tex == source and want_mirror == _mirror_mode:
 		return
 	_source_tex = source
 	_mirror_mode = want_mirror
-	_seam_needed = not tileable
+	# 镜像拼接本身就是像素级连续，再压一条阴影带反而会变成「每隔一屏一条黑杠」，
+	# 所以镜像模式下不建阴影带；只有「同一张图重复铺」（强制重复名单）才需要它兜底。
+	_seam_needed = not want_mirror and not tileable
 	_mirror_tex = null if not _mirror_mode else _make_mirrored(source)
 	if is_instance_valid(_seam):
 		_seam.visible = _seam_needed

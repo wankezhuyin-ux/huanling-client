@@ -31,6 +31,31 @@ HORIZON_TARGET = 0.36          # 地平线在成图中的位置（0~1）
 #   同时 BOTTOM 脚底 918 不会被战报框（930）切到脚。
 SEAM_FEATHER = 3               # 接缝羽化像素，避免一条硬边
 
+# —— 「人站在主道上」的硬指标 ——
+# 实机量出来的：人物/宠物的脚底落在图高 52.7%~61.7%（4 排阵型的脚底是 45%~70%，
+# 但真正会出现在画面里的那几排集中在这一带）。所以黄土主道必须至少盖住这一段，
+# 而且上沿要高于 52.7%、下沿低于 61.7%，否则看起来就是「站在草地上」。
+FOOT_BAND = (0.527, 0.617)
+# 主道建议带：比脚底带上下各留 ~6%，同时不越过可见下沿 66%（再往下被战报框挡住）。
+ROAD_TARGET = (0.46, 0.68)
+# 判「土路」用的行判据：整行平均 R-B 大于这个值，视为暖色土面。
+ROAD_WARM_DIFF = 26.0
+
+
+def detect_road_band(im: Image.Image) -> tuple:
+    """按「暖色偏黄」判出土路所在的高度带，返回 (top, bottom) 比例；判不出返回 None。"""
+    a = np.asarray(im.convert("RGB")).astype(np.float32)
+    h, w, _ = a.shape
+    # 只看中间 70%：两侧有暗角/收边，会把平均值拉低
+    x0, x1 = int(w * 0.15), int(w * 0.85)
+    band = a[:, x0:x1]
+    warm = band[..., 0].mean(axis=1) - band[..., 2].mean(axis=1)
+    ys = [y for y in range(int(h * 0.30), h) if warm[y] >= ROAD_WARM_DIFF]
+    if not ys:
+        return None
+    return (ys[0] / float(h), ys[-1] / float(h))
+
+
 
 def trim_edges(im: Image.Image, side: float, bottom: float, top: float = 0.0) -> Image.Image:
     """AI 出图四周有毛边/撕纸白边，按比例裁掉，别让它在战场边缘露出来。"""
@@ -105,8 +130,14 @@ def edge_burn(im: Image.Image, side: float = 0.075, top: float = 0.045,
     w, h = im.size
     xs = np.arange(w, dtype=np.float32) / w
     ys = np.arange(h, dtype=np.float32) / h
-    ex = np.maximum(0.0, (side - np.minimum(xs, 1 - xs)) / side) ** 1.6
-    ey = np.maximum(0.0, (top - np.minimum(ys, 1 - ys)) / top) ** 1.6
+    if side > 0.0:
+        ex = np.maximum(0.0, (side - np.minimum(xs, 1 - xs)) / side) ** 1.6
+    else:
+        ex = np.zeros(w, dtype=np.float32)
+    if top > 0.0:
+        ey = np.maximum(0.0, (top - np.minimum(ys, 1 - ys)) / top) ** 1.6
+    else:
+        ey = np.zeros(h, dtype=np.float32)
     e = np.maximum(ex[None, :], ey[:, None]) * max_alpha
     a = np.asarray(im).astype(np.float32)
     t = np.array(tint, dtype=np.float32)[None, None, :]
@@ -143,7 +174,14 @@ def main():
     ap.add_argument("--sat", type=float, default=1.06)
     ap.add_argument("--gamma", type=float, default=1.0,
                     help="<1 提亮，>1 压暗；墨色发闷时用 0.85~0.92")
+    ap.add_argument("--burn-side", type=float, default=0.075,
+                    help="左右墨色收边的宽度（占图宽比例）。做横向卷轴时必须给 0："
+                         "拼接处是 A 的右边缘贴着镜像图的左边缘，两边都压黑会变成一条滑动的黑杠")
+    ap.add_argument("--burn-top", type=float, default=0.045,
+                    help="上下墨色收边的高度（占图高比例）")
     ap.add_argument("--save-preview", default="")
+    ap.add_argument("--check-road", action="store_true",
+                    help="检一遍土路是否盖住人物脚底那一带（52.7%%~61.7%%）")
     args = ap.parse_args()
 
     im = Image.open(args.src).convert("RGB")
@@ -154,10 +192,22 @@ def main():
     # 轻微锐化：重采样后水墨笔触会发糊
     im = im.filter(ImageFilter.UnsharpMask(radius=1.2, percent=55, threshold=2))
     im = grade(im, args.contrast, args.sat, args.gamma)
-    im = edge_burn(im)
+    if args.burn_side > 0.0 or args.burn_top > 0.0:
+        im = edge_burn(im, args.burn_side, args.burn_top)
 
     size = save_jpeg(im, args.out, args.target_kb)
     print(f"{os.path.basename(args.out)}  {OUT_W}x{OUT_H}  {size/1024:.0f}KB  horizon={args.target_horizon:.0%}")
+    if args.check_road:
+        band = detect_road_band(im)
+        if band is None:
+            print("  [主道] 没检出土路（整行都不够暖）—— 人和宠会站在草上，重画时把主道画宽一点")
+        else:
+            top, bot = band
+            covers_foot = top <= FOOT_BAND[0] and bot >= FOOT_BAND[1]
+            print("  [主道] y=%.0f%%~%.0f%%  脚底带 %.0f%%~%.0f%%  %s" % (
+                top * 100, bot * 100, FOOT_BAND[0] * 100, FOOT_BAND[1] * 100,
+                "OK（站得住）" if covers_foot else "WARN（脚会踩在草上，建议主道上沿 ≤%.0f%%、下沿 ≥%.0f%%）"
+                % (FOOT_BAND[0] * 100, FOOT_BAND[1] * 100)))
     if args.save_preview:
         im.save(args.save_preview, "PNG")
 

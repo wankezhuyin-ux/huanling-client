@@ -1,12 +1,14 @@
 extends SceneTree
 
-## 校验横向卷轴的铺贴：
-##   1) 三张铺贴（A / 镜像B / C）首尾相接，任何偏移下都铺满一屏（不留缝、不重叠）；
-##   2) 不可平铺的老图：B 用的是 A 的水平镜像 → A 的右边缘与 B 的左边缘是**同一列像素**，
-##      接缝像素级连续（真无缝，不靠阴影带「盖住」）；
-##   3) 可平铺的新图：三张都用原图，周期一屏；
-##   4) 接缝阴影跟着接缝走，贴边时收掉，走到中间时最明显；
-##   5) 走满一个周期折回 0，贴图不换，画面自然连续（无闪屏）。
+## 校验横向卷轴的铺贴与推进：
+##   1) 三张铺贴（A / 镜像A / A）首尾相接，任何偏移下都铺满一屏（不留缝、不重叠）；
+##   2) 第二张是 A 的水平镜像、第三张又是 A → A 的右边缘与镜像图的左边缘是**同一列像素**，
+##      接缝像素级连续（真无缝，不靠阴影带「盖住」）。镜像模式下**不建阴影带**，
+##      否则会变成「每隔一屏一条黑杠」；
+##   3) 走满两屏折回 0，贴图不换，画面自然连续（无闪屏）；
+##   4) tick() 推进偏移：速度 × 时间 = 位移；速度为 0 / 未启用时不动；
+##   5) 强制重复铺（地标很强的图）关掉镜像、留阴影带兜底；
+##   6) 静态模式（ENABLED=false）不建铺贴、不推进。
 ## 用法：godot --headless --path . --script res://tools/test_battle_scroll_world.gd
 
 const ScrollWorldScript = preload("res://scripts/ui/battle_scroll_world.gd")
@@ -16,7 +18,6 @@ const PANEL_SIZE := Vector2(700.0, 460.0)
 func _initialize() -> void:
 	var root: Node = get_root()
 
-	# 一个假的战场面板：尺寸固定，模拟真实 BattlePanel。
 	var panel: Control = Control.new()
 	panel.name = "FakeBattlePanel"
 	panel.size = PANEL_SIZE
@@ -35,18 +36,19 @@ func _initialize() -> void:
 		quit(1)
 		return
 
-	# 先验「静态背景」这条路（当前默认）：不建第二张铺贴、不卷动、换图就是换贴图。
+	# 先验静态模式：不建第二张铺贴、不推进。
 	var world = ScrollWorldScript.new()
 	root.add_child(world)
 	ScrollWorldScript.ENABLED = false
 	world.bind(panel, bg)
 	world.prepare(tex)
+	world.tick(1.0, 100.0)
 	var static_ok: bool = panel.get_node_or_null("BattleBackgroundNext") == null \
 		and bg.texture == tex and world.current_offset() == 0.0
-	print("静态背景：不建第二张铺贴、贴图直接换上、不卷动: ", "OK" if static_ok else "FAIL")
-	var static_fails: int = 0 if static_ok else 1
+	print("静态模式：不建第二张铺贴、贴图直接换上、tick 不推进: ", "OK" if static_ok else "FAIL")
+	var fails: int = 0 if static_ok else 1
 
-	# 再验「卷动 + 无缝拼接」那条路（开关打开时）。
+	# 卷动 + 镜像拼接
 	ScrollWorldScript.ENABLED = true
 	world.bind(panel, bg)
 	world.prepare(tex)
@@ -61,8 +63,6 @@ func _initialize() -> void:
 		print("FAIL 没有创建第三张铺贴")
 		quit(1)
 		return
-
-	var fails: int = static_fails
 
 	# 1) 铺满：三张紧贴，宽度都等于面板宽。
 	for offset in [0.0, 1.0, 123.5, 350.0, 699.9]:
@@ -80,10 +80,10 @@ func _initialize() -> void:
 		if not covered_ok:
 			fails += 1
 
-	# 2) 不可平铺的老图 → 镜像拼接，且接缝像素级连续。
+	# 2) 镜像拼接 + 接缝像素级连续 + 不建阴影带
 	var mirrored: bool = _texture_of(next) != null and _texture_of(next) != tex
 	var third_same: bool = _texture_of(next2) == tex
-	print("不可平铺图 → 第二张=镜像、第三张=原图: ", "OK" if (mirrored and third_same) else "FAIL")
+	print("第二张=镜像、第三张=原图: ", "OK" if (mirrored and third_same) else "FAIL")
 	if not (mirrored and third_same):
 		fails += 1
 
@@ -98,14 +98,12 @@ func _initialize() -> void:
 				mir_img.decompress()
 			var w: int = src_img.get_width()
 			var h: int = src_img.get_height()
-			# A 的最后一列 == 镜像B 的第一列 → 接缝处像素完全相同
 			var max_a: float = 0.0
 			var max_b: float = 0.0
 			for y in range(0, h, 3):
 				var ca: Color = src_img.get_pixel(w - 1, y)
 				var cb: Color = mir_img.get_pixel(0, y)
 				max_a = maxf(max_a, absf(ca.r - cb.r) + absf(ca.g - cb.g) + absf(ca.b - cb.b))
-				# 镜像B 的最后一列 == A 的第一列（下一条缝同样连续）
 				var cc: Color = mir_img.get_pixel(w - 1, y)
 				var cd: Color = src_img.get_pixel(0, y)
 				max_b = maxf(max_b, absf(cc.r - cd.r) + absf(cc.g - cd.g) + absf(cc.b - cd.b))
@@ -114,6 +112,12 @@ func _initialize() -> void:
 	else:
 		print("接缝像素级连续: SKIP（没有镜像贴图）")
 	if not seam_pixels_ok:
+		fails += 1
+
+	var seam: TextureRect = panel.get_node_or_null("BattleBackgroundSeam") as TextureRect
+	var no_band: bool = seam != null and not seam.visible and not world._seam_needed
+	print("镜像模式不压阴影带（否则每屏一条黑杠）: ", "OK" if no_band else "FAIL")
+	if not no_band:
 		fails += 1
 
 	# 3) 折回：镜像模式下内容周期是两屏，折回点要对齐内容，否则会闪一下。
@@ -130,52 +134,52 @@ func _initialize() -> void:
 	if not wrap_ok:
 		fails += 1
 
-	# 4) 接缝阴影：跟着接缝走，接缝贴边时收掉，走到屏幕中间时最明显。
-	var seam: TextureRect = panel.get_node_or_null("BattleBackgroundSeam") as TextureRect
-	if seam == null:
-		print("FAIL 没有接缝阴影节点")
+	# 4) tick 推进：位移 = 速度 × 时间，且一直跑也不会跑出周期。
+	world.reset()
+	var s0: float = world.current_offset()
+	world.tick(1.0, 22.0)
+	var s1: float = world.current_offset()
+	var tick_ok: bool = absf(s0) < 0.01 and absf(s1 - 22.0) < 0.01
+	print("tick(1s, 22px/s) 位移 0 → %.2f: %s" % [s1, "OK" if tick_ok else "FAIL"])
+	if not tick_ok:
 		fails += 1
-	else:
-		var shade_fails: int = 0
-		for offset in [0.0, 350.0, 699.0]:
-			world._set_offset(offset)
-			var seam_x: float = PANEL_SIZE.x - fmod(offset, PANEL_SIZE.x)
-			var center: float = seam.offset_left + (PANEL_SIZE.x + seam.offset_right - seam.offset_left) * 0.5
-			var alpha: float = seam.modulate.a
-			var expect_alpha: bool = (offset > 100.0 and offset < 600.0)
-			var ok: bool = absf(center - seam_x) < 0.6 and ((alpha > 0.1) == expect_alpha)
-			print("  offset=%.1f 接缝中心=%.1f（应为 %.1f） 阴影alpha=%.2f  %s" % [offset, center, seam_x, alpha, "OK" if ok else "FAIL"])
-			if not ok:
-				shade_fails += 1
-		if shade_fails > 0:
-			fails += 1
-
-	# 5) 可平铺自动识别：AI 按「左边缘=右边缘」生成的图，三张都用原图、周期一屏、不压阴影带。
-	var tile_tex: ImageTexture = _make_tileable_texture(256, 128)
-	world.prepare(tile_tex)
-	var tile_ok: bool = seam != null and not seam.visible and not world._seam_needed \
-		and _texture_of(next) == tile_tex and _texture_of(next2) == tile_tex \
-		and absf(world._cycle - PANEL_SIZE.x) < 0.01
-	print("可平铺图 → 三张同图、周期一屏、不压阴影带: ", "OK" if tile_ok else "FAIL")
-	if not tile_ok:
+	world.tick(1.0, 0.0)
+	var s2: float = world.current_offset()
+	var idle_ok: bool = absf(s2 - s1) < 0.01
+	print("速度 0 时不动: ", "OK" if idle_ok else "FAIL")
+	if not idle_ok:
+		fails += 1
+	for i in range(100):
+		world.tick(1.0, 200.0)
+	var s3: float = world.current_offset()
+	var loop_ok: bool = s3 >= 0.0 and s3 < world._cycle
+	print("跑 2 万像素后仍在 [0, 周期) 内: offset=%.1f cycle=%.1f  %s" % [s3, world._cycle, "OK" if loop_ok else "FAIL"])
+	if not loop_ok:
 		fails += 1
 
-	world.prepare(tex)
-	var plain_ok: bool = seam != null and seam.visible and world._seam_needed
-	print("普通图（边缘无关）→ 镜像拼接 + 保留阴影带: ", "OK" if plain_ok else "FAIL")
-	if not plain_ok:
-		fails += 1
-
-	# 6) 强制重复铺：地标很强的图（对称会看出是复制品）可以单独关掉镜像。
+	# 5) 强制重复铺：地标很强的图（对称会看出是复制品）可以单独关掉镜像。
 	world.force_repeat_maps.append("morenzhandoubj")
 	world.prepare(tex)
 	var forced_ok: bool = not world._mirror_mode and _texture_of(next) == tex \
-		and absf(world._cycle - PANEL_SIZE.x) < 0.01 and seam.visible
-	print("地标强的图强制重复铺（关镜像、周期一屏）: ", "OK" if forced_ok else "FAIL")
+		and absf(world._cycle - PANEL_SIZE.x) < 0.01 and seam.visible and world._seam_needed
+	print("地标强的图强制重复铺（关镜像、周期一屏、留阴影带）: ", "OK" if forced_ok else "FAIL")
 	if not forced_ok:
 		fails += 1
 	world.force_repeat_maps.clear()
 	world.prepare(tex)
+
+	# 6) 关掉强制镜像：可平铺的图（左边缘=右边缘）走「三张同图、周期一屏」，
+	#    这是以后重画成「左右边缘对齐」的素材时的路，代码得留着。
+	ScrollWorldScript.FORCE_MIRROR = false
+	var tile_tex: ImageTexture = _make_tileable_texture(256, 128)
+	world.prepare(tile_tex)
+	var tile_ok: bool = not seam.visible and not world._seam_needed \
+		and _texture_of(next) == tile_tex and _texture_of(next2) == tile_tex \
+		and absf(world._cycle - PANEL_SIZE.x) < 0.01
+	print("可平铺图（不强制镜像时）→ 三张同图、周期一屏: ", "OK" if tile_ok else "FAIL")
+	if not tile_ok:
+		fails += 1
+	ScrollWorldScript.FORCE_MIRROR = true
 
 	ScrollWorldScript.ENABLED = false
 	print("FAIL_COUNT=", fails)

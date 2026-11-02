@@ -30,6 +30,7 @@ const AssetManager = preload("res://scripts/asset_manager.gd")
 const PetIdleDisplay = preload("res://scripts/ui/pet_idle_display.gd")
 const BattleRealmHalo = preload("res://scripts/ui/battle_realm_halo.gd")
 const BattleMonsterDefeatEffect = preload("res://scripts/ui/battle_monster_defeat_effect.gd")
+const BattleCorpseDrift = preload("res://scripts/ui/battle_corpse_drift.gd")
 const BattleLevelUpEffect = preload("res://scripts/ui/battle_level_up_effect.gd")
 const BattleSplashHitEffect = preload("res://scripts/ui/battle_splash_hit_effect.gd")
 const QuestDatabase = preload("res://scripts/data/quest_database.gd")
@@ -312,9 +313,14 @@ const MONSTER_ENTRANCE_SLIDE_DURATION: = 0.22
 const MONSTER_ENTRANCE_STAGGER_MAX: = 0.2
 
 # --- 战斗背景 ---------------------------------------------------------------
-# 背景系统本身保留：BattleScrollWorld 现在是「静态背景」模式
-# （ENABLED = false），负责换地图时换贴图，不拼接、不卷动。
+# BattleScrollWorld 负责横向卷动：A | 镜像A | A | 镜像A …，接缝像素级连续。
+# 只在「战斗进行中且战斗页在前台」时推进，其它时候背景停住（不白烧 CPU）。
 const BATTLE_SCROLL_WORLD_SCRIPT = preload("res://scripts/ui/battle_scroll_world.gd")
+## 卷动速度（设计像素/秒，720x1280 基准）。
+## 只在「不在战斗中」时才走：打完一波到下一波之间的结算/赶路时间，背景往前滑，
+## 敌人一出场（in_battle = true）就定住——出手、飘字、突进的落点都别跟着漂。
+## 60px/s ≈ 一屏 12 秒走完；一次结算空隙 1~2 秒能滑出 60~120px，看得出「往前赶了一段路」。
+const BATTLE_SCROLL_SPEED: float = 60.0
 var _battle_scroll_world: BattleScrollWorld = null
 ## 当前绑在卷轴上的背景图路径。
 var _battle_bg_bound_path: String = ""
@@ -18334,6 +18340,7 @@ func _clear_container_immediate(container: Control):
 
 
 func _process(delta):
+	_update_battle_scroll(delta)
 	if _vip_info_requested:
 		_vip_info_timer += delta
 		if _vip_info_timer >= _vip_info_timeout:
@@ -19314,6 +19321,7 @@ func _restore_monster_ui_home_pose(monster_ui: Control) -> void :
 	if not is_instance_valid(monster_ui):
 		return
 	_kill_monster_entrance_tween(monster_ui)
+	BattleCorpseDrift.clear(monster_ui)
 	if monster_ui.has_meta("_battle_home_pos"):
 		monster_ui.position = monster_ui.get_meta("_battle_home_pos")
 	monster_ui.modulate = Color.WHITE
@@ -20032,10 +20040,17 @@ func _update_monster_hp_ui_optimized():
 							_apply_arena_monster_defeat_effect(monster_ui, monster)
 						else:
 							BattleMonsterDefeatEffect.apply_defeated(monster_ui)
+						# 倒下之后往右上方飘走并淡掉（原版就有这一段，前阵子为了「尸体原地不动」删过，
+						# 现在恢复：死掉的怪留在场上会挡住下一波的站位）。
+						var home_pos: Vector2 = monster_ui.position
+						if monster_ui.has_meta("_battle_home_pos"):
+							home_pos = monster_ui.get_meta("_battle_home_pos")
+						BattleCorpseDrift.play(monster_ui, home_pos)
 						if i < _monster_defeat_fx_applied.size():
 							_monster_defeat_fx_applied[i] = true
 					elif monster_hp > 0:
 						monster_ui.modulate = Color.WHITE
+						BattleCorpseDrift.clear(monster_ui)
 						BattleMonsterDefeatEffect.clear_defeated(monster_ui)
 						if _uses_arena_style_monster_defeat(monster):
 							_restore_arena_monster_sprite_layout(monster_ui, monster)
@@ -26871,11 +26886,16 @@ func _snap_monster_ui_to_battle_home(monster_ui: Control) -> void :
 		return
 	_kill_monster_entrance_tween(monster_ui)
 	_restore_battle_lunge_home(monster_ui)
+	# 阵亡飘散已经播过就别再把它「拽回原位显形」：那会在战斗结束/下一波开场前闪一下尸体。
+	# 位置归位、保持透明即可，下一波 _restore_monster_ui_home_pose 会统一复位。
+	var drifted: bool = BattleCorpseDrift.is_drifted(monster_ui)
+	if drifted:
+		BattleCorpseDrift.stop(monster_ui)
 	if monster_ui.has_meta("_battle_home_pos"):
 		var home_pos: Vector2 = monster_ui.get_meta("_battle_home_pos")
 		monster_ui.position = home_pos
 		monster_ui.set_meta(BATTLE_LUNGE_HOME_POS_META, home_pos)
-	monster_ui.modulate = Color.WHITE
+	monster_ui.modulate = Color(1.0, 1.0, 1.0, 0.0) if drifted else Color.WHITE
 
 func _snap_dead_monsters_to_battle_home() -> void :
 	if game_manager == null or game_manager.battle_system == null:
@@ -28544,7 +28564,9 @@ func _ensure_battle_background_layers(battle_panel: Panel) -> void :
 		# 连胜升级地图时 bg.texture 被直接换掉，整张背景一帧跳变。
 		var old_tex: Texture2D = bg.texture as Texture2D
 		if old_tex != null and old_tex != bg_tex:
-			_start_battle_bg_dissolve(battle_panel, old_tex, bg.offset_left)
+			# 传「正数偏移量」：旧图要停在它此刻所在的位置上淡出。
+			# bg.offset_left 是负的（= -offset），所以取反再传，别再取反一次。
+			_start_battle_bg_dissolve(battle_panel, old_tex, -bg.offset_left)
 		bg.texture = bg_tex
 	battle_panel.move_child(bg, 0)
 	if bg is TextureRect:
@@ -28655,6 +28677,44 @@ func _update_battle_background() -> void :
 		return
 	_ensure_battle_background_layers(battle_panel)
 
+
+## 战斗背景的横向卷动。**战斗进行中不走，结算/间隙才走**：
+## 敌人一出场（in_battle = true）背景就定住，出手、飘字、突进都在静止坐标系里结算；
+## 打完这一波到下一波之间（结算、往下一间走）背景往前滑，做出「队伍在赶路」的节奏。
+## 离开战斗页也停，不然切到背包时背景还在偷偷跑，回来会停在奇怪的位置。
+func _update_battle_scroll(delta: float) -> void :
+	if _battle_scroll_world == null or not is_instance_valid(_battle_scroll_world):
+		return
+	if not BattleScrollWorld.ENABLED:
+		return
+	if game_manager == null or current_view != "battle":
+		return
+	# 战斗中就定住：出手、飘字、突进的落点都在一个静止的坐标系里，别让背景带着漂。
+	if _battle_is_visibly_fighting():
+		return
+	_battle_scroll_world.tick(delta, BATTLE_SCROLL_SPEED)
+
+
+## 「场上还有活着的敌人」= 正在打。
+##
+## 为什么不用 game_manager.in_battle：野外战斗是「服务端回放」，结算包可能先到，
+## `in_battle` 已经置 false，但客户端还在把这一场打完（实测还能再演 20 多秒）。
+## 拿它当开关，背景会在打斗过程中偷偷滑走。所以直接看场上有没有活怪。
+func _battle_is_visibly_fighting() -> bool :
+	if game_manager == null:
+		return false
+	if game_manager.in_battle:
+		return true
+	var bs = game_manager.battle_system
+	if bs == null:
+		return false
+	var monsters = bs.monsters
+	if monsters == null:
+		return false
+	for monster in monsters:
+		if bs.is_monster_alive(monster):
+			return true
+	return false
 func _get_coop_battle_unit(unit_type: String):
 	if not game_manager or not game_manager.battle_system:
 		return null
