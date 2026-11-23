@@ -132,6 +132,15 @@ var reincarnate_btn: Button = null
 var double_exp_privilege_checkbox: CheckBox = null
 var _updating_double_exp_privilege_checkbox: bool = false
 var _auto_realm_transition_in_progress: bool = false
+# 自动飞升/投胎的兜底轮询：不止「升级信号」那一条路能达成条件（离线收益、
+# 吃经验丹、竞技结算……），UI 刷新时按这个间隔补判一次。
+const AUTO_REALM_CHECK_INTERVAL_MS: int = 2500
+var _auto_realm_check_last_ms: int = 0
+# 一次自动转换从开始到结束通常几秒。标志卡住超过这个时长说明某次 await
+# 没回来（断网、弹窗没人点），必须强制复位，否则后面所有检测都被这一句
+# `if _auto_realm_transition_in_progress: return` 永久跳过。
+const AUTO_REALM_STALL_RESET_MS: int = 90000
+var _auto_realm_transition_started_ms: int = 0
 const MODAL_CANVAS_LAYER: = 100
 
 var _modal_canvas_layer: CanvasLayer = null
@@ -2165,11 +2174,36 @@ func _on_game_manager_game_loaded():
 func _on_player_profile_restored() -> void :
 	_refresh_player_battle_halo()
 
+## 目标页是否已经完整显示（可见且不透明）。
+## 用来判定「同页重复切换」，避免重播淡入淡出（天关联打每层都会切一次 battle）。
+func _is_view_fully_shown(view_name: String) -> bool:
+	var v: Control = null
+	match view_name:
+		"battle":
+			v = battle_view
+		"character":
+			v = character_view
+		"pet":
+			v = pet_view
+		"bag":
+			v = bag_view
+		"city":
+			v = city_view
+	if v == null or not is_instance_valid(v):
+		return false
+	return v.visible and v.modulate.a >= 0.999
+
 func _show_view(view_name: String, city_skip_reset: bool = false):
 
 	if view_name != "battle" and _is_challenge_view_locked():
 		_show_simple_dialog("无法切换", "挑战进行中，请先完成或停止当前挑战")
 		return
+
+	# 「已经在同一页又切一次」不要重播淡入淡出。
+	# 无限天关联打时每进一层都会 _show_view("battle")，原来每次都把底板和
+	# battle_view 的 modulate.a 归零再淡回来（0.18s + 0.2s），就是玩家说的
+	# 「每进下一层全屏闪一下」。同页只刷新内容，不动透明度。
+	var same_page := view_name == current_view and _is_view_fully_shown(view_name)
 	current_view = view_name
 
 	# 图鉴是挂在 MainUI 根上的整页浮层（不是 PetView 的子节点），
@@ -2181,7 +2215,10 @@ func _show_view(view_name: String, city_skip_reset: bool = false):
 	var inner := view_name != "city"
 	if _page_backdrop != null and is_instance_valid(_page_backdrop):
 		if inner:
-			_page_backdrop.open_for(view_name)
+			if same_page and _page_backdrop.visible:
+				pass
+			else:
+				_page_backdrop.open_for(view_name)
 		else:
 			_page_backdrop.close()
 	var views = [battle_view, character_view, pet_view, bag_view, city_view]
@@ -2208,10 +2245,13 @@ func _show_view(view_name: String, city_skip_reset: bool = false):
 			tween.tween_callback( func(): view.visible = false)
 
 	if target_view:
-		target_view.modulate.a = 0.0
-		target_view.visible = true
-		var tween = create_tween()
-		tween.tween_property(target_view, "modulate:a", 1.0, 0.2)
+		if same_page and target_view.visible and target_view.modulate.a >= 0.999:
+			pass
+		else:
+			target_view.modulate.a = 0.0
+			target_view.visible = true
+			var tween = create_tween()
+			tween.tween_property(target_view, "modulate:a", 1.0, 0.2)
 
 	# 离开主城就把主城的环境动效整层停掉（process 也停）。
 	# 主城那一整套（云 / 瀑布 / 水面 / 石龙双 shader / 22 个人物换图 / 9 只仙鹤 /
@@ -4492,10 +4532,17 @@ func _on_double_exp_privilege_checkbox_toggled(pressed: bool) -> void :
 	var pl = game_manager.player if game_manager else null
 	if pl:
 		pl.double_exp_auto_realm_enabled = pressed
+		# 标记「玩家亲手改过」：之后任何权威回包（整包 from_dict / 双倍经验
+		# slice 合并）都不许再把这一项改回去，否则勾几秒就自己弹掉。
+		pl.mark_auto_realm_pref_edited()
 		if game_manager:
-			game_manager.save_game()
+			# 强制一次完整云上传：这一项只是「整包存下来」的偏好，不走强制的话
+			# 会被 CLOUD_UPLOAD_MIN_INTERVAL 节流掉，服务端还留着「没勾」的旧快照，
+			# 换手机 / 重装后勾选就丢了。
+			game_manager.save_game(true, "double_exp_privilege_toggle")
 	if pressed:
 		_sync_double_exp_privilege_checkbox_state(true)
+		_log_auto_realm_readiness()
 		call_deferred("_try_auto_realm_transition")
 	else:
 		_refresh_double_exp_privilege_checkbox_text()
@@ -4504,7 +4551,7 @@ func _sync_double_exp_privilege_checkbox_state(show_tip_when_invalid: bool) -> v
 	if not is_instance_valid(double_exp_privilege_checkbox):
 		return
 	var player = game_manager.player if game_manager else null
-	var is_active = player != null and player.is_double_exp_active()
+	var is_active: bool = _has_double_exp_active()
 	# 勾选状态 = 玩家自己的偏好，**不能因为双倍丹过期就自动清掉**。
 	# 老写法是「丹一过期就把 double_exp_auto_realm_enabled 改 false 并存盘」：
 	# 玩家勾过一次、丹到期后设置被悄悄关掉，之后再用丹也不会自动投胎，
@@ -4513,11 +4560,13 @@ func _sync_double_exp_privilege_checkbox_state(show_tip_when_invalid: bool) -> v
 	_updating_double_exp_privilege_checkbox = true
 	double_exp_privilege_checkbox.button_pressed = want_enabled
 	_updating_double_exp_privilege_checkbox = false
+	# 原版规则：没有双倍经验丹时这一项不能勾，有丹才可勾（勾了就不再因过期取消）。
+	double_exp_privilege_checkbox.disabled = not is_active
 
 	if is_active:
 		double_exp_privilege_checkbox.tooltip_text = "双倍经验丹生效中：达到飞升/投胎条件后自动执行（结果弹窗自动关闭）"
 	else:
-		double_exp_privilege_checkbox.tooltip_text = "设置会被保存；仅在双倍经验丹生效期间自动执行"
+		double_exp_privilege_checkbox.tooltip_text = "需要双倍经验丹生效期间才能启用；设置会被保存，下次丹药生效自动执行"
 		if show_tip_when_invalid and want_enabled:
 			_show_error_tip("已开启。双倍经验丹生效期间，达到条件会自动飞升/投胎")
 	_refresh_double_exp_privilege_checkbox_text()
@@ -4526,12 +4575,53 @@ func _sync_double_exp_privilege_checkbox_state(show_tip_when_invalid: bool) -> v
 	if want_enabled and is_active:
 		call_deferred("_try_auto_realm_transition")
 
+# 双倍经验是否生效。player 侧看单通道 + 多通道，本地存档还要问一次
+# local_double_exp_count（服务端只回 exp 倍率、不回通道明细时也能兜住）。
+func _has_double_exp_active() -> bool:
+	var player = game_manager.player if game_manager else null
+	if player == null:
+		return false
+	if player.is_double_exp_active():
+		return true
+	if game_manager != null and game_manager.has_method("local_double_exp_count"):
+		return int(game_manager.local_double_exp_count()) > 0
+	return false
+
 func _is_double_exp_privilege_enabled() -> bool:
 	var player = game_manager.player if game_manager else null
-	if player == null or not player.is_double_exp_active():
+	if player == null or not _has_double_exp_active():
 		return false
 
 	return player.double_exp_auto_realm_enabled
+
+# UI 刷新时按固定间隔补判一次自动飞升/投胎，并顺手把勾选项的可用状态同步上。
+func _maybe_auto_realm_transition_tick() -> void :
+	var now_ms: = Time.get_ticks_msec()
+	if now_ms - _auto_realm_check_last_ms < AUTO_REALM_CHECK_INTERVAL_MS:
+		return
+	_auto_realm_check_last_ms = now_ms
+	# 勾选控件的同步只是顺带的：角色面板没打开时它是 null，
+	# 顶层不能因为「控件不在」就整段 return —— 那样玩家勾完关掉面板，
+	# 自动飞升/投胎就再也不会被检测到。
+	if is_instance_valid(double_exp_privilege_checkbox):
+		_sync_double_exp_privilege_checkbox_state(false)
+	if _auto_realm_transition_in_progress:
+		# 自愈：一次转换几秒内就该结束。卡住超过 90s 说明 await 没回来
+		# （断网等回包、结果弹窗没人点），强制复位，否则自动飞升永久失效。
+		if _auto_realm_transition_started_ms > 0 and now_ms - _auto_realm_transition_started_ms > AUTO_REALM_STALL_RESET_MS:
+			_auto_realm_transition_in_progress = false
+			_auto_realm_transition_started_ms = 0
+			_add_log("[color=#8898aa]上一次自动飞升/投胎等待超时，已重新开始检测。[/color]")
+		else:
+			return
+	# 原来这里有一句 `if game_manager.in_battle: return`，把挂机刷怪时
+	# 自动飞升整段掐掉了 —— 而挂机正是玩家最常开着这个功能的场景。
+	# 对照原版（原始恢复工程 main_ui.gd 的 _try_auto_realm_transition 触发点
+	# 只有勾选 / level_up / realm_changed / sync_heartbeat_ok / 初始化五处，
+	# **没有战斗状态判断**），战斗中同样要自动飞升，这里不拦。
+	if not _is_double_exp_privilege_enabled():
+		return
+	call_deferred("_try_auto_realm_transition")
 
 func _try_auto_realm_transition() -> void :
 	if _auto_realm_transition_in_progress:
@@ -4551,32 +4641,91 @@ func _try_auto_realm_transition() -> void :
 	if not can_reincarnate and not can_ascend:
 		return
 	_auto_realm_transition_in_progress = true
+	_auto_realm_transition_started_ms = Time.get_ticks_msec()
 	_dismiss_realm_transition_ui_chrome()
+	var transitioned: bool = false
 	if can_reincarnate:
 		_add_log("[color=#f6d06a]双倍经验丹权益触发：检测到满足投胎条件，正在自动投胎...[/color]")
 		_show_auto_realm_transition_tip("双倍经验丹权益触发\n检测到满足投胎条件，正在自动投胎...")
 		await _on_character_realm_reincarnate_pressed()
 		if player.reincarnation > previous_reincarnation:
+			transitioned = true
 			_add_log("[color=#7dff9b]双倍经验丹权益触发：已自动投胎（第%d次）。[/color]" % player.reincarnation)
 			_show_auto_realm_transition_tip("双倍经验丹权益触发\n已自动投胎（第%d次）" % player.reincarnation)
 			await _try_player_attr_auto_allocate_after_level_up()
+		else:
+			# 自动通道里失败不会弹窗，只有这一行日志能说明为什么没转。
+			_add_log("[color=#f6d06a]双倍经验丹权益：已满足投胎条件，但本次未执行（挑战中 / 网络同步异常 / 服务器未确认），条件恢复后会自动重试。[/color]")
 	elif can_ascend:
 		_add_log("[color=#f6d06a]双倍经验丹权益触发：检测到满足飞升条件，正在自动飞升...[/color]")
 		_show_auto_realm_transition_tip("双倍经验丹权益触发\n检测到满足飞升条件，正在自动飞升...")
 		await _on_character_realm_ascend_pressed()
 		if player.realm != previous_realm:
+			transitioned = true
 			_add_log("[color=#7dff9b]双倍经验丹权益触发：已自动飞升至【%s】。[/color]" % player.realm)
 			_show_auto_realm_transition_tip("双倍经验丹权益触发\n已自动飞升至【%s】" % player.realm)
 			await _try_player_attr_auto_allocate_after_level_up()
+		else:
+			_add_log("[color=#f6d06a]双倍经验丹权益：已满足飞升条件，但本次未执行（挑战中 / 网络同步异常 / 服务器未确认），条件恢复后会自动重试。[/color]")
 	_auto_realm_transition_in_progress = false
+	_auto_realm_transition_started_ms = 0
 	_dismiss_realm_transition_ui_chrome()
 	call_deferred("_update_player_ui")
+	if transitioned:
+		# 成功后立刻再判一次，覆盖「服务端回包把等级/境界顶回门槛」这类时序问题
+		# （本地先改、云端回包后又变一次）。注意原版飞升/投胎都会把等级重置为 1
+		# （`_reset_allocated_stats_for_level_one` 里 `level = 1`），所以通常
+		# 这里下一轮就不满足条件、自然退出；只有条件确实还成立时才继续，
+		# 每次成功必然推进境界或投胎次数，不存在死循环。
+		_auto_realm_check_last_ms = 0
+		call_deferred("_try_auto_realm_transition")
+
+# 勾上「双倍经验丹权益」时立刻把当前进度说清楚。
+# 自动飞升是后台在等条件，玩家看不到任何反馈只会以为「又没生效」。
+func _log_auto_realm_readiness() -> void :
+	var pl = game_manager.player if game_manager else null
+	if pl == null:
+		return
+	_add_log("[color=#f6d06a]已开启「双倍经验丹权益（自动飞升/投胎）」。[/color]")
+	if pl.can_reincarnate():
+		_add_log("[color=#7dff9b]当前已满足投胎条件，正在自动执行。[/color]")
+		return
+	var ec: Dictionary = {}
+	if game_manager.pet_collection_manager:
+		ec = game_manager.pet_collection_manager.get_all_element_collection_counts()
+	var asc: Dictionary = pl.can_ascend(ec)
+	if bool(asc.get("can_ascend", false)):
+		_add_log("[color=#7dff9b]当前已满足飞升条件，正在自动执行。[/color]")
+		return
+	# 幻灵天神已经是最高境界，ASCENSION_CONDITIONS 里没有它这一项，
+	# 原来会掉到「等级已达标，但五行图鉴不足」那条分支 —— 提示驴唇不对马嘴。
+	if str(pl.realm) == "幻灵天神":
+		if int(pl.reincarnation) >= int(GameData.MAX_PLAYER_REINCARNATION):
+			_add_log("[color=#8898aa]已达最大投胎次数（%d 次），不会再自动投胎。[/color]" % int(GameData.MAX_PLAYER_REINCARNATION))
+		else:
+			var need_rein_lv: int = int(GameData.MAX_LEVEL_EVOLUTION)
+			_add_log("[color=#8898aa]当前幻灵天神 %d 级，还差 %d 级到投胎门槛（%d 级），到时自动投胎。[/color]" % [int(pl.level), maxi(0, need_rein_lv - int(pl.level)), need_rein_lv])
+		return
+	var cond: Dictionary = GameData.ASCENSION_CONDITIONS.get(str(pl.realm), {})
+	var need_lv: int = int(cond.get("required_level", 0))
+	var cur_lv: int = int(pl.level)
+	if need_lv > 0 and cur_lv < need_lv:
+		_add_log("[color=#8898aa]当前 %s %d 级，还差 %d 级到飞升门槛（%d 级），到时自动飞升。[/color]" % [str(pl.realm), cur_lv, need_lv - cur_lv, need_lv])
+		return
+	var missing: Variant = asc.get("missing_elements", [])
+	if missing is Array and not (missing as Array).is_empty():
+		_add_log("[color=#8898aa]等级已达标，但五行图鉴不足（每个属性需 10 个），补齐后自动飞升。[/color]")
+		return
+	_add_log("[color=#8898aa]双倍经验丹生效期间，满足飞升/投胎条件会自动执行。[/color]")
 
 func _refresh_double_exp_privilege_checkbox_text() -> void :
 	if not is_instance_valid(double_exp_privilege_checkbox):
 		return
 	# 右栏只有约 400px，原来那串 30 字的说明会被裁掉一半，压短但语义不变
-	double_exp_privilege_checkbox.text = "启用双倍经验丹权益（自动飞升/投胎）"
+	if _has_double_exp_active():
+		double_exp_privilege_checkbox.text = "启用双倍经验丹权益（自动飞升/投胎）"
+	else:
+		double_exp_privilege_checkbox.text = "双倍经验丹生效后可启用（自动飞升/投胎）"
 
 func _build_talent_view():
 	if character_talent_container == null:
@@ -5918,11 +6067,26 @@ func _on_post_login_offline_rewards_ready(hours_f: float, exp_v: int, gold: int,
 	var level_lines: = PackedStringArray()
 	var p_before: = int(level_change.get("playerLevelBefore", 0))
 	var p_after: = int(level_change.get("playerLevelAfter", 0))
+	var realm_before: = str(level_change.get("playerRealmBefore", "")).strip_edges()
+	var realm_after: = str(level_change.get("playerRealmAfter", "")).strip_edges()
+	var auto_moves: Variant = level_change.get("autoTransitions", [])
+	var auto_list: Array = auto_moves if auto_moves is Array else []
 	if p_before > 0 and p_after > 0:
-		if p_after > p_before:
+		var realm_changed: = (not realm_before.is_empty() and not realm_after.is_empty() 
+			and realm_before != realm_after)
+		if realm_changed:
+			# 离线期间服务端替玩家飞升/投胎过，等级已经重置过，不能直接比大小
+			# （否则会显示「从 627 级升到 519 级」这种莫名其妙的话）
+			level_lines.append("人物: %s %d 级 → %s %d 级" % [realm_before, p_before, realm_after, p_after])
+		elif p_after > p_before:
 			level_lines.append("人物: 从 %d 级升到 %d 级" % [p_before, p_after])
 		else:
 			level_lines.append("人物: 保持 %d 级" % p_before)
+		if not auto_list.is_empty():
+			var parts: = PackedStringArray()
+			for m in auto_list:
+				parts.append(str(m))
+			level_lines.append("离线自动: %s" % "、".join(parts))
 	var pet_before: = int(level_change.get("petLevelBefore", 0))
 	var pet_after: = int(level_change.get("petLevelAfter", 0))
 	if pet_before > 0 and pet_after > 0:
@@ -7925,6 +8089,10 @@ func _run_pet_equipment_dismantle_secure(equip_id: String) -> void :
 	var on_success = func(data: Dictionary):
 		if game_manager and data.has("saveData") and data.get("saveData") is Dictionary:
 			game_manager.apply_cloud_save(data.get("saveData"), {"authoritative_equipment_inventory": true})
+		# 兜底：即使服务端没带 `removedPetEquipIds`（旧版服务端）或整包背包没下发，
+		# 这一件也一定被分解掉了 —— 按 id 从本地背包精确移除。
+		if game_manager and game_manager.inventory_manager:
+			game_manager.inventory_manager.remove_pet_equipment_items_by_ids([str(equip_id)])
 		_refresh_pet_equipment_view()
 		_update_bag_view()
 		_show_simple_dialog("分解成功", str(data.get("message", "分解成功")))
@@ -7945,6 +8113,9 @@ func _run_pet_equipment_drop_secure(equip_id: String) -> void :
 	var on_success = func(data: Dictionary):
 		if game_manager and data.has("saveData") and data.get("saveData") is Dictionary:
 			game_manager.apply_cloud_save(data.get("saveData"), {"authoritative_equipment_inventory": true})
+		# 丢弃和分解同源：丢弃最后一件时服务端也不发空表，本地要按 id 删。
+		if game_manager and game_manager.inventory_manager:
+			game_manager.inventory_manager.remove_pet_equipment_items_by_ids([str(equip_id)])
 		_refresh_pet_equipment_view()
 		_update_bag_view()
 		_show_simple_dialog("丢弃成功", str(data.get("message", "丢弃成功")))
@@ -8210,6 +8381,10 @@ func _show_pet_equipment_batch_dismantle_result(result: Dictionary) -> void :
 func _on_pet_equipment_dismantle_batch_success(data: Dictionary) -> void :
 	if game_manager and data.has("saveData") and data.get("saveData") is Dictionary:
 		game_manager.apply_cloud_save(data.get("saveData"), {"authoritative_equipment_inventory": true})
+	# 兜底：本地已经把这次勾选的 id 记下来了，按 id 精确移除，
+	# 不依赖服务端是否下发整包宠装背包（分解最后一件时它故意不发空表）。
+	if game_manager and game_manager.inventory_manager and not _pending_pet_equipment_dismantle_ids.is_empty():
+		game_manager.inventory_manager.remove_pet_equipment_items_by_ids(_pending_pet_equipment_dismantle_ids)
 	_pending_pet_equipment_dismantle_ids.clear()
 	_refresh_pet_equipment_view()
 	_update_bag_view()
@@ -10890,6 +11065,9 @@ func _show_pet_equipment_action_popup(equipment, slot: String, is_equipped: bool
 						dismantle_btn.disabled = false
 					if game_manager and data.has("saveData") and data.get("saveData") is Dictionary:
 						game_manager.apply_cloud_save(data.get("saveData"), {"authoritative_equipment_inventory": true})
+					# 兜底：分解成功就一定不再在背包里，按 id 精确移除。
+					if game_manager and game_manager.inventory_manager:
+						game_manager.inventory_manager.remove_pet_equipment_items_by_ids([str(equip_id)])
 					if is_instance_valid(popup_ref):
 						popup_ref.queue_free()
 					_refresh_pet_equipment_view()
@@ -18363,6 +18541,11 @@ func _process(delta):
 		auto_save_timer = 0.0
 		game_manager.flush_battle_progress_persist(true)
 
+	# 自动飞升/投胎兜底轮询（函数内部有 2.5s 节流，不会每帧真跑）。
+	# 不能只靠升级信号：离线收益结算、吃丹、竞技结算、服务端补经验这些路径
+	# 同样会把等级顶到门槛，但未必走 _update_player_ui，漏了就一直不自动转。
+	_maybe_auto_realm_transition_tick()
+
 
 
 	if game_manager.auto_change_map_enabled and not game_manager.in_battle:
@@ -18858,6 +19041,7 @@ func _update_ascend_reincarnate_buttons():
 	if _is_challenge_view_locked():
 		ascend_btn.disabled = true
 		reincarnate_btn.disabled = true
+	_maybe_auto_realm_transition_tick()
 
 func _on_ascend_pressed():
 	if _is_challenge_view_locked():
@@ -22509,13 +22693,18 @@ func _show_item_action_popup(item):
 	var _skill_book_name: String = str(item.name).strip_edges()
 	if _skill_book_name.is_empty() or _skill_book_name == "null":
 		_skill_book_name = str(item.custom_data.get("book_name", "")).strip_edges()
+	# 老存档可能是「坚固IV技能书」这类旧名 + 罗马数字，先折成现用键再往下走
+	var _skill_book_key: String = GameData.normalize_pet_skill_book_name(_skill_book_name)
+	if not _skill_book_key.is_empty():
+		_skill_book_name = _skill_book_key
 	var _skill_book_total: int = 0
 	if item.item_type == "pet_skill_book" and game_manager and game_manager.inventory_manager:
 		_skill_book_total = game_manager.inventory_manager.count_item_total_in_bag_and_warehouse(_skill_book_name)
 	var is_skill_book: bool = item.item_type == "pet_skill_book" and _skill_book_total >= 2
 	if is_skill_book:
 		var book_name: String = _skill_book_name if not _skill_book_name.is_empty() else str(item.custom_data.get("book_name", item.name))
-		if book_name != "" and book_name != "null":
+		var next_book_name: String = GameData.pet_skill_book_next_name(book_name)
+		if book_name != "" and book_name != "null" and not next_book_name.is_empty():
 			var synth_btn2 = Button.new()
 			synth_btn2.text = "2合1进阶"
 			synth_btn2.custom_minimum_size = Vector2(160, 45)
@@ -22523,19 +22712,7 @@ func _show_item_action_popup(item):
 			synth_btn2.add_theme_font_size_override("font_size", 18)
 			_apply_action_button_style(synth_btn2)
 			synth_btn2.pressed.connect( func():
-				var next_book_name: String = ""
-				var lv_re: = RegEx.new()
-				if lv_re.compile("lv(\\d+)") == OK:
-					var lv_m: = lv_re.search(book_name)
-					if lv_m:
-						var cur_lv: = int(lv_m.get_string(1))
-						if cur_lv > 0:
-							next_book_name = book_name.replace("lv%d" % cur_lv, "lv%d" % (cur_lv + 1))
-				var confirm_msg: String
-				if next_book_name != "":
-					confirm_msg = "将消耗 2 本【%s】，合成为 1 本【%s】。" % [book_name, next_book_name]
-				else:
-					confirm_msg = "将消耗 2 本【%s】，合成为高一级技能书。" % book_name
+				var confirm_msg: String = "将消耗 2 本【%s】，合成为 1 本【%s】。" % [book_name, next_book_name]
 				_show_batch_dismantle_confirm_popup(
 					"确认合成", 
 					confirm_msg, 
@@ -22575,18 +22752,14 @@ func _show_item_action_popup(item):
 			)
 			item_btns.append(synth_btn2)
 
-	var _skill_book_level: = 0
+	var _skill_book_level: int = 0
 	if item.item_type == "pet_skill_book" and not _skill_book_name.is_empty() and _skill_book_name != "null":
-		var split_lv_re: = RegEx.new()
-		if split_lv_re.compile("lv(\\d+)") == OK:
-			var split_lv_m: = split_lv_re.search(_skill_book_name)
-			if split_lv_m:
-				_skill_book_level = int(split_lv_m.get_string(1))
+		_skill_book_level = GameData.pet_skill_book_level(_skill_book_name)
 	if item.item_type == "pet_skill_book" and _skill_book_level >= 2 and _skill_book_level <= 5:
 		var split_book_name: = _skill_book_name
 		var split_gain: = 1 << (_skill_book_level - 1)
-		var split_lv1_name: = split_book_name.replace("lv%d" % _skill_book_level, "lv1")
-		if split_lv1_name != split_book_name and split_gain >= 2:
+		var split_lv1_name: = GameData.pet_skill_book_base_name(split_book_name)
+		if not split_lv1_name.is_empty() and split_gain >= 2:
 			var split_btn = Button.new()
 			split_btn.text = "拆分"
 			split_btn.custom_minimum_size = Vector2(160, 45)
@@ -25245,6 +25418,37 @@ func _create_battle_moment_card(moment_type: String, text: String, accent: Color
 	return wrap
 
 func _create_skill_burst_banner(text: String) -> Control:
+	## 技能提示：程序化绘制的「金色墨焰徽记」（见 ui/skill_burst_badge.gd），
+	## 取代原先那张白底漫画爆炸星。绘制失败时退回旧贴图，保证不空窗。
+	var badge_script: = load(SKILL_BURST_BADGE_SCRIPT_PATH)
+	if badge_script == null:
+		return _create_skill_burst_banner_legacy(text)
+	var badge = badge_script.new()
+	badge.name = "SkillBurstBadge"
+	badge.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	badge.custom_minimum_size = SKILL_BURST_BANNER_SIZE
+	badge.size = SKILL_BURST_BANNER_SIZE
+	badge.title = _format_battle_moment_display("skill", text)
+	badge.accent = _skill_burst_accent(text)
+	return badge
+
+
+## 按技能名哈希选一套主题色（金焰 / 冰蓝 / 赤炎 / 玄紫 / 翠毒），
+## 不同技能效果看得出来不一样；节奏仍走同一套 tween，只换色相。
+const SKILL_BURST_PALETTES: Array[Color] = [
+	Color(1.00, 0.74, 0.28), # 金焰（默认暖金）
+	Color(0.55, 0.84, 1.00), # 冰蓝
+	Color(1.00, 0.42, 0.30), # 赤炎
+	Color(0.78, 0.56, 1.00), # 玄紫
+	Color(0.55, 1.00, 0.62), # 翠毒
+]
+
+func _skill_burst_accent(text: String) -> Color:
+	var h: int = absi(hash(text)) % 1000
+	return SKILL_BURST_PALETTES[h % SKILL_BURST_PALETTES.size()]
+
+
+func _create_skill_burst_banner_legacy(text: String) -> Control:
 	var wrap: = Control.new()
 	wrap.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	wrap.custom_minimum_size = SKILL_BURST_BANNER_SIZE
@@ -25322,8 +25526,30 @@ func _show_battle_floating_text(anchor: String, text: String, color: Color, larg
 			center_pos = anchor_pos + Vector2(0.0, - card.size.y * 0.5 - 8.0 - extra)
 		end_pos = center_pos + Vector2(0.0, -12.0)
 	card.position = center_pos - card.pivot_offset
-	card.scale = Vector2(0.88, 0.88)
 	card.modulate = Color(1.0, 1.0, 1.0, 0.0)
+	var fade_out_cb = func() -> void :
+		if is_instance_valid(card):
+			card.queue_free()
+		_battle_popup_stack[stack_key] = maxi(0, int(_battle_popup_stack.get(stack_key, 1)) - 1)
+	if moment_type == "skill":
+		# 技能提示：一闪而过 —— 砸进来 0.10s → 停 0.14s → 0.12s 淡掉，全程约 0.5s
+		# 起手给战场一记轻踢，让"技能"有落点；幅度压得很小，只要一下
+		if is_instance_valid(monster_container):
+			BattleHitReaction.shake(monster_container, SKILL_BURST_SHAKE, 0.09)
+		card.scale = Vector2(1.42, 1.42)
+		var ts = create_tween()
+		ts.bind_node(card)
+		ts.set_parallel(true)
+		ts.tween_property(card, "modulate:a", 1.0, 0.04)
+		ts.tween_property(card, "scale", Vector2.ONE, 0.10).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+		ts.tween_property(card, "position", end_pos - card.pivot_offset, 0.24).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		ts.set_parallel(false)
+		ts.tween_interval(SKILL_BURST_HOLD)
+		ts.tween_property(card, "modulate:a", 0.0, 0.12)
+		ts.parallel().tween_property(card, "scale", Vector2(1.06, 1.06), 0.12)
+		ts.tween_callback(fade_out_cb)
+		return
+	card.scale = Vector2(0.88, 0.88)
 	var tween = create_tween()
 	tween.bind_node(card)
 	tween.set_parallel(true)
@@ -25334,11 +25560,7 @@ func _show_battle_floating_text(anchor: String, text: String, color: Color, larg
 	tween.tween_property(card, "scale", Vector2.ONE, 0.12).set_trans(Tween.TRANS_SINE)
 	tween.tween_interval(BATTLE_BANNER_LIFETIME)
 	tween.tween_property(card, "modulate:a", 0.0, 0.28)
-	tween.tween_callback( func() -> void :
-		if is_instance_valid(card):
-			card.queue_free()
-		_battle_popup_stack[stack_key] = maxi(0, int(_battle_popup_stack.get(stack_key, 1)) - 1)
-	)
+	tween.tween_callback(fade_out_cb)
 
 func _is_battle_ally_name(unit_name: String) -> bool:
 	if not game_manager or not game_manager.battle_system:
@@ -25692,6 +25914,69 @@ func _battle_grid_row_y(row_index: int) -> float:
 # 结果是宽屏上「人物 + 宠物 + 怪物」整排挤在左上角、人和宠叠在一起。
 # 这里把设计画布水平居中，保证任何屏幕比例下站位都和原版一致。
 const BATTLE_DESIGN_WIDTH: float = 720.0
+const BATTLE_DESIGN_HEIGHT: float = 1280.0
+## BattlePanel 左右各留 10，设计画布下的面板宽 = 720 - 20
+const BATTLE_DESIGN_PANEL_WIDTH: float = 700.0
+## 背景图没加载出来时的兜底尺寸（assets/backgrounds/*.jpg 都是这个规格）
+const BATTLE_BG_FALLBACK_SIZE: = Vector2(640.0, 875.0)
+
+## 背景在面板里的 KEEP_ASPECT_COVERED 映射，返回 (k, oy)：
+##   面板坐标 = oy + 图片坐标 * k
+func _battle_bg_cover(panel_w: float, panel_h: float) -> Vector2:
+	var tw: float = BATTLE_BG_FALLBACK_SIZE.x
+	var th: float = BATTLE_BG_FALLBACK_SIZE.y
+	var tex: Texture2D = _load_battle_background_texture()
+	if tex != null:
+		tw = float(tex.get_width())
+		th = float(tex.get_height())
+	if tw <= 0.0 or th <= 0.0:
+		return Vector2(1.0, 0.0)
+	var k: float = max(panel_w / tw, panel_h / th)
+	return Vector2(k, (panel_h - th * k) * 0.5)
+
+
+## 设计像素 y → 当前面板里的 y。
+##
+## 为什么需要这一步：战场单位坐标是按 720x1280 写死的绝对像素，但
+## stretch/aspect = "expand" —— 更长的手机（1080x2400 这类）逻辑画布会从
+## 720x1280 拉成 720x1600，BattlePanel 也跟着长高 320px。而背景是
+## KEEP_ASPECT_COVERED 铺的，永远按比例铺满面板、和面板高度同步缩放。
+## 两套坐标不换算的话，面板越长，单位相对背景就越往上飘 —— 实机表现就是
+## 「这台手机上人和怪站到地平线以上，模拟器上又正常」。
+##
+## 做法：先把设计像素换成「背景图上的高度比例」，再按当前面板的映射落回去。
+## 这样不管面板多高多宽（含宽屏平板上下被裁的情况），单位都钉在背景的同一点。
+func _battle_unit_y(design_y: float) -> float:
+	var panel = get_node_or_null("MainContent/BattleView/BattlePanel")
+	if panel == null:
+		return design_y
+	var pw: float = (panel as Control).size.x
+	var ph: float = (panel as Control).size.y
+	if pw <= 1.0 or ph <= 1.0:
+		return design_y
+
+	# 设计画布下的面板高度：面板底部是锚死的，画布拉长多少它长多少，所以
+	# 「1280 - (当前画布高 - 当前面板高)」就是它在 720x1280 上的高度。
+	var canvas_h: float = get_viewport_rect().size.y
+	var design_ph: float = BATTLE_DESIGN_HEIGHT - (canvas_h - ph)
+	if design_ph <= 1.0:
+		return design_y
+	var design_pw: float = BATTLE_DESIGN_PANEL_WIDTH
+
+	var k0_oy0: Vector2 = _battle_bg_cover(design_pw, design_ph)
+	var k_now_oy: Vector2 = _battle_bg_cover(pw, ph)
+	var th: float = BATTLE_BG_FALLBACK_SIZE.y
+	var tex: Texture2D = _load_battle_background_texture()
+	if tex != null:
+		th = float(tex.get_height())
+
+	var span0: float = th * k0_oy0.x
+	var span: float = th * k_now_oy.x
+	if span0 <= 1.0 or span <= 1.0:
+		return design_y
+	var frac: float = (design_y - k0_oy0.y) / span0
+	return k_now_oy.y + frac * span
+
 
 func _battle_field_layout_offset() -> Vector2:
 	if not is_instance_valid(monster_container):
@@ -25752,13 +26037,34 @@ func _battle_grid_monster_slot_pos(index: int, total_count: int) -> Vector2:
 	var y: = member_y + float(row - BATTLE_GRID_ROW_MEMBER) * BATTLE_GRID_MONSTER_ROW_STEP
 
 	if _is_wild_field_battle_ui():
+		# 野外用更紧的排距（见 WILD_MONSTER_ROW_STEP 的推导），保证四排脚底都落在主道上
+		y = member_y + float(row - BATTLE_GRID_ROW_MEMBER) * WILD_MONSTER_ROW_STEP
 		y += BT_SLOT_HP_BAR_POS.y - MONSTER_BATTLE_HP_BAR_POS.y + WILD_MONSTER_HP_ALIGN_EXTRA_Y
-	return Vector2(_battle_grid_monster_col_x(col, total_count), y) + _battle_field_layout_offset()
+		y += WILD_MONSTER_ROW_EXTRA_Y + _wild_stand_down_y()
+	return Vector2(_battle_grid_monster_col_x(col, total_count), _battle_unit_y(y)) + _battle_field_layout_offset()
 
 func _is_wild_field_battle_ui() -> bool:
 	return game_manager != null\
 	and bool(game_manager.in_battle)\
 	and not bool(game_manager.is_in_instanced_challenge())
+
+## 野外战斗里人/宠/怪整排往下挪的量，单位是设计像素（720 宽画布）。
+## 取「一个脚下阴影的宽度」：人物 slot 100 × FOOT_SHADOW_WIDTH_RATIO(0.86) = 86。
+## （怪物阴影宽 103、宠物 129，这里统一按 86 走，保持三者的相对关系不变，
+##   否则各行下移量不同、整排会错开。）
+## 实机反馈「脚底浮在路面上」，下移后人物脚底从面板 0.53 落到 0.62，
+## 正好踩进横贯全幅的主道里。
+## 只对野外生效：天关/副本/比武场/生死塔/世界BOSS用的是另一套背景，不跟着动。
+const WILD_STAND_DOWN_Y: = 86.0
+
+func _wild_stand_down_y() -> float:
+	if game_manager == null:
+		return 0.0
+	if game_manager.is_brother_tower_battle or game_manager.is_five_elements_battle or _is_arena_battle():
+		return 0.0
+	if game_manager.is_world_boss_battle:
+		return 0.0
+	return WILD_STAND_DOWN_Y if _is_wild_field_battle_ui() else 0.0
 
 
 func _battle_grid_monster_slot_pos_formed(index: int, total_count: int) -> Vector2:
@@ -25881,13 +26187,13 @@ func _arena_monster_is_pet(monster) -> bool:
 
 func _battle_grid_arena_monster_pos(is_pet: bool) -> Vector2:
 	var col: = 0 if is_pet else 1
-	return Vector2(_battle_grid_monster_col_x(col), _battle_grid_row_y(BATTLE_GRID_ROW_MEMBER))
+	return Vector2(_battle_grid_monster_col_x(col), _battle_unit_y(_battle_grid_row_y(BATTLE_GRID_ROW_MEMBER)))
 
 func _battle_grid_shengsi_monster_pos(index: int, is_pet: bool) -> Vector2:
 	var pair: = maxi(0, int(index / 2))
 	var row: = BATTLE_GRID_ROW_LEADER if pair <= 0 else BATTLE_GRID_ROW_MEMBER
 	var col: = 0 if is_pet else 1
-	return Vector2(_battle_grid_monster_col_x(col), _battle_grid_row_y(row))
+	return Vector2(_battle_grid_monster_col_x(col), _battle_unit_y(_battle_grid_row_y(row)))
 
 func _place_arena_or_shengsi_monster_ui(monster, slot_index: int, total_count: int) -> Vector2:
 	if _is_shengsi_replay() and total_count >= 3:
@@ -26029,7 +26335,8 @@ func _world_boss_monster_ui_position(cell_width: float) -> Vector2:
 
 func _battle_grid_ally_slot_pos(row_index: int, is_pet: bool) -> Vector2:
 	var col_x: = BATTLE_GRID_ALLY_PET_COL_X if is_pet else BATTLE_GRID_ALLY_PLAYER_COL_X
-	return Vector2(col_x + BATTLE_GRID_ALLY_COL_SHIFT_X, _battle_grid_row_y(row_index))
+	return Vector2(col_x + BATTLE_GRID_ALLY_COL_SHIFT_X,
+			_battle_unit_y(_battle_grid_row_y(row_index) + _wild_stand_down_y()))
 
 func _bt_local_on_leader_row() -> bool:
 	if _is_shengsi_replay():
@@ -26749,6 +27056,16 @@ const MONSTER_BATTLE_STATIC_SPRITE_SIZE: = Vector2(96, 96)
 const MONSTER_BATTLE_HP_BAR_POS: = Vector2(25.0, 136.0)
 
 const WILD_MONSTER_HP_ALIGN_EXTRA_Y: = -4.0
+## 野外小怪整排下移 + 收紧排距。
+## 实测（刻度图校准）：背景图在图高 1% ≈ 14.4 屏幕像素，图高 ≈ 957 设计像素，
+## 图片顶边在 BattlePanel 上方约 21 设计像素处。据此换算四排脚底：
+##   原 96 排距 + 0 偏移 → 0.385 / 0.485 / 0.585 / 0.685（第一排压在「路肩土坎」上，
+##   实机反馈「小怪没站在主道上」）
+##   改 75 排距 + 下移 30 →  0.428 / 0.507 / 0.585 / 0.664
+## 这样第一排压进路面（主道上沿按 42% 建图），并且和人物脚底（0.459）交错成斜阵。
+## 只对野外生效：天关/副本/比武场用的是别的背景，不跟着动。
+const WILD_MONSTER_ROW_EXTRA_Y: = 30.0
+const WILD_MONSTER_ROW_STEP: = 75.0
 const BATTLE_PET_SPRITE_SCALE_MULTIPLIER: = 1.5
 
 const MONSTER_COLUMN_MAX: = 4
@@ -27624,6 +27941,10 @@ var _battle_popup_stack: Dictionary = {}
 var _battle_damage_popup_stack: Dictionary = {}
 
 const BATTLE_BANNER_LIFETIME: = 1.2
+## 技能提示：入场后停住多久（秒）。整套节奏约 0.5s，要"一闪而过"就压这里
+const SKILL_BURST_HOLD: = 0.14
+## 技能提示起手时的轻震幅度（像素）。只给"落点感"，不要变成地震
+const SKILL_BURST_SHAKE: = 2.2
 const BATTLE_DAMAGE_FLOAT_LIFETIME: = 0.85
 const BATTLE_DAMAGE_FLOAT_RISE: = 28.0
 const BATTLE_DAMAGE_FLOAT_MONSTER_START_OFFSET: = Vector2(0.0, -20.0)
@@ -27631,7 +27952,8 @@ const BATTLE_DAMAGE_FLOAT_MONSTER_START_OFFSET: = Vector2(0.0, -20.0)
 const BATTLE_SKILL_BANNER_ALLY_OFFSET: = Vector2(0.0, -48.0)
 const BATTLE_BANNER_LAYER_Z_INDEX: = 100
 const SKILL_BURST_BANNER_PATH: = "res://assets/ui/skill_banner_burst.png"
-const SKILL_BURST_BANNER_SIZE: = Vector2(148.0, 136.0)
+const SKILL_BURST_BADGE_SCRIPT_PATH: = "res://ui/skill_burst_badge.gd"
+const SKILL_BURST_BANNER_SIZE: = Vector2(152.0, 134.0)
 const SKILL_BURST_SPREAD_OFFSETS: = [
 	Vector2(0.0, 0.0), 
 	Vector2(88.0, -8.0), 
@@ -28467,6 +28789,81 @@ const DEFAULT_BATTLE_BG_PATH: = "res://assets/backgrounds/morenzhandoubj.jpg"
 const DEFAULT_BATTLE_BG_TEX: Texture2D = preload("res://assets/backgrounds/morenzhandoubj.jpg")
 const TOWER_BATTLE_BG_PATH: = "res://assets/backgrounds/天关.jpg"
 const DUNGEON_BATTLE_BG_PATH: = "res://assets/backgrounds/副本.jpg"
+# 地图表里这三个名字和背景文件名对不上（一个简称、一个笔误、一个错别字），
+# 以前切过去会全部回落到 morenzhandoubj.jpg 那张洞穴兜底图。
+# 别名只影响取图，不改地图名，存档/服务端数据都不用动。
+const BATTLE_BG_ALIASES: Dictionary = {
+	# 原版自造地名同源改写后，背景图文件仍沿用旧文件名，这里把现用地名映回图片名；
+	# 别名只影响取图，不改地图名、不动存档与服务端数据。
+	"幽怨洞": "怨灵洞口",
+	"独孤独亭": "孤独亭",
+	"辗肢地狱": "碾肢地狱",
+	"传说中的侠骨冢": "传说中的英雄冢",
+	"余恨原": "遗恨原",
+	"凌云台": "翔云台",
+	"凌云幻城": "翔云幻城",
+	"凝泪岗": "坠泪岗",
+	"剑潭谷": "剑池谷",
+	"双玺谷": "双印谷",
+	"四津原": "四桥原",
+	"回望亭": "回首亭",
+	"孤木原": "独木原",
+	"寒泉台": "寒井台",
+	"将军碣谷": "将军碑谷",
+	"幽怨洞口": "怨灵洞口",
+	"废井原": "枯井原",
+	"忘归海岸": "不归海岸",
+	"惊魂洞窟1": "吓死人洞窟1",
+	"惊魂洞窟2": "吓死人洞窟2",
+	"斧翠谷": "斧青谷",
+	"断魄涯": "断魂涯",
+	"暮枫林": "晚枫林",
+	"暮还道": "暮归道",
+	"望日桥": "观日桥",
+	"望日桥头": "观日桥头",
+	"望阙林场": "守望林场",
+	"松霜野": "松雪野",
+	"榕根谷": "榕盘谷",
+	"沉寂的古城": "沉没的城市",
+	"沙寇洞口": "沙盗洞口",
+	"浮光水城外郊": "浮影水城外郊",
+	"深碧海城": "深蓝海城",
+	"深碧海底": "深蓝海底",
+	"清邃古洞": "清幽古洞",
+	"澄沙原": "净沙原",
+	"灵菇洞": "巨菇洞",
+	"炊霭谷": "炊烟谷",
+	"玄铜洞窟": "古铜洞窟",
+	"玄铜洞窟2": "古铜洞窟2",
+	"盈露台守望区": "盈露台看守区",
+	"盘桓林": "徘徊林",
+	"碧之绿洲": "青之绿洲",
+	"紫藓洞窟": "紫苔洞窟",
+	"紫藓洞窟2": "紫苔洞窟2",
+	"翠幽洞": "绿幽洞",
+	"耕春原": "犁春原",
+	"莹冰桥": "冰清桥",
+	"莹玉桥": "玉洁桥",
+	"落尘台": "降尘台",
+	"蟠龙洞窟": "盘龙洞窟",
+	"蟠龙洞窟2": "盘龙洞窟2",
+	"衡霄台": "衡天台",
+	"西霜岭": "西雪岭",
+	"逆之幻影": "逆之虚幻",
+	"逆之往昔": "逆之往事",
+	"逆之心绪": "逆之心情",
+	"醉客冢": "酒鬼冢",
+	"铜偶殿": "铜人殿",
+	"铜钟洞窟": "金钟洞窟",
+	"银瓮谷": "银罐谷",
+	"镜霜原": "镜雪原",
+	"闲逸园": "闲情园",
+	"雪霁谷": "雪融谷",
+	"青岚原": "青风原",
+	"青幽洞": "青灵洞",
+	"鸠鸣小舍": "斑鸠小舍",
+	"鸾之谷": "凰之谷",
+}
 ## 暗角不能太重：横版背景上方现在是一条淡墨远景（远山／雾林），
 ## 边缘 alpha 0.55 会把远景压掉四成亮度，看着就是一团灰。
 ## 0.34 还留得住画面四角收边，远景又能透出来。
@@ -28655,6 +29052,8 @@ func _resolve_battle_background_path() -> String:
 	var title: String = str(split.get("title", "")).strip_edges()
 	if title.is_empty():
 		return DEFAULT_BATTLE_BG_PATH
+	if BATTLE_BG_ALIASES.has(title):
+		title = str(BATTLE_BG_ALIASES[title])
 
 	var jpg_path: = "res://assets/backgrounds/%s.jpg" % title
 	if ResourceLoader.exists(jpg_path):

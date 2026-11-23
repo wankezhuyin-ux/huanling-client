@@ -232,6 +232,15 @@ func _ink_refresh_vitals() -> void:
 		if mp_caption != null:
 			mp_caption.text = "MP %d/%d" % [int(p.mp), max_mp]
 
+func _open_mist_ferry() -> void:
+	if _ink_home.has_node("MistFerry"):
+		return
+	var ferry := preload("res://ui/mist_ferry.gd").new()
+	ferry.name = "MistFerry"
+	_ink_home.add_child(ferry)
+	ferry.z_index = 1
+	ferry.lanterns[0].grab_focus()
+
 func _ink_build() -> void:
 	_ink_home = Control.new()
 	_ink_home.name = "InkHome"
@@ -289,16 +298,12 @@ func _ink_build() -> void:
 	reincarnate_btn.custom_minimum_size = Vector2(104, 48)
 	reincarnate_btn.add_theme_font_size_override("font_size", 20)
 	realm_actions.add_child(reincarnate_btn)
-	var task := _ink_button("竞 技", _ink_open_city_detail.bind("_on_quest_btn_pressed"))
-	task.position = Vector2(40, 340)
-	_ink_home.add_child(task)
-	var mail := _ink_button("邮 件", _ink_open_city_detail.bind("_on_mail_btn_pressed"))
-	mail.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT)
-	mail.offset_left = -150
-	mail.offset_right = -40
-	mail.offset_top = 420
-	mail.offset_bottom = 482
-	_ink_home.add_child(mail)
+	var task := _ink_button("竞技", _ink_open_city_detail.bind("_on_quest_btn_pressed"))
+	realm_actions.add_child(task)
+	var mail := _ink_button("邮件", _ink_open_city_detail.bind("_on_mail_btn_pressed"))
+	realm_actions.add_child(mail)
+	var ferry := _ink_button("雾渡引灯", _open_mist_ferry, true)
+	realm_actions.add_child(ferry)
 	_ink_pet = TextureRect.new()
 	_ink_pet.texture = load("res://art/runtime/deer-hero.res")
 	_ink_pet.expand_mode = TextureRect.EXPAND_IGNORE_SIZE

@@ -585,7 +585,7 @@ func _create_battle_replay_popup() -> Control:
 					var sthp: = int(entry.get("targetHp", 0))
 					var stmh: = int(entry.get("targetMaxHp", 1))
 					var spct: = float(sthp) / float(max(stmh, 1)) * 100.0
-					entry_label.text = "  💧 【溅射】【%s】波及【%s】，造成 %d 伤害（目标剩余 HP %d/%d，约 %.0f%%）" % [sa, st, sd, sthp, stmh, spct]
+					entry_label.text = "  💧 【溅墨】【%s】波及【%s】，造成 %d 伤害（目标剩余 HP %d/%d，约 %.0f%%）" % [sa, st, sd, sthp, stmh, spct]
 				entry_label.add_theme_color_override("font_color", Color(0.55, 0.88, 1.0))
 			"skill_double_shot":
 				var m_ds: = str(entry.get("message", "")).strip_edges()
@@ -596,7 +596,7 @@ func _create_battle_replay_popup() -> Control:
 					var dt: = str(entry.get("target", "?"))
 					var dd: = int(entry.get("damage", 0))
 					var di: = int(entry.get("hitIndex", 0))
-					entry_label.text = "  🎯 【连射】第 %d 段：【%s】命中【%s】，%d 伤害" % [di, da, dt, dd]
+					entry_label.text = "  🎯 【连击】第 %d 段：【%s】命中【%s】，%d 伤害" % [di, da, dt, dd]
 				entry_label.add_theme_color_override("font_color", Color(1.0, 0.82, 0.45))
 			"skill_divine_protect":
 				var m_div: = str(entry.get("message", "")).strip_edges()
@@ -605,7 +605,7 @@ func _create_battle_replay_popup() -> Control:
 				else:
 					var dname: = str(entry.get("target", "灵兽"))
 					var dh: = int(entry.get("hpRestored", 0))
-					entry_label.text = "  ✨ 【神佑】【%s】触发，恢复生命约 %d" % [dname, dh]
+					entry_label.text = "  ✨ 【护主】【%s】触发，恢复生命约 %d" % [dname, dh]
 				entry_label.add_theme_color_override("font_color", Color(0.75, 1.0, 0.55))
 			"skill_counter_attack":
 				var m_ct: = str(entry.get("message", "")).strip_edges()
@@ -615,7 +615,7 @@ func _create_battle_replay_popup() -> Control:
 					var ca: = str(entry.get("attacker", "?"))
 					var ct: = str(entry.get("target", "?"))
 					var cd: = int(entry.get("damage", 0))
-					entry_label.text = "  ⚡ 【反击】【%s】反击【%s】，%d 伤害" % [ca, ct, cd]
+					entry_label.text = "  ⚡ 【反打】【%s】反击【%s】，%d 伤害" % [ca, ct, cd]
 				entry_label.add_theme_color_override("font_color", Color(1.0, 0.65, 0.45))
 			_:
 				var fallback_msg = str(entry.get("message", "")).strip_edges()

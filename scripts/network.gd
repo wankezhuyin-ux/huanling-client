@@ -91,6 +91,9 @@ signal martial_create_success(create_count: int, remaining: int, new_gold: int, 
 signal martial_create_failed(error: String)
 
 var last_martial_create_payload: Dictionary = {}
+## 服务端权威的套装副本进度（已通关的最高层）。`/suit-dungeon/info` 带回，
+## game_manager 登录 sync 与套装副本面板打开时据此纠正本地旧存档。
+var suit_dungeon_server_progress: int = -1
 signal martial_skill_book_success(data: Dictionary)
 signal martial_skill_book_failed(error: String)
 signal offline_info_loaded(offline_seconds: int, is_first_login: bool, vip_tier: int)
@@ -1246,11 +1249,16 @@ func get_tower_info():
 			_complete_request()
 	)
 
-func update_tower_highest(highest_floor: int):
+func update_tower_highest(highest_floor: int, current_floor: int = -1):
 	if auth_token == "":
 		return
 	_enqueue_request("tower_update", func():
 		var body = {"highestFloor": highest_floor}
+		# 原版只上报历史最高层，服务端 tower_floor 永远是 1，退出天关再进
+		# 客户端就会被 /tower/info 的 towerFloor=1 覆盖回第 1 关。
+		# 带上通关后的「当前层」，服务端才能把闯关进度一直保留下来。
+		if current_floor > 0:
+			body["currentFloor"] = current_floor
 		var json = JSON.stringify(body)
 		var headers = ["Content-Type: application/json", "Authorization: Bearer " + auth_token]
 		var err = http_request.request(server_url + "/tower/update", headers, HTTPClient.METHOD_POST, json)
@@ -6693,6 +6701,8 @@ func _on_request_completed(result, response_code, headers, body):
 		elif data.has("sweepsLeft") and current_type != "economy_suit_sweep":
 			var sweeps_left = data.get("sweepsLeft", 0)
 			var max_sweeps = data.get("maxSweeps", 3)
+			if data.has("suitDungeonProgress"):
+				suit_dungeon_server_progress = int(data.get("suitDungeonProgress", -1))
 			if current_type == "suit_dungeon_info":
 				suit_dungeon_info_loaded.emit(sweeps_left, max_sweeps)
 			elif current_type == "suit_dungeon_sweep":

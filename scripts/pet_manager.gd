@@ -1323,10 +1323,12 @@ func learn_skill_book_from_active_pet(book_name: String) -> Dictionary:
 	if active_pet == null:
 		result.message = "请先设置一只出战宠物"
 		return result
-	var book_cfg: Dictionary = GameData.PET_SKILL_BOOKS.get(book_name, {})
+	var book_key: = GameData.normalize_pet_skill_book_name(book_name)
+	var book_cfg: Dictionary = GameData.PET_SKILL_BOOKS.get(book_key, {})
 	if book_cfg.is_empty():
 		result.message = "未知宠物技能书"
 		return result
+	book_name = book_key
 	var skill_key: = str(book_cfg.get("skill_key", "")).strip_edges()
 	if skill_key.is_empty():
 		result.message = "技能书配置错误：缺少技能键"

@@ -18,3 +18,12 @@ local_server_override.json
 
 # 工具中间产物
 build/
+
+# B0 脱敏：开发期采集/审计工具、原版快照证据、编辑器残留
+tools/
+dev/local_snapshot.json
+dev/*.json.bak-*
+dev/*.uid-*
+updates/manifest_test.json
+*.uid-*
+.godot/

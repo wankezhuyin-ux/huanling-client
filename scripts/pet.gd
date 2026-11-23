@@ -241,7 +241,9 @@ static func _normalize_book_refunds(raw: Variant) -> Array:
 	if not (raw is Array):
 		return out
 	for item in raw:
-		var n: = str(item).strip_edges()
+		# 老存档里可能是「坚固IV技能书」这类旧写法，归一后再判断，
+		# 否则卸载技能时该退的书会被静默丢掉。
+		var n: = GameData.normalize_pet_skill_book_name(str(item))
 		if not n.is_empty() and GameData.PET_SKILL_BOOKS.has(n):
 			out.append(n)
 	return out

@@ -56,7 +56,7 @@ const EVOLUTION_DATA = {
 		"mutant_evolution": ["wang_wang", "zhuiyingquan", "qibiantianlang", "lv_yao"]
 	}, 
 	"a_di_da_si": {
-		"name": "阿弟达斯", 
+		"name": "冥狼崽", 
 		"normal_evolution": ["a_di_da_si", "a_ge_liu_si", "a_nu_bi_si", "chao_ji_a_nu"], 
 		"mutant_evolution": []
 	}, 

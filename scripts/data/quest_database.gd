@@ -71,7 +71,7 @@ const QUESTS = {
 				"description": "在墨影城郊战斗", 
 				"target": 3, 
 				"current": 0, 
-				"map": "浮影水城外郊（0,0）"
+				"map": "浮光水城外郊（0,0）"
 			}
 		], 
 		"rewards": {
@@ -135,7 +135,7 @@ const QUESTS = {
 				"description": "在迷踪林战斗", 
 				"target": 5, 
 				"current": 0, 
-				"map": "徘徊林（0,0）"
+				"map": "盘桓林（0,0）"
 			}
 		], 
 		"rewards": {
@@ -301,7 +301,7 @@ const QUESTS = {
 		"type": QuestType.ELEMENT, 
 		"element": ElementType.FIRE, 
 		"unlock_realm": "散仙", 
-		"teleport_map": "暮归道（14,42）", 
+		"teleport_map": "暮还道（14,42）", 
 		"objectives": [
 			{
 				"type": QuestConditionType.KILL_MONSTER_TYPE, 
@@ -487,7 +487,7 @@ const QUESTS = {
 		"type": QuestType.ELEMENT, 
 		"element": ElementType.WOOD, 
 		"unlock_realm": "地仙", 
-		"teleport_map": "青风原（52,36）", 
+		"teleport_map": "青岚原（52,36）", 
 		"objectives": [
 			{
 				"type": QuestConditionType.KILL_MONSTER_TYPE, 
@@ -580,7 +580,7 @@ const QUESTS = {
 		"type": QuestType.ELEMENT, 
 		"element": ElementType.EARTH, 
 		"unlock_suit_dungeon": 1, 
-		"teleport_map": "枯井原（13,22）", 
+		"teleport_map": "废井原（13,22）", 
 		"objectives": [
 			{
 				"type": QuestConditionType.KILL_MONSTER_TYPE, 
@@ -673,7 +673,7 @@ const QUESTS = {
 		"type": QuestType.ELEMENT, 
 		"element": ElementType.METAL, 
 		"unlock_realm": "天仙", 
-		"teleport_map": "观日桥头（37,51）", 
+		"teleport_map": "望日桥头（37,51）", 
 		"objectives": [
 			{
 				"type": QuestConditionType.KILL_MONSTER_TYPE, 

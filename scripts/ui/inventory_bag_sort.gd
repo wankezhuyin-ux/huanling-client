@@ -7,7 +7,7 @@ const GameData = preload("res://scripts/game_data.gd")
 
 
 const RARE_PET_SKILL_NAMES: = [
-	"溅射", "反击", "神佑", "连射", "吸血", "破甲", "格挡", "必杀", "嘲讽", 
+	"溅墨", "反打", "护主", "连击", "饮血", "破防", "挡伤", "致命", "挑衅", 
 ]
 
 

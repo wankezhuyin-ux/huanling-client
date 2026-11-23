@@ -140,6 +140,8 @@ static func _focus_existing_window_popup(popup_key: String) -> bool:
 	return false
 
 static func create_fullscreen(game_manager, target_floor: int = -1) -> Control:
+	# 版本标记：线上排查时要能一眼确认 APK 里跑的是哪一版天关页
+	print("[TowerUI] rev=v20261104_create_fullscreen player=%s" % str(game_manager != null and game_manager.player != null))
 	if game_manager == null or game_manager.player == null:
 		push_warning("[TowerUI] create_fullscreen: 玩家数据未就绪")
 		var fallback: = Panel.new()
@@ -287,6 +289,11 @@ static func create_fullscreen(game_manager, target_floor: int = -1) -> Control:
 	panel.set_meta("tab_container", tab_container)
 	panel.set_meta("scroll", scroll)
 	panel.set_meta("target_floor", target_floor)
+	# 「这一页最外层要销毁哪个节点」。天关页现在被 TowerHubUI 包了一层
+	# （无限天关 / 兄弟天关两个 tab），包的那层会把 page_root 改成它自己。
+	# 不这么做的话，点挑战只销毁里面这层内容，外面剩两个空 tab —— 线上那张
+	# 「点挑战 → 界面只剩两个 tab、下面全空」的截图就是这么来的。
+	panel.set_meta("page_root", panel)
 
 
 	var refresh_view: = func() -> void :
@@ -311,10 +318,11 @@ static func _sync_tower_data(panel: Control, game_manager):
 
 
 	network.tower_info_loaded.connect( func(server_highest: int, sweep_count: int, server_floor: int):
-		if server_highest > game_manager.player.tower_highest:
-			game_manager.player.tower_highest = server_highest
+		# 只取较大值：服务端若因旧存档/网络抖动返回了落后的层号，
+		# 不能把玩家本地已经闯到的层数打回第 1 关（原版口径是进度一直保留）。
+		game_manager.player.tower_highest = maxi(int(game_manager.player.tower_highest), server_highest)
 		if server_floor > 0:
-			game_manager.player.tower_floor = server_floor
+			game_manager.player.tower_floor = maxi(int(game_manager.player.tower_floor), server_floor)
 		elif game_manager.player.tower_floor <= 0:
 			game_manager.player.tower_floor = max(1, game_manager.player.tower_highest + 1)
 		game_manager.player.tower_sweep_count = sweep_count
@@ -328,6 +336,8 @@ static func _sync_tower_data(panel: Control, game_manager):
 static func _refresh_tower_floor_view(panel: Control, game_manager, tab_index: int = -1) -> void :
 	if not is_instance_valid(panel):
 		return
+	print("[TowerUI] refresh 开始 panel_size=%s vis=%s cfg_keys=%d" % [
+		str(panel.size), str(panel.visible), _runtime_cfg.size()])
 	var target_tab: = tab_index
 	if target_tab < 0:
 		target_tab = _tab_index_for_floor(_resolve_target_floor(panel, game_manager), game_manager)
@@ -483,6 +493,17 @@ static func _show_floors_by_tab(panel: Control, tab_index: int):
 
 	if not panel.get_tree():
 		return
+	print("[TowerUI] 层列表生成完成 tab=%d 行数=%d 容器高=%d" % [
+		tab_index, floors_container.get_child_count(), int(floors_container.size.y)])
+	# 兜底：一行都没生成时给玩家一句话，别留一片纯黑（线上就出现过这种观感）
+	if floors_container.get_child_count() == 0:
+		var empty_tip: = Label.new()
+		empty_tip.text = "本页暂无可挑战的层，请返回重进"
+		empty_tip.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		empty_tip.add_theme_font_size_override("font_size", 16)
+		empty_tip.add_theme_color_override("font_color", Color(0.734, 0.714, 0.657))
+		empty_tip.custom_minimum_size = Vector2(0, 80)
+		floors_container.add_child(empty_tip)
 	var scroll = panel.get_meta("scroll") as ScrollContainer
 	await _scroll_to_tower_floor(panel, scroll, floors_container, scroll_target_floor, start_floor, my_gen)
 
@@ -841,16 +862,31 @@ static func _show_tower_notice(game_manager, panel: Control, message: String) ->
 	else:
 		push_warning("[Tower] %s" % message)
 
-static func _launch_tower_battle_after_fee(floor: int, game_manager, monsters: Array, is_cleared: bool, message_panel: Control = null) -> void :
+static func _launch_tower_battle_after_fee(floor: int, game_manager, monsters: Array, is_cleared: bool, message_panel: Control = null) -> bool:
 	var success = game_manager.start_tower_battle(floor, monsters)
+	# 线上「点挑战没战斗画面」的定位日志：把开战时刻的四个状态一起打出来，
+	# 下次玩家复现时 logcat 里一眼能看出是被哪一道闸拦下的。
+	print("[TowerUI] 开战 floor=%d -> %s (in_battle=%s tower=%s settling=%s replay=%s)" % [
+		floor, str(success), str(game_manager.in_battle), str(game_manager.is_tower_battle),
+		str(game_manager.is_tower_settling),
+		str(game_manager.has_method("is_tower_replay_on") and game_manager.is_tower_replay_on())])
 	if not success:
 		if not is_cleared and not (game_manager.has_method("is_tower_replay_on") and game_manager.is_tower_replay_on()):
 			game_manager.player.gold += CHALLENGE_COST
-		var target: Control = message_panel if is_instance_valid(message_panel) else _find_main_ui(game_manager)
+		# 提示必须挂到 MainUI：调用方传进来的 message_panel 可能马上就要被
+		# queue_free（挑战成功/失败都会销毁天关页），挂在它上面等于没提示。
+		var target: Control = _find_main_ui(game_manager)
 		if target and is_instance_valid(target):
-			_show_message_fullscreen(target, "无法开始战斗，请稍后再试")
+			# 野外挂机不再需要玩家手动停：start_tower_battle 里会自动暂停野外战斗
+			# （原版口径）。走到这里的只剩「套装/五行/图鉴/兄弟天关」在打。
+			_show_message_fullscreen(target, "无法开始战斗：当前有其他玩法战斗正在进行。\n请先结束那场战斗后再回来挑战（本次入场金币已退还）。")
+		else:
+			push_warning("[TowerUI] 开战失败且找不到 MainUI，无法提示玩家")
+		return false
+	return true
 
 static func _challenge_floor_fullscreen(floor: int, game_manager, panel: Control, trigger_btn: Button = null):
+	print("[TowerUI] 点击挑战 floor=%d" % floor)
 	if trigger_btn and is_instance_valid(trigger_btn):
 		_start_button_cooldown(trigger_btn, str(trigger_btn.get_meta("base_text", trigger_btn.text)))
 	var is_cleared = floor <= game_manager.player.tower_highest
@@ -895,9 +931,25 @@ static func _challenge_floor_fullscreen(floor: int, game_manager, panel: Control
 				game_manager.player.gold += CHALLENGE_COST
 			return
 
+	# 先开战，开战成功之后才销毁天关页。
+	# 原来是无条件 panel.queue_free()，一旦 start_tower_battle 返回 false，
+	# 页面已经没了、失败提示又挂在刚被销毁的 panel 上 → 玩家看到的就是
+	# 「点了挑战 → 界面空掉 → 没有战斗、也没有任何提示」。
+	var started: bool = _launch_tower_battle_after_fee(floor, game_manager, monsters, is_cleared, panel_ref)
+	if started:
+		var page_root: Control = _page_root_of(panel_ref)
+		if page_root and is_instance_valid(page_root):
+			page_root.queue_free()
+
+
+## 天关页可能被 TowerHubUI 包进「无限天关 / 兄弟天关」的外层 panel 里，
+## 销毁时必须销毁最外层，否则会剩下两个空 tab（线上截图表现）。
+static func _page_root_of(panel: Control) -> Control:
 	if panel and is_instance_valid(panel):
-		panel.queue_free()
-	_launch_tower_battle_after_fee(floor, game_manager, monsters, is_cleared, panel_ref)
+		var root_ref: Variant = panel.get_meta("page_root", null)
+		if root_ref is Control and is_instance_valid(root_ref):
+			return root_ref
+	return panel
 
 
 static func _find_main_ui(game_manager) -> Control:
@@ -1242,7 +1294,7 @@ static func _show_battle_window(floor: int, game_manager, parent_panel: Control)
 
 		if game_manager.network and game_manager.network.is_logged_in():
 			print("[TOWER] Syncing floor ", floor, " to server...")
-			game_manager.network.update_tower_highest(game_manager.player.tower_highest)
+			game_manager.network.update_tower_highest(game_manager.player.tower_highest, game_manager.player.tower_floor)
 		else:
 			print("[TOWER] Not logged in, skipping server sync")
 
@@ -2184,7 +2236,7 @@ static func _load_tower_ranking(list: VBoxContainer, game_manager, popup: Contro
 					hbox.add_child(floor_label)
 
 
-					network.update_tower_highest(local_highest)
+					network.update_tower_highest(local_highest, game_manager.player.tower_floor)
 				else:
 					var empty_label = Label.new()
 					empty_label.text = "暂无排行数据"

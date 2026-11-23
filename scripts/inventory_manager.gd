@@ -177,10 +177,10 @@ const GOLD_BAG_CONFIG: = {
 		"server_key": "coin_bag", 
 	}, 
 }
-const HIGH_RISK_LOCAL_ONLY_PET_GIFTS: = ["6+可进化宠礼包", "7+可进化宠礼包", "8+可进化宠礼包", "9+可进化宠礼包", "10+可进化宠礼包", "11+可进化宠礼包", "12+可进化宠礼包", "13+可进化宠礼包", "6+可进化宠礼包(可能变异)", "7+可进化宠礼包(可能变异)", "8+可进化宠礼包(可能变异)", "9+可进化宠礼包(可能变异)", "10+可进化宠礼包(可能变异)", "11+可进化宠礼包(可能变异)", "12+可进化宠礼包(可能变异)", "13+可进化宠礼包(可能变异)", "6+不可进化宠礼包", "6+不可进化宠礼包(可能变异)", "7+不可进化宠礼包(可能变异)", "8+不可进化宠礼包(可能变异)", "9+不可进化宠礼包(可能变异)", "10+不可进化宠礼包(可能变异)", "11+不可进化宠礼包(可能变异)", "12+不可进化宠礼包(可能变异)", "13+不可进化宠礼包(可能变异)", "10-13变异可进化宠礼包", "7-9水晶儿礼包", "7-9梦晶儿礼包", "7-9阿弟达斯礼包", "仙魔灵兽礼包", "仙魔神兽礼包", "仙魔变异礼包", "仙魔野生礼包", "天关礼包", "塔1礼包", "塔2礼包", "塔3礼包", "塔4礼包", "塔5礼包", "生死塔参与礼包"]
+const HIGH_RISK_LOCAL_ONLY_PET_GIFTS: = ["6+可进化宠礼包", "7+可进化宠礼包", "8+可进化宠礼包", "9+可进化宠礼包", "10+可进化宠礼包", "11+可进化宠礼包", "12+可进化宠礼包", "13+可进化宠礼包", "6+可进化宠礼包(可能变异)", "7+可进化宠礼包(可能变异)", "8+可进化宠礼包(可能变异)", "9+可进化宠礼包(可能变异)", "10+可进化宠礼包(可能变异)", "11+可进化宠礼包(可能变异)", "12+可进化宠礼包(可能变异)", "13+可进化宠礼包(可能变异)", "6+不可进化宠礼包", "6+不可进化宠礼包(可能变异)", "7+不可进化宠礼包(可能变异)", "8+不可进化宠礼包(可能变异)", "9+不可进化宠礼包(可能变异)", "10+不可进化宠礼包(可能变异)", "11+不可进化宠礼包(可能变异)", "12+不可进化宠礼包(可能变异)", "13+不可进化宠礼包(可能变异)", "10-13变异可进化宠礼包", "7-9水晶儿礼包", "7-9梦晶儿礼包", "7-9冥狼崽礼包", "仙魔灵兽礼包", "仙魔神兽礼包", "仙魔变异礼包", "仙魔野生礼包", "天关礼包", "塔1礼包", "塔2礼包", "塔3礼包", "塔4礼包", "塔5礼包", "生死塔参与礼包"]
 const HIGH_RISK_LOCAL_ONLY_PET_EGGS: = ["5+宠物蛋", "火属性宠物蛋", "水属性宠物蛋", "木属性宠物蛋", "金属性宠物蛋", "土属性宠物蛋", "金变异宠物蛋", "木变异宠物蛋", "水变异宠物蛋", "火变异宠物蛋", "土变异宠物蛋"]
 const SERVER_AUTH_PET_EGG_NAMES: = ["5+宠物蛋", "火属性宠物蛋", "水属性宠物蛋", "木属性宠物蛋", "金属性宠物蛋", "土属性宠物蛋", "金变异宠物蛋", "木变异宠物蛋", "水变异宠物蛋", "火变异宠物蛋", "土变异宠物蛋"]
-const SERVER_AUTH_PET_GIFT_NAMES: = ["5+宠物礼包", "6+可进化宠礼包", "7+可进化宠礼包", "6+不可进化宠礼包", "7+不可进化宠礼包", "8+不可进化宠礼包", "8+可进化宠礼包", "9+可进化宠礼包", "9+不可进化宠礼包", "10+不可进化宠礼包", "11+不可进化宠礼包", "10+可进化宠礼包", "11+可进化宠礼包", "12+不可进化宠礼包", "12+可进化宠礼包", "13+不可进化宠礼包", "13+可进化宠礼包", "6+可进化宠礼包(可能变异)", "7+可进化宠礼包(可能变异)", "8+可进化宠礼包(可能变异)", "9+可进化宠礼包(可能变异)", "10+可进化宠礼包(可能变异)", "11+可进化宠礼包(可能变异)", "12+可进化宠礼包(可能变异)", "13+可进化宠礼包(可能变异)", "6+不可进化宠礼包(可能变异)", "7+不可进化宠礼包(可能变异)", "8+不可进化宠礼包(可能变异)", "9+不可进化宠礼包(可能变异)", "10+不可进化宠礼包(可能变异)", "11+不可进化宠礼包(可能变异)", "12+不可进化宠礼包(可能变异)", "13+不可进化宠礼包(可能变异)", "10-13变异不可进化宠礼包", "10-13变异可进化宠礼包", "7-9水晶儿礼包", "7-9梦晶儿礼包", "7-9阿弟达斯礼包", "仙魔灵兽礼包", "仙魔神兽礼包", "仙魔变异礼包", "仙魔野生礼包", "天关礼包", "兄弟天关礼包", "塔1礼包", "塔2礼包", "塔3礼包", "塔4礼包", "塔5礼包", "生死塔参与礼包", "世界boss礼包", "冠军礼包", "亚军礼包", "季军礼包", "十强礼包", "100关礼包", "200关礼包", "300关礼包", "400关礼包", "500关礼包", "600关礼包", "700关礼包", "800关礼包", "900关礼包", "1000关礼包", "1100关礼包", "1200关礼包", "1300关礼包", "1400关礼包", "1500关礼包", "1600关礼包", "1700关礼包", "1800关礼包", "1900关礼包", "2000关礼包"]
+const SERVER_AUTH_PET_GIFT_NAMES: = ["5+宠物礼包", "6+可进化宠礼包", "7+可进化宠礼包", "6+不可进化宠礼包", "7+不可进化宠礼包", "8+不可进化宠礼包", "8+可进化宠礼包", "9+可进化宠礼包", "9+不可进化宠礼包", "10+不可进化宠礼包", "11+不可进化宠礼包", "10+可进化宠礼包", "11+可进化宠礼包", "12+不可进化宠礼包", "12+可进化宠礼包", "13+不可进化宠礼包", "13+可进化宠礼包", "6+可进化宠礼包(可能变异)", "7+可进化宠礼包(可能变异)", "8+可进化宠礼包(可能变异)", "9+可进化宠礼包(可能变异)", "10+可进化宠礼包(可能变异)", "11+可进化宠礼包(可能变异)", "12+可进化宠礼包(可能变异)", "13+可进化宠礼包(可能变异)", "6+不可进化宠礼包(可能变异)", "7+不可进化宠礼包(可能变异)", "8+不可进化宠礼包(可能变异)", "9+不可进化宠礼包(可能变异)", "10+不可进化宠礼包(可能变异)", "11+不可进化宠礼包(可能变异)", "12+不可进化宠礼包(可能变异)", "13+不可进化宠礼包(可能变异)", "10-13变异不可进化宠礼包", "10-13变异可进化宠礼包", "7-9水晶儿礼包", "7-9梦晶儿礼包", "7-9冥狼崽礼包", "仙魔灵兽礼包", "仙魔神兽礼包", "仙魔变异礼包", "仙魔野生礼包", "天关礼包", "兄弟天关礼包", "塔1礼包", "塔2礼包", "塔3礼包", "塔4礼包", "塔5礼包", "生死塔参与礼包", "世界boss礼包", "冠军礼包", "亚军礼包", "季军礼包", "十强礼包", "100关礼包", "200关礼包", "300关礼包", "400关礼包", "500关礼包", "600关礼包", "700关礼包", "800关礼包", "900关礼包", "1000关礼包", "1100关礼包", "1200关礼包", "1300关礼包", "1400关礼包", "1500关礼包", "1600关礼包", "1700关礼包", "1800关礼包", "1900关礼包", "2000关礼包"]
 const PET_BATCH_USE_MAX: = 20
 const PET_MEDAL_BATCH_MAX: = 15
 
@@ -864,6 +864,7 @@ func add_item(item_name: String, count: int = 1, extra_data: Dictionary = {}) ->
 	var result = {"success": false, "message": "", "item": null}
 	if ITEM_NAME_ALIASES.has(item_name):
 		item_name = str(ITEM_NAME_ALIASES[item_name])
+	item_name = GameData.normalize_item_name(item_name)
 
 
 	if item_name == "sealed_suit":
@@ -1098,17 +1099,19 @@ func _repair_limit_material_marks_once() -> void :
 		inventory_changed.emit()
 
 func has_item(item_name: String, count: int = 1) -> bool:
+	var want: = GameData.normalize_item_name(item_name)
 	for item in items:
-		if item.name == item_name:
+		if str(item.name) == want:
 			return item.count >= count
 	return false
 
 func remove_item_by_name(item_name: String, count: int = 1) -> Dictionary:
 	var result = {"success": false, "message": ""}
+	var want: = GameData.normalize_item_name(item_name)
 
 	for i in range(items.size()):
 		var item = items[i]
-		if item.name == item_name:
+		if str(item.name) == want:
 			if item.count <= count:
 				items.remove_at(i)
 				result.success = true
@@ -1133,13 +1136,14 @@ func get_available_space() -> int:
 	return get_available_space_by_category("item") + get_available_space_by_category("material")
 
 func get_item_count(item_name: String) -> int:
+	var want: = GameData.normalize_item_name(item_name)
 	for item in items:
-		if item.name == item_name:
+		if str(item.name) == want:
 			return item.count
 	return 0
 
 func count_item_total_in_bag_and_warehouse(item_name: String) -> int:
-	var name_key: = str(item_name).strip_edges()
+	var name_key: = GameData.normalize_item_name(item_name).strip_edges()
 	if name_key.is_empty():
 		return 0
 	var n: = 0
@@ -1153,7 +1157,7 @@ func count_item_total_in_bag_and_warehouse(item_name: String) -> int:
 
 
 func reconcile_item_total_count_by_name(item_name: String, target_total: int) -> void :
-	var name_key: = str(item_name).strip_edges()
+	var name_key: = GameData.normalize_item_name(item_name).strip_edges()
 	if name_key.is_empty():
 		return
 	var cap: int = maxi(0, target_total)
@@ -2581,6 +2585,27 @@ func _migrate_gold_bags_to_coin_bag(target_items: Array) -> void :
 	target_items.append(InventoryItem.from_dict(coin_dict))
 
 
+## 技能书/宠物蛋改名归一：老存档里可能是「坚固IV技能书」「坚固lv4技能书」「金纹蛋」，
+## 统一折成 ALL_ITEMS 里的现用键（硬皮lv4技能书 / 金属性宠物蛋），
+## 否则使用报「未知宠物技能书」、领取报「未知物品」。
+func _migrate_legacy_item_names(target_items: Array) -> void :
+	for item in target_items:
+		if item == null:
+			continue
+		var n: = str(item.name).strip_edges()
+		if n.is_empty():
+			continue
+		var canonical: = GameData.normalize_item_name(n)
+		if canonical.is_empty() or canonical == n:
+			continue
+		var cfg: Variant = GameData.ALL_ITEMS.get(canonical, null)
+		item.name = canonical
+		if cfg is Dictionary:
+			var d: = cfg as Dictionary
+			item.item_type = str(d.get("type", "material"))
+			item.data = d.duplicate()
+
+
 func from_dict(data: Variant = {}):
 	if data == null or not data is Dictionary:
 		return
@@ -2595,6 +2620,7 @@ func from_dict(data: Variant = {}):
 			_align_sealed_suit_item_instance_id(item)
 		_migrate_legacy_xiuxingdan_items(items)
 		_migrate_gold_bags_to_coin_bag(items)
+		_migrate_legacy_item_names(items)
 		_sync_reincarnation_token_item_types(items)
 		_normalize_sealed_suit_items(items)
 		_dedupe_sealed_suit_duplicate_ids(items)
@@ -2612,6 +2638,7 @@ func from_dict(data: Variant = {}):
 			_align_sealed_suit_item_instance_id(item)
 		_migrate_legacy_xiuxingdan_items(warehouse_items)
 		_migrate_gold_bags_to_coin_bag(warehouse_items)
+		_migrate_legacy_item_names(warehouse_items)
 		_sync_reincarnation_token_item_types(warehouse_items)
 		_normalize_sealed_suit_items(warehouse_items)
 		_dedupe_sealed_suit_duplicate_ids(warehouse_items)
@@ -3954,7 +3981,7 @@ class InventoryItem:
 		var gift_pet_map = {
 			"7-9水晶儿礼包": "shuijinger", 
 			"7-9梦晶儿礼包": "mengjinger", 
-			"7-9阿弟达斯礼包": "a_di_da_si"
+			"7-9冥狼崽礼包": "a_di_da_si"
 		}
 		var pet_id = gift_pet_map.get(gift_name, "")
 		if pet_id.is_empty():
@@ -4509,6 +4536,34 @@ func remove_pet_equipment(equip_id: String) -> Dictionary:
 
 	result.message = "未找到该宠物装备"
 	return result
+
+## 按 id 批量移除宠装（分解 / 丢弃成功后对齐本地背包）。
+##
+## 服务端分解掉**最后一件**时，`_authority_save` 出于「老账号服务端副本为空、
+## 不能拿空表清客户端」的保护不会下发 `pet_equipment_items` 键，而
+## `from_dict` 是 `if data.has("pet_equipment_items")` 才动手 —— 键没了就整段
+## 跳过，玩家看到「分解成功」但装备还在背包里。这里按 id 精确删，
+## 不依赖整包下发，也不会误伤其余的宠装。
+func remove_pet_equipment_items_by_ids(ids: Array) -> int:
+	var want: Dictionary = {}
+	for raw in ids:
+		var sid: = str(raw).strip_edges()
+		if not sid.is_empty():
+			want[sid] = true
+	if want.is_empty():
+		return 0
+	var removed: = 0
+	for i in range(pet_equipment_items.size() - 1, -1, -1):
+		var equip = pet_equipment_items[i]
+		if equip == null:
+			continue
+		var eid: = str(equip.get("id", ""))
+		if want.has(eid):
+			pet_equipment_items.remove_at(i)
+			removed += 1
+	if removed > 0:
+		pet_equipment_inventory_changed.emit()
+	return removed
 
 func get_pet_equipment_by_id(equip_id: String) -> Dictionary:
 	for equip in pet_equipment_items:

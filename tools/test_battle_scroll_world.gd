@@ -80,38 +80,20 @@ func _initialize() -> void:
 		if not covered_ok:
 			fails += 1
 
-	# 2) 镜像拼接 + 接缝像素级连续 + 不建阴影带
-	var mirrored: bool = _texture_of(next) != null and _texture_of(next) != tex
-	var third_same: bool = _texture_of(next2) == tex
-	print("第二张=镜像、第三张=原图: ", "OK" if (mirrored and third_same) else "FAIL")
+	# 2) 镜像拼接：靠 TextureRect.flip_h（不再翻出一张贴图，省 1.4MB，也不依赖 get_image）
+	var mirrored: bool = next.flip_h and _texture_of(next) == tex
+	var third_same: bool = _texture_of(next2) == tex and not next2.flip_h
+	print("第二张=镜像(flip_h)、第三张=原图: ", "OK" if (mirrored and third_same) else "FAIL")
 	if not (mirrored and third_same):
 		fails += 1
 
-	var seam_pixels_ok: bool = false
-	if mirrored:
-		var src_img: Image = tex.get_image()
-		var mir_img: Image = (_texture_of(next) as Texture2D).get_image()
-		if src_img != null and mir_img != null:
-			if src_img.is_compressed():
-				src_img.decompress()
-			if mir_img.is_compressed():
-				mir_img.decompress()
-			var w: int = src_img.get_width()
-			var h: int = src_img.get_height()
-			var max_a: float = 0.0
-			var max_b: float = 0.0
-			for y in range(0, h, 3):
-				var ca: Color = src_img.get_pixel(w - 1, y)
-				var cb: Color = mir_img.get_pixel(0, y)
-				max_a = maxf(max_a, absf(ca.r - cb.r) + absf(ca.g - cb.g) + absf(ca.b - cb.b))
-				var cc: Color = mir_img.get_pixel(w - 1, y)
-				var cd: Color = src_img.get_pixel(0, y)
-				max_b = maxf(max_b, absf(cc.r - cd.r) + absf(cc.g - cd.g) + absf(cc.b - cd.b))
-			seam_pixels_ok = max_a < 0.002 and max_b < 0.002
-			print("接缝像素级连续（最大通道差 A|镜像=%.5f 镜像|A=%.5f）: %s" % [max_a, max_b, "OK" if seam_pixels_ok else "FAIL"])
-	else:
-		print("接缝像素级连续: SKIP（没有镜像贴图）")
-	if not seam_pixels_ok:
+	# 镜像接缝「像素级连续」这件事 headless 验不出来（要真渲染 + COVERED 裁切），
+	# 交给 tools/probe_battle_seam.gd 按不同屏幕比例实测。这里只保证：
+	#   · 第二张是原图 + flip_h（不是「两张一样的图」，那就成硬缝了）
+	#   · 镜像模式下不压阴影带
+	var flip_ok: bool = next.flip_h == world._mirror_mode
+	print("flip_h 与镜像模式一致: ", "OK" if flip_ok else "FAIL")
+	if not flip_ok:
 		fails += 1
 
 	var seam: TextureRect = panel.get_node_or_null("BattleBackgroundSeam") as TextureRect
@@ -168,17 +150,48 @@ func _initialize() -> void:
 	world.force_repeat_maps.clear()
 	world.prepare(tex)
 
-	# 6) 关掉强制镜像：可平铺的图（左边缘=右边缘）走「三张同图、周期一屏」，
-	#    这是以后重画成「左右边缘对齐」的素材时的路，代码得留着。
+	# 6) 关掉强制镜像：真·无缝素材 + **比例对得上的面板**（COVERED 左右不裁）
+	#    → 走「三张同图、周期一屏」。这是以后重画成「左右边缘对齐」的素材时的路。
 	ScrollWorldScript.FORCE_MIRROR = false
 	var tile_tex: ImageTexture = _make_tileable_texture(256, 128)
+	var square_panel: Vector2 = Vector2(512.0, 256.0)   # 和 256x128 同比例 → 不裁
+	panel.size = square_panel
 	world.prepare(tile_tex)
 	var tile_ok: bool = not seam.visible and not world._seam_needed \
 		and _texture_of(next) == tile_tex and _texture_of(next2) == tile_tex \
-		and absf(world._cycle - PANEL_SIZE.x) < 0.01
-	print("可平铺图（不强制镜像时）→ 三张同图、周期一屏: ", "OK" if tile_ok else "FAIL")
+		and absf(world._cycle - square_panel.x) < 0.01
+	print("无缝图 + 同比例面板（不裁）→ 三张同图、周期一屏: ", "OK" if tile_ok else "FAIL")
 	if not tile_ok:
 		fails += 1
+
+	# 6b) ★回归用例★ 同一张图，比例不同 → 结论必须不同。
+	#     线上反馈的「有的手机地图拼接是一条硬缝」就是这个：
+	#       · 面板高/宽 1.36 ≈ 原图 700/512=1.367 → 左右不裁 → 接缝拼的是原图左右边缘 → 缝看不出
+	#       · 面板高/宽 1.57（瘦长屏）→ 左右各裁一截 → 接缝拼的是图中间两列 → 硬竖线
+	var muj: Texture2D = load("res://assets/backgrounds/暮归道.jpg") as Texture2D
+	if muj == null:
+		print("FAIL 暮归道.jpg 加载失败")
+		fails += 1
+	else:
+		panel.size = Vector2(700.0, 950.0)
+		world.prepare(muj)
+		var short_cols: Vector2i = world.visible_source_columns(muj, panel.size)
+		var short_ok: bool = not world._mirror_mode and short_cols.x == 0
+		print("矮面板(700x950) 不裁 %s → 重复铺: %s" % [str(short_cols), "OK" if short_ok else "FAIL"])
+		if not short_ok:
+			fails += 1
+
+		panel.size = Vector2(700.0, 1100.0)
+		world.prepare(muj)
+		var tall_cols: Vector2i = world.visible_source_columns(muj, panel.size)
+		var tall_ok: bool = world._mirror_mode and next.flip_h \
+			and tall_cols.x > 4 and tall_cols.y < 508
+		print("瘦长面板(700x1100) 左右被裁 %s → 自动改镜像: %s" % [str(tall_cols), "OK" if tall_ok else "FAIL"])
+		if not tall_ok:
+			fails += 1
+
+	panel.size = PANEL_SIZE
+	world.prepare(tex)
 	ScrollWorldScript.FORCE_MIRROR = false
 
 	# 7) 真素材：重画成「左右边缘同质」的密林图，应该自动走重复铺——
@@ -201,17 +214,17 @@ func _initialize() -> void:
 				f_img.decompress()
 			var fw: int = f_img.get_width()
 			var fh: int = f_img.get_height()
-			var acc: float = 0.0
-			var cnt: int = 0
-			for y in range(0, fh, 3):
-				var ca: Color = f_img.get_pixel(0, y)
-				var cb: Color = f_img.get_pixel(fw - 1, y)
-				acc += absf(ca.r - cb.r) + absf(ca.g - cb.g) + absf(ca.b - cb.b)
-				cnt += 1
-			var avg: float = acc / maxf(1.0, float(cnt)) / 3.0 * 255.0
-			var edge_ok: bool = avg <= ScrollWorldScript.TILEABLE_MAX_DIFF
-			print("重复铺接缝：首尾列平均通道差 %.1f（阈值 %.0f）: %s" % [
-				avg, ScrollWorldScript.TILEABLE_MAX_DIFF, "OK" if edge_ok else "FAIL"])
+			# 判定口径跟代码一致：整列偏色（有符号均值）+ 分段偏色，不是逐行 abs。
+			var bias_all: float = world._column_bias(f_img, 1, fw - 2, 0, fh)
+			var bias_band: float = 0.0
+			var yy: int = 0
+			while yy + ScrollWorldScript.SEAM_BAND_ROWS <= fh:
+				bias_band = maxf(bias_band, world._column_bias(f_img, 1, fw - 2, yy, yy + ScrollWorldScript.SEAM_BAND_ROWS))
+				yy += ScrollWorldScript.SEAM_BAND_ROWS
+			var edge_ok: bool = bias_all <= ScrollWorldScript.SEAM_BIAS_MAX and bias_band <= ScrollWorldScript.SEAM_BAND_MAX
+			print("重复铺接缝：整列偏色 %.2f（≤%.0f）分段偏色 %.2f（≤%.0f）: %s" % [
+				bias_all, ScrollWorldScript.SEAM_BIAS_MAX, bias_band, ScrollWorldScript.SEAM_BAND_MAX,
+				"OK" if edge_ok else "FAIL"])
 			if not edge_ok:
 				fails += 1
 

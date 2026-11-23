@@ -467,7 +467,7 @@ static func format_log_line(entry: Dictionary, side_map: Dictionary = {}) -> Str
 			var ms: = str(entry.get("message", "")).strip_edges()
 			if not ms.is_empty():
 				return "[color=#7FD4FF]%s[/color]" % bbcode_escape(ms)
-			return "[color=#7FD4FF]【溅射】[color=#E8E8E8]%s[/color] 波及 [color=#E8E8E8]%s[/color]，伤害 [color=#FFB86B]%s[/color]（剩余 HP %s/%s）[/color]" % [
+			return "[color=#7FD4FF]【溅墨】[color=#E8E8E8]%s[/color] 波及 [color=#E8E8E8]%s[/color]，伤害 [color=#FFB86B]%s[/color]（剩余 HP %s/%s）[/color]" % [
 				bbcode_escape(str(entry.get("attacker", "?"))), 
 				bbcode_escape(str(entry.get("target", "?"))), 
 				fmt_int(entry.get("damage", 0)), 
@@ -478,7 +478,7 @@ static func format_log_line(entry: Dictionary, side_map: Dictionary = {}) -> Str
 			var md: = str(entry.get("message", "")).strip_edges()
 			if not md.is_empty():
 				return "[color=#FFD27A]%s[/color]" % bbcode_escape(md)
-			return "[color=#FFD27A]【连射】第 %s 段 [color=#E8E8E8]%s[/color] → [color=#E8E8E8]%s[/color]，伤害 [color=#FFB86B]%s[/color]（剩余 HP %s/%s）[/color]" % [
+			return "[color=#FFD27A]【连击】第 %s 段 [color=#E8E8E8]%s[/color] → [color=#E8E8E8]%s[/color]，伤害 [color=#FFB86B]%s[/color]（剩余 HP %s/%s）[/color]" % [
 				bbcode_escape(str(entry.get("hitIndex", entry.get("hit_index", "?")))), 
 				bbcode_escape(str(entry.get("attacker", "?"))), 
 				bbcode_escape(str(entry.get("target", "?"))), 
@@ -490,7 +490,7 @@ static func format_log_line(entry: Dictionary, side_map: Dictionary = {}) -> Str
 			var mdv: = str(entry.get("message", "")).strip_edges()
 			if not mdv.is_empty():
 				return "[color=#B8F28A]%s[/color]" % bbcode_escape(mdv)
-			return "[color=#B8F28A]【神佑】[color=#E8E8E8]%s[/color] 触发，恢复后生命约 [color=#FFB86B]%s[/color][/color]" % [
+			return "[color=#B8F28A]【护主】[color=#E8E8E8]%s[/color] 触发，恢复后生命约 [color=#FFB86B]%s[/color][/color]" % [
 				bbcode_escape(str(entry.get("target", "?"))), 
 				fmt_int(entry.get("hpRestored", entry.get("hp_restored", "?"))), 
 			]
@@ -498,7 +498,7 @@ static func format_log_line(entry: Dictionary, side_map: Dictionary = {}) -> Str
 			var mc: = str(entry.get("message", "")).strip_edges()
 			if not mc.is_empty():
 				return "[color=#FFB86B]%s[/color]" % bbcode_escape(mc)
-			return "[color=#FFB86B]【反击】[color=#E8E8E8]%s[/color] 反击 [color=#E8E8E8]%s[/color]，伤害 [color=#FF9F7A]%s[/color]（目标剩余 HP %s/%s）[/color]" % [
+			return "[color=#FFB86B]【反打】[color=#E8E8E8]%s[/color] 反击 [color=#E8E8E8]%s[/color]，伤害 [color=#FF9F7A]%s[/color]（目标剩余 HP %s/%s）[/color]" % [
 				bbcode_escape(str(entry.get("attacker", "?"))), 
 				bbcode_escape(str(entry.get("target", "?"))), 
 				fmt_int(entry.get("damage", 0)), 

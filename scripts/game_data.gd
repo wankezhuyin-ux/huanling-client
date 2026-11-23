@@ -670,11 +670,11 @@ const EQUIPMENT_SLOTS = {
 
 
 const MAPS_DATA = {
-	"浮影水城外郊（0,0）": {
+	"浮光水城外郊（0,0）": {
 		"id": "100014", 
-		"name": "浮影水城外郊（0,0）", 
+		"name": "浮光水城外郊（0,0）", 
 		"level": 4, 
-		"description": "浮影水城外郊 - 坐标(0,0)", 
+		"description": "浮光水城外郊 - 坐标(0,0)", 
 		"spawn_min": 1, 
 		"spawn_max": 2, 
 		"monsters": [
@@ -682,31 +682,31 @@ const MAPS_DATA = {
 			{"id": "linlin"}
 		]
 	}, 
-	"徘徊林（0,0）": {
+	"盘桓林（0,0）": {
 		"id": "700000", 
-		"name": "徘徊林（0,0）", 
+		"name": "盘桓林（0,0）", 
 		"level": 5, 
-		"description": "徘徊林 - 坐标(0,0)", 
+		"description": "盘桓林 - 坐标(0,0)", 
 		"monsters": [
 			{"id": "duxing"}, 
 			{"id": "yùlíntù"}
 		]
 	}, 
-	"徘徊林（39,54）": {
+	"盘桓林（39,54）": {
 		"id": "700000", 
-		"name": "徘徊林（39,54）", 
+		"name": "盘桓林（39,54）", 
 		"level": 5, 
-		"description": "徘徊林 - 坐标(39,54)", 
+		"description": "盘桓林 - 坐标(39,54)", 
 		"monsters": [
 			{"pet_id": "yùlíntù", "level": 4}, 
 			{"pet_id": "yùlíntù", "level": 5}, 
 		]
 	}, 
-	"浮影水城外郊（48,44）": {
+	"浮光水城外郊（48,44）": {
 		"id": "100014", 
-		"name": "浮影水城外郊（48,44）", 
+		"name": "浮光水城外郊（48,44）", 
 		"level": 10, 
-		"description": "浮影水城外郊 - 坐标(48,44)", 
+		"description": "浮光水城外郊 - 坐标(48,44)", 
 		"monsters": [
 			{"id": "tiějiǎgūi"}, 
 			{"id": "kuiluo"}
@@ -752,101 +752,101 @@ const MAPS_DATA = {
 			{"pet_id": "zǐtíxiānshēng", "level": 12}, 
 		]
 	}, 
-	"暮归道（0,0）": {
+	"暮还道（0,0）": {
 		"id": "700007", 
-		"name": "暮归道（0,0）", 
+		"name": "暮还道（0,0）", 
 		"level": 15, 
-		"description": "暮归道 - 坐标(0,0)", 
+		"description": "暮还道 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "lányá", "level": 10}, 
 			{"pet_id": "daicitou", "level": 15}, 
 		]
 	}, 
-	"暮归道（14,42）": {
+	"暮还道（14,42）": {
 		"id": "700007", 
-		"name": "暮归道（14,42）", 
+		"name": "暮还道（14,42）", 
 		"level": 15, 
-		"description": "暮归道 - 坐标(14,42)", 
+		"description": "暮还道 - 坐标(14,42)", 
 		"monsters": [
 			{"pet_id": "xiǎoyāo", "level": 10}, 
 			{"pet_id": "xiǎoyāo", "level": 15}, 
 		]
 	}, 
-	"青风原（0,0）": {
+	"青岚原（0,0）": {
 		"id": "100011", 
-		"name": "青风原（0,0）", 
+		"name": "青岚原（0,0）", 
 		"level": 20, 
-		"description": "青风原 - 坐标(0,0)", 
+		"description": "青岚原 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "fengwu", "level": 15}, 
 			{"pet_id": "tongbao", "level": 20}, 
 		]
 	}, 
-	"青风原（52,36）": {
+	"青岚原（52,36）": {
 		"id": "100011", 
-		"name": "青风原（52,36）", 
+		"name": "青岚原（52,36）", 
 		"level": 20, 
-		"description": "青风原 - 坐标(52,36)", 
+		"description": "青岚原 - 坐标(52,36)", 
 		"monsters": [
 			{"pet_id": "shundi", "level": 15}, 
 			{"pet_id": "lu_lu", "level": 20}, 
 		]
 	}, 
-	"浮影水城外郊（43,20）": {
+	"浮光水城外郊（43,20）": {
 		"id": "100014", 
-		"name": "浮影水城外郊（43,20）", 
+		"name": "浮光水城外郊（43,20）", 
 		"level": 25, 
-		"description": "浮影水城外郊 - 坐标(43,20)", 
+		"description": "浮光水城外郊 - 坐标(43,20)", 
 		"monsters": [
 			{"pet_id": "tiějiǎgūi", "level": 20}, 
 			{"pet_id": "yingying", "level": 25}, 
 		]
 	}, 
-	"青风原（51,80）": {
+	"青岚原（51,80）": {
 		"id": "100011", 
-		"name": "青风原（51,80）", 
+		"name": "青岚原（51,80）", 
 		"level": 30, 
-		"description": "青风原 - 坐标(51,80)", 
+		"description": "青岚原 - 坐标(51,80)", 
 		"monsters": [
 			{"pet_id": "hòupíè", "level": 25}, 
 			{"pet_id": "zhaicitou", "level": 30}, 
 		]
 	}, 
-	"坠泪岗（0,0）": {
+	"凝泪岗（0,0）": {
 		"id": "100015", 
-		"name": "坠泪岗（0,0）", 
+		"name": "凝泪岗（0,0）", 
 		"level": 35, 
-		"description": "坠泪岗 - 坐标(0,0)", 
+		"description": "凝泪岗 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "yingying", "level": 30}, 
 			{"pet_id": "qíshìgūi", "level": 35}, 
 		]
 	}, 
-	"坠泪岗（27,18）": {
+	"凝泪岗（27,18）": {
 		"id": "100015", 
-		"name": "坠泪岗（27,18）", 
+		"name": "凝泪岗（27,18）", 
 		"level": 35, 
-		"description": "坠泪岗 - 坐标(27,18)", 
+		"description": "凝泪岗 - 坐标(27,18)", 
 		"monsters": [
 			{"pet_id": "yingying", "level": 30}, 
 			{"pet_id": "yingying", "level": 35}, 
 		]
 	}, 
-	"翔云台（0,0）": {
+	"凌云台（0,0）": {
 		"id": "500006", 
-		"name": "翔云台（0,0）", 
+		"name": "凌云台（0,0）", 
 		"level": 35, 
-		"description": "翔云台 - 坐标(0,0)", 
+		"description": "凌云台 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "xiàngpíshǔ", "level": 30}, 
 			{"pet_id": "mìmìxióng", "level": 35}, 
 		]
 	}, 
-	"翔云台（47,46）": {
+	"凌云台（47,46）": {
 		"id": "500006", 
-		"name": "翔云台（47,46）", 
+		"name": "凌云台（47,46）", 
 		"level": 35, 
-		"description": "翔云台 - 坐标(47,46)", 
+		"description": "凌云台 - 坐标(47,46)", 
 		"monsters": [
 			{"pet_id": "xiàngpíshǔ", "level": 30}, 
 			{"pet_id": "xiàngpíshǔ", "level": 35}, 
@@ -882,11 +882,11 @@ const MAPS_DATA = {
 			{"pet_id": "tao_tao", "level": 40}, 
 		]
 	}, 
-	"四桥原（0,0）": {
+	"四津原（0,0）": {
 		"id": "100010", 
-		"name": "四桥原（0,0）", 
+		"name": "四津原（0,0）", 
 		"level": 50, 
-		"description": "四桥原 - 坐标(0,0)", 
+		"description": "四津原 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "kucitou", "level": 40}, 
 			{"pet_id": "nununiao", "level": 50}, 
@@ -902,51 +902,51 @@ const MAPS_DATA = {
 			{"pet_id": "tiějiǎgūi", "level": 60}, 
 		]
 	}, 
-	"枯井原（0,0）": {
+	"废井原（0,0）": {
 		"id": "100021", 
-		"name": "枯井原（0,0）", 
+		"name": "废井原（0,0）", 
 		"level": 60, 
-		"description": "枯井原 - 坐标(0,0)", 
+		"description": "废井原 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "zhaicitou", "level": 50}, 
 			{"pet_id": "duxing", "level": 60}, 
 		]
 	}, 
-	"枯井原（38,26）": {
+	"废井原（38,26）": {
 		"id": "100021", 
-		"name": "枯井原（38,26）", 
+		"name": "废井原（38,26）", 
 		"level": 60, 
-		"description": "枯井原 - 坐标(38,26)", 
+		"description": "废井原 - 坐标(38,26)", 
 		"monsters": [
 			{"pet_id": "duxing", "level": 50}, 
 			{"pet_id": "duxing", "level": 60}, 
 		]
 	}, 
-	"四桥原（63,42）": {
+	"四津原（63,42）": {
 		"id": "100010", 
-		"name": "四桥原（63,42）", 
+		"name": "四津原（63,42）", 
 		"level": 65, 
-		"description": "四桥原 - 坐标(63,42)", 
+		"description": "四津原 - 坐标(63,42)", 
 		"monsters": [
 			{"pet_id": "qíshìgūi", "level": 60}, 
 			{"pet_id": "lèlèxióng", "level": 65}, 
 		]
 	}, 
-	"观日桥（0,0）": {
+	"望日桥（0,0）": {
 		"id": "100020", 
-		"name": "观日桥（0,0）", 
+		"name": "望日桥（0,0）", 
 		"level": 75, 
-		"description": "观日桥 - 坐标(0,0)", 
+		"description": "望日桥 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "hòupíè", "level": 60}, 
 			{"pet_id": "tiějiǎgūi", "level": 75}, 
 		]
 	}, 
-	"四桥原（41,69）": {
+	"四津原（41,69）": {
 		"id": "100010", 
-		"name": "四桥原（41,69）", 
+		"name": "四津原（41,69）", 
 		"level": 80, 
-		"description": "四桥原 - 坐标(41,69)", 
+		"description": "四津原 - 坐标(41,69)", 
 		"monsters": [
 			{"pet_id": "qíshìgūi", "level": 70}, 
 			{"pet_id": "zhaicitou", "level": 80}, 
@@ -972,81 +972,81 @@ const MAPS_DATA = {
 			{"pet_id": "hóngdāo", "level": 75}, 
 		]
 	}, 
-	"犁春原（0,0）": {
+	"耕春原（0,0）": {
 		"id": "300013", 
-		"name": "犁春原（0,0）", 
+		"name": "耕春原（0,0）", 
 		"level": 85, 
-		"description": "犁春原 - 坐标(0,0)", 
+		"description": "耕春原 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "hēitíxiānshēng", "level": 80}, 
 			{"pet_id": "kucitou", "level": 85}, 
 		]
 	}, 
-	"犁春原（38,38）": {
+	"耕春原（38,38）": {
 		"id": "300013", 
-		"name": "犁春原（38,38）", 
+		"name": "耕春原（38,38）", 
 		"level": 85, 
-		"description": "犁春原 - 坐标(38,38)", 
+		"description": "耕春原 - 坐标(38,38)", 
 		"monsters": [
 			{"pet_id": "zhaicitou", "level": 80}, 
 			{"pet_id": "zhaicitou", "level": 85}, 
 		]
 	}, 
-	"衡天台（0,0）": {
+	"衡霄台（0,0）": {
 		"id": "500013", 
-		"name": "衡天台（0,0）", 
+		"name": "衡霄台（0,0）", 
 		"level": 85, 
-		"description": "衡天台 - 坐标(0,0)", 
+		"description": "衡霄台 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "hongdazui", "level": 80}, 
 			{"pet_id": "fuyejiu", "level": 85}, 
 		]
 	}, 
-	"衡天台（32,13）": {
+	"衡霄台（32,13）": {
 		"id": "500013", 
-		"name": "衡天台（32,13）", 
+		"name": "衡霄台（32,13）", 
 		"level": 85, 
-		"description": "衡天台 - 坐标(32,13)", 
+		"description": "衡霄台 - 坐标(32,13)", 
 		"monsters": [
 			{"pet_id": "hongdazui", "level": 80}, 
 			{"pet_id": "hongdazui", "level": 85}, 
 		]
 	}, 
-	"回首亭（0,0）": {
+	"回望亭（0,0）": {
 		"id": "700005", 
-		"name": "回首亭（0,0）", 
+		"name": "回望亭（0,0）", 
 		"level": 85, 
-		"description": "回首亭 - 坐标(0,0)", 
+		"description": "回望亭 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "luluniao", "level": 80}, 
 			{"pet_id": "daicitou", "level": 85}, 
 		]
 	}, 
-	"回首亭（39,33）": {
+	"回望亭（39,33）": {
 		"id": "700005", 
-		"name": "回首亭（39,33）", 
+		"name": "回望亭（39,33）", 
 		"level": 85, 
-		"description": "回首亭 - 坐标(39,33)", 
+		"description": "回望亭 - 坐标(39,33)", 
 		"monsters": [
 			{"pet_id": "nununiao", "level": 80}, 
 			{"pet_id": "nununiao", "level": 85}, 
 		]
 	}, 
-	"枯井原（13,22）": {
+	"废井原（13,22）": {
 		"id": "100021", 
-		"name": "枯井原（13,22）", 
+		"name": "废井原（13,22）", 
 		"level": 87, 
-		"description": "枯井原 - 坐标(13,22)", 
+		"description": "废井原 - 坐标(13,22)", 
 		"monsters": [
 			{"pet_id": "chushane", "level": 83}, 
 			{"pet_id": "kucitou", "level": 87}, 
 		]
 	}, 
-	"闲情园（0,0）": {
+	"闲逸园（0,0）": {
 		"id": "100017", 
-		"name": "闲情园（0,0）", 
+		"name": "闲逸园（0,0）", 
 		"level": 90, 
-		"description": "闲情园 - 坐标(0,0)", 
+		"description": "闲逸园 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "tiějiǎgūi", "level": 70}, 
 			{"pet_id": "yingying", "level": 90}, 
@@ -1062,21 +1062,21 @@ const MAPS_DATA = {
 			{"pet_id": "duduniao", "level": 95}, 
 		]
 	}, 
-	"观日桥（56,48）": {
+	"望日桥（56,48）": {
 		"id": "100020", 
-		"name": "观日桥（56,48）", 
+		"name": "望日桥（56,48）", 
 		"level": 97, 
-		"description": "观日桥 - 坐标(56,48)", 
+		"description": "望日桥 - 坐标(56,48)", 
 		"monsters": [
 			{"pet_id": "mìmìxióng", "level": 93}, 
 			{"pet_id": "duxing", "level": 97}, 
 		]
 	}, 
-	"观日桥头（0,0）": {
+	"望日桥头（0,0）": {
 		"id": "100019", 
-		"name": "观日桥头（0,0）", 
+		"name": "望日桥头（0,0）", 
 		"level": 105, 
-		"description": "观日桥头 - 坐标(0,0)", 
+		"description": "望日桥头 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "zhaicitou", "level": 100}, 
 			{"pet_id": "duduniao", "level": 105}, 
@@ -1132,81 +1132,81 @@ const MAPS_DATA = {
 			{"pet_id": "xiǎodīngdāng", "level": 110}, 
 		]
 	}, 
-	"观日桥头（86,100）": {
+	"望日桥头（86,100）": {
 		"id": "100019", 
-		"name": "观日桥头（86,100）", 
+		"name": "望日桥头（86,100）", 
 		"level": 115, 
-		"description": "观日桥头 - 坐标(86,100)", 
+		"description": "望日桥头 - 坐标(86,100)", 
 		"monsters": [
 			{"pet_id": "tiějiǎgūi", "level": 110}, 
 			{"pet_id": "tao_tao", "level": 115}, 
 		]
 	}, 
-	"剑池谷（0,0）": {
+	"剑潭谷（0,0）": {
 		"id": "100012", 
-		"name": "剑池谷（0,0）", 
+		"name": "剑潭谷（0,0）", 
 		"level": 120, 
-		"description": "剑池谷 - 坐标(0,0)", 
+		"description": "剑潭谷 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "dàzǔiè", "level": 100}, 
 			{"pet_id": "linlin", "level": 120}, 
 		]
 	}, 
-	"观日桥头（37,51）": {
+	"望日桥头（37,51）": {
 		"id": "100019", 
-		"name": "观日桥头（37,51）", 
+		"name": "望日桥头（37,51）", 
 		"level": 135, 
-		"description": "观日桥头 - 坐标(37,51)", 
+		"description": "望日桥头 - 坐标(37,51)", 
 		"monsters": [
 			{"pet_id": "zhaicitou", "level": 120}, 
 			{"pet_id": "lanmengmeng", "level": 135}, 
 		]
 	}, 
-	"剑池谷（57,23）": {
+	"剑潭谷（57,23）": {
 		"id": "100012", 
-		"name": "剑池谷（57,23）", 
+		"name": "剑潭谷（57,23）", 
 		"level": 150, 
-		"description": "剑池谷 - 坐标(57,23)", 
+		"description": "剑潭谷 - 坐标(57,23)", 
 		"monsters": [
 			{"pet_id": "dàzǔiè", "level": 130}, 
 			{"pet_id": "linlin", "level": 150}, 
 		]
 	}, 
-	"剑池谷（41,37）": {
+	"剑潭谷（41,37）": {
 		"id": "100012", 
-		"name": "剑池谷（41,37）", 
+		"name": "剑潭谷（41,37）", 
 		"level": 160, 
-		"description": "剑池谷 - 坐标(41,37)", 
+		"description": "剑潭谷 - 坐标(41,37)", 
 		"monsters": [
 			{"pet_id": "linlin", "level": 150}, 
 			{"pet_id": "linlin", "level": 160}, 
 		]
 	}, 
-	"晚枫林（0,0）": {
+	"暮枫林（0,0）": {
 		"id": "700003", 
-		"name": "晚枫林（0,0）", 
+		"name": "暮枫林（0,0）", 
 		"level": 160, 
-		"description": "晚枫林 - 坐标(0,0)", 
+		"description": "暮枫林 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "lanmengmeng", "level": 150}, 
 			{"pet_id": "dàidāo", "level": 160}, 
 		]
 	}, 
-	"晚枫林（30,20）": {
+	"暮枫林（30,20）": {
 		"id": "700003", 
-		"name": "晚枫林（30,20）", 
+		"name": "暮枫林（30,20）", 
 		"level": 160, 
-		"description": "晚枫林 - 坐标(30,20)", 
+		"description": "暮枫林 - 坐标(30,20)", 
 		"monsters": [
 			{"pet_id": "dàidāo", "level": 150}, 
 			{"pet_id": "dàidāo", "level": 160}, 
 		]
 	}, 
-	"闲情园（38,21）": {
+	"闲逸园（38,21）": {
 		"id": "100017", 
-		"name": "闲情园（38,21）", 
+		"name": "闲逸园（38,21）", 
 		"level": 175, 
-		"description": "闲情园 - 坐标(38,21)", 
+		"description": "闲逸园 - 坐标(38,21)", 
 		"monsters": [
 			{"pet_id": "niefengquan", "level": 170}, 
 			{"pet_id": "dàzǔiè", "level": 175}, 
@@ -1242,41 +1242,41 @@ const MAPS_DATA = {
 			{"pet_id": "daicitou", "level": 185}, 
 		]
 	}, 
-	"独木原（0,0）": {
+	"孤木原（0,0）": {
 		"id": "300017", 
-		"name": "独木原（0,0）", 
+		"name": "孤木原（0,0）", 
 		"level": 190, 
-		"description": "独木原 - 坐标(0,0)", 
+		"description": "孤木原 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "ouou", "level": 180}, 
 			{"pet_id": "huanbiantianlang", "level": 190}, 
 		]
 	}, 
-	"独木原（29,22）": {
+	"孤木原（29,22）": {
 		"id": "300017", 
-		"name": "独木原（29,22）", 
+		"name": "孤木原（29,22）", 
 		"level": 190, 
-		"description": "独木原 - 坐标(29,22)", 
+		"description": "孤木原 - 坐标(29,22)", 
 		"monsters": [
 			{"pet_id": "ouou", "level": 180}, 
 			{"pet_id": "ouou", "level": 190}, 
 		]
 	}, 
-	"双印谷（0,0）": {
+	"双玺谷（0,0）": {
 		"id": "700008", 
-		"name": "双印谷（0,0）", 
+		"name": "双玺谷（0,0）", 
 		"level": 190, 
-		"description": "双印谷 - 坐标(0,0)", 
+		"description": "双玺谷 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "lányá", "level": 180}, 
 			{"pet_id": "dàidāo", "level": 190}, 
 		]
 	}, 
-	"双印谷（48,20）": {
+	"双玺谷（48,20）": {
 		"id": "700008", 
-		"name": "双印谷（48,20）", 
+		"name": "双玺谷（48,20）", 
 		"level": 190, 
-		"description": "双印谷 - 坐标(48,20)", 
+		"description": "双玺谷 - 坐标(48,20)", 
 		"monsters": [
 			{"pet_id": "lèlèxióng", "level": 180}, 
 			{"pet_id": "lèlèxióng", "level": 190}, 
@@ -1292,31 +1292,31 @@ const MAPS_DATA = {
 			{"pet_id": "yáoyé", "level": 190}, 
 		]
 	}, 
-	"松雪野（0,0）": {
+	"松霜野（0,0）": {
 		"id": "300009", 
-		"name": "松雪野（0,0）", 
+		"name": "松霜野（0,0）", 
 		"level": 210, 
-		"description": "松雪野 - 坐标(0,0)", 
+		"description": "松霜野 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "báimáoxiàng", "level": 200}, 
 			{"pet_id": "lèngtóuqīng", "level": 210}, 
 		]
 	}, 
-	"降尘台（0,0）": {
+	"落尘台（0,0）": {
 		"id": "500014", 
-		"name": "降尘台（0,0）", 
+		"name": "落尘台（0,0）", 
 		"level": 210, 
-		"description": "降尘台 - 坐标(0,0)", 
+		"description": "落尘台 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "xiàngpíshǔ", "level": 200}, 
 			{"pet_id": "mìmìxióng", "level": 210}, 
 		]
 	}, 
-	"降尘台（93,77）": {
+	"落尘台（93,77）": {
 		"id": "500014", 
-		"name": "降尘台（93,77）", 
+		"name": "落尘台（93,77）", 
 		"level": 210, 
-		"description": "降尘台 - 坐标(93,77)", 
+		"description": "落尘台 - 坐标(93,77)", 
 		"monsters": [
 			{"pet_id": "mìmìxióng", "level": 200}, 
 			{"pet_id": "mìmìxióng", "level": 210}, 
@@ -1332,11 +1332,11 @@ const MAPS_DATA = {
 			{"pet_id": "nununiao", "level": 220}, 
 		]
 	}, 
-	"碧野云天（0,0）": {
+	"碧野云霄（0,0）": {
 		"id": "131001", 
-		"name": "碧野云天（0,0）", 
+		"name": "碧野云霄（0,0）", 
 		"level": 220, 
-		"description": "碧野云天 - 坐标(0,0)", 
+		"description": "碧野云霄 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "huahua", "level": 200}, 
 			{"pet_id": "zhenzhen", "level": 220}, 
@@ -1442,11 +1442,11 @@ const MAPS_DATA = {
 			{"pet_id": "zhōngdāo", "level": 250}, 
 		]
 	}, 
-	"逆之心情（0,0）": {
+	"逆之心绪（0,0）": {
 		"id": "700010", 
-		"name": "逆之心情（0,0）", 
+		"name": "逆之心绪（0,0）", 
 		"level": 250, 
-		"description": "逆之心情 - 坐标(0,0)", 
+		"description": "逆之心绪 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "qiāoqiāoshǔ", "level": 220}, 
 			{"pet_id": "daicitou", "level": 250}, 
@@ -1472,31 +1472,31 @@ const MAPS_DATA = {
 			{"pet_id": "qíshìgūi", "level": 255}, 
 		]
 	}, 
-	"雪融谷（0,0）": {
+	"雪霁谷（0,0）": {
 		"id": "300019", 
-		"name": "雪融谷（0,0）", 
+		"name": "雪霁谷（0,0）", 
 		"level": 260, 
-		"description": "雪融谷 - 坐标(0,0)", 
+		"description": "雪霁谷 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "báimáoxiàng", "level": 250}, 
 			{"pet_id": "mìmìxióng", "level": 260}, 
 		]
 	}, 
-	"雪融谷（45,42）": {
+	"雪霁谷（45,42）": {
 		"id": "300019", 
-		"name": "雪融谷（45,42）", 
+		"name": "雪霁谷（45,42）", 
 		"level": 260, 
-		"description": "雪融谷 - 坐标(45,42)", 
+		"description": "雪霁谷 - 坐标(45,42)", 
 		"monsters": [
 			{"pet_id": "lǎnlǎnxiàng", "level": 250}, 
 			{"pet_id": "lǎnlǎnxiàng", "level": 260}, 
 		]
 	}, 
-	"逆之往事（0,0）": {
+	"逆之往昔（0,0）": {
 		"id": "700011", 
-		"name": "逆之往事（0,0）", 
+		"name": "逆之往昔（0,0）", 
 		"level": 260, 
-		"description": "逆之往事 - 坐标(0,0)", 
+		"description": "逆之往昔 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "qiāoqiāoshǔ", "level": 250}, 
 			{"pet_id": "dàdāo", "level": 260}, 
@@ -1512,31 +1512,31 @@ const MAPS_DATA = {
 			{"pet_id": "lanmengmeng", "level": 270}, 
 		]
 	}, 
-	"不归海岸（0,0）": {
+	"忘归海岸（0,0）": {
 		"id": "700009", 
-		"name": "不归海岸（0,0）", 
+		"name": "忘归海岸（0,0）", 
 		"level": 270, 
-		"description": "不归海岸 - 坐标(0,0)", 
+		"description": "忘归海岸 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "jiájiá", "level": 260}, 
 			{"pet_id": "lányá", "level": 270}, 
 		]
 	}, 
-	"不归海岸（47,32）": {
+	"忘归海岸（47,32）": {
 		"id": "700009", 
-		"name": "不归海岸（47,32）", 
+		"name": "忘归海岸（47,32）", 
 		"level": 270, 
-		"description": "不归海岸 - 坐标(47,32)", 
+		"description": "忘归海岸 - 坐标(47,32)", 
 		"monsters": [
 			{"pet_id": "lányá", "level": 260}, 
 			{"pet_id": "lányá", "level": 270}, 
 		]
 	}, 
-	"断魂涯（0,0）": {
+	"断魄涯（0,0）": {
 		"id": "100025", 
-		"name": "断魂涯（0,0）", 
+		"name": "断魄涯（0,0）", 
 		"level": 280, 
-		"description": "断魂涯 - 坐标(0,0)", 
+		"description": "断魄涯 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "daicitou", "level": 270}, 
 			{"pet_id": "linlin", "level": 280}, 
@@ -1562,21 +1562,21 @@ const MAPS_DATA = {
 			{"pet_id": "lv̀jǐnbǎo", "level": 280}, 
 		]
 	}, 
-	"怨灵洞口（0,0）": {
+	"幽怨洞口（0,0）": {
 		"id": "200005", 
-		"name": "怨灵洞口（0,0）", 
+		"name": "幽怨洞口（0,0）", 
 		"level": 285, 
-		"description": "怨灵洞口 - 坐标(0,0)", 
+		"description": "幽怨洞口 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "wudidan", "level": 280}, 
 			{"pet_id": "xi_pi", "level": 285}, 
 		]
 	}, 
-	"怨灵洞口（66,58）": {
+	"幽怨洞口（66,58）": {
 		"id": "200005", 
-		"name": "怨灵洞口（66,58）", 
+		"name": "幽怨洞口（66,58）", 
 		"level": 285, 
-		"description": "怨灵洞口 - 坐标(66,58)", 
+		"description": "幽怨洞口 - 坐标(66,58)", 
 		"monsters": [
 			{"pet_id": "xi_pi", "level": 280}, 
 			{"pet_id": "xi_pi", "level": 285}, 
@@ -1602,31 +1602,31 @@ const MAPS_DATA = {
 			{"pet_id": "fengwu", "level": 290}, 
 		]
 	}, 
-	"怨灵洞口（35,63）": {
+	"幽怨洞口（35,63）": {
 		"id": "200005", 
-		"name": "怨灵洞口（35,63）", 
+		"name": "幽怨洞口（35,63）", 
 		"level": 290, 
-		"description": "怨灵洞口 - 坐标(35,63)", 
+		"description": "幽怨洞口 - 坐标(35,63)", 
 		"monsters": [
 			{"pet_id": "fengwu", "level": 275}, 
 			{"pet_id": "xi_pi", "level": 290}, 
 		]
 	}, 
-	"断魂涯（34,40）": {
+	"断魄涯（34,40）": {
 		"id": "100025", 
-		"name": "断魂涯（34,40）", 
+		"name": "断魄涯（34,40）", 
 		"level": 295, 
-		"description": "断魂涯 - 坐标(34,40)", 
+		"description": "断魄涯 - 坐标(34,40)", 
 		"monsters": [
 			{"pet_id": "dàdāo", "level": 290}, 
 			{"pet_id": "fengwu", "level": 295}, 
 		]
 	}, 
-	"怨灵洞（0,0）": {
+	"幽怨洞（0,0）": {
 		"id": "700090", 
-		"name": "怨灵洞（0,0）", 
+		"name": "幽怨洞（0,0）", 
 		"level": 295, 
-		"description": "怨灵洞 - 坐标(0,0)", 
+		"description": "幽怨洞 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "zhōngdāo", "level": 290}, 
 			{"pet_id": "lèlèxióng", "level": 295}, 
@@ -1652,131 +1652,131 @@ const MAPS_DATA = {
 			{"pet_id": "yìnggǔè", "level": 305}, 
 		]
 	}, 
-	"怨灵洞（28,13）": {
+	"幽怨洞（28,13）": {
 		"id": "700090", 
-		"name": "怨灵洞（28,13）", 
+		"name": "幽怨洞（28,13）", 
 		"level": 305, 
-		"description": "怨灵洞 - 坐标(28,13)", 
+		"description": "幽怨洞 - 坐标(28,13)", 
 		"monsters": [
 			{"pet_id": "zhōngdāo", "level": 295}, 
 			{"pet_id": "lèlèxióng", "level": 305}, 
 		]
 	}, 
-	"怨灵洞（19,25）": {
+	"幽怨洞（19,25）": {
 		"id": "700090", 
-		"name": "怨灵洞（19,25）", 
+		"name": "幽怨洞（19,25）", 
 		"level": 305, 
-		"description": "怨灵洞 - 坐标(19,25)", 
+		"description": "幽怨洞 - 坐标(19,25)", 
 		"monsters": [
 			{"pet_id": "zhōngdāo", "level": 300}, 
 			{"pet_id": "lèlèxióng", "level": 305}, 
 		]
 	}, 
-	"吓死人洞窟2（0,0）": {
+	"惊魂洞窟2（0,0）": {
 		"id": "100087", 
-		"name": "吓死人洞窟2（0,0）", 
+		"name": "惊魂洞窟2（0,0）", 
 		"level": 320, 
-		"description": "吓死人洞窟2 - 坐标(0,0)", 
+		"description": "惊魂洞窟2 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "mímáng", "level": 310}, 
 			{"pet_id": "zhenzhen", "level": 320}, 
 		]
 	}, 
-	"吓死人洞窟2（38,66）": {
+	"惊魂洞窟2（38,66）": {
 		"id": "100087", 
-		"name": "吓死人洞窟2（38,66）", 
+		"name": "惊魂洞窟2（38,66）", 
 		"level": 320, 
-		"description": "吓死人洞窟2 - 坐标(38,66)", 
+		"description": "惊魂洞窟2 - 坐标(38,66)", 
 		"monsters": [
 			{"pet_id": "zhenzhen", "level": 310}, 
 			{"pet_id": "zhenzhen", "level": 320}, 
 		]
 	}, 
-	"翔云幻城（0,0）": {
+	"凌云幻城（0,0）": {
 		"id": "500015", 
-		"name": "翔云幻城（0,0）", 
+		"name": "凌云幻城（0,0）", 
 		"level": 320, 
-		"description": "翔云幻城 - 坐标(0,0)", 
+		"description": "凌云幻城 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "gang_lei_fei", "level": 300}, 
 			{"pet_id": "ātài", "level": 320}, 
 		]
 	}, 
-	"凰之谷（0,0）": {
+	"鸾之谷（0,0）": {
 		"id": "700013", 
-		"name": "凰之谷（0,0）", 
+		"name": "鸾之谷（0,0）", 
 		"level": 320, 
-		"description": "凰之谷 - 坐标(0,0)", 
+		"description": "鸾之谷 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "luluniao", "level": 300}, 
 			{"pet_id": "xuefenghuang", "level": 320}, 
 		]
 	}, 
-	"凰之谷（31,27）": {
+	"鸾之谷（31,27）": {
 		"id": "700013", 
-		"name": "凰之谷（31,27）", 
+		"name": "鸾之谷（31,27）", 
 		"level": 320, 
-		"description": "凰之谷 - 坐标(31,27)", 
+		"description": "鸾之谷 - 坐标(31,27)", 
 		"monsters": [
 			{"pet_id": "luluniao", "level": 300}, 
 			{"pet_id": "luluniao", "level": 320}, 
 		]
 	}, 
-	"吓死人洞窟1（0,0）": {
+	"惊魂洞窟1（0,0）": {
 		"id": "100086", 
-		"name": "吓死人洞窟1（0,0）", 
+		"name": "惊魂洞窟1（0,0）", 
 		"level": 330, 
-		"description": "吓死人洞窟1 - 坐标(0,0)", 
+		"description": "惊魂洞窟1 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "wen_di_long", "level": 330}, 
 			{"pet_id": "tiějiǎgūi", "level": 320}, 
 		]
 	}, 
-	"吓死人洞窟1（43,42）": {
+	"惊魂洞窟1（43,42）": {
 		"id": "100086", 
-		"name": "吓死人洞窟1（43,42）", 
+		"name": "惊魂洞窟1（43,42）", 
 		"level": 330, 
-		"description": "吓死人洞窟1 - 坐标(43,42)", 
+		"description": "惊魂洞窟1 - 坐标(43,42)", 
 		"monsters": [
 			{"pet_id": "wen_di_long", "level": 330}, 
 			{"pet_id": "wen_di_long", "level": 320}, 
 		]
 	}, 
-	"吓死人洞窟2（46,38）": {
+	"惊魂洞窟2（46,38）": {
 		"id": "100087", 
-		"name": "吓死人洞窟2（46,38）", 
+		"name": "惊魂洞窟2（46,38）", 
 		"level": 330, 
-		"description": "吓死人洞窟2 - 坐标(46,38)", 
+		"description": "惊魂洞窟2 - 坐标(46,38)", 
 		"monsters": [
 			{"pet_id": "mímáng", "level": 320}, 
 			{"pet_id": "zhenzhen", "level": 330}, 
 		]
 	}, 
-	"炊烟谷（0,0）": {
+	"炊霭谷（0,0）": {
 		"id": "300020", 
-		"name": "炊烟谷（0,0）", 
+		"name": "炊霭谷（0,0）", 
 		"level": 330, 
-		"description": "炊烟谷 - 坐标(0,0)", 
+		"description": "炊霭谷 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "jiéquándào", "level": 300}, 
 			{"pet_id": "hēitíxiānshēng", "level": 330}, 
 		]
 	}, 
-	"炊烟谷（42,24）": {
+	"炊霭谷（42,24）": {
 		"id": "300020", 
-		"name": "炊烟谷（42,24）", 
+		"name": "炊霭谷（42,24）", 
 		"level": 330, 
-		"description": "炊烟谷 - 坐标(42,24)", 
+		"description": "炊霭谷 - 坐标(42,24)", 
 		"monsters": [
 			{"pet_id": "hēitíxiānshēng", "level": 300}, 
 			{"pet_id": "hēitíxiānshēng", "level": 330}, 
 		]
 	}, 
-	"西雪岭（0,0）": {
+	"西霜岭（0,0）": {
 		"id": "300036", 
-		"name": "西雪岭（0,0）", 
+		"name": "西霜岭（0,0）", 
 		"level": 330, 
-		"description": "西雪岭 - 坐标(0,0)", 
+		"description": "西霜岭 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "báimáoxiàng", "level": 300}, 
 			{"pet_id": "báimáoxiàng", "level": 330}, 
@@ -1832,11 +1832,11 @@ const MAPS_DATA = {
 			{"pet_id": "minixiang", "level": 340}, 
 		]
 	}, 
-	"吓死人洞窟1（34,61）": {
+	"惊魂洞窟1（34,61）": {
 		"id": "100086", 
-		"name": "吓死人洞窟1（34,61）", 
+		"name": "惊魂洞窟1（34,61）", 
 		"level": 350, 
-		"description": "吓死人洞窟1 - 坐标(34,61)", 
+		"description": "惊魂洞窟1 - 坐标(34,61)", 
 		"monsters": [
 			{"pet_id": "wen_di_long", "level": 340}, 
 			{"pet_id": "tiějiǎgūi", "level": 350}, 
@@ -1852,61 +1852,61 @@ const MAPS_DATA = {
 			{"pet_id": "gang_lei_fei", "level": 350}, 
 		]
 	}, 
-	"绿幽洞（0,0）": {
+	"翠幽洞（0,0）": {
 		"id": "200040", 
-		"name": "绿幽洞（0,0）", 
+		"name": "翠幽洞（0,0）", 
 		"level": 370, 
-		"description": "绿幽洞 - 坐标(0,0)", 
+		"description": "翠幽洞 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "minixiang", "level": 350}, 
 			{"pet_id": "wang_wang", "level": 370}, 
 		]
 	}, 
-	"寒井台（0,0）": {
+	"寒泉台（0,0）": {
 		"id": "300037", 
-		"name": "寒井台（0,0）", 
+		"name": "寒泉台（0,0）", 
 		"level": 370, 
-		"description": "寒井台 - 坐标(0,0)", 
+		"description": "寒泉台 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "báimáoxiàng", "level": 350}, 
 			{"pet_id": "báimáoxiàng", "level": 370}, 
 		]
 	}, 
-	"青之绿洲（0,0）": {
+	"碧之绿洲（0,0）": {
 		"id": "200039", 
-		"name": "青之绿洲（0,0）", 
+		"name": "碧之绿洲（0,0）", 
 		"level": 380, 
-		"description": "青之绿洲 - 坐标(0,0)", 
+		"description": "碧之绿洲 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "jiéquándào", "level": 360}, 
 			{"pet_id": "yingying", "level": 380}, 
 		]
 	}, 
-	"绿幽洞（35,54）": {
+	"翠幽洞（35,54）": {
 		"id": "200040", 
-		"name": "绿幽洞（35,54）", 
+		"name": "翠幽洞（35,54）", 
 		"level": 380, 
-		"description": "绿幽洞 - 坐标(35,54)", 
+		"description": "翠幽洞 - 坐标(35,54)", 
 		"monsters": [
 			{"pet_id": "minixiang", "level": 380}, 
 			{"pet_id": "niefengquan", "level": 360}, 
 		]
 	}, 
-	"斧青谷（0,0）": {
+	"斧翠谷（0,0）": {
 		"id": "300011", 
-		"name": "斧青谷（0,0）", 
+		"name": "斧翠谷（0,0）", 
 		"level": 380, 
-		"description": "斧青谷 - 坐标(0,0)", 
+		"description": "斧翠谷 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "qíshìgūi", "level": 350}, 
 			{"pet_id": "yingying", "level": 380}, 
 		]
 	}, 
-	"斑鸠小舍（0,0）": {
+	"鸠鸣小舍（0,0）": {
 		"id": "700004", 
-		"name": "斑鸠小舍（0,0）", 
+		"name": "鸠鸣小舍（0,0）", 
 		"level": 380, 
-		"description": "斑鸠小舍 - 坐标(0,0)", 
+		"description": "鸠鸣小舍 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "yùlíntù", "level": 350}, 
 			{"pet_id": "luluniao", "level": 380}, 
@@ -1932,11 +1932,11 @@ const MAPS_DATA = {
 			{"pet_id": "zhōngdāo", "level": 400}, 
 		]
 	}, 
-	"铜人殿（57,81）": {
+	"铜偶殿（57,81）": {
 		"id": "200032", 
-		"name": "铜人殿（57,81）", 
+		"name": "铜偶殿（57,81）", 
 		"level": 400, 
-		"description": "铜人殿 - 坐标(57,81)", 
+		"description": "铜偶殿 - 坐标(57,81)", 
 		"monsters": [
 			{"pet_id": "cong_cong", "level": 400}, 
 			{"pet_id": "wang_wang", "level": 380}, 
@@ -1972,21 +1972,21 @@ const MAPS_DATA = {
 			{"pet_id": "kubixiang", "level": 410}, 
 		]
 	}, 
-	"银罐谷（0,0）": {
+	"银瓮谷（0,0）": {
 		"id": "200008", 
-		"name": "银罐谷（0,0）", 
+		"name": "银瓮谷（0,0）", 
 		"level": 410, 
-		"description": "银罐谷 - 坐标(0,0)", 
+		"description": "银瓮谷 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "zhuiyingquan", "level": 400}, 
 			{"pet_id": "cong_cong", "level": 410}, 
 		]
 	}, 
-	"银罐谷（41,35）": {
+	"银瓮谷（41,35）": {
 		"id": "200008", 
-		"name": "银罐谷（41,35）", 
+		"name": "银瓮谷（41,35）", 
 		"level": 410, 
-		"description": "银罐谷 - 坐标(41,35)", 
+		"description": "银瓮谷 - 坐标(41,35)", 
 		"monsters": [
 			{"pet_id": "cong_cong", "level": 400}, 
 			{"pet_id": "cong_cong", "level": 410}, 
@@ -2012,61 +2012,61 @@ const MAPS_DATA = {
 			{"pet_id": "yáoyé", "level": 410}, 
 		]
 	}, 
-	"青之绿洲（45,47）": {
+	"碧之绿洲（45,47）": {
 		"id": "200039", 
-		"name": "青之绿洲（45,47）", 
+		"name": "碧之绿洲（45,47）", 
 		"level": 415, 
-		"description": "青之绿洲 - 坐标(45,47)", 
+		"description": "碧之绿洲 - 坐标(45,47)", 
 		"monsters": [
 			{"pet_id": "jiéquándào", "level": 400}, 
 			{"pet_id": "linlin", "level": 415}, 
 		]
 	}, 
-	"巨菇洞（0,0）": {
+	"灵菇洞（0,0）": {
 		"id": "200041", 
-		"name": "巨菇洞（0,0）", 
+		"name": "灵菇洞（0,0）", 
 		"level": 415, 
-		"description": "巨菇洞 - 坐标(0,0)", 
+		"description": "灵菇洞 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "shuaidaixiang", "level": 400}, 
 			{"pet_id": "xi_pi", "level": 415}, 
 		]
 	}, 
-	"情思坡（0,0）": {
+	"幽思坡（0,0）": {
 		"id": "131010", 
-		"name": "情思坡（0,0）", 
+		"name": "幽思坡（0,0）", 
 		"level": 420, 
-		"description": "情思坡 - 坐标(0,0)", 
+		"description": "幽思坡 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "guihuojun", "level": 400}, 
 			{"pet_id": "wen_di_long", "level": 420}, 
 		]
 	}, 
-	"银罐谷（21,21）": {
+	"银瓮谷（21,21）": {
 		"id": "200008", 
-		"name": "银罐谷（21,21）", 
+		"name": "银瓮谷（21,21）", 
 		"level": 420, 
-		"description": "银罐谷 - 坐标(21,21)", 
+		"description": "银瓮谷 - 坐标(21,21)", 
 		"monsters": [
 			{"pet_id": "zhuiyingquan", "level": 415}, 
 			{"pet_id": "cong_cong", "level": 420}, 
 		]
 	}, 
-	"铜人殿（0,0）": {
+	"铜偶殿（0,0）": {
 		"id": "200032", 
-		"name": "铜人殿（0,0）", 
+		"name": "铜偶殿（0,0）", 
 		"level": 420, 
-		"description": "铜人殿 - 坐标(0,0)", 
+		"description": "铜偶殿 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "cong_cong", "level": 420}, 
 			{"pet_id": "wang_wang", "level": 410}, 
 		]
 	}, 
-	"铜人殿（82,45）": {
+	"铜偶殿（82,45）": {
 		"id": "200032", 
-		"name": "铜人殿（82,45）", 
+		"name": "铜偶殿（82,45）", 
 		"level": 420, 
-		"description": "铜人殿 - 坐标(82,45)", 
+		"description": "铜偶殿 - 坐标(82,45)", 
 		"monsters": [
 			{"pet_id": "wang_wang", "level": 420}, 
 			{"pet_id": "wang_wang", "level": 410}, 
@@ -2082,41 +2082,41 @@ const MAPS_DATA = {
 			{"pet_id": "hēitíxiānshēng", "level": 420}, 
 		]
 	}, 
-	"空灵园（0,0）": {
+	"空明园（0,0）": {
 		"id": "500023", 
-		"name": "空灵园（0,0）", 
+		"name": "空明园（0,0）", 
 		"level": 420, 
-		"description": "空灵园 - 坐标(0,0)", 
+		"description": "空明园 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "xiǎodīngdōng", "level": 400}, 
 			{"pet_id": "lèngtóuqīng", "level": 420}, 
 		]
 	}, 
-	"榕盘谷（0,0）": {
+	"榕根谷（0,0）": {
 		"id": "700001", 
-		"name": "榕盘谷（0,0）", 
+		"name": "榕根谷（0,0）", 
 		"level": 420, 
-		"description": "榕盘谷 - 坐标(0,0)", 
+		"description": "榕根谷 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "lányá", "level": 400}, 
 			{"pet_id": "qiāoqiāoshǔ", "level": 420}, 
 		]
 	}, 
-	"榕盘谷（40,28）": {
+	"榕根谷（40,28）": {
 		"id": "700001", 
-		"name": "榕盘谷（40,28）", 
+		"name": "榕根谷（40,28）", 
 		"level": 420, 
-		"description": "榕盘谷 - 坐标(40,28)", 
+		"description": "榕根谷 - 坐标(40,28)", 
 		"monsters": [
 			{"pet_id": "qiāoqiāoshǔ", "level": 400}, 
 			{"pet_id": "qiāoqiāoshǔ", "level": 420}, 
 		]
 	}, 
-	"逆之虚幻（0,0）": {
+	"逆之幻影（0,0）": {
 		"id": "700012", 
-		"name": "逆之虚幻（0,0）", 
+		"name": "逆之幻影（0,0）", 
 		"level": 420, 
-		"description": "逆之虚幻 - 坐标(0,0)", 
+		"description": "逆之幻影 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "lv̀jǐnbǎo", "level": 400}, 
 			{"pet_id": "qiāoqiāoshǔ", "level": 420}, 
@@ -2132,121 +2132,121 @@ const MAPS_DATA = {
 			{"pet_id": "meng_meng", "level": 425}, 
 		]
 	}, 
-	"镜雪原（0,0）": {
+	"镜霜原（0,0）": {
 		"id": "300008", 
-		"name": "镜雪原（0,0）", 
+		"name": "镜霜原（0,0）", 
 		"level": 430, 
-		"description": "镜雪原 - 坐标(0,0)", 
+		"description": "镜霜原 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "tiějiǎgūi", "level": 400}, 
 			{"pet_id": "dàzǔiè", "level": 430}, 
 		]
 	}, 
-	"镜雪原（39,55）": {
+	"镜霜原（39,55）": {
 		"id": "300008", 
-		"name": "镜雪原（39,55）", 
+		"name": "镜霜原（39,55）", 
 		"level": 430, 
-		"description": "镜雪原 - 坐标(39,55)", 
+		"description": "镜霜原 - 坐标(39,55)", 
 		"monsters": [
 			{"pet_id": "dàzǔiè", "level": 400}, 
 			{"pet_id": "dàzǔiè", "level": 430}, 
 		]
 	}, 
-	"斑鸠小舍（65,50）": {
+	"鸠鸣小舍（65,50）": {
 		"id": "700004", 
-		"name": "斑鸠小舍（65,50）", 
+		"name": "鸠鸣小舍（65,50）", 
 		"level": 435, 
-		"description": "斑鸠小舍 - 坐标(65,50)", 
+		"description": "鸠鸣小舍 - 坐标(65,50)", 
 		"monsters": [
 			{"pet_id": "yùlíntù", "level": 410}, 
 			{"pet_id": "nununiao", "level": 435}, 
 		]
 	}, 
-	"青之绿洲（14,41）": {
+	"碧之绿洲（14,41）": {
 		"id": "200039", 
-		"name": "青之绿洲（14,41）", 
+		"name": "碧之绿洲（14,41）", 
 		"level": 440, 
-		"description": "青之绿洲 - 坐标(14,41)", 
+		"description": "碧之绿洲 - 坐标(14,41)", 
 		"monsters": [
 			{"pet_id": "jiéquándào", "level": 430}, 
 			{"pet_id": "yingying", "level": 440}, 
 		]
 	}, 
-	"巨菇洞（26,38）": {
+	"灵菇洞（26,38）": {
 		"id": "200041", 
-		"name": "巨菇洞（26,38）", 
+		"name": "灵菇洞（26,38）", 
 		"level": 440, 
-		"description": "巨菇洞 - 坐标(26,38)", 
+		"description": "灵菇洞 - 坐标(26,38)", 
 		"monsters": [
 			{"pet_id": "shuaidaixiang", "level": 425}, 
 			{"pet_id": "xi_pi", "level": 440}, 
 		]
 	}, 
-	"净沙原（36,38）": {
+	"澄沙原（36,38）": {
 		"id": "200017", 
-		"name": "净沙原（36,38）", 
+		"name": "澄沙原（36,38）", 
 		"level": 445, 
-		"description": "净沙原 - 坐标(36,38)", 
+		"description": "澄沙原 - 坐标(36,38)", 
 		"monsters": [
 			{"pet_id": "niefengquan", "level": 445}, 
 			{"pet_id": "hòupíè", "level": 435}, 
 		]
 	}, 
-	"净沙原（0,0）": {
+	"澄沙原（0,0）": {
 		"id": "200017", 
-		"name": "净沙原（0,0）", 
+		"name": "澄沙原（0,0）", 
 		"level": 450, 
-		"description": "净沙原 - 坐标(0,0)", 
+		"description": "澄沙原 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "niefengquan", "level": 450}, 
 			{"pet_id": "hòupíè", "level": 445}, 
 		]
 	}, 
-	"净沙原（58,32）": {
+	"澄沙原（58,32）": {
 		"id": "200017", 
-		"name": "净沙原（58,32）", 
+		"name": "澄沙原（58,32）", 
 		"level": 450, 
-		"description": "净沙原 - 坐标(58,32)", 
+		"description": "澄沙原 - 坐标(58,32)", 
 		"monsters": [
 			{"pet_id": "hòupíè", "level": 450}, 
 			{"pet_id": "hòupíè", "level": 445}, 
 		]
 	}, 
-	"巨菇洞（47,54）": {
+	"灵菇洞（47,54）": {
 		"id": "200041", 
-		"name": "巨菇洞（47,54）", 
+		"name": "灵菇洞（47,54）", 
 		"level": 460, 
-		"description": "巨菇洞 - 坐标(47,54)", 
+		"description": "灵菇洞 - 坐标(47,54)", 
 		"monsters": [
 			{"pet_id": "shuaidaixiang", "level": 450}, 
 			{"pet_id": "xi_pi", "level": 460}, 
 		]
 	}, 
-	"酒鬼冢（0,0）": {
+	"醉客冢（0,0）": {
 		"id": "200013", 
-		"name": "酒鬼冢（0,0）", 
+		"name": "醉客冢（0,0）", 
 		"level": 470, 
-		"description": "酒鬼冢 - 坐标(0,0)", 
+		"description": "醉客冢 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "minixiang", "level": 470}, 
 			{"pet_id": "ādǒu", "level": 460}, 
 		]
 	}, 
-	"酒鬼冢（38,23）": {
+	"醉客冢（38,23）": {
 		"id": "200013", 
-		"name": "酒鬼冢（38,23）", 
+		"name": "醉客冢（38,23）", 
 		"level": 470, 
-		"description": "酒鬼冢 - 坐标(38,23)", 
+		"description": "醉客冢 - 坐标(38,23)", 
 		"monsters": [
 			{"pet_id": "ādǒu", "level": 470}, 
 			{"pet_id": "ādǒu", "level": 460}, 
 		]
 	}, 
-	"青灵洞（0,0）": {
+	"青幽洞（0,0）": {
 		"id": "200042", 
-		"name": "青灵洞（0,0）", 
+		"name": "青幽洞（0,0）", 
 		"level": 470, 
-		"description": "青灵洞 - 坐标(0,0)", 
+		"description": "青幽洞 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "kubixiang", "level": 455}, 
 			{"pet_id": "cong_cong", "level": 470}, 
@@ -2292,21 +2292,21 @@ const MAPS_DATA = {
 			{"pet_id": "dàdāo", "level": 470}, 
 		]
 	}, 
-	"冰清桥（0,0）": {
+	"莹冰桥（0,0）": {
 		"id": "300038", 
-		"name": "冰清桥（0,0）", 
+		"name": "莹冰桥（0,0）", 
 		"level": 480, 
-		"description": "冰清桥 - 坐标(0,0)", 
+		"description": "莹冰桥 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "jiájiá", "level": 450}, 
 			{"pet_id": "yáoyé", "level": 480}, 
 		]
 	}, 
-	"守望林场（0,0）": {
+	"望阙林场（0,0）": {
 		"id": "700006", 
-		"name": "守望林场（0,0）", 
+		"name": "望阙林场（0,0）", 
 		"level": 480, 
-		"description": "守望林场 - 坐标(0,0)", 
+		"description": "望阙林场 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "fengwu", "level": 460}, 
 			{"pet_id": "yùlíntù", "level": 480}, 
@@ -2322,11 +2322,11 @@ const MAPS_DATA = {
 			{"pet_id": "linlin", "level": 485}, 
 		]
 	}, 
-	"酒鬼冢（26,28）": {
+	"醉客冢（26,28）": {
 		"id": "200013", 
-		"name": "酒鬼冢（26,28）", 
+		"name": "醉客冢（26,28）", 
 		"level": 490, 
-		"description": "酒鬼冢 - 坐标(26,28)", 
+		"description": "醉客冢 - 坐标(26,28)", 
 		"monsters": [
 			{"pet_id": "minixiang", "level": 490}, 
 			{"pet_id": "ādǒu", "level": 490}, 
@@ -2342,71 +2342,71 @@ const MAPS_DATA = {
 			{"pet_id": "gang_lei_fei", "level": 490}, 
 		]
 	}, 
-	"沉没的城市（53,84）": {
+	"沉寂的古城（53,84）": {
 		"id": "200057", 
-		"name": "沉没的城市（53,84）", 
+		"name": "沉寂的古城（53,84）", 
 		"level": 500, 
-		"description": "沉没的城市 - 坐标(53,84)", 
+		"description": "沉寂的古城 - 坐标(53,84)", 
 		"monsters": [
 			{"pet_id": "ātài", "level": 500}, 
 			{"pet_id": "wang_wang", "level": 480}, 
 		]
 	}, 
-	"青灵洞（43,40）": {
+	"青幽洞（43,40）": {
 		"id": "200042", 
-		"name": "青灵洞（43,40）", 
+		"name": "青幽洞（43,40）", 
 		"level": 510, 
-		"description": "青灵洞 - 坐标(43,40)", 
+		"description": "青幽洞 - 坐标(43,40)", 
 		"monsters": [
 			{"pet_id": "kubixiang", "level": 490}, 
 			{"pet_id": "cong_cong", "level": 510}, 
 		]
 	}, 
-	"沉没的城市（0,0）": {
+	"沉寂的古城（0,0）": {
 		"id": "200057", 
-		"name": "沉没的城市（0,0）", 
+		"name": "沉寂的古城（0,0）", 
 		"level": 510, 
-		"description": "沉没的城市 - 坐标(0,0)", 
+		"description": "沉寂的古城 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "ātài", "level": 510}, 
 			{"pet_id": "wang_wang", "level": 500}, 
 		]
 	}, 
-	"沉没的城市（64,29）": {
+	"沉寂的古城（64,29）": {
 		"id": "200057", 
-		"name": "沉没的城市（64,29）", 
+		"name": "沉寂的古城（64,29）", 
 		"level": 510, 
-		"description": "沉没的城市 - 坐标(64,29)", 
+		"description": "沉寂的古城 - 坐标(64,29)", 
 		"monsters": [
 			{"pet_id": "ātài", "level": 510}, 
 			{"pet_id": "ātài", "level": 500}, 
 		]
 	}, 
-	"冰清桥（34,31）": {
+	"莹冰桥（34,31）": {
 		"id": "300038", 
-		"name": "冰清桥（34,31）", 
+		"name": "莹冰桥（34,31）", 
 		"level": 520, 
-		"description": "冰清桥 - 坐标(34,31)", 
+		"description": "莹冰桥 - 坐标(34,31)", 
 		"monsters": [
 			{"pet_id": "jiájiá", "level": 500}, 
 			{"pet_id": "yáoyé", "level": 520}, 
 		]
 	}, 
-	"将军碑谷（0,0）": {
+	"将军碣谷（0,0）": {
 		"id": "100009", 
-		"name": "将军碑谷（0,0）", 
+		"name": "将军碣谷（0,0）", 
 		"level": 525, 
-		"description": "将军碑谷 - 坐标(0,0)", 
+		"description": "将军碣谷 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "cong_cong", "level": 520}, 
 			{"pet_id": "yìnggǔè", "level": 525}, 
 		]
 	}, 
-	"将军碑谷（61,44）": {
+	"将军碣谷（61,44）": {
 		"id": "100009", 
-		"name": "将军碑谷（61,44）", 
+		"name": "将军碣谷（61,44）", 
 		"level": 525, 
-		"description": "将军碑谷 - 坐标(61,44)", 
+		"description": "将军碣谷 - 坐标(61,44)", 
 		"monsters": [
 			{"pet_id": "míhuò", "level": 520}, 
 			{"pet_id": "míhuò", "level": 525}, 
@@ -2422,31 +2422,31 @@ const MAPS_DATA = {
 			{"pet_id": "zhenzhen", "level": 525}, 
 		]
 	}, 
-	"守望林场（58,52）": {
+	"望阙林场（58,52）": {
 		"id": "700006", 
-		"name": "守望林场（58,52）", 
+		"name": "望阙林场（58,52）", 
 		"level": 530, 
-		"description": "守望林场 - 坐标(58,52)", 
+		"description": "望阙林场 - 坐标(58,52)", 
 		"monsters": [
 			{"pet_id": "duxing", "level": 510}, 
 			{"pet_id": "cǎomǎngtù", "level": 530}, 
 		]
 	}, 
-	"将军碑谷（19,52）": {
+	"将军碣谷（19,52）": {
 		"id": "100009", 
-		"name": "将军碑谷（19,52）", 
+		"name": "将军碣谷（19,52）", 
 		"level": 535, 
-		"description": "将军碑谷 - 坐标(19,52)", 
+		"description": "将军碣谷 - 坐标(19,52)", 
 		"monsters": [
 			{"pet_id": "cong_cong", "level": 530}, 
 			{"pet_id": "yìnggǔè", "level": 535}, 
 		]
 	}, 
-	"青灵洞（59,67）": {
+	"青幽洞（59,67）": {
 		"id": "200042", 
-		"name": "青灵洞（59,67）", 
+		"name": "青幽洞（59,67）", 
 		"level": 550, 
-		"description": "青灵洞 - 坐标(59,67)", 
+		"description": "青幽洞 - 坐标(59,67)", 
 		"monsters": [
 			{"pet_id": "kubixiang", "level": 530}, 
 			{"pet_id": "cong_cong", "level": 550}, 
@@ -2472,11 +2472,11 @@ const MAPS_DATA = {
 			{"pet_id": "meng_meng", "level": 540}, 
 		]
 	}, 
-	"冰清桥（28,6）": {
+	"莹冰桥（28,6）": {
 		"id": "300038", 
-		"name": "冰清桥（28,6）", 
+		"name": "莹冰桥（28,6）", 
 		"level": 550, 
-		"description": "冰清桥 - 坐标(28,6)", 
+		"description": "莹冰桥 - 坐标(28,6)", 
 		"monsters": [
 			{"pet_id": "jiájiá", "level": 535}, 
 			{"pet_id": "yáoyé", "level": 550}, 
@@ -2502,11 +2502,11 @@ const MAPS_DATA = {
 			{"pet_id": "qíshìgūi", "level": 575}, 
 		]
 	}, 
-	"玉洁桥（0,0）": {
+	"莹玉桥（0,0）": {
 		"id": "300039", 
-		"name": "玉洁桥（0,0）", 
+		"name": "莹玉桥（0,0）", 
 		"level": 580, 
-		"description": "玉洁桥 - 坐标(0,0)", 
+		"description": "莹玉桥 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "lèngtóuqīng", "level": 560}, 
 			{"pet_id": "ouou", "level": 580}, 
@@ -2592,11 +2592,11 @@ const MAPS_DATA = {
 			{"pet_id": "qíshìgūi", "level": 620}, 
 		]
 	}, 
-	"遗恨原（0,0）": {
+	"余恨原（0,0）": {
 		"id": "200022", 
-		"name": "遗恨原（0,0）", 
+		"name": "余恨原（0,0）", 
 		"level": 620, 
-		"description": "遗恨原 - 坐标(0,0)", 
+		"description": "余恨原 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "wang_wang", "level": 610}, 
 			{"pet_id": "kubixiang", "level": 620}, 
@@ -2612,21 +2612,21 @@ const MAPS_DATA = {
 			{"pet_id": "shuaidaixiang", "level": 620}, 
 		]
 	}, 
-	"玉洁桥（53,33）": {
+	"莹玉桥（53,33）": {
 		"id": "300039", 
-		"name": "玉洁桥（53,33）", 
+		"name": "莹玉桥（53,33）", 
 		"level": 620, 
-		"description": "玉洁桥 - 坐标(53,33)", 
+		"description": "莹玉桥 - 坐标(53,33)", 
 		"monsters": [
 			{"pet_id": "lèngtóuqīng", "level": 600}, 
 			{"pet_id": "ouou", "level": 620}, 
 		]
 	}, 
-	"遗恨原（13,20）": {
+	"余恨原（13,20）": {
 		"id": "200022", 
-		"name": "遗恨原（13,20）", 
+		"name": "余恨原（13,20）", 
 		"level": 640, 
-		"description": "遗恨原 - 坐标(13,20)", 
+		"description": "余恨原 - 坐标(13,20)", 
 		"monsters": [
 			{"pet_id": "wang_wang", "level": 630}, 
 			{"pet_id": "yunhu", "level": 640}, 
@@ -2642,21 +2642,21 @@ const MAPS_DATA = {
 			{"pet_id": "qíshìgūi", "level": 650}, 
 		]
 	}, 
-	"玉洁桥（22,15）": {
+	"莹玉桥（22,15）": {
 		"id": "300039", 
-		"name": "玉洁桥（22,15）", 
+		"name": "莹玉桥（22,15）", 
 		"level": 650, 
-		"description": "玉洁桥 - 坐标(22,15)", 
+		"description": "莹玉桥 - 坐标(22,15)", 
 		"monsters": [
 			{"pet_id": "lèngtóuqīng", "level": 630}, 
 			{"pet_id": "ouou", "level": 650}, 
 		]
 	}, 
-	"深蓝海城（0,0）": {
+	"深碧海城（0,0）": {
 		"id": "400001", 
-		"name": "深蓝海城（0,0）", 
+		"name": "深碧海城（0,0）", 
 		"level": 650, 
-		"description": "深蓝海城 - 坐标(0,0)", 
+		"description": "深碧海城 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "lèngtóuqīng", "level": 600}, 
 			{"pet_id": "lv̀jiǎ", "level": 650}, 
@@ -2692,51 +2692,51 @@ const MAPS_DATA = {
 			{"pet_id": "qiāoqiāoshǔ", "level": 740}, 
 		]
 	}, 
-	"沙盗洞口（39,39）": {
+	"沙寇洞口（39,39）": {
 		"id": "200024", 
-		"name": "沙盗洞口（39,39）", 
+		"name": "沙寇洞口（39,39）", 
 		"level": 750, 
-		"description": "沙盗洞口 - 坐标(39,39)", 
+		"description": "沙寇洞口 - 坐标(39,39)", 
 		"monsters": [
 			{"pet_id": "mímáng", "level": 750}, 
 			{"pet_id": "fengwu", "level": 750}, 
 		]
 	}, 
-	"紫苔洞窟（0,0）": {
+	"紫藓洞窟（0,0）": {
 		"id": "200044", 
-		"name": "紫苔洞窟（0,0）", 
+		"name": "紫藓洞窟（0,0）", 
 		"level": 770, 
-		"description": "紫苔洞窟 - 坐标(0,0)", 
+		"description": "紫藓洞窟 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "zhaicitou", "level": 720}, 
 			{"pet_id": "lv̀jǐnbǎo", "level": 770}, 
 		]
 	}, 
-	"古铜洞窟（0,0）": {
+	"玄铜洞窟（0,0）": {
 		"id": "200043", 
-		"name": "古铜洞窟（0,0）", 
+		"name": "玄铜洞窟（0,0）", 
 		"level": 780, 
-		"description": "古铜洞窟 - 坐标(0,0)", 
+		"description": "玄铜洞窟 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "lèlèxióng", "level": 730}, 
 			{"pet_id": "báimáoxiàng", "level": 780}, 
 		]
 	}, 
-	"金钟洞窟（0,0）": {
+	"铜钟洞窟（0,0）": {
 		"id": "200045", 
-		"name": "金钟洞窟（0,0）", 
+		"name": "铜钟洞窟（0,0）", 
 		"level": 780, 
-		"description": "金钟洞窟 - 坐标(0,0)", 
+		"description": "铜钟洞窟 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "míhuò", "level": 720}, 
 			{"pet_id": "zhōngdāo", "level": 780}, 
 		]
 	}, 
-	"深蓝海底（0,0）": {
+	"深碧海底（0,0）": {
 		"id": "400002", 
-		"name": "深蓝海底（0,0）", 
+		"name": "深碧海底（0,0）", 
 		"level": 780, 
-		"description": "深蓝海底 - 坐标(0,0)", 
+		"description": "深碧海底 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "lèngtóuqīng", "level": 720}, 
 			{"pet_id": "lv̀jiǎ", "level": 780}, 
@@ -2752,21 +2752,21 @@ const MAPS_DATA = {
 			{"pet_id": "yáoyé", "level": 780}, 
 		]
 	}, 
-	"沙盗洞口（0,0）": {
+	"沙寇洞口（0,0）": {
 		"id": "200024", 
-		"name": "沙盗洞口（0,0）", 
+		"name": "沙寇洞口（0,0）", 
 		"level": 800, 
-		"description": "沙盗洞口 - 坐标(0,0)", 
+		"description": "沙寇洞口 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "mímáng", "level": 800}, 
 			{"pet_id": "fengwu", "level": 795}, 
 		]
 	}, 
-	"沙盗洞口（24,24）": {
+	"沙寇洞口（24,24）": {
 		"id": "200024", 
-		"name": "沙盗洞口（24,24）", 
+		"name": "沙寇洞口（24,24）", 
 		"level": 800, 
-		"description": "沙盗洞口 - 坐标(24,24)", 
+		"description": "沙寇洞口 - 坐标(24,24)", 
 		"monsters": [
 			{"pet_id": "mímáng", "level": 800}, 
 			{"pet_id": "mímáng", "level": 795}, 
@@ -2792,21 +2792,21 @@ const MAPS_DATA = {
 			{"pet_id": "yìnggǔè", "level": 825}, 
 		]
 	}, 
-	"金钟洞窟（50,37）": {
+	"铜钟洞窟（50,37）": {
 		"id": "200045", 
-		"name": "金钟洞窟（50,37）", 
+		"name": "铜钟洞窟（50,37）", 
 		"level": 850, 
-		"description": "金钟洞窟 - 坐标(50,37)", 
+		"description": "铜钟洞窟 - 坐标(50,37)", 
 		"monsters": [
 			{"pet_id": "míhuò", "level": 820}, 
 			{"pet_id": "zhōngdāo", "level": 850}, 
 		]
 	}, 
-	"古铜洞窟（35,49）": {
+	"玄铜洞窟（35,49）": {
 		"id": "200043", 
-		"name": "古铜洞窟（35,49）", 
+		"name": "玄铜洞窟（35,49）", 
 		"level": 870, 
-		"description": "古铜洞窟 - 坐标(35,49)", 
+		"description": "玄铜洞窟 - 坐标(35,49)", 
 		"monsters": [
 			{"pet_id": "lèlèxióng", "level": 820}, 
 			{"pet_id": "qiāoqiāoshǔ", "level": 870}, 
@@ -2832,11 +2832,11 @@ const MAPS_DATA = {
 			{"pet_id": "qiāoqiāoshǔ", "level": 880}, 
 		]
 	}, 
-	"紫苔洞窟（32,40）": {
+	"紫藓洞窟（32,40）": {
 		"id": "200044", 
-		"name": "紫苔洞窟（32,40）", 
+		"name": "紫藓洞窟（32,40）", 
 		"level": 880, 
-		"description": "紫苔洞窟 - 坐标(32,40)", 
+		"description": "紫藓洞窟 - 坐标(32,40)", 
 		"monsters": [
 			{"pet_id": "daicitou", "level": 820}, 
 			{"pet_id": "lv̀jǐnbǎo", "level": 880}, 
@@ -2852,11 +2852,11 @@ const MAPS_DATA = {
 			{"pet_id": "lv̀jiǎ", "level": 880}, 
 		]
 	}, 
-	"金钟洞窟（29,43）": {
+	"铜钟洞窟（29,43）": {
 		"id": "200045", 
-		"name": "金钟洞窟（29,43）", 
+		"name": "铜钟洞窟（29,43）", 
 		"level": 900, 
-		"description": "金钟洞窟 - 坐标(29,43)", 
+		"description": "铜钟洞窟 - 坐标(29,43)", 
 		"monsters": [
 			{"pet_id": "míhuò", "level": 870}, 
 			{"pet_id": "zhōngdāo", "level": 900}, 
@@ -2892,11 +2892,11 @@ const MAPS_DATA = {
 			{"pet_id": "yìnggǔè", "level": 970}, 
 		]
 	}, 
-	"古铜洞窟2（0,0）": {
+	"玄铜洞窟2（0,0）": {
 		"id": "200047", 
-		"name": "古铜洞窟2（0,0）", 
+		"name": "玄铜洞窟2（0,0）", 
 		"level": 980, 
-		"description": "古铜洞窟2 - 坐标(0,0)", 
+		"description": "玄铜洞窟2 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "mìmìxióng", "level": 920}, 
 			{"pet_id": "lǎnlǎnxiàng", "level": 980}, 
@@ -2972,11 +2972,11 @@ const MAPS_DATA = {
 			{"pet_id": "tiějiǎgūi", "level": 1010}, 
 		]
 	}, 
-	"古铜洞窟2（49,38）": {
+	"玄铜洞窟2（49,38）": {
 		"id": "200047", 
-		"name": "古铜洞窟2（49,38）", 
+		"name": "玄铜洞窟2（49,38）", 
 		"level": 1060, 
-		"description": "古铜洞窟2 - 坐标(49,38)", 
+		"description": "玄铜洞窟2 - 坐标(49,38)", 
 		"monsters": [
 			{"pet_id": "mìmìxióng", "level": 1030}, 
 			{"pet_id": "lǎnlǎnxiàng", "level": 1060}, 
@@ -3012,11 +3012,11 @@ const MAPS_DATA = {
 			{"pet_id": "lányá", "level": 1080}, 
 		]
 	}, 
-	"古铜洞窟2（30,47）": {
+	"玄铜洞窟2（30,47）": {
 		"id": "200047", 
-		"name": "古铜洞窟2（30,47）", 
+		"name": "玄铜洞窟2（30,47）", 
 		"level": 1100, 
-		"description": "古铜洞窟2 - 坐标(30,47)", 
+		"description": "玄铜洞窟2 - 坐标(30,47)", 
 		"monsters": [
 			{"pet_id": "mìmìxióng", "level": 1080}, 
 			{"pet_id": "báimáoxiàng", "level": 1100}, 
@@ -3052,21 +3052,21 @@ const MAPS_DATA = {
 			{"pet_id": "lu_lu", "level": 1180}, 
 		]
 	}, 
-	"盘龙洞窟（0,0）": {
+	"蟠龙洞窟（0,0）": {
 		"id": "200051", 
-		"name": "盘龙洞窟（0,0）", 
+		"name": "蟠龙洞窟（0,0）", 
 		"level": 1180, 
-		"description": "盘龙洞窟 - 坐标(0,0)", 
+		"description": "蟠龙洞窟 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "lèlèxióng", "level": 1150}, 
 			{"pet_id": "qiāoqiāoshǔ", "level": 1180}, 
 		]
 	}, 
-	"紫苔洞窟2（0,0）": {
+	"紫藓洞窟2（0,0）": {
 		"id": "200052", 
-		"name": "紫苔洞窟2（0,0）", 
+		"name": "紫藓洞窟2（0,0）", 
 		"level": 1180, 
-		"description": "紫苔洞窟2 - 坐标(0,0)", 
+		"description": "紫藓洞窟2 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "fengwu", "level": 1130}, 
 			{"pet_id": "lv̀jǐnbǎo", "level": 1180}, 
@@ -3112,11 +3112,11 @@ const MAPS_DATA = {
 			{"pet_id": "dàdāo", "level": 1250}, 
 		]
 	}, 
-	"紫苔洞窟2（32,38）": {
+	"紫藓洞窟2（32,38）": {
 		"id": "200052", 
-		"name": "紫苔洞窟2（32,38）", 
+		"name": "紫藓洞窟2（32,38）", 
 		"level": 1280, 
-		"description": "紫苔洞窟2 - 坐标(32,38)", 
+		"description": "紫藓洞窟2 - 坐标(32,38)", 
 		"monsters": [
 			{"pet_id": "duxing", "level": 1220}, 
 			{"pet_id": "hóngjǐnbǎo", "level": 1280}, 
@@ -3152,31 +3152,31 @@ const MAPS_DATA = {
 			{"pet_id": "yìnggǔè", "level": 1290}, 
 		]
 	}, 
-	"盘龙洞窟（46,65）": {
+	"蟠龙洞窟（46,65）": {
 		"id": "200051", 
-		"name": "盘龙洞窟（46,65）", 
+		"name": "蟠龙洞窟（46,65）", 
 		"level": 1300, 
-		"description": "盘龙洞窟 - 坐标(46,65)", 
+		"description": "蟠龙洞窟 - 坐标(46,65)", 
 		"monsters": [
 			{"pet_id": "mìmìxióng", "level": 1250}, 
 			{"pet_id": "báimáoxiàng", "level": 1300}, 
 		]
 	}, 
-	"魔界之森（0,0）": {
+	"幽界之森（0,0）": {
 		"id": "600122", 
-		"name": "魔界之森（0,0）", 
+		"name": "幽界之森（0,0）", 
 		"level": 1300, 
-		"description": "魔界之森 - 坐标(0,0)", 
+		"description": "幽界之森 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "youling", "level": 1300}, 
 			{"pet_id": "youling", "level": 1300}, 
 		]
 	}, 
-	"传说中的英雄冢（0,0）": {
+	"传说中的侠骨冢（0,0）": {
 		"id": "300028", 
-		"name": "传说中的英雄冢（0,0）", 
+		"name": "传说中的侠骨冢（0,0）", 
 		"level": 1305, 
-		"description": "传说中的英雄冢 - 坐标(0,0)", 
+		"description": "传说中的侠骨冢 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "huángjǐnbǎo", "level": 1300}, 
 			{"pet_id": "huángjǐnbǎo", "level": 1305}, 
@@ -3212,41 +3212,41 @@ const MAPS_DATA = {
 			{"pet_id": "zǐtíxiānshēng", "level": 1430}, 
 		]
 	}, 
-	"盘龙洞窟2（0,0）": {
+	"蟠龙洞窟2（0,0）": {
 		"id": "200055", 
-		"name": "盘龙洞窟2（0,0）", 
+		"name": "蟠龙洞窟2（0,0）", 
 		"level": 1450, 
-		"description": "盘龙洞窟2 - 坐标(0,0)", 
+		"description": "蟠龙洞窟2 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "qibiantianlang", "level": 1430}, 
 			{"pet_id": "dong_yue_shen_yuan", "level": 1450}, 
 		]
 	}, 
-	"盘龙洞窟2（25,24）": {
+	"蟠龙洞窟2（25,24）": {
 		"id": "200055", 
-		"name": "盘龙洞窟2（25,24）", 
+		"name": "蟠龙洞窟2（25,24）", 
 		"level": 1450, 
-		"description": "盘龙洞窟2 - 坐标(25,24)", 
+		"description": "蟠龙洞窟2 - 坐标(25,24)", 
 		"monsters": [
 			{"pet_id": "qibiantianlang", "level": 1450}, 
 			{"pet_id": "dong_yue_shen_yuan", "level": 1430}, 
 		]
 	}, 
-	"盈露台看守区（0,0）": {
+	"盈露台守望区（0,0）": {
 		"id": "500016", 
-		"name": "盈露台看守区（0,0）", 
+		"name": "盈露台守望区（0,0）", 
 		"level": 1500, 
-		"description": "盈露台看守区 - 坐标(0,0)", 
+		"description": "盈露台守望区 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "fuyejiu", "level": 1500}, 
 			{"pet_id": "fuyejiu", "level": 1500}, 
 		]
 	}, 
-	"盈露台看守区（39,28）": {
+	"盈露台守望区（39,28）": {
 		"id": "500016", 
-		"name": "盈露台看守区（39,28）", 
+		"name": "盈露台守望区（39,28）", 
 		"level": 1500, 
-		"description": "盈露台看守区 - 坐标(39,28)", 
+		"description": "盈露台守望区 - 坐标(39,28)", 
 		"monsters": [
 			{"pet_id": "fuyejiu", "level": 1500}, 
 			{"pet_id": "huang_long_shi", "level": 1500}, 
@@ -3302,21 +3302,21 @@ const MAPS_DATA = {
 			{"pet_id": "nununiao", "level": 2270}, 
 		]
 	}, 
-	"清幽古洞（0,0）": {
+	"清邃古洞（0,0）": {
 		"id": "131009", 
-		"name": "清幽古洞（0,0）", 
+		"name": "清邃古洞（0,0）", 
 		"level": 2500, 
-		"description": "清幽古洞 - 坐标(0,0)", 
+		"description": "清邃古洞 - 坐标(0,0)", 
 		"monsters": [
 			{"pet_id": "zhenzhen", "level": 2500}, 
 			{"pet_id": "xi_pi", "level": 2500}, 
 		]
 	}, 
-	"清幽古洞（37,17）": {
+	"清邃古洞（37,17）": {
 		"id": "131009", 
-		"name": "清幽古洞（37,17）", 
+		"name": "清邃古洞（37,17）", 
 		"level": 2500, 
-		"description": "清幽古洞 - 坐标(37,17)", 
+		"description": "清邃古洞 - 坐标(37,17)", 
 		"monsters": [
 			{"pet_id": "luluniao", "level": 2500}, 
 			{"pet_id": "wen_di_long", "level": 2500}, 
@@ -3342,11 +3342,11 @@ const MAPS_DATA = {
 			{"pet_id": "tao_tao", "level": 2500}, 
 		]
 	}, 
-	"清幽古洞（66,44）": {
+	"清邃古洞（66,44）": {
 		"id": "131009", 
-		"name": "清幽古洞（66,44）", 
+		"name": "清邃古洞（66,44）", 
 		"level": 2500, 
-		"description": "清幽古洞 - 坐标(66,44)", 
+		"description": "清邃古洞 - 坐标(66,44)", 
 		"monsters": [
 			{"pet_id": "zhenzhen", "level": 2500}, 
 			{"pet_id": "luluniao", "level": 2500}, 
@@ -6817,7 +6817,7 @@ const PET_DATA = {
 		"ratio": [45, 17, 38]
 	}, 
 	"zhi_zun_bao": {
-		"name": "至尊宝", 
+		"name": "齐天宝", 
 		"type": "平均型", 
 		"element": "木", 
 		"attack": 12.1, 
@@ -7105,7 +7105,7 @@ const PET_DATA = {
 		"ratio": [25, 40, 35]
 	}, 
 	"a_di_da_si": {
-		"name": "阿弟达斯", 
+		"name": "冥狼崽", 
 		"type": "防敏型", 
 		"element": "火", 
 		"attack": 4.8, 
@@ -7559,21 +7559,21 @@ const PET_SKILLS = {
 
 	"splash_lv1": {
 		"skill_id": "splash", 
-		"name": "溅射", 
+		"name": "溅墨", 
 		"level": 1, 
 		"trigger_chance": 0.5, 
 		"secondary_damage_ratio": 0.8
 	}, 
 	"splash_lv2": {
 		"skill_id": "splash", 
-		"name": "溅射", 
+		"name": "溅墨", 
 		"level": 2, 
 		"trigger_chance": 1.0, 
 		"secondary_damage_ratio": 1.0
 	}, 
 	"splash_lv3": {
 		"skill_id": "splash", 
-		"name": "溅射", 
+		"name": "溅墨", 
 		"level": 3, 
 		"trigger_chance": 1.0, 
 		"secondary_damage_ratio": 1.2
@@ -7581,40 +7581,40 @@ const PET_SKILLS = {
 
 	"double_shot_lv1": {
 		"skill_id": "double_shot", 
-		"name": "连射", 
+		"name": "连击", 
 		"level": 1, 
 		"extra_attacks": 2
 	}, 
 	"double_shot_lv2": {
 		"skill_id": "double_shot", 
-		"name": "连射", 
+		"name": "连击", 
 		"level": 2, 
 		"extra_attacks": 2
 	}, 
 	"double_shot_lv3": {
 		"skill_id": "double_shot", 
-		"name": "连射", 
+		"name": "连击", 
 		"level": 3, 
 		"extra_attacks": 2
 	}, 
 
 	"divine_protect_lv1": {
 		"skill_id": "divine_protect", 
-		"name": "神佑", 
+		"name": "护主", 
 		"level": 1, 
 		"survival_hp_ratio": 0.5, 
 		"max_use_per_battle": 5
 	}, 
 	"divine_protect_lv2": {
 		"skill_id": "divine_protect", 
-		"name": "神佑", 
+		"name": "护主", 
 		"level": 2, 
 		"survival_hp_ratio": 0.5, 
 		"max_use_per_battle": 5
 	}, 
 	"divine_protect_lv3": {
 		"skill_id": "divine_protect", 
-		"name": "神佑", 
+		"name": "护主", 
 		"level": 3, 
 		"survival_hp_ratio": 1.0, 
 		"max_use_per_battle": 5
@@ -7622,21 +7622,21 @@ const PET_SKILLS = {
 
 	"counter_attack_lv1": {
 		"skill_id": "counter_attack", 
-		"name": "反击", 
+		"name": "反打", 
 		"level": 1, 
 		"counter_damage_ratio": 0.5, 
 		"counter_chance": 0.2
 	}, 
 	"counter_attack_lv2": {
 		"skill_id": "counter_attack", 
-		"name": "反击", 
+		"name": "反打", 
 		"level": 2, 
 		"counter_damage_ratio": 0.8, 
 		"counter_chance": 0.3
 	}, 
 	"counter_attack_lv3": {
 		"skill_id": "counter_attack", 
-		"name": "反击", 
+		"name": "反打", 
 		"level": 3, 
 		"counter_damage_ratio": 1.0, 
 		"counter_chance": 0.5
@@ -7644,111 +7644,111 @@ const PET_SKILLS = {
 
 	"fortify_lv1": {
 		"skill_id": "fortify", 
-		"name": "坚固", 
+		"name": "硬皮", 
 		"level": 1, 
 		"defense_bonus_percent": 70
 	}, 
 	"fortify_lv2": {
 		"skill_id": "fortify", 
-		"name": "坚固", 
+		"name": "硬皮", 
 		"level": 2, 
 		"defense_bonus_percent": 140
 	}, 
 	"fortify_lv3": {
 		"skill_id": "fortify", 
-		"name": "坚固", 
+		"name": "硬皮", 
 		"level": 3, 
 		"defense_bonus_percent": 210
 	}, 
 
 	"life_steal_lv1": {
 		"skill_id": "life_steal", 
-		"name": "吸血", 
+		"name": "饮血", 
 		"level": 1, 
 		"trigger_chance": 0.1, 
 		"lifesteal_ratio": 0.1
 	}, 
 	"life_steal_lv2": {
 		"skill_id": "life_steal", 
-		"name": "吸血", 
+		"name": "饮血", 
 		"level": 2, 
 		"trigger_chance": 0.2, 
 		"lifesteal_ratio": 0.15
 	}, 
 	"life_steal_lv3": {
 		"skill_id": "life_steal", 
-		"name": "吸血", 
+		"name": "饮血", 
 		"level": 3, 
 		"trigger_chance": 0.3, 
 		"lifesteal_ratio": 0.2
 	}, 
-	"splash_lv4": {"skill_id": "splash", "name": "溅射", "level": 4}, 
-	"splash_lv5": {"skill_id": "splash", "name": "溅射", "level": 5}, 
-	"double_shot_lv4": {"skill_id": "double_shot", "name": "连射", "level": 4}, 
-	"double_shot_lv5": {"skill_id": "double_shot", "name": "连射", "level": 5}, 
-	"divine_protect_lv4": {"skill_id": "divine_protect", "name": "神佑", "level": 4}, 
-	"divine_protect_lv5": {"skill_id": "divine_protect", "name": "神佑", "level": 5}, 
-	"counter_attack_lv4": {"skill_id": "counter_attack", "name": "反击", "level": 4}, 
-	"counter_attack_lv5": {"skill_id": "counter_attack", "name": "反击", "level": 5}, 
-	"fortify_lv4": {"skill_id": "fortify", "name": "坚固", "level": 4, "defense_bonus_percent": 230}, 
-	"fortify_lv5": {"skill_id": "fortify", "name": "坚固", "level": 5, "defense_bonus_percent": 250}, 
-	"life_steal_lv4": {"skill_id": "life_steal", "name": "吸血", "level": 4, "trigger_chance": 0.4, "lifesteal_ratio": 0.25}, 
-	"life_steal_lv5": {"skill_id": "life_steal", "name": "吸血", "level": 5, "trigger_chance": 0.5, "lifesteal_ratio": 0.3}, 
-	"swift_lv1": {"skill_id": "swift", "name": "迅捷", "level": 1, "agility_bonus_percent": 5}, 
-	"swift_lv2": {"skill_id": "swift", "name": "迅捷", "level": 2, "agility_bonus_percent": 10}, 
-	"swift_lv3": {"skill_id": "swift", "name": "迅捷", "level": 3, "agility_bonus_percent": 15}, 
-	"swift_lv4": {"skill_id": "swift", "name": "迅捷", "level": 4, "agility_bonus_percent": 20}, 
-	"swift_lv5": {"skill_id": "swift", "name": "迅捷", "level": 5, "agility_bonus_percent": 25}, 
-	"longevity_lv1": {"skill_id": "longevity", "name": "长寿", "level": 1, "hp_bonus_percent": 5}, 
-	"longevity_lv2": {"skill_id": "longevity", "name": "长寿", "level": 2, "hp_bonus_percent": 10}, 
-	"longevity_lv3": {"skill_id": "longevity", "name": "长寿", "level": 3, "hp_bonus_percent": 15}, 
-	"longevity_lv4": {"skill_id": "longevity", "name": "长寿", "level": 4, "hp_bonus_percent": 20}, 
-	"longevity_lv5": {"skill_id": "longevity", "name": "长寿", "level": 5, "hp_bonus_percent": 25}, 
-	"mighty_lv1": {"skill_id": "mighty", "name": "强壮", "level": 1, "attack_bonus_percent": 5}, 
-	"mighty_lv2": {"skill_id": "mighty", "name": "强壮", "level": 2, "attack_bonus_percent": 10}, 
-	"mighty_lv3": {"skill_id": "mighty", "name": "强壮", "level": 3, "attack_bonus_percent": 15}, 
-	"mighty_lv4": {"skill_id": "mighty", "name": "强壮", "level": 4, "attack_bonus_percent": 20}, 
-	"mighty_lv5": {"skill_id": "mighty", "name": "强壮", "level": 5, "attack_bonus_percent": 25}, 
-	"fierce_lv1": {"skill_id": "fierce", "name": "凶猛", "level": 1, "crit_damage_bonus_percent": 5}, 
-	"fierce_lv2": {"skill_id": "fierce", "name": "凶猛", "level": 2, "crit_damage_bonus_percent": 10}, 
-	"fierce_lv3": {"skill_id": "fierce", "name": "凶猛", "level": 3, "crit_damage_bonus_percent": 15}, 
-	"fierce_lv4": {"skill_id": "fierce", "name": "凶猛", "level": 4, "crit_damage_bonus_percent": 20}, 
-	"fierce_lv5": {"skill_id": "fierce", "name": "凶猛", "level": 5, "crit_damage_bonus_percent": 25}, 
-	"fatal_lv1": {"skill_id": "fatal", "name": "必杀", "level": 1, "crit_rate_bonus_percent": 5}, 
-	"fatal_lv2": {"skill_id": "fatal", "name": "必杀", "level": 2, "crit_rate_bonus_percent": 10}, 
-	"fatal_lv3": {"skill_id": "fatal", "name": "必杀", "level": 3, "crit_rate_bonus_percent": 15}, 
-	"fatal_lv4": {"skill_id": "fatal", "name": "必杀", "level": 4, "crit_rate_bonus_percent": 20}, 
-	"fatal_lv5": {"skill_id": "fatal", "name": "必杀", "level": 5, "crit_rate_bonus_percent": 25}, 
-	"self_heal_lv1": {"skill_id": "self_heal", "name": "自愈", "level": 1, "heal_ratio": 0.05}, 
-	"self_heal_lv2": {"skill_id": "self_heal", "name": "自愈", "level": 2, "heal_ratio": 0.1}, 
-	"self_heal_lv3": {"skill_id": "self_heal", "name": "自愈", "level": 3, "heal_ratio": 0.15}, 
-	"self_heal_lv4": {"skill_id": "self_heal", "name": "自愈", "level": 4, "heal_ratio": 0.2}, 
-	"self_heal_lv5": {"skill_id": "self_heal", "name": "自愈", "level": 5, "heal_ratio": 0.25}, 
-	"chase_lv1": {"skill_id": "chase", "name": "追击", "level": 1}, 
-	"chase_lv2": {"skill_id": "chase", "name": "追击", "level": 2}, 
-	"chase_lv3": {"skill_id": "chase", "name": "追击", "level": 3}, 
-	"chase_lv4": {"skill_id": "chase", "name": "追击", "level": 4}, 
-	"chase_lv5": {"skill_id": "chase", "name": "追击", "level": 5}, 
-	"loyal_lv1": {"skill_id": "loyal", "name": "忠心", "level": 1}, 
-	"loyal_lv2": {"skill_id": "loyal", "name": "忠心", "level": 2}, 
-	"loyal_lv3": {"skill_id": "loyal", "name": "忠心", "level": 3}, 
-	"loyal_lv4": {"skill_id": "loyal", "name": "忠心", "level": 4}, 
-	"loyal_lv5": {"skill_id": "loyal", "name": "忠心", "level": 5}, 
-	"taunt_lv1": {"skill_id": "taunt", "name": "嘲讽", "level": 1}, 
-	"taunt_lv2": {"skill_id": "taunt", "name": "嘲讽", "level": 2}, 
-	"taunt_lv3": {"skill_id": "taunt", "name": "嘲讽", "level": 3}, 
-	"taunt_lv4": {"skill_id": "taunt", "name": "嘲讽", "level": 4}, 
-	"taunt_lv5": {"skill_id": "taunt", "name": "嘲讽", "level": 5}, 
-	"armor_pierce_lv1": {"skill_id": "armor_pierce", "name": "破甲", "level": 1}, 
-	"armor_pierce_lv2": {"skill_id": "armor_pierce", "name": "破甲", "level": 2}, 
-	"armor_pierce_lv3": {"skill_id": "armor_pierce", "name": "破甲", "level": 3}, 
-	"armor_pierce_lv4": {"skill_id": "armor_pierce", "name": "破甲", "level": 4}, 
-	"armor_pierce_lv5": {"skill_id": "armor_pierce", "name": "破甲", "level": 5}, 
-	"guard_lv1": {"skill_id": "guard", "name": "格挡", "level": 1}, 
-	"guard_lv2": {"skill_id": "guard", "name": "格挡", "level": 2}, 
-	"guard_lv3": {"skill_id": "guard", "name": "格挡", "level": 3}, 
-	"guard_lv4": {"skill_id": "guard", "name": "格挡", "level": 4}, 
-	"guard_lv5": {"skill_id": "guard", "name": "格挡", "level": 5}, 
+	"splash_lv4": {"skill_id": "splash", "name": "溅墨", "level": 4}, 
+	"splash_lv5": {"skill_id": "splash", "name": "溅墨", "level": 5}, 
+	"double_shot_lv4": {"skill_id": "double_shot", "name": "连击", "level": 4}, 
+	"double_shot_lv5": {"skill_id": "double_shot", "name": "连击", "level": 5}, 
+	"divine_protect_lv4": {"skill_id": "divine_protect", "name": "护主", "level": 4}, 
+	"divine_protect_lv5": {"skill_id": "divine_protect", "name": "护主", "level": 5}, 
+	"counter_attack_lv4": {"skill_id": "counter_attack", "name": "反打", "level": 4}, 
+	"counter_attack_lv5": {"skill_id": "counter_attack", "name": "反打", "level": 5}, 
+	"fortify_lv4": {"skill_id": "fortify", "name": "硬皮", "level": 4, "defense_bonus_percent": 230}, 
+	"fortify_lv5": {"skill_id": "fortify", "name": "硬皮", "level": 5, "defense_bonus_percent": 250}, 
+	"life_steal_lv4": {"skill_id": "life_steal", "name": "饮血", "level": 4, "trigger_chance": 0.4, "lifesteal_ratio": 0.25}, 
+	"life_steal_lv5": {"skill_id": "life_steal", "name": "饮血", "level": 5, "trigger_chance": 0.5, "lifesteal_ratio": 0.3}, 
+	"swift_lv1": {"skill_id": "swift", "name": "轻身", "level": 1, "agility_bonus_percent": 5}, 
+	"swift_lv2": {"skill_id": "swift", "name": "轻身", "level": 2, "agility_bonus_percent": 10}, 
+	"swift_lv3": {"skill_id": "swift", "name": "轻身", "level": 3, "agility_bonus_percent": 15}, 
+	"swift_lv4": {"skill_id": "swift", "name": "轻身", "level": 4, "agility_bonus_percent": 20}, 
+	"swift_lv5": {"skill_id": "swift", "name": "轻身", "level": 5, "agility_bonus_percent": 25}, 
+	"longevity_lv1": {"skill_id": "longevity", "name": "长命", "level": 1, "hp_bonus_percent": 5}, 
+	"longevity_lv2": {"skill_id": "longevity", "name": "长命", "level": 2, "hp_bonus_percent": 10}, 
+	"longevity_lv3": {"skill_id": "longevity", "name": "长命", "level": 3, "hp_bonus_percent": 15}, 
+	"longevity_lv4": {"skill_id": "longevity", "name": "长命", "level": 4, "hp_bonus_percent": 20}, 
+	"longevity_lv5": {"skill_id": "longevity", "name": "长命", "level": 5, "hp_bonus_percent": 25}, 
+	"mighty_lv1": {"skill_id": "mighty", "name": "力壮", "level": 1, "attack_bonus_percent": 5}, 
+	"mighty_lv2": {"skill_id": "mighty", "name": "力壮", "level": 2, "attack_bonus_percent": 10}, 
+	"mighty_lv3": {"skill_id": "mighty", "name": "力壮", "level": 3, "attack_bonus_percent": 15}, 
+	"mighty_lv4": {"skill_id": "mighty", "name": "力壮", "level": 4, "attack_bonus_percent": 20}, 
+	"mighty_lv5": {"skill_id": "mighty", "name": "力壮", "level": 5, "attack_bonus_percent": 25}, 
+	"fierce_lv1": {"skill_id": "fierce", "name": "凶性", "level": 1, "crit_damage_bonus_percent": 5}, 
+	"fierce_lv2": {"skill_id": "fierce", "name": "凶性", "level": 2, "crit_damage_bonus_percent": 10}, 
+	"fierce_lv3": {"skill_id": "fierce", "name": "凶性", "level": 3, "crit_damage_bonus_percent": 15}, 
+	"fierce_lv4": {"skill_id": "fierce", "name": "凶性", "level": 4, "crit_damage_bonus_percent": 20}, 
+	"fierce_lv5": {"skill_id": "fierce", "name": "凶性", "level": 5, "crit_damage_bonus_percent": 25}, 
+	"fatal_lv1": {"skill_id": "fatal", "name": "致命", "level": 1, "crit_rate_bonus_percent": 5}, 
+	"fatal_lv2": {"skill_id": "fatal", "name": "致命", "level": 2, "crit_rate_bonus_percent": 10}, 
+	"fatal_lv3": {"skill_id": "fatal", "name": "致命", "level": 3, "crit_rate_bonus_percent": 15}, 
+	"fatal_lv4": {"skill_id": "fatal", "name": "致命", "level": 4, "crit_rate_bonus_percent": 20}, 
+	"fatal_lv5": {"skill_id": "fatal", "name": "致命", "level": 5, "crit_rate_bonus_percent": 25}, 
+	"self_heal_lv1": {"skill_id": "self_heal", "name": "自复", "level": 1, "heal_ratio": 0.05}, 
+	"self_heal_lv2": {"skill_id": "self_heal", "name": "自复", "level": 2, "heal_ratio": 0.1}, 
+	"self_heal_lv3": {"skill_id": "self_heal", "name": "自复", "level": 3, "heal_ratio": 0.15}, 
+	"self_heal_lv4": {"skill_id": "self_heal", "name": "自复", "level": 4, "heal_ratio": 0.2}, 
+	"self_heal_lv5": {"skill_id": "self_heal", "name": "自复", "level": 5, "heal_ratio": 0.25}, 
+	"chase_lv1": {"skill_id": "chase", "name": "追杀", "level": 1}, 
+	"chase_lv2": {"skill_id": "chase", "name": "追杀", "level": 2}, 
+	"chase_lv3": {"skill_id": "chase", "name": "追杀", "level": 3}, 
+	"chase_lv4": {"skill_id": "chase", "name": "追杀", "level": 4}, 
+	"chase_lv5": {"skill_id": "chase", "name": "追杀", "level": 5}, 
+	"loyal_lv1": {"skill_id": "loyal", "name": "守主", "level": 1}, 
+	"loyal_lv2": {"skill_id": "loyal", "name": "守主", "level": 2}, 
+	"loyal_lv3": {"skill_id": "loyal", "name": "守主", "level": 3}, 
+	"loyal_lv4": {"skill_id": "loyal", "name": "守主", "level": 4}, 
+	"loyal_lv5": {"skill_id": "loyal", "name": "守主", "level": 5}, 
+	"taunt_lv1": {"skill_id": "taunt", "name": "挑衅", "level": 1}, 
+	"taunt_lv2": {"skill_id": "taunt", "name": "挑衅", "level": 2}, 
+	"taunt_lv3": {"skill_id": "taunt", "name": "挑衅", "level": 3}, 
+	"taunt_lv4": {"skill_id": "taunt", "name": "挑衅", "level": 4}, 
+	"taunt_lv5": {"skill_id": "taunt", "name": "挑衅", "level": 5}, 
+	"armor_pierce_lv1": {"skill_id": "armor_pierce", "name": "破防", "level": 1}, 
+	"armor_pierce_lv2": {"skill_id": "armor_pierce", "name": "破防", "level": 2}, 
+	"armor_pierce_lv3": {"skill_id": "armor_pierce", "name": "破防", "level": 3}, 
+	"armor_pierce_lv4": {"skill_id": "armor_pierce", "name": "破防", "level": 4}, 
+	"armor_pierce_lv5": {"skill_id": "armor_pierce", "name": "破防", "level": 5}, 
+	"guard_lv1": {"skill_id": "guard", "name": "挡伤", "level": 1}, 
+	"guard_lv2": {"skill_id": "guard", "name": "挡伤", "level": 2}, 
+	"guard_lv3": {"skill_id": "guard", "name": "挡伤", "level": 3}, 
+	"guard_lv4": {"skill_id": "guard", "name": "挡伤", "level": 4}, 
+	"guard_lv5": {"skill_id": "guard", "name": "挡伤", "level": 5}, 
 }
 
 const MARTIAL_SKILL_BOOKS = {
@@ -7945,7 +7945,373 @@ const PET_SKILL_BOOKS = {
 }
 
 
-const ITEM_NAME_MIGRATION: = {}
+# ---------------------------------------------------------------- 宠物技能书命名归一
+# 改名前后的技能名一直是几张表各说各话：道具键用新名（硬皮lv4技能书）、技能表还留着旧名、
+# 老存档老邮件里甚至有罗马数字写法（坚固IV技能书）。玩家一用就报「未知宠物技能书」，
+# 一合成就报「未知技能书」。这里是所有入口的唯一归一闸门，两步：
+#   1) 查改名表 ITEM_NAME_MIGRATION（md5 键，包内不留旧名明文）—— 旧族名/宠物蛋新名走这条；
+#   2) 按算法把等级写法折成 lvN（IV / 4 / LV4 / 四 都认）—— 新族名 + 罗马数字走这条。
+const PET_SKILL_LEVEL_TOKENS := {
+	"I": 1, "II": 2, "III": 3, "IIII": 4, "IV": 4, "V": 5, 
+	"一": 1, "二": 2, "三": 3, "四": 4, "五": 5
+}
+
+# 旧族名（md5 前 8 位）→ 现用族名。族名改过两版，包内只留哈希，解包看不到历史名字。
+# 有它以后「坚固 4 技能书」「坚固IV技能书」「固色lv2技能书」这些写法都能直接折成现用键。
+const PET_SKILL_FAMILY_HASHES := {
+	"061f8752": "反打", "07fb7bdd": "长命", "0b8021d8": "破防", "0f5bb79e": "破防",
+	"18a10404": "挑衅", "1df88c7e": "溅墨", "34d310ea": "守主", "3886b60d": "致命",
+	"39541a7a": "硬皮", "3afd84b1": "凶性", "3b4f949e": "挑衅", "475818e5": "饮血",
+	"4a2e6733": "守主", "4f0599b4": "自复", "539cb8d5": "自复", "54aac617": "连击",
+	"6276ce31": "轻身", "672b42dd": "硬皮", "6a910036": "追杀", "7734acaa": "凶性",
+	"79b5ac25": "饮血", "7b9763ad": "凶性", "7c1f7e5c": "长命", "7c488084": "连击",
+	"85ba598a": "溅墨", "91b12cb9": "长命", "93cfc827": "致命", "93f5b342": "破防",
+	"9a7dcd6e": "连击", "9c941a4b": "护主", "9fb0d35f": "自复", "a02f9539": "护主",
+	"a353adad": "力壮", "a4830cc9": "反打", "a7551e96": "致命", "b76f6eed": "轻身",
+	"b8aef4aa": "力壮", "bfd0de38": "追杀", "c2b9e4a4": "追杀", "c478a468": "挡伤",
+	"c88cc146": "饮血", "d29ed5d8": "守主", "d685d4e0": "挡伤", "d8df5520": "反打",
+	"dda61bb2": "护主", "f08be825": "挑衅", "f3c03652": "硬皮", "f660ab62": "力壮",
+	"f8579faa": "轻身", "fce54e44": "挡伤",
+}
+
+
+static func _migration_lookup_text(item_name: String) -> String:
+	var hit: Variant = ITEM_NAME_MIGRATION.get(item_name.md5_text().substr(0, 8), null)
+	return "" if hit == null else str(hit)
+
+
+# 把「硬皮IV技能书」这类写法拆成 [族名, 等级]。等级支持 lv4 / LV4 / 4 / IV / 四。
+static func _pet_skill_name_parts(text: String) -> Array:
+	var body: = text
+	if body.ends_with("技能书"):
+		body = body.substr(0, body.length() - 3)
+	if body.is_empty():
+		return ["", 0]
+	var m: = RegEx.create_from_string("(?i)^(.+?)lv(\\d+)$").search(body)
+	if m != null:
+		return [m.get_string(1), int(m.get_string(2))]
+	m = RegEx.create_from_string("^(.+?)(\\d+)$").search(body)
+	if m != null:
+		return [m.get_string(1), int(m.get_string(2))]
+	for token in ["IIII", "III", "IV", "VI", "II", "V", "I", "四", "三", "二", "五", "一"]:
+		if not body.ends_with(token):
+			continue
+		var head: = body.substr(0, body.length() - token.length())
+		if head.is_empty():
+			return ["", 0]
+		return [head, int(PET_SKILL_LEVEL_TOKENS.get(token, 0))]
+	return ["", 0]
+
+
+# 传进任何写法的宠物技能书名字，返回 PET_SKILL_BOOKS 里真实存在的键；不是技能书就返回空串。
+static func normalize_pet_skill_book_name(item_name: String) -> String:
+	var n: = str(item_name).strip_edges()
+	if n.is_empty():
+		return ""
+	if PET_SKILL_BOOKS.has(n):
+		return n
+	var migrated: = _migration_lookup_text(n)
+	if not migrated.is_empty() and PET_SKILL_BOOKS.has(migrated):
+		return migrated
+	n = n.replace(" ", "").replace("　", "").replace("Ｌ", "L").replace("ｌ", "l")
+	if PET_SKILL_BOOKS.has(n):
+		return n
+	migrated = _migration_lookup_text(n)
+	if not migrated.is_empty() and PET_SKILL_BOOKS.has(migrated):
+		return migrated
+	var parts: Array = _pet_skill_name_parts(n)
+	var family: = str(parts[0]).strip_edges()
+	var level: int = int(parts[1])
+	if family.is_empty() or level < 1 or level > 5:
+		return ""
+	var fam_hash: = family.md5_text().substr(0, 8)
+	if PET_SKILL_FAMILY_HASHES.has(fam_hash):
+		family = str(PET_SKILL_FAMILY_HASHES[fam_hash])
+	var canonical: = "%slv%d技能书" % [family, level]
+	return canonical if PET_SKILL_BOOKS.has(canonical) else ""
+
+
+# 物品名总归一。没命中任何规则就原样返回，所以可以放心挂在所有物品读入路径上。
+static func normalize_item_name(item_name: String) -> String:
+	var n: = str(item_name).strip_edges()
+	if n.is_empty():
+		return n
+	var migrated: = _migration_lookup_text(n)
+	if not migrated.is_empty():
+		return migrated
+	var book: = normalize_pet_skill_book_name(n)
+	if not book.is_empty():
+		return book
+	return n
+
+
+# 技能书等级（1~5）。键名后缀和 skill_key 后缀两处都能拿到，取先命中的那个。
+static func pet_skill_book_level(book_name: String) -> int:
+	var key: = normalize_pet_skill_book_name(book_name)
+	if key.is_empty():
+		return 0
+	var cfg: Dictionary = PET_SKILL_BOOKS.get(key, {})
+	var m: = RegEx.create_from_string("_lv(\\d+)$").search(str(cfg.get("skill_key", "")))
+	if m != null:
+		return int(m.get_string(1))
+	var parts: Array = _pet_skill_name_parts(key)
+	return int(parts[1])
+
+
+# 同一技能线的下一级书名。已满级（lv5）或认不出就返回空串，UI 据此决定要不要出「2合1」。
+static func pet_skill_book_next_name(book_name: String) -> String:
+	var key: = normalize_pet_skill_book_name(book_name)
+	if key.is_empty():
+		return ""
+	var lv: int = pet_skill_book_level(key)
+	if lv <= 0 or lv >= 5:
+		return ""
+	var parts: Array = _pet_skill_name_parts(key)
+	var next_key: = "%slv%d技能书" % [str(parts[0]), lv + 1]
+	return next_key if PET_SKILL_BOOKS.has(next_key) else ""
+
+
+# 同一技能线的 lv1 书名（拆分用）。本身就是 lv1 就返回空串。
+static func pet_skill_book_base_name(book_name: String) -> String:
+	var key: = normalize_pet_skill_book_name(book_name)
+	if key.is_empty():
+		return ""
+	var lv: int = pet_skill_book_level(key)
+	if lv <= 1:
+		return ""
+	var parts: Array = _pet_skill_name_parts(key)
+	var base_key: = "%slv1技能书" % str(parts[0])
+	return base_key if PET_SKILL_BOOKS.has(base_key) else ""
+
+
+const ITEM_NAME_MIGRATION: = {
+	"f0780cb3": "7-9冥狼崽礼包",
+	"002995bd": "护主lv5技能书", "00a449d8": "护主lv5技能书", "012df4ac": "凶性lv2技能书",
+	"018a29eb": "护主lv1技能书", "01a9a3e6": "硬皮lv3技能书", "01f2082c": "反打lv1技能书",
+	"02c67054": "硬皮lv2技能书", "030a8652": "力壮lv4技能书", "03587b36": "破防lv1技能书",
+	"03a0ce69": "力壮lv2技能书", "03c5f259": "破防lv3技能书", "04379a92": "致命lv2技能书",
+	"051e949b": "自复lv2技能书", "05783b5b": "长命lv3技能书", "064e703c": "挡伤lv4技能书",
+	"065f1414": "致命lv2技能书", "066c51fa": "长命lv2技能书", "0920d432": "护主lv4技能书",
+	"0929896b": "力壮lv2技能书", "095763ff": "反打lv1技能书", "096157d4": "守主lv5技能书",
+	"0977c140": "力壮lv5技能书", "09fa5237": "双倍经验丹(月)", "09fcdc17": "追杀lv3技能书",
+	"0b052503": "挡伤lv1技能书", "0b308f26": "追杀lv1技能书", "0b4a5b08": "追杀lv1技能书",
+	"0b800399": "挡伤lv4技能书", "0c3b60de": "破防lv5技能书", "0c5b3427": "反打lv3技能书",
+	"0c7c9648": "轻身lv2技能书", "0ca3fc0f": "凶性lv5技能书", "0ca48917": "反打lv3技能书",
+	"0d2f25a2": "力壮lv3技能书", "0d34a9ee": "守主lv1技能书", "0dbe5d33": "力壮lv3技能书",
+	"0e1ee419": "挑衅lv4技能书", "0e623fe2": "饮血lv1技能书", "0e685622": "挡伤lv2技能书",
+	"0e6fc001": "挑衅lv5技能书", "0ed911ff": "溅墨lv4技能书", "0ed93fd7": "力壮lv3技能书",
+	"0ee31ed9": "长命lv5技能书", "0f4c87ac": "连击lv3技能书", "0f664e8e": "守主lv2技能书",
+	"0fa6c95e": "守主lv2技能书", "109df1f5": "反打lv5技能书", "10c31e8b": "长命lv3技能书",
+	"10d8563a": "溅墨lv3技能书", "10e2014a": "致命lv2技能书", "10e85cbf": "挡伤lv1技能书",
+	"11e72d7b": "反打lv3技能书", "11fac243": "守主lv5技能书", "12278fb1": "追杀lv4技能书",
+	"12aca0ba": "轻身lv4技能书", "12bdc540": "硬皮lv5技能书", "12d6521a": "长命lv1技能书",
+	"14887346": "挡伤lv2技能书", "14c1b59a": "挑衅lv4技能书", "155ff7d1": "力壮lv1技能书",
+	"15666cda": "挑衅lv2技能书", "15d79921": "致命lv1技能书", "161a13f9": "护主lv2技能书",
+	"162f9aa6": "反打lv4技能书", "174fd3fc": "致命lv3技能书", "17731454": "护主lv2技能书",
+	"1789d54a": "致命lv2技能书", "188e4eda": "轻身lv3技能书", "1924e9fb": "自复lv5技能书",
+	"19a8e598": "连击lv4技能书", "19ce8c62": "轻身lv3技能书", "1ac10309": "饮血lv4技能书",
+	"1b57abdd": "连击lv1技能书", "1c2613b9": "破防lv4技能书", "1c445326": "轻身lv3技能书",
+	"1c6b9cae": "挑衅lv3技能书", "1ce7b1dd": "硬皮lv2技能书", "1d20cebb": "追杀lv3技能书",
+	"1d311eac": "溅墨lv2技能书", "1d8cbba0": "反打lv5技能书", "1f75b22b": "追杀lv5技能书",
+	"201674a9": "力壮lv2技能书", "20a4855e": "自复lv2技能书", "20b18104": "连击lv5技能书",
+	"20fb8981": "饮血lv3技能书", "21c88706": "挡伤lv3技能书", "21f67475": "破防lv1技能书",
+	"224a0a2c": "长命lv3技能书", "22fc8aba": "长命lv2技能书", "233dcafd": "追杀lv3技能书",
+	"23711e10": "护主lv2技能书", "23a2fb68": "自复lv3技能书", "23aa5e09": "守主lv5技能书",
+	"24088728": "护主lv4技能书", "24f1675a": "硬皮lv2技能书", "255387a6": "连击lv5技能书",
+	"25bc7ce2": "饮血lv4技能书", "2691d42d": "挑衅lv2技能书", "269a733d": "长命lv5技能书",
+	"26b29b96": "护主lv3技能书", "26c101bb": "挑衅lv1技能书", "26e3d2bb": "长命lv5技能书",
+	"26f1b1d1": "破防lv5技能书", "277951cb": "守主lv4技能书", "27a4b1dd": "护主lv1技能书",
+	"2820ad9a": "自复lv2技能书", "282f607f": "致命lv4技能书", "28697566": "守主lv3技能书",
+	"28a9a8bb": "挑衅lv1技能书", "28b97a1e": "硬皮lv1技能书", "28e242a9": "连击lv5技能书",
+	"292070cd": "护主lv4技能书", "29486859": "追杀lv3技能书", "2ace2bb2": "凶性lv4技能书",
+	"2ae8e540": "破防lv5技能书", "2b73f8d6": "追杀lv5技能书", "2bd5210b": "长命lv2技能书",
+	"2bfa360a": "凶性lv5技能书", "2c083f8b": "守主lv5技能书", "2c354bcc": "自复lv4技能书",
+	"2c35c1b6": "破防lv5技能书", "2c6ecfe1": "自复lv4技能书", "2c8aaa0f": "追杀lv4技能书",
+	"2cb9cd02": "挡伤lv5技能书", "2d1b5b9d": "凶性lv3技能书", "2d476a51": "溅墨lv4技能书",
+	"2d611f78": "饮血lv2技能书", "2d666e70": "致命lv4技能书", "2dfb5fed": "力壮lv4技能书",
+	"2e971337": "饮血lv3技能书", "2ec16291": "长命lv1技能书", "2f2d59b8": "致命lv3技能书",
+	"2f49598c": "挑衅lv3技能书", "30336e36": "饮血lv4技能书", "3033bec7": "致命lv1技能书",
+	"310f99f4": "凶性lv1技能书", "3115a1bd": "反打lv5技能书", "312bc64a": "力壮lv3技能书",
+	"314fb5f8": "水属性宠物蛋", "3188180a": "长命lv4技能书", "31ba2d34": "凶性lv5技能书",
+	"31d2380b": "力壮lv4技能书", "31e88d05": "连击lv4技能书", "3213694c": "守主lv3技能书",
+	"32b50cc2": "凶性lv1技能书", "32d2ba60": "自复lv3技能书", "32e2b991": "力壮lv5技能书",
+	"32ffe063": "反打lv2技能书", "33c1537f": "致命lv5技能书", "34877ed3": "长命lv4技能书",
+	"34a495bb": "凶性lv2技能书", "34c2b8d5": "硬皮lv3技能书", "34df4852": "自复lv4技能书",
+	"34df9054": "破防lv4技能书", "352cfcc1": "反打lv5技能书", "35597a80": "追杀lv4技能书",
+	"3599f823": "破防lv2技能书", "35d07f25": "挡伤lv3技能书", "366bc330": "追杀lv1技能书",
+	"36a86ba9": "自复lv4技能书", "37014e72": "轻身lv1技能书", "374f971d": "连击lv3技能书",
+	"37bd1a95": "追杀lv2技能书", "37d651ca": "守主lv2技能书", "37fe7461": "挑衅lv1技能书",
+	"39a8e55e": "致命lv3技能书", "3baf2ec4": "自复lv1技能书", "3c25de26": "破防lv4技能书",
+	"3c6b2079": "饮血lv4技能书", "3cbb007d": "硬皮lv5技能书", "3d2c0b48": "破防lv2技能书",
+	"3d9b28b0": "反打lv4技能书", "3e4d47c1": "致命lv3技能书", "3e98b904": "饮血lv3技能书",
+	"3fe0e7c6": "自复lv3技能书", "4026fbfd": "溅墨lv2技能书", "406b449c": "追杀lv4技能书",
+	"40a2a396": "破防lv1技能书", "41348917": "挑衅lv3技能书", "41770c54": "长命lv5技能书",
+	"41823282": "饮血lv3技能书", "418419f1": "护主lv3技能书", "41ba4726": "破防lv2技能书",
+	"41f51d07": "反打lv3技能书", "427c0f45": "饮血lv1技能书", "42b14cbb": "护主lv5技能书",
+	"42e63996": "致命lv3技能书", "431b129f": "追杀lv4技能书", "43a9d12d": "守主lv3技能书",
+	"441b540a": "挡伤lv4技能书", "44cca32e": "饮血lv1技能书", "4500aa86": "致命lv4技能书",
+	"463a0f97": "连击lv2技能书", "46a8716d": "守主lv1技能书", "46d54b17": "反打lv2技能书",
+	"46fc8965": "双倍经验丹(周)", "47276446": "守主lv2技能书", "482f1541": "轻身lv5技能书",
+	"486bcc24": "连击lv4技能书", "48b5e874": "守主lv5技能书", "48bdfeb5": "破防lv4技能书",
+	"48f33134": "凶性lv1技能书", "4a2f0e54": "护主lv3技能书", "4a70e142": "挑衅lv4技能书",
+	"4aa1b5b8": "力壮lv2技能书", "4aa6dc77": "挡伤lv3技能书", "4b5233ca": "守主lv5技能书",
+	"4d1705e3": "反打lv2技能书", "4db4ae79": "轻身lv2技能书", "4dfcd972": "力壮lv1技能书",
+	"4e7b2dfe": "饮血lv1技能书", "4ece17c3": "追杀lv1技能书", "4ed91138": "长命lv1技能书",
+	"4edeacec": "饮血lv5技能书", "4f1b5e26": "破防lv1技能书", "4f5d67a7": "力壮lv4技能书",
+	"4f775c9c": "追杀lv1技能书", "4fa898c3": "凶性lv3技能书", "4fd06b50": "饮血lv2技能书",
+	"4fd85ce1": "饮血lv5技能书", "5035e159": "溅墨lv1技能书", "5042acaf": "守主lv4技能书",
+	"506a3ff2": "守主lv3技能书", "51387c82": "饮血lv2技能书", "5141e76f": "饮血lv5技能书",
+	"51a4d7cd": "力壮lv1技能书", "5233305b": "挡伤lv2技能书", "53262889": "护主lv4技能书",
+	"542bd4f6": "挑衅lv5技能书", "546fdf07": "致命lv3技能书", "549c2781": "致命lv2技能书",
+	"54f9d7d6": "连击lv2技能书", "5506ac0a": "硬皮lv2技能书", "56924aea": "力壮lv5技能书",
+	"58b75274": "凶性lv1技能书", "59d6b73c": "轻身lv1技能书", "5a51578a": "溅墨lv5技能书",
+	"5a520654": "破防lv2技能书", "5b6ccb4b": "守主lv3技能书", "5ce374ac": "轻身lv1技能书",
+	"5d11bba6": "自复lv4技能书", "5d44f9c7": "凶性lv2技能书", "5da75a33": "长命lv4技能书",
+	"5dced12e": "破防lv2技能书", "5dfe6ffd": "连击lv1技能书", "5e067de5": "追杀lv2技能书",
+	"5e2fd3f6": "轻身lv4技能书", "5e533fc4": "自复lv3技能书", "5f48acf4": "致命lv1技能书",
+	"5f8777f1": "连击lv3技能书", "5ff4da0d": "轻身lv4技能书", "6039d468": "护主lv3技能书",
+	"6044cb1c": "护主lv3技能书", "60c523f0": "致命lv4技能书", "60d686c5": "挡伤lv2技能书",
+	"61ed41de": "硬皮lv1技能书", "62339fb5": "硬皮lv2技能书", "62a3708f": "连击lv1技能书",
+	"632b005d": "连击lv3技能书", "63c0a68c": "土变异宠物蛋", "644c6af2": "饮血lv5技能书",
+	"649884e6": "硬皮lv5技能书", "653b9811": "硬皮lv5技能书", "6545a333": "饮血lv2技能书",
+	"668b0ad3": "力壮lv1技能书", "6695e6af": "护主lv2技能书", "66f5258e": "硬皮lv4技能书",
+	"673b057a": "破防lv5技能书", "67c11894": "护主lv3技能书", "67f3dc72": "护主lv5技能书",
+	"680e4eea": "护主lv1技能书", "68acb48f": "挡伤lv5技能书", "68e06259": "致命lv4技能书",
+	"69560240": "轻身lv5技能书", "697eb754": "自复lv1技能书", "69a45c90": "硬皮lv1技能书",
+	"69abe1f1": "长命lv4技能书", "69cc372f": "破防lv4技能书", "69fd22a5": "溅墨lv5技能书",
+	"6a63fd0c": "轻身lv5技能书", "6a7b2ef3": "追杀lv2技能书", "6a8dd2e2": "饮血lv5技能书",
+	"6ab9f606": "守主lv2技能书", "6adb5b76": "挡伤lv4技能书", "6b8b53d0": "长命lv3技能书",
+	"6b9cb1e5": "追杀lv5技能书", "6bc8e72a": "硬皮lv1技能书", "6bf5fb06": "连击lv5技能书",
+	"6bf92df2": "挡伤lv4技能书", "6c192ba8": "力壮lv5技能书", "6c62e243": "致命lv3技能书",
+	"6d39be66": "连击lv2技能书", "6d788855": "护主lv3技能书", "6dcadda7": "饮血lv4技能书",
+	"6de3d1c9": "硬皮lv4技能书", "6dfe67b5": "轻身lv3技能书", "6e86481a": "致命lv1技能书",
+	"6ec5460f": "破防lv4技能书", "6ed01ce8": "反打lv2技能书", "6f252c27": "长命lv3技能书",
+	"6f3ce81f": "凶性lv4技能书", "6f7972a6": "凶性lv1技能书", "70489a07": "挡伤lv4技能书",
+	"70c476dd": "自复lv5技能书", "713fda4f": "长命lv1技能书", "7421f3a4": "追杀lv4技能书",
+	"7424e6ad": "连击lv4技能书", "746a5716": "自复lv1技能书", "74f1a281": "挑衅lv1技能书",
+	"754b1bc8": "饮血lv2技能书", "75547039": "溅墨lv5技能书", "755f700e": "挡伤lv5技能书",
+	"75b5175c": "自复lv5技能书", "761e0d7b": "轻身lv2技能书", "76253c72": "力壮lv2技能书",
+	"76258f97": "硬皮lv4技能书", "763beeeb": "守主lv2技能书", "77300ed6": "凶性lv4技能书",
+	"77a3b7f5": "力壮lv1技能书", "77a4a274": "饮血lv4技能书", "78674d1c": "挡伤lv5技能书",
+	"787fc7d2": "凶性lv4技能书", "79199c52": "护主lv4技能书", "796c5855": "凶性lv2技能书",
+	"7985b7e1": "守主lv4技能书", "7adf25e7": "硬皮lv2技能书", "7b51df09": "溅墨lv4技能书",
+	"7c2c5204": "轻身lv1技能书", "7c58aa91": "长命lv1技能书", "7c90ac79": "挑衅lv2技能书",
+	"7ccd6c20": "硬皮lv5技能书", "7cd4c65b": "力壮lv1技能书", "7d1bafb9": "硬皮lv3技能书",
+	"7da9f56d": "轻身lv3技能书", "7ddbeece": "长命lv3技能书", "7dfc412e": "挑衅lv4技能书",
+	"7e8b5ad0": "反打lv4技能书", "7ea1f6d2": "反打lv4技能书", "7fbfaa1b": "长命lv1技能书",
+	"801adfeb": "轻身lv4技能书", "8069b773": "力壮lv5技能书", "80f103a5": "饮血lv5技能书",
+	"816eaa3b": "土属性宠物蛋", "81d6784e": "追杀lv2技能书", "83029388": "挑衅lv5技能书",
+	"8322069e": "硬皮lv5技能书", "83848da0": "破防lv1技能书", "83a96ec6": "致命lv5技能书",
+	"840477ec": "硬皮lv1技能书", "84753e28": "长命lv3技能书", "849b15c5": "致命lv5技能书",
+	"84e40afb": "破防lv3技能书", "851edb02": "致命lv5技能书", "857c0d00": "连击lv3技能书",
+	"873f94cc": "致命lv2技能书", "87c423dd": "硬皮lv2技能书", "87e3ceab": "长命lv2技能书",
+	"87f7066e": "挡伤lv2技能书", "8859b3ac": "凶性lv3技能书", "88959a4a": "反打lv5技能书",
+	"88dd255a": "饮血lv4技能书", "8a3e77b1": "挑衅lv2技能书", "8a8b154b": "致命lv5技能书",
+	"8ad42de9": "力壮lv2技能书", "8b271443": "破防lv3技能书", "8b62331e": "连击lv2技能书",
+	"8b8f14e6": "挡伤lv1技能书", "8bbc6e4f": "长命lv2技能书", "8c186e57": "凶性lv3技能书",
+	"8c603387": "长命lv4技能书", "8c76482f": "挡伤lv3技能书", "8c9aa53a": "守主lv5技能书",
+	"8df6679f": "长命lv1技能书", "8e1d9032": "硬皮lv2技能书", "8e6fc36d": "硬皮lv4技能书",
+	"8e7d96e9": "挑衅lv5技能书", "8e964dde": "守主lv1技能书", "8ee3f42f": "追杀lv1技能书",
+	"8ee6813d": "凶性lv5技能书", "8f2a0b30": "硬皮lv1技能书", "8fc0b6c4": "破防lv3技能书",
+	"8fcda4bf": "护主lv2技能书", "8feb49e8": "挑衅lv4技能书", "90aac394": "连击lv1技能书",
+	"90d1d848": "力壮lv3技能书", "90f0e082": "长命lv5技能书", "914e9910": "守主lv1技能书",
+	"9154809a": "挑衅lv3技能书", "93096d13": "挑衅lv2技能书", "93201146": "饮血lv5技能书",
+	"933241d8": "致命lv3技能书", "93406153": "守主lv2技能书", "938fd0b9": "轻身lv5技能书",
+	"93c929d8": "挡伤lv3技能书", "9418cf4e": "追杀lv3技能书", "949a96b3": "反打lv4技能书",
+	"94a5aa9b": "追杀lv1技能书", "95a406f5": "追杀lv1技能书", "95ef6479": "力壮lv4技能书",
+	"95ff389f": "凶性lv3技能书", "966a3a11": "轻身lv2技能书", "975d0d7a": "长命lv4技能书",
+	"9787abdf": "挑衅lv4技能书", "97945df3": "溅墨lv5技能书", "97fada90": "自复lv2技能书",
+	"9822e413": "长命lv1技能书", "98889fd6": "连击lv3技能书", "996f9865": "力壮lv4技能书",
+	"99891ea1": "自复lv1技能书", "99974253": "饮血lv3技能书", "9998989b": "追杀lv2技能书",
+	"999c08a3": "长命lv5技能书", "99ec6edb": "挑衅lv1技能书", "9aaf4885": "凶性lv5技能书",
+	"9b3ba5a9": "凶性lv2技能书", "9bfc422e": "饮血lv1技能书", "9c1515ea": "反打lv3技能书",
+	"9ca71da6": "饮血lv1技能书", "9d100d05": "金属性宠物蛋", "9d4c13c2": "挡伤lv5技能书",
+	"9d71c6a1": "破防lv1技能书", "9e68b6ea": "自复lv2技能书", "9e7fb167": "轻身lv2技能书",
+	"9eaac947": "硬皮lv1技能书", "9f0e319d": "自复lv3技能书", "a049e46f": "挑衅lv3技能书",
+	"a09f0f43": "护主lv3技能书", "a0ab3d5d": "自复lv3技能书", "a14622fd": "轻身lv3技能书",
+	"a24b5269": "挑衅lv4技能书", "a28a962f": "连击lv1技能书", "a2a1c9e6": "护主lv2技能书",
+	"a2e9ce6f": "自复lv5技能书", "a2f6e7b2": "反打lv3技能书", "a40eab18": "破防lv5技能书",
+	"a421a198": "凶性lv4技能书", "a4330393": "反打lv2技能书", "a482b4f4": "饮血lv4技能书",
+	"a4ed989b": "连击lv1技能书", "a50fbe68": "挑衅lv3技能书", "a57c5ed8": "轻身lv5技能书",
+	"a57e3832": "致命lv1技能书", "a5da4db8": "轻身lv5技能书", "a5e81a3c": "连击lv3技能书",
+	"a5ef04e4": "连击lv1技能书", "a62bac67": "致命lv5技能书", "a6c8f647": "挡伤lv1技能书",
+	"a6fc81bb": "溅墨lv1技能书", "a7106ba9": "追杀lv5技能书", "a78d4324": "护主lv4技能书",
+	"a8c424f5": "追杀lv5技能书", "aa5b117a": "挑衅lv5技能书", "aaaffc1f": "凶性lv2技能书",
+	"aab5f26c": "轻身lv1技能书", "aae73289": "轻身lv3技能书", "ab6ddef2": "硬皮lv5技能书",
+	"ab83f87e": "守主lv4技能书", "ab9b3d92": "反打lv1技能书", "ac3d454a": "轻身lv5技能书",
+	"acaffffa": "轻身lv4技能书", "acddb82d": "自复lv2技能书", "ad35f9e6": "力壮lv5技能书",
+	"adab8d9a": "力壮lv3技能书", "af5428d3": "自复lv4技能书", "affa8064": "火属性宠物蛋",
+	"b003d70c": "挑衅lv2技能书", "b06eba77": "追杀lv3技能书", "b09877dd": "护主lv4技能书",
+	"b0ba53a6": "自复lv1技能书", "b123a0b9": "反打lv1技能书", "b1f19b33": "挡伤lv5技能书",
+	"b1f730ef": "长命lv2技能书", "b2e1f1c5": "自复lv3技能书", "b30b3196": "溅墨lv2技能书",
+	"b36610f3": "挡伤lv1技能书", "b3d159e6": "硬皮lv1技能书", "b3df674b": "致命lv1技能书",
+	"b40bd2b6": "挡伤lv5技能书", "b4433ec9": "追杀lv5技能书", "b44e255e": "饮血lv3技能书",
+	"b5422782": "连击lv4技能书", "b5d9d37a": "凶性lv4技能书", "b6722810": "硬皮lv4技能书",
+	"b6c9efbe": "护主lv5技能书", "b7568362": "轻身lv3技能书", "b76e55f8": "致命lv4技能书",
+	"b76ee41e": "自复lv2技能书", "b7bb2f5d": "自复lv1技能书", "b8325e90": "金变异宠物蛋",
+	"b8afac7b": "木变异宠物蛋", "b8b8d213": "硬皮lv4技能书", "ba08e879": "破防lv4技能书",
+	"ba9f731c": "守主lv1技能书", "baa53ec7": "溅墨lv1技能书", "baa92c91": "凶性lv3技能书",
+	"baf26852": "力壮lv3技能书", "bb958780": "反打lv3技能书", "bbc3a108": "破防lv5技能书",
+	"bc8b3f17": "护主lv5技能书", "bd155520": "挡伤lv2技能书", "bd403edd": "双倍经验丹",
+	"bd62270f": "凶性lv4技能书", "becb8350": "长命lv5技能书", "bf5f4a59": "木属性宠物蛋",
+	"bf7bd8c7": "力壮lv5技能书", "bfa686f2": "力壮lv1技能书", "c12d6010": "连击lv2技能书",
+	"c135d026": "力壮lv1技能书", "c1e3dc5b": "凶性lv2技能书", "c2124213": "反打lv1技能书",
+	"c2928d2a": "饮血lv5技能书", "c3480976": "反打lv2技能书", "c35b91bd": "反打lv4技能书",
+	"c3d4cafb": "挑衅lv1技能书", "c4579e06": "连击lv5技能书", "c4c85089": "反打lv4技能书",
+	"c539aecd": "自复lv3技能书", "c5a75fb5": "致命lv5技能书", "c5ed4e22": "守主lv2技能书",
+	"c6310c08": "饮血lv3技能书", "c7488e1e": "自复lv1技能书", "c791f5eb": "反打lv1技能书",
+	"c8235b82": "挡伤lv2技能书", "c94e3d36": "轻身lv1技能书", "c95f03fb": "破防lv1技能书",
+	"c9a2bd52": "守主lv3技能书", "ca021d0e": "凶性lv5技能书", "ca16f4fc": "守主lv1技能书",
+	"ca77d546": "火变异宠物蛋", "cab01b95": "自复lv2技能书", "cabd4a5a": "凶性lv1技能书",
+	"cb510b7a": "致命lv2技能书", "cbeee78f": "力壮lv3技能书", "cc99ac49": "护主lv1技能书",
+	"cd3efdf9": "饮血lv3技能书", "cdbd82ef": "破防lv2技能书", "cdc14261": "连击lv2技能书",
+	"ce89a14b": "反打lv3技能书", "ceab83b3": "追杀lv4技能书", "ceac63fa": "力壮lv5技能书",
+	"cefb184f": "挑衅lv5技能书", "cf2dfef2": "凶性lv3技能书", "d0051989": "连击lv3技能书",
+	"d12da0fc": "挑衅lv2技能书", "d175ed81": "挡伤lv2技能书", "d1800154": "溅墨lv3技能书",
+	"d1b03e7b": "挑衅lv3技能书", "d27b18d6": "守主lv3技能书", "d28a5044": "反打lv5技能书",
+	"d2bae8bc": "连击lv1技能书", "d339047c": "守主lv4技能书", "d3c9fb15": "轻身lv4技能书",
+	"d3d97d7e": "破防lv4技能书", "d3fc1127": "自复lv5技能书", "d414cb29": "自复lv5技能书",
+	"d49edf15": "护主lv4技能书", "d4cb2551": "挡伤lv3技能书", "d4ced04f": "破防lv2技能书",
+	"d5b9261d": "自复lv5技能书", "d5bad0e3": "致命lv5技能书", "d5ca209c": "轻身lv4技能书",
+	"d5ea141d": "守主lv4技能书", "d60a03bd": "硬皮lv3技能书", "d645f44b": "反打lv4技能书",
+	"d68e8c32": "凶性lv4技能书", "d6f2d318": "挑衅lv5技能书", "d70ff00b": "力壮lv2技能书",
+	"d7dee275": "轻身lv2技能书", "d804dc96": "破防lv3技能书", "d85faded": "连击lv2技能书",
+	"d871490e": "守主lv5技能书", "d87942b6": "挡伤lv5技能书", "d87edc2e": "致命lv2技能书",
+	"d8a85e58": "挑衅lv2技能书", "d8deb627": "护主lv1技能书", "d9508cb4": "凶性lv1技能书",
+	"d9779da8": "连击lv5技能书", "d9b26169": "挑衅lv4技能书", "da9eb514": "护主lv2技能书",
+	"dac76440": "追杀lv5技能书", "dadfa3ed": "长命lv3技能书", "dc4a7c0f": "挡伤lv3技能书",
+	"dce90d9a": "凶性lv3技能书", "dcfb9d9f": "追杀lv3技能书", "dde6e8d7": "挡伤lv1技能书",
+	"ddf1fbb4": "溅墨lv4技能书", "de843e03": "长命lv5技能书", "df275214": "挑衅lv5技能书",
+	"dfb64c14": "挡伤lv3技能书", "e0dc149f": "守主lv1技能书", "e0eb44d9": "破防lv3技能书",
+	"e13c1cdc": "凶性lv5技能书", "e140e78e": "反打lv5技能书", "e157535c": "轻身lv1技能书",
+	"e1650bbc": "饮血lv1技能书", "e1c5de8a": "连击lv4技能书", "e20c172e": "轻身lv2技能书",
+	"e264c84c": "轻身lv5技能书", "e2dc54ee": "追杀lv4技能书", "e30b58aa": "凶性lv5技能书",
+	"e35e34e6": "护主lv1技能书", "e4c43204": "反打lv5技能书", "e547261e": "反打lv2技能书",
+	"e5f11777": "挡伤lv4技能书", "e6acd52d": "挡伤lv4技能书", "e77306b5": "破防lv2技能书",
+	"e80929ec": "致命lv4技能书", "e8824e15": "追杀lv2技能书", "e8a8dbc9": "护主lv5技能书",
+	"e91e2d6c": "护主lv5技能书", "e94d526e": "饮血lv2技能书", "ea421907": "守主lv3技能书",
+	"eacd16e3": "水变异宠物蛋", "eae91d17": "挑衅lv1技能书", "eb208f2e": "力壮lv4技能书",
+	"eb633975": "饮血lv2技能书", "ecfe20d4": "轻身lv4技能书", "ed107c08": "守主lv4技能书",
+	"ed7ad01b": "硬皮lv3技能书", "edd96a60": "自复lv4技能书", "ee4f8668": "轻身lv2技能书",
+	"ee982b48": "追杀lv3技能书", "eea76bf8": "致命lv4技能书", "eee93f95": "连击lv2技能书",
+	"ef90b1ce": "护主lv1技能书", "ef937254": "自复lv5技能书", "efe06826": "长命lv4技能书",
+	"efef1551": "溅墨lv1技能书", "f07e0fb4": "追杀lv5技能书", "f08a94c0": "自复lv1技能书",
+	"f0d2456d": "长命lv4技能书", "f16b8188": "追杀lv2技能书", "f17303d0": "溅墨lv3技能书",
+	"f18ce84f": "凶性lv2技能书", "f27f2c6f": "挑衅lv3技能书", "f41f540f": "溅墨lv2技能书",
+	"f4d8209d": "连击lv4技能书", "f58a17a8": "连击lv4技能书", "f5a01d66": "破防lv3技能书",
+	"f5bfe3b1": "连击lv5技能书", "f5c35dde": "守主lv1技能书", "f5d2c715": "饮血lv1技能书",
+	"f5d5ff1b": "硬皮lv4技能书", "f5f01516": "挡伤lv1技能书", "f613e0da": "力壮lv4技能书",
+	"f658a033": "饮血lv2技能书", "f667e148": "挑衅lv1技能书", "f6dc10e6": "硬皮lv3技能书",
+	"f77a84cd": "硬皮lv5技能书", "f7f64ffc": "破防lv5技能书", "f8788303": "破防lv3技能书",
+	"f9c052a2": "反打lv1技能书", "fa373816": "凶性lv1技能书", "fa7cd09f": "追杀lv2技能书",
+	"faa08942": "溅墨lv3技能书", "faba60f0": "硬皮lv3技能书", "fac61ed4": "致命lv1技能书",
+	"fb1fde9a": "守主lv4技能书", "fb943b09": "反打lv1技能书", "fc51a29a": "长命lv2技能书",
+	"fd2b5373": "硬皮lv4技能书", "fdd7a38b": "破防lv1技能书", "fe06c5c9": "护主lv1技能书",
+	"fe6e3d0a": "护主lv2技能书", "fe749230": "自复lv4技能书", "fea1743e": "硬皮lv3技能书",
+	"febf0528": "连击lv5技能书", "ff65fe5d": "反打lv2技能书", "ff81ba46": "轻身lv1技能书",
+	"ffcbf7aa": "挡伤lv1技能书", "ffebf667": "力壮lv2技能书", "fff095e7": "长命lv2技能书",
+	"fffe09cd": "致命lv1技能书",
+}
 
 
 # 老存档、老邮件、老帮派仓库里存的是改名前的物品名。读进来先过这一道：
@@ -7955,12 +8321,50 @@ static func migrate_item_name(item_name: String) -> String:
 	if n.is_empty():
 		return n
 	var hit: Variant = ITEM_NAME_MIGRATION.get(n.md5_text().substr(0, 8), null)
-	if hit == null:
-		return n
-	return str(hit)
+	if hit != null:
+		n = str(hit)
+	return normalize_item_name(n)
 
 
-const MAP_NAME_MIGRATION: = {}
+const MAP_NAME_MIGRATION: = {
+	"bd81bc63": "凌云幻城", "30a4af24": "凌云台",
+	"d15606ae": "浮光水城外郊", "e8c53648": "深碧海城",
+	"ef1aee2b": "深碧海底", "47d35101": "沉寂的古城",
+	"5614d762": "逆之往昔", "77d0c50b": "逆之心绪",
+	"427ae0b1": "逆之幻影", "bcf30262": "传说中的侠骨冢",
+	"b041d1e9": "碧之绿洲", "86363ad3": "幽界之森",
+	"9919f6c3": "碧野云霄", "5bbceb8a": "忘归海岸",
+	"692d9a63": "断魄涯", "2af44e61": "盘桓林",
+	"754918d5": "空明园", "351e6036": "衡霄台",
+	"e1106991": "落尘台", "2e9e89e0": "余恨原",
+	"49f7d308": "凝泪岗", "33ac0836": "回望亭",
+	"6668b84d": "幽思坡", "b2745f74": "闲逸园",
+	"d0e97723": "暮还道", "ca0fb54b": "孤影亭",
+	"0ac97dc3": "醉客冢", "3e6f0b85": "盈露台守望区",
+	"9ffab7a1": "莹冰桥", "ab6c8985": "澄沙原",
+	"282baa9d": "鸾之谷", "dbdf6ad0": "剑潭谷",
+	"95e832d7": "双玺谷", "d39b1d79": "玄铜洞窟",
+	"93dba7ae": "玄铜洞窟2", "435fdad0": "惊魂洞窟1",
+	"13089d59": "惊魂洞窟2", "52513ec4": "四津原",
+	"d5a075db": "寒泉台", "ece2708f": "将军碣谷",
+	"8bbc19e0": "灵菇洞", "902441ec": "幽怨洞",
+	"0ac307be": "幽怨洞口", "b0eac63b": "鸠鸣小舍",
+	"613edcfa": "斧翠谷", "fedb9742": "暮枫林",
+	"c5450519": "松霜野", "a6eb0f8d": "废井原",
+	"a0eb72d9": "榕根谷", "8c6069bc": "炊霭谷",
+	"619aa4d5": "耕春原", "58b83dca": "孤木原",
+	"18e4c2c2": "莹玉桥", "d4f78b0a": "蟠龙洞窟",
+	"61d30dc0": "蟠龙洞窟2", "7aa0895c": "紫藓洞窟",
+	"8072e33d": "紫藓洞窟2", "945ed48d": "翠幽洞",
+	"01f7291c": "西霜岭", "4d80ee32": "望日桥",
+	"2e51df9b": "望日桥头", "3f2e689e": "铜钟洞窟",
+	"d1f4aabb": "铜偶殿", "72d58dc5": "银瓮谷",
+	"4ba5e56b": "镜霜原", "8e94b7bd": "雪霁谷",
+	"7b23890a": "青幽洞", "1d0aedf6": "青岚原",
+	"8e6e9dcd": "望阙林场", "bf24e07c": "沙寇洞口",
+	"5b7cdf5c": "清邃古洞", "809638fd": "清邃古洞二区",
+	"c88ae8d6": "清邃古洞三区", "d620555b": "清邃古洞四区",
+}
 
 
 static func migrate_map_id(map_id: String) -> String:
@@ -7980,7 +8384,21 @@ static func migrate_map_id(map_id: String) -> String:
 # 宠物图鉴改名表。老存档里宠物存的是显示名（pet_name），名字一换就会变成未知宠物，
 # 而且 pet_id 缺失时还要靠名字反查图鉴键 —— 两头都会断，所以读档时先过这道归一。
 # 键同样是 md5 前 8 位，磁盘与包内不留旧名明文。
-const PET_NAME_MIGRATION: = {}
+const PET_NAME_MIGRATION: = {
+	"0b6cbb8d": "小猪比特", "0c79a7b4": "哪吒",
+	"19600219": "西门吹雪", "354cdebd": "八岐炎君",
+	"42b01dcb": "冥狼崽", "6683ed92": "绝情大帝",
+	"6a79a030": "齐天宝", "75113599": "阿努比斯",
+	"973d625c": "火舞姬", "9c08fd50": "白刃机娘",
+	"a50a0308": "九尾炎狐", "be4ab4cb": "星塔智灵",
+	"d7e394a6": "青柳仙尊", "d8761a4f": "小猪安特",
+	"dd6aad6d": "超级阿努", "df011735": "阿格留斯",
+	"fbc691e0": "六道影忍",
+	"5f4a1ae8": "阿努比斯", "84e8a484": "哪吒",
+	"bdb5d042": "西门吹雪", "96e83632": "阿格留斯",
+	"88628a01": "小猪比特", "30346835": "小猪安特",
+	"7d291460": "超级阿努",
+}
 
 
 static func migrate_pet_name(pet_name: String) -> String:
@@ -8049,7 +8467,11 @@ const ALL_ITEMS = {
 	"以战养战": {"name": "以战养战", "type": "martial_skill_book", "rarity": "legendary", "desc": "人物技能书，使用后随机领悟1-9层。装备后普攻50%概率吸血，1层回伤害的5%、9层回20%", "drop_rate": 0}, 
 	"套装强化石": {"name": "套装强化石", "type": "material", "rarity": "legendary", "desc": "套装强化道具", "drop_rate": 0}, 
 	"新手礼包": {"name": "新手礼包", "type": "gift", "rarity": "rare", "desc": "打开后获得一套单属性+50装备", "drop_rate": 0}, 
-	"钱币袋": {"name": "钱币袋", "type": "gift", "rarity": "rare", "desc": "打开获得10万金币。所有赞助钱袋已合并为这一种。", "drop_rate": 0.13}, 
+	# 2026-11-07：原版 rules.drop_rates 里根本没有「钱币袋」，这里的 0.13 是早期
+	# 残留，get_random_drop() 每场战斗都 roll 到它，线上一个号攒到 12 万个 / 121 格 999。
+	# 用户定口径改为 0.05（5%）；服务端 /economy/drop-config 也会下发同名值覆盖，
+	# 以后调爆率只改 runtime-config.json 的 drop_rate_overrides，不用重新出包。
+	"钱币袋": {"name": "钱币袋", "type": "gift", "rarity": "rare", "desc": "打开获得10万金币。所有赞助钱袋已合并为这一种。", "drop_rate": 0.05}, 
 	"内测先锋礼包": {"name": "内测先锋礼包", "type": "gift", "rarity": "legendary", "desc": "打开后获得1亿金币、1只成长6.0赤翅蛾和一套单属性+100装备", "drop_rate": 0}, 
 	"新人扶持礼包": {"name": "新人扶持礼包", "type": "gift", "rarity": "legendary", "desc": "打开后获得1亿金币、1只成长6.0赤翅蛾和一套单属性+100装备", "drop_rate": 0}, 
 	"开荒礼包": {"name": "开荒礼包", "type": "gift", "rarity": "legendary", "desc": "打开后获得5亿金币、7只成长6.0赤翅蛾和一套单属性+400装备", "drop_rate": 0}, 
@@ -8118,7 +8540,7 @@ const ALL_ITEMS = {
 	"10-13变异可进化宠礼包": {"name": "10-13变异可进化宠礼包", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只1级幼年形态变异1可进化宠，成长10.0-13.99（超稀有总概率1%）", "drop_rate": 0}, 
 	"7-9水晶儿礼包": {"name": "7-9水晶儿礼包", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长7.0-9.9的1级初级形态水晶儿", "drop_rate": 0}, 
 	"7-9梦晶儿礼包": {"name": "7-9梦晶儿礼包", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长7.0-9.9的1级初级形态梦晶儿", "drop_rate": 0}, 
-	"7-9阿弟达斯礼包": {"name": "7-9阿弟达斯礼包", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长7.0-9.9的1级初级形态阿弟达斯", "drop_rate": 0}, 
+	"7-9冥狼崽礼包": {"name": "7-9冥狼崽礼包", "type": "gift", "rarity": "legendary", "desc": "打开后随机获得一只成长7.0-9.9的1级初级形态冥狼崽", "drop_rate": 0}, 
 	"金宠物转生令牌": {"name": "金宠物转生令牌", "type": "material", "rarity": "epic", "desc": "金系宠物转生材料", "drop_rate": 0}, 
 	"木宠物转生令牌": {"name": "木宠物转生令牌", "type": "material", "rarity": "epic", "desc": "木系宠物转生材料", "drop_rate": 0}, 
 	"水宠物转生令牌": {"name": "水宠物转生令牌", "type": "material", "rarity": "epic", "desc": "水系宠物转生材料", "drop_rate": 0}, 
@@ -8201,92 +8623,92 @@ const ALL_ITEMS = {
 	"土变异宠物蛋": {"name": "土变异宠物蛋", "type": "pet_egg", "rarity": "legendary", "desc": "打开获得一只1级0代变异1土属性宠物，成长约6.0～7.9（不含活动限定/BOSS等特殊宠）", "drop_rate": 0}, 
 
 
-	"溅墨lv1技能书": {"name": "溅墨lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习溅射lv1技能，攻击时50%概率额外打击1个目标，溅射伤害为80%", "drop_rate": 0}, 
-	"溅墨lv2技能书": {"name": "溅墨lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习溅射lv2技能，攻击时必定额外打击1个目标，溅射伤害为100%", "drop_rate": 0}, 
-	"溅墨lv3技能书": {"name": "溅墨lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习溅射lv3技能，攻击时必定共打击3个目标，溅射伤害为100%", "drop_rate": 0}, 
-	"连击lv1技能书": {"name": "连击lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习连射lv1技能，攻击时20%概率连打3下，每下伤害60%", "drop_rate": 0}, 
-	"连击lv2技能书": {"name": "连击lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习连射lv2技能，攻击时30%概率连打3下，每下伤害80%", "drop_rate": 0}, 
-	"连击lv3技能书": {"name": "连击lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习连射lv3技能，攻击时50%概率连打3下，每下伤害100%", "drop_rate": 0}, 
-	"护主lv1技能书": {"name": "护主lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习神佑lv1技能，被击败时20%概率复活并恢复50%生命，每场最多5次", "drop_rate": 0}, 
-	"护主lv2技能书": {"name": "护主lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习神佑lv2技能，被击败时30%概率复活并恢复50%生命，每场最多5次", "drop_rate": 0}, 
-	"护主lv3技能书": {"name": "护主lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习神佑lv3技能，被击败时50%概率复活并恢复100%生命，每场最多5次", "drop_rate": 0}, 
-	"反打lv1技能书": {"name": "反打lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习反击lv1技能，被攻击时（打中或闪避）20%概率反击，伤害为50%", "drop_rate": 0}, 
-	"反打lv2技能书": {"name": "反打lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习反击lv2技能，被攻击时（打中或闪避）30%概率反击，伤害为80%", "drop_rate": 0}, 
-	"反打lv3技能书": {"name": "反打lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习反击lv3技能，被攻击时（打中或闪避）50%概率反击，伤害为100%", "drop_rate": 0}, 
+	"溅墨lv1技能书": {"name": "溅墨lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习溅墨lv1技能，攻击时50%概率额外打击1个目标，溅射伤害为80%", "drop_rate": 0}, 
+	"溅墨lv2技能书": {"name": "溅墨lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习溅墨lv2技能，攻击时必定额外打击1个目标，溅射伤害为100%", "drop_rate": 0}, 
+	"溅墨lv3技能书": {"name": "溅墨lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习溅墨lv3技能，攻击时必定共打击3个目标，溅射伤害为100%", "drop_rate": 0}, 
+	"连击lv1技能书": {"name": "连击lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习连击lv1技能，攻击时20%概率连打3下，每下伤害60%", "drop_rate": 0}, 
+	"连击lv2技能书": {"name": "连击lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习连击lv2技能，攻击时30%概率连打3下，每下伤害80%", "drop_rate": 0}, 
+	"连击lv3技能书": {"name": "连击lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习连击lv3技能，攻击时50%概率连打3下，每下伤害100%", "drop_rate": 0}, 
+	"护主lv1技能书": {"name": "护主lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习护主lv1技能，被击败时20%概率复活并恢复50%生命，每场最多5次", "drop_rate": 0}, 
+	"护主lv2技能书": {"name": "护主lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习护主lv2技能，被击败时30%概率复活并恢复50%生命，每场最多5次", "drop_rate": 0}, 
+	"护主lv3技能书": {"name": "护主lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习护主lv3技能，被击败时50%概率复活并恢复100%生命，每场最多5次", "drop_rate": 0}, 
+	"反打lv1技能书": {"name": "反打lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习反打lv1技能，被攻击时（打中或闪避）20%概率反击，伤害为50%", "drop_rate": 0}, 
+	"反打lv2技能书": {"name": "反打lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习反打lv2技能，被攻击时（打中或闪避）30%概率反击，伤害为80%", "drop_rate": 0}, 
+	"反打lv3技能书": {"name": "反打lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习反打lv3技能，被攻击时（打中或闪避）50%概率反击，伤害为100%", "drop_rate": 0}, 
 
-		"硬皮lv1技能书": {"name": "硬皮lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习坚固lv1技能，提升宠物基础防御70%", "drop_rate": 0}, 
-		"硬皮lv2技能书": {"name": "硬皮lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习坚固lv2技能，提升宠物基础防御140%", "drop_rate": 0}, 
-		"硬皮lv3技能书": {"name": "硬皮lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习坚固lv3技能，提升宠物基础防御210%", "drop_rate": 0}, 
-	"饮血lv1技能书": {"name": "饮血lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习吸血lv1技能，出手后10%概率按本下总伤害的10%回血", "drop_rate": 0}, 
-	"饮血lv2技能书": {"name": "饮血lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习吸血lv2技能，出手后20%概率按本下总伤害的15%回血", "drop_rate": 0}, 
-	"饮血lv3技能书": {"name": "饮血lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习吸血lv3技能，出手后30%概率按本下总伤害的20%回血", "drop_rate": 0}, 
-	"溅墨lv4技能书": {"name": "溅墨lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习溅射lv4技能，攻击时必定共打击4个目标，溅射伤害为100%", "drop_rate": 0}, 
-	"溅墨lv5技能书": {"name": "溅墨lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习溅射lv5技能，攻击时必定共打击5个目标，溅射伤害为100%", "drop_rate": 0}, 
-	"连击lv4技能书": {"name": "连击lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习连射lv4技能，攻击时60%概率连打3下，每下伤害100%", "drop_rate": 0}, 
-	"连击lv5技能书": {"name": "连击lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习连射lv5技能，攻击时70%概率连打4下，每下伤害100%", "drop_rate": 0}, 
-	"护主lv4技能书": {"name": "护主lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习神佑lv4技能，被击败时60%概率复活并恢复100%生命，每场最多5次", "drop_rate": 0}, 
-	"护主lv5技能书": {"name": "护主lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习神佑lv5技能，被击败时70%概率复活并恢复100%生命，每场最多6次", "drop_rate": 0}, 
-	"反打lv4技能书": {"name": "反打lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习反击lv4技能，被攻击时（打中或闪避）60%概率反击，伤害为100%", "drop_rate": 0}, 
-	"反打lv5技能书": {"name": "反打lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习反击lv5技能，被攻击时（打中或闪避）70%概率反击，伤害为120%", "drop_rate": 0}, 
-	"硬皮lv4技能书": {"name": "硬皮lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习坚固lv4技能，提升宠物基础防御230%", "drop_rate": 0}, 
-	"硬皮lv5技能书": {"name": "硬皮lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习坚固lv5技能，提升宠物基础防御250%", "drop_rate": 0}, 
-	"饮血lv4技能书": {"name": "饮血lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习吸血lv4技能，出手后40%概率按本下总伤害的25%回血", "drop_rate": 0}, 
-	"饮血lv5技能书": {"name": "饮血lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习吸血lv5技能，出手后50%概率按本下总伤害的30%回血", "drop_rate": 0}, 
-	"轻身lv1技能书": {"name": "轻身lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习迅捷lv1技能，提升宠物基础敏捷5%", "drop_rate": 0}, 
-	"轻身lv2技能书": {"name": "轻身lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习迅捷lv2技能，提升宠物基础敏捷10%", "drop_rate": 0}, 
-	"轻身lv3技能书": {"name": "轻身lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习迅捷lv3技能，提升宠物基础敏捷15%", "drop_rate": 0}, 
-	"轻身lv4技能书": {"name": "轻身lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习迅捷lv4技能，提升宠物基础敏捷20%", "drop_rate": 0}, 
-	"轻身lv5技能书": {"name": "轻身lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习迅捷lv5技能，提升宠物基础敏捷25%", "drop_rate": 0}, 
-	"长命lv1技能书": {"name": "长命lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习长寿lv1技能，提升宠物基础生命5%", "drop_rate": 0}, 
-	"长命lv2技能书": {"name": "长命lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习长寿lv2技能，提升宠物基础生命10%", "drop_rate": 0}, 
-	"长命lv3技能书": {"name": "长命lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习长寿lv3技能，提升宠物基础生命15%", "drop_rate": 0}, 
-	"长命lv4技能书": {"name": "长命lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习长寿lv4技能，提升宠物基础生命20%", "drop_rate": 0}, 
-	"长命lv5技能书": {"name": "长命lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习长寿lv5技能，提升宠物基础生命25%", "drop_rate": 0}, 
-	"力壮lv1技能书": {"name": "力壮lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习强壮lv1技能，提升宠物基础攻击5%", "drop_rate": 0}, 
-	"力壮lv2技能书": {"name": "力壮lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习强壮lv2技能，提升宠物基础攻击10%", "drop_rate": 0}, 
-	"力壮lv3技能书": {"name": "力壮lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习强壮lv3技能，提升宠物基础攻击15%", "drop_rate": 0}, 
-	"力壮lv4技能书": {"name": "力壮lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习强壮lv4技能，提升宠物基础攻击20%", "drop_rate": 0}, 
-	"力壮lv5技能书": {"name": "力壮lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习强壮lv5技能，提升宠物基础攻击25%", "drop_rate": 0}, 
-	"凶性lv1技能书": {"name": "凶性lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习凶猛lv1技能，提升暴击伤害5%", "drop_rate": 0}, 
-	"凶性lv2技能书": {"name": "凶性lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习凶猛lv2技能，提升暴击伤害10%", "drop_rate": 0}, 
-	"凶性lv3技能书": {"name": "凶性lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习凶猛lv3技能，提升暴击伤害15%", "drop_rate": 0}, 
-	"凶性lv4技能书": {"name": "凶性lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习凶猛lv4技能，提升暴击伤害20%", "drop_rate": 0}, 
-	"凶性lv5技能书": {"name": "凶性lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习凶猛lv5技能，提升暴击伤害25%", "drop_rate": 0}, 
-	"致命lv1技能书": {"name": "致命lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习必杀lv1技能，提升暴击率5%", "drop_rate": 0}, 
-	"致命lv2技能书": {"name": "致命lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习必杀lv2技能，提升暴击率10%", "drop_rate": 0}, 
-	"致命lv3技能书": {"name": "致命lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习必杀lv3技能，提升暴击率15%", "drop_rate": 0}, 
-	"致命lv4技能书": {"name": "致命lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习必杀lv4技能，提升暴击率20%", "drop_rate": 0}, 
-	"致命lv5技能书": {"name": "致命lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习必杀lv5技能，提升暴击率25%", "drop_rate": 0}, 
-	"自复lv1技能书": {"name": "自复lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习自愈lv1技能，每回合结束回复生命上限的5%", "drop_rate": 0}, 
-	"自复lv2技能书": {"name": "自复lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习自愈lv2技能，每回合结束回复生命上限的10%", "drop_rate": 0}, 
-	"自复lv3技能书": {"name": "自复lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习自愈lv3技能，每回合结束回复生命上限的15%", "drop_rate": 0}, 
-	"自复lv4技能书": {"name": "自复lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习自愈lv4技能，每回合结束回复生命上限的20%", "drop_rate": 0}, 
-	"自复lv5技能书": {"name": "自复lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习自愈lv5技能，每回合结束回复生命上限的25%", "drop_rate": 0}, 
-	"追杀lv1技能书": {"name": "追杀lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习追击lv1技能，击杀后40%概率对另一目标追击，伤害为100%", "drop_rate": 0}, 
-	"追杀lv2技能书": {"name": "追杀lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习追击lv2技能，击杀后70%概率对另一目标追击，伤害为100%", "drop_rate": 0}, 
-	"追杀lv3技能书": {"name": "追杀lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习追击lv3技能，击杀后80%概率对另一目标追击，伤害为100%", "drop_rate": 0}, 
-	"追杀lv4技能书": {"name": "追杀lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习追击lv4技能，击杀后90%概率对另一目标追击，伤害为100%", "drop_rate": 0}, 
-	"追杀lv5技能书": {"name": "追杀lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习追击lv5技能，击杀后必定对另一目标追击，伤害为100%", "drop_rate": 0}, 
-	"守主lv1技能书": {"name": "守主lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习忠心lv1技能，主人被打时5%概率替主人承受攻击", "drop_rate": 0}, 
-	"守主lv2技能书": {"name": "守主lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习忠心lv2技能，主人被打时10%概率替主人承受攻击", "drop_rate": 0}, 
-	"守主lv3技能书": {"name": "守主lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习忠心lv3技能，主人被打时15%概率替主人承受攻击", "drop_rate": 0}, 
-	"守主lv4技能书": {"name": "守主lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习忠心lv4技能，主人被打时20%概率替主人承受攻击", "drop_rate": 0}, 
-	"守主lv5技能书": {"name": "守主lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习忠心lv5技能，主人被打时25%概率替主人承受攻击", "drop_rate": 0}, 
-	"挑衅lv1技能书": {"name": "挑衅lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习嘲讽lv1技能，每回合20%概率吸引敌人攻击自己", "drop_rate": 0}, 
-	"挑衅lv2技能书": {"name": "挑衅lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习嘲讽lv2技能，每回合40%概率吸引敌人攻击自己", "drop_rate": 0}, 
-	"挑衅lv3技能书": {"name": "挑衅lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习嘲讽lv3技能，每回合60%概率吸引敌人攻击自己", "drop_rate": 0}, 
-	"挑衅lv4技能书": {"name": "挑衅lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习嘲讽lv4技能，每回合80%概率吸引敌人攻击自己", "drop_rate": 0}, 
-	"挑衅lv5技能书": {"name": "挑衅lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习嘲讽lv5技能，每回合必定吸引敌人攻击自己", "drop_rate": 0}, 
-	"破防lv1技能书": {"name": "破防lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习破甲lv1技能，攻击时1%概率忽视目标一半防御", "drop_rate": 0}, 
-	"破防lv2技能书": {"name": "破防lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习破甲lv2技能，攻击时2%概率忽视目标一半防御", "drop_rate": 0}, 
-	"破防lv3技能书": {"name": "破防lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习破甲lv3技能，攻击时3%概率忽视目标一半防御", "drop_rate": 0}, 
-	"破防lv4技能书": {"name": "破防lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习破甲lv4技能，攻击时4%概率忽视目标一半防御", "drop_rate": 0}, 
-	"破防lv5技能书": {"name": "破防lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习破甲lv5技能，攻击时5%概率忽视目标一半防御", "drop_rate": 0}, 
-	"挡伤lv1技能书": {"name": "挡伤lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习格挡lv1技能，受击时10%概率再减伤50%", "drop_rate": 0}, 
-	"挡伤lv2技能书": {"name": "挡伤lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习格挡lv2技能，受击时20%概率再减伤60%", "drop_rate": 0}, 
-	"挡伤lv3技能书": {"name": "挡伤lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习格挡lv3技能，受击时30%概率再减伤70%", "drop_rate": 0}, 
-	"挡伤lv4技能书": {"name": "挡伤lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习格挡lv4技能，受击时40%概率再减伤80%", "drop_rate": 0}, 
-	"挡伤lv5技能书": {"name": "挡伤lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习格挡lv5技能，受击时50%概率再减伤90%", "drop_rate": 0}, 
+	"硬皮lv1技能书": {"name": "硬皮lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习硬皮lv1技能，提升宠物基础防御70%", "drop_rate": 0}, 
+	"硬皮lv2技能书": {"name": "硬皮lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习硬皮lv2技能，提升宠物基础防御140%", "drop_rate": 0}, 
+	"硬皮lv3技能书": {"name": "硬皮lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习硬皮lv3技能，提升宠物基础防御210%", "drop_rate": 0}, 
+	"饮血lv1技能书": {"name": "饮血lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习饮血lv1技能，出手后10%概率按本下总伤害的10%回血", "drop_rate": 0}, 
+	"饮血lv2技能书": {"name": "饮血lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习饮血lv2技能，出手后20%概率按本下总伤害的15%回血", "drop_rate": 0}, 
+	"饮血lv3技能书": {"name": "饮血lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习饮血lv3技能，出手后30%概率按本下总伤害的20%回血", "drop_rate": 0}, 
+	"溅墨lv4技能书": {"name": "溅墨lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习溅墨lv4技能，攻击时必定共打击4个目标，溅射伤害为100%", "drop_rate": 0}, 
+	"溅墨lv5技能书": {"name": "溅墨lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习溅墨lv5技能，攻击时必定共打击5个目标，溅射伤害为100%", "drop_rate": 0}, 
+	"连击lv4技能书": {"name": "连击lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习连击lv4技能，攻击时60%概率连打3下，每下伤害100%", "drop_rate": 0}, 
+	"连击lv5技能书": {"name": "连击lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习连击lv5技能，攻击时70%概率连打4下，每下伤害100%", "drop_rate": 0}, 
+	"护主lv4技能书": {"name": "护主lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习护主lv4技能，被击败时60%概率复活并恢复100%生命，每场最多5次", "drop_rate": 0}, 
+	"护主lv5技能书": {"name": "护主lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习护主lv5技能，被击败时70%概率复活并恢复100%生命，每场最多6次", "drop_rate": 0}, 
+	"反打lv4技能书": {"name": "反打lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习反打lv4技能，被攻击时（打中或闪避）60%概率反击，伤害为100%", "drop_rate": 0}, 
+	"反打lv5技能书": {"name": "反打lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习反打lv5技能，被攻击时（打中或闪避）70%概率反击，伤害为120%", "drop_rate": 0}, 
+	"硬皮lv4技能书": {"name": "硬皮lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习硬皮lv4技能，提升宠物基础防御230%", "drop_rate": 0}, 
+	"硬皮lv5技能书": {"name": "硬皮lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习硬皮lv5技能，提升宠物基础防御250%", "drop_rate": 0}, 
+	"饮血lv4技能书": {"name": "饮血lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习饮血lv4技能，出手后40%概率按本下总伤害的25%回血", "drop_rate": 0}, 
+	"饮血lv5技能书": {"name": "饮血lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习饮血lv5技能，出手后50%概率按本下总伤害的30%回血", "drop_rate": 0}, 
+	"轻身lv1技能书": {"name": "轻身lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习轻身lv1技能，提升宠物基础敏捷5%", "drop_rate": 0}, 
+	"轻身lv2技能书": {"name": "轻身lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习轻身lv2技能，提升宠物基础敏捷10%", "drop_rate": 0}, 
+	"轻身lv3技能书": {"name": "轻身lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习轻身lv3技能，提升宠物基础敏捷15%", "drop_rate": 0}, 
+	"轻身lv4技能书": {"name": "轻身lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习轻身lv4技能，提升宠物基础敏捷20%", "drop_rate": 0}, 
+	"轻身lv5技能书": {"name": "轻身lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习轻身lv5技能，提升宠物基础敏捷25%", "drop_rate": 0}, 
+	"长命lv1技能书": {"name": "长命lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习长命lv1技能，提升宠物基础生命5%", "drop_rate": 0}, 
+	"长命lv2技能书": {"name": "长命lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习长命lv2技能，提升宠物基础生命10%", "drop_rate": 0}, 
+	"长命lv3技能书": {"name": "长命lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习长命lv3技能，提升宠物基础生命15%", "drop_rate": 0}, 
+	"长命lv4技能书": {"name": "长命lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习长命lv4技能，提升宠物基础生命20%", "drop_rate": 0}, 
+	"长命lv5技能书": {"name": "长命lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习长命lv5技能，提升宠物基础生命25%", "drop_rate": 0}, 
+	"力壮lv1技能书": {"name": "力壮lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习力壮lv1技能，提升宠物基础攻击5%", "drop_rate": 0}, 
+	"力壮lv2技能书": {"name": "力壮lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习力壮lv2技能，提升宠物基础攻击10%", "drop_rate": 0}, 
+	"力壮lv3技能书": {"name": "力壮lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习力壮lv3技能，提升宠物基础攻击15%", "drop_rate": 0}, 
+	"力壮lv4技能书": {"name": "力壮lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习力壮lv4技能，提升宠物基础攻击20%", "drop_rate": 0}, 
+	"力壮lv5技能书": {"name": "力壮lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习力壮lv5技能，提升宠物基础攻击25%", "drop_rate": 0}, 
+	"凶性lv1技能书": {"name": "凶性lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习凶性lv1技能，提升暴击伤害5%", "drop_rate": 0}, 
+	"凶性lv2技能书": {"name": "凶性lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习凶性lv2技能，提升暴击伤害10%", "drop_rate": 0}, 
+	"凶性lv3技能书": {"name": "凶性lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习凶性lv3技能，提升暴击伤害15%", "drop_rate": 0}, 
+	"凶性lv4技能书": {"name": "凶性lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习凶性lv4技能，提升暴击伤害20%", "drop_rate": 0}, 
+	"凶性lv5技能书": {"name": "凶性lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习凶性lv5技能，提升暴击伤害25%", "drop_rate": 0}, 
+	"致命lv1技能书": {"name": "致命lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习致命lv1技能，提升暴击率5%", "drop_rate": 0}, 
+	"致命lv2技能书": {"name": "致命lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习致命lv2技能，提升暴击率10%", "drop_rate": 0}, 
+	"致命lv3技能书": {"name": "致命lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习致命lv3技能，提升暴击率15%", "drop_rate": 0}, 
+	"致命lv4技能书": {"name": "致命lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习致命lv4技能，提升暴击率20%", "drop_rate": 0}, 
+	"致命lv5技能书": {"name": "致命lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习致命lv5技能，提升暴击率25%", "drop_rate": 0}, 
+	"自复lv1技能书": {"name": "自复lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习自复lv1技能，每回合结束回复生命上限的5%", "drop_rate": 0}, 
+	"自复lv2技能书": {"name": "自复lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习自复lv2技能，每回合结束回复生命上限的10%", "drop_rate": 0}, 
+	"自复lv3技能书": {"name": "自复lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习自复lv3技能，每回合结束回复生命上限的15%", "drop_rate": 0}, 
+	"自复lv4技能书": {"name": "自复lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习自复lv4技能，每回合结束回复生命上限的20%", "drop_rate": 0}, 
+	"自复lv5技能书": {"name": "自复lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习自复lv5技能，每回合结束回复生命上限的25%", "drop_rate": 0}, 
+	"追杀lv1技能书": {"name": "追杀lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习追杀lv1技能，击杀后40%概率对另一目标追击，伤害为100%", "drop_rate": 0}, 
+	"追杀lv2技能书": {"name": "追杀lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习追杀lv2技能，击杀后70%概率对另一目标追击，伤害为100%", "drop_rate": 0}, 
+	"追杀lv3技能书": {"name": "追杀lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习追杀lv3技能，击杀后80%概率对另一目标追击，伤害为100%", "drop_rate": 0}, 
+	"追杀lv4技能书": {"name": "追杀lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习追杀lv4技能，击杀后90%概率对另一目标追击，伤害为100%", "drop_rate": 0}, 
+	"追杀lv5技能书": {"name": "追杀lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习追杀lv5技能，击杀后必定对另一目标追击，伤害为100%", "drop_rate": 0}, 
+	"守主lv1技能书": {"name": "守主lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习守主lv1技能，主人被打时5%概率替主人承受攻击", "drop_rate": 0}, 
+	"守主lv2技能书": {"name": "守主lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习守主lv2技能，主人被打时10%概率替主人承受攻击", "drop_rate": 0}, 
+	"守主lv3技能书": {"name": "守主lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习守主lv3技能，主人被打时15%概率替主人承受攻击", "drop_rate": 0}, 
+	"守主lv4技能书": {"name": "守主lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习守主lv4技能，主人被打时20%概率替主人承受攻击", "drop_rate": 0}, 
+	"守主lv5技能书": {"name": "守主lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习守主lv5技能，主人被打时25%概率替主人承受攻击", "drop_rate": 0}, 
+	"挑衅lv1技能书": {"name": "挑衅lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习挑衅lv1技能，每回合20%概率吸引敌人攻击自己", "drop_rate": 0}, 
+	"挑衅lv2技能书": {"name": "挑衅lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习挑衅lv2技能，每回合40%概率吸引敌人攻击自己", "drop_rate": 0}, 
+	"挑衅lv3技能书": {"name": "挑衅lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习挑衅lv3技能，每回合60%概率吸引敌人攻击自己", "drop_rate": 0}, 
+	"挑衅lv4技能书": {"name": "挑衅lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习挑衅lv4技能，每回合80%概率吸引敌人攻击自己", "drop_rate": 0}, 
+	"挑衅lv5技能书": {"name": "挑衅lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习挑衅lv5技能，每回合必定吸引敌人攻击自己", "drop_rate": 0}, 
+	"破防lv1技能书": {"name": "破防lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习破防lv1技能，攻击时1%概率忽视目标一半防御", "drop_rate": 0}, 
+	"破防lv2技能书": {"name": "破防lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习破防lv2技能，攻击时2%概率忽视目标一半防御", "drop_rate": 0}, 
+	"破防lv3技能书": {"name": "破防lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习破防lv3技能，攻击时3%概率忽视目标一半防御", "drop_rate": 0}, 
+	"破防lv4技能书": {"name": "破防lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习破防lv4技能，攻击时4%概率忽视目标一半防御", "drop_rate": 0}, 
+	"破防lv5技能书": {"name": "破防lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习破防lv5技能，攻击时5%概率忽视目标一半防御", "drop_rate": 0}, 
+	"挡伤lv1技能书": {"name": "挡伤lv1技能书", "type": "pet_skill_book", "rarity": "rare", "desc": "宠物技能书，可学习挡伤lv1技能，受击时10%概率再减伤50%", "drop_rate": 0}, 
+	"挡伤lv2技能书": {"name": "挡伤lv2技能书", "type": "pet_skill_book", "rarity": "epic", "desc": "宠物技能书，可学习挡伤lv2技能，受击时20%概率再减伤60%", "drop_rate": 0}, 
+	"挡伤lv3技能书": {"name": "挡伤lv3技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习挡伤lv3技能，受击时30%概率再减伤70%", "drop_rate": 0}, 
+	"挡伤lv4技能书": {"name": "挡伤lv4技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习挡伤lv4技能，受击时40%概率再减伤80%", "drop_rate": 0}, 
+	"挡伤lv5技能书": {"name": "挡伤lv5技能书", "type": "pet_skill_book", "rarity": "legendary", "desc": "宠物技能书，可学习挡伤lv5技能，受击时50%概率再减伤90%", "drop_rate": 0}, 
 }
 
 

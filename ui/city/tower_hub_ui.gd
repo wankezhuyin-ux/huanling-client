@@ -73,6 +73,9 @@ static func create_fullscreen(game_manager, target_floor: int = -1) -> Control:
 		return panel
 	infinite_content.name = "infinite_tower_content"
 	infinite_content.offset_top = 52
+	# 点挑战成功后要销毁的是整个天关页（含这两个 tab），不是里面那层内容。
+	# TowerUI 销毁时会读这个 meta，见 _page_root_of()。
+	infinite_content.set_meta("page_root", panel)
 	panel.add_child(infinite_content)
 
 

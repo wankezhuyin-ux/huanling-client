@@ -1,0 +1,15 @@
+新增字体与授权（务必随包保留本文件）
+
+1) youshe_title.ttf —— 优设标题黑（YouSheBiaoTiHei）
+   来源：优设网 UISDC 出品
+   授权：永久免费商用（个人与企业均可，含商标/影视字幕/片头等）
+   说明：6763 个常用字，自带 8° 倾斜、起笔尖角，宽扁字身。
+
+2) smiley_sans.ttf —— 得意黑（Smiley Sans Oblique）
+   来源：atelier-anchor/smiley-sans v2.0.1
+   授权：SIL Open Font License 1.1（可自由使用、修改、随商业产品分发，
+         但不得单独售卖字体本身；保留本授权声明）
+   https://github.com/atelier-anchor/smiley-sans
+
+原有：
+   ink_serif.otf / ink_serif_bold.otf / ink_brush.ttf（见 ink_brush_LICENSE.txt）

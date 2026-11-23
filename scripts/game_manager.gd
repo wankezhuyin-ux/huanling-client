@@ -160,7 +160,7 @@ const BGM_LUCKY_DRAW = "res://Music/幸运抽奖.mp3"
 const ALLOW_LEGACY_PLAINTEXT_JSON_SAVE: bool = false
 
 
-var current_map: String = "浮影水城外郊（0,0）"
+var current_map: String = "浮光水城外郊（0,0）"
 var in_battle: bool = false
 var _wild_replay_busy: bool = false
 var _wild_replay_token: String = ""
@@ -2939,17 +2939,32 @@ func start_tower_battle(floor: int, monsters: Array) -> bool:
 		push_warning("天关：其他玩法战斗进行中，无法开战")
 		return false
 	if in_battle:
-		if battle_system and battle_system.current_state == battle_system.BattleState.IN_PROGRESS:
-			print("[GameManager] 天关：当前战斗进行中，无法开战")
-			return false
-		push_warning("检测到战斗状态不一致，强制重置")
-		in_battle = false
-		if battle_system:
-			battle_system.current_state = battle_system.BattleState.IDLE
-			battle_system.monsters.clear()
-			battle_system.battle_log.clear()
-			battle_system.suppress_battle_character_exp = false
-		_disconnect_all_battle_ended_handlers()
+		# 原版口径：挑战天关时**野外战斗暂停**，让出战斗位给天关，而不是拒绝开战。
+		# 以前这里不区分「野外挂机」和「其它副本」，只要 in_battle 就 return false，
+		# 玩家挂着机点挑战 → 开战失败 → 天关页已销毁、提示又挂在被销毁的面板上，
+		# 表现就是「点挑战没反应 / 界面空掉」。真正该拒绝的只有其它副本战斗。
+		if is_in_instanced_challenge():
+			if battle_system and battle_system.current_state == battle_system.BattleState.IN_PROGRESS:
+				print("[GameManager] 天关：其他玩法战斗进行中，无法开战")
+				return false
+			push_warning("检测到副本战斗状态不一致，强制重置")
+			in_battle = false
+			if battle_system:
+				battle_system.current_state = battle_system.BattleState.IDLE
+				battle_system.monsters.clear()
+				battle_system.battle_log.clear()
+				battle_system.suppress_battle_character_exp = false
+			_disconnect_all_battle_ended_handlers()
+		else:
+			print("[GameManager] 天关：先暂停野外战斗再开战 (state=%d)" % [
+				int(battle_system.current_state) if battle_system else -1])
+			_halt_main_ui_auto_battle()
+			# 第二个参数让「正在跑的那场野外录像」直接被丢弃，别等它播完
+			set_auto_battle_enabled(false, true)
+			force_stop_field_battle()
+			if in_battle:
+				_hard_reset_field_battle_state()
+			_disconnect_all_battle_ended_handlers()
 
 	is_tower_battle = true
 	is_tower_run_active = true
@@ -2970,17 +2985,18 @@ func start_tower_battle(floor: int, monsters: Array) -> bool:
 		if network == null or not network.is_logged_in():
 			print("[GameManager] 天关录像未登录，开战失败")
 			is_tower_battle = false
-			_end_tower_run_session(false)
+			_end_tower_run_session()
 			return false
 		if _tower_replay_busy:
 			is_tower_battle = false
-			_end_tower_run_session(false)
+			_end_tower_run_session()
 			return false
 		_tower_replay_busy = true
 		_tower_replay_token = ""
 		_tower_replay_server_victory = false
 		_tower_replay_abort = false
 		in_battle = true
+		_switch_to_battle_view_for_tower()
 		_start_tower_replay_battle_async(floor)
 		return true
 
@@ -2990,12 +3006,14 @@ func start_tower_battle(floor: int, monsters: Array) -> bool:
 	if battle_system.start_battle(player, active_pet, monsters, 30, false, resolve_attack_target_mode("tower")):
 		in_battle = true
 		tower_battle_started.emit(floor)
+		_switch_to_battle_view_for_tower()
 		print("[GameManager] 天关战斗开始成功, floor=", floor)
 		return true
 
 	print("[GameManager] 天关战斗开始失败")
 	is_tower_battle = false
-	_end_tower_run_session(false)
+	# 开战前把野外挂机停了，开战失败就得还回去，别让玩家莫名其妙一直站桩
+	_end_tower_run_session()
 	return false
 
 func force_stop_field_battle():
@@ -3086,6 +3104,19 @@ func _halt_main_ui_auto_battle() -> void :
 	var main_ui: = _find_main_ui_node()
 	if main_ui and main_ui.has_method("halt_field_auto_battle_for_challenge"):
 		main_ui.halt_field_auto_battle_for_challenge()
+
+## 天关开战后必须把主界面切到「战斗」页。
+## 兄弟天关 / 竞技场 / 世界 Boss 都有这一步，唯独无限天关没有：
+## 玩家是从天关页（叠在主城上的全屏页）点的挑战，页面一销毁，主界面还停在
+## 主城页，战报全写进了看不见的战斗页 → 玩家看到的就是「点了挑战，没战斗画面」。
+func _switch_to_battle_view_for_tower() -> void :
+	var main_ui: = _find_main_ui_node()
+	if main_ui == null:
+		return
+	if main_ui.has_method("_show_view"):
+		main_ui.call_deferred("_show_view", "battle")
+	else:
+		push_warning("[GameManager] 天关：MainUI 没有 _show_view，战场可能不可见")
 
 func _clear_instanced_challenge_flags_for_field_resume() -> void :
 	is_tower_battle = false
@@ -3480,6 +3511,12 @@ func _auto_start_next_tower_in_manager(next_floor: int):
 			player.gold -= 1000000
 			gold_changed.emit(player.gold)
 			battle_system.add_log("[color=yellow]扣除100万金币，继续挑战第%d层[/color]" % next_floor)
+
+	# 连打期间野外挂机必须一直停着（原版口径：挑战天关时野外战斗是暂停的）。
+	# 万一某条恢复链路把挂机又打开了，这里再压一次，免得下一层开战时被野外抢位。
+	if is_auto_battle_enabled():
+		_halt_main_ui_auto_battle()
+		set_auto_battle_enabled(false, false)
 
 	var monsters: Array = []
 	if not is_tower_replay_on():
@@ -4424,7 +4461,7 @@ func _on_fe_all_waves_cleared() -> void :
 func _sync_tower_progress(floor: int):
 
 	if network and network.is_logged_in():
-		network.update_tower_highest(floor)
+		network.update_tower_highest(floor, player.tower_floor)
 
 
 func _try_auto_capture():
@@ -4556,7 +4593,7 @@ const SAVE_FILE_BACKUP_TEMPLATE = "user://save_game_backup_u%d.dat"
 const SAVE_FILE_TEMP_TEMPLATE = "user://save_game_temp_u%d.dat"
 
 const DEFAULT_VALUES = {
-	"current_map": "浮影水城外郊（0,0）", 
+	"current_map": "浮光水城外郊（0,0）", 
 	"auto_capture_enabled": true, 
 	"min_growth_threshold": 0.0, 
 	"auto_change_map_enabled": false, 
@@ -7067,9 +7104,15 @@ func _emit_post_login_offline_rewards(d: Dictionary) -> void :
 	var pet_offline: Variant = d.get("petOfflineExp", {})
 	var pet_offline_d: Dictionary = pet_offline if pet_offline is Dictionary else {}
 	var is_vip: = int(d.get("vipTier", 0)) > 0
+	var auto_moves: Variant = d.get("autoTransitions", [])
 	var level_change: = {
 		"playerLevelBefore": int(d.get("playerLevelBefore", 0)), 
 		"playerLevelAfter": int(d.get("playerLevelAfter", 0)), 
+		# 服务端结算离线收益时会替玩家自动飞升/投胎（到门槛就飞），
+		# 跨境界后等级不能直接比大小，弹窗要按「境界 + 等级」显示
+		"playerRealmBefore": str(d.get("playerRealmBefore", "")), 
+		"playerRealmAfter": str(d.get("playerRealmAfter", "")), 
+		"autoTransitions": auto_moves if auto_moves is Array else [], 
 		"petLevelBefore": int(d.get("petLevelBefore", 0)), 
 		"petLevelAfter": int(d.get("petLevelAfter", 0)), 
 		"petName": str(d.get("petName", "")), 
@@ -7172,6 +7215,11 @@ func sync_server_daily_status():
 		var suit_connected = network.suit_dungeon_info_loaded.connect( func(sweeps_left: int, max_sweeps: int):
 			print("[DAILY] 收到套装副本扫荡次数: sweeps_left=", sweeps_left, ", max_sweeps=", max_sweeps)
 			player.suit_dungeon_sweeps = sweeps_left
+			# 进度只增不减：服务端权威值更高时跟上，否则通关过的层会被当成未通关，
+			# 扫荡按钮出不来（原版是挑战过的层直接能扫）。
+			var server_progress: = int(network.suit_dungeon_server_progress)
+			if server_progress > int(player.suit_dungeon_progress):
+				player.suit_dungeon_progress = server_progress
 			responses_received += 1
 			print("[DAILY] responses_received=", responses_received)
 			if responses_received >= total_requests:
@@ -7813,8 +7861,11 @@ func sync_player_authoritative_vip_double_exp_from_dict(pd: Variant) -> void :
 				var key_name: = str(key)
 				var prev: = int(player.double_exp_channels.get(key_name, 0))
 				player.double_exp_channels[key_name] = maxi(prev, int(incoming_channels[key]))
-	if d.has("double_exp_auto_realm_enabled"):
-		player.double_exp_auto_realm_enabled = bool(d.get("double_exp_auto_realm_enabled", false))
+	# 只有玩家本次会话没亲手改过、且还没从存档取过初值时才采纳云端值。
+	# 这一项是纯客户端偏好（服务端只负责原样存），回包带的多是勾选前的旧快照，
+	# 无条件赋值会让面板上的勾选几秒后被悄悄取消（自动飞升/投胎因此从不触发）。
+	if d.has("double_exp_auto_realm_enabled") and not player.is_auto_realm_pref_locked():
+		player.apply_auto_realm_pref_once(d.get("double_exp_auto_realm_enabled", false))
 
 func sync_player_authoritative_cosmetic_from_dict(pd: Variant) -> void :
 	if player == null or pd == null or not pd is Dictionary:
@@ -8820,6 +8871,17 @@ func apply_cloud_save(save_data: Dictionary, opts: Dictionary = {}):
 
 			if local_inventory_data.has("items") and local_inventory_data["items"].size() > 0:
 				inventory_manager.from_dict(local_inventory_data)
+
+		# 服务端权威删除（宠装分解 / 批量分解 / 丢弃）明确告诉我们删了哪几件。
+		# 放在 from_dict 之后：服务端分解掉最后一件时那份「空表不发键」的保护会让
+		# `inventoryData` 里根本没有 `pet_equipment_items`，from_dict 就整段跳过，
+		# 本地这件装备会留着 —— 玩家看到「分解成功」但装备还在（2026-11-04 报障）。
+		var removed_pet_equip_ids: Array = save_data.get("removedPetEquipIds", []) if save_data.get("removedPetEquipIds") is Array else []
+		if not removed_pet_equip_ids.is_empty():
+			var _dropped: int = inventory_manager.remove_pet_equipment_items_by_ids(removed_pet_equip_ids)
+			if _dropped > 0:
+				inventory_manager.inventory_changed.emit()
+				print("[GameManager] 宠装权威删除：本地背包同步移除 %d 件 %s" % [_dropped, str(removed_pet_equip_ids)])
 
 	if equipment_manager != null:
 

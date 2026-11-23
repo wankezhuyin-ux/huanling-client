@@ -706,7 +706,7 @@ static func _build_pet_refine_tab(panel: Control, scroll_content: VBoxContainer,
 
 	var pool_desc = Label.new()
 	var _pw = GameData.PET_REFINE_POOL_WEIGHTS
-	pool_desc.text = "概率：普通池%d%%（不可进化） | 稀有池%d%%（可进化，不含极稀有链） | 极稀有池%d%%（水晶儿/梦晶儿/阿弟达斯链）" % [_pw.common, _pw.rare, _pw.ultra_rare]
+	pool_desc.text = "概率：普通池%d%%（不可进化） | 稀有池%d%%（可进化，不含极稀有链） | 极稀有池%d%%（水晶儿/梦晶儿/冥狼崽链）" % [_pw.common, _pw.rare, _pw.ultra_rare]
 	pool_desc.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	pool_desc.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	pool_desc.add_theme_font_size_override("font_size", 14)

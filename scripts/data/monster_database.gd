@@ -159,19 +159,19 @@ static func get_all_monster_ids() -> Array:
 
 
 const MAPS = {
-	"浮影水城外郊（0,0）": {
+	"浮光水城外郊（0,0）": {
 		"min_level": 4, 
 		"monsters": ["纳瓦霍", "琳琳"]
 	}, 
-	"徘徊林（0,0）": {
+	"盘桓林（0,0）": {
 		"min_level": 5, 
 		"monsters": ["独行", "御林兔"]
 	}, 
-	"徘徊林（39,54）": {
+	"盘桓林（39,54）": {
 		"min_level": 5, 
 		"monsters": ["御林兔"]
 	}, 
-	"浮影水城外郊（48,44）": {
+	"浮光水城外郊（48,44）": {
 		"min_level": 10, 
 		"monsters": ["铁甲龟", "盔螺"]
 	}

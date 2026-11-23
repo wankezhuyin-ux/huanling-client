@@ -3465,7 +3465,7 @@ const PET_DATA = {
 		"ratio": [45, 17, 38]
 	}, 
 	"zhi_zun_bao": {
-		"name": "至尊宝", 
+		"name": "齐天宝", 
 		"type": "平均型", 
 		"element": "木", 
 		"attack": 12.1, 
@@ -3753,7 +3753,7 @@ const PET_DATA = {
 		"ratio": [25, 40, 35]
 	}, 
 	"a_di_da_si": {
-		"name": "阿弟达斯", 
+		"name": "冥狼崽", 
 		"type": "防敏型", 
 		"element": "火", 
 		"attack": 4.8, 

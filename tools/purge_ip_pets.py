@@ -1,16 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""删除 9 只 IP 侵权宠物：西门吹雪 / 六道佐助 / 九喇嘛 / 不知火舞 / 八神 / 狠人大帝 / 柳神 / 巴巴塔 / 尤尔哈
-
-同时清理：
-  - 服务端 data/*.json 的目录条目与榜单条目
-  - runtime-config.json 的 sponsorCustomPetIds
-  - 客户端 game_data.gd / pet_data_complete.gd 的字典条目
-  - assets/pets 与 assets/sprites 的图
-
-用法：
-  python3 purge_ip_pets.py            # 预览
-  python3 purge_ip_pets.py --apply    # 执行
+"""⚠️ 已废弃（2026-11-09）：本项目对 IP 侵权宠物的处置已从「删除」改为「改名」。
+请勿再运行本脚本 —— 它会物理删除 9 只宠物及其图，玩家已持有的会被清空。
+改名方案见 deploy/server/data/pet-rename.json 与客户端 game_data.gd PET_NAME_MIGRATION。
 """
 import argparse
 import json

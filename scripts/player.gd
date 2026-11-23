@@ -85,6 +85,44 @@ var double_exp_channels: Dictionary = {}
 
 var double_exp_auto_realm_enabled: bool = false
 
+## 本次会话里玩家是否亲手勾/取消过「双倍经验丹权益（自动飞升/投胎）」。
+##
+## 这个开关是**纯客户端偏好**：服务端既不用它结算、也没有校验逻辑，
+## 只是跟着整包存档原样存、原样回（见 handlers_account.save_upload）。
+## 于是回包里带的经常是「玩家勾选之前那一版快照」的 false ——
+## player.from_dict / sync_player_authoritative_vip_double_exp_from_dict
+## 一覆盖，面板上刚打上的勾几秒就自己弹回去，自动飞升/投胎永远走不到。
+## 玩家亲手改过之后就以本地为准，本次会话内不再接受云端回写。
+var _auto_realm_pref_edited: bool = false
+## 这一项是否已经从存档里取过初值。
+## 取过之后就锁住：运行期所有整包 from_dict（云端权威回包、离线结算、
+## 战斗结算回包）都只当它是噪声，不再覆盖 —— 否则玩家每次登录都会被
+## 服务端那份「还没收到新偏好」的旧快照打回 false。
+var _auto_realm_pref_loaded: bool = false
+
+func mark_auto_realm_pref_edited() -> void:
+	_auto_realm_pref_edited = true
+	_auto_realm_pref_loaded = true
+
+func is_auto_realm_pref_locked() -> bool:
+	return _auto_realm_pref_edited or _auto_realm_pref_loaded
+
+## 存档里的 double_exp_auto_realm_enabled 只在「首次加载」时采纳。
+## 返回 true 表示这次采纳了。
+##
+## raw 为 null 表示这份存档**根本没有这一项**（服务端自己重建的 playerData
+## 就没有它，只有客户端整包上传过的存档才有）。这时既不能拿默认 false 覆盖
+## 本地已有的 true，也不能把闸门锁死 —— 否则登录时先来一份精简云端数据，
+## 玩家上次勾好的开关就被当成「没开过」。
+func apply_auto_realm_pref_once(raw: Variant) -> bool:
+	if _auto_realm_pref_edited or _auto_realm_pref_loaded:
+		return false
+	if raw == null:
+		return false
+	double_exp_auto_realm_enabled = coerce_bool(raw, false)
+	_auto_realm_pref_loaded = true
+	return true
+
 var newbie_exp_until: int = 0
 
 var catchup_first_reincarnation: int = 0
@@ -382,7 +420,14 @@ func get_points_per_level() -> int:
 
 func is_double_exp_active(current_time: int = -1) -> bool:
 	var now_ts: = current_time if current_time >= 0 else int(Time.get_unix_time_from_system())
-	return double_exp_until > now_ts
+	if double_exp_until > now_ts:
+		return true
+	# 多通道（日/周/月丹）生效时只看 double_exp_until 会漏判：那条字段是
+	# 「最晚到期时间」的缓存，本地/老存档里可能还没同步，通道里其实是有丹的。
+	for key in double_exp_channels.keys():
+		if int(double_exp_channels[key]) > now_ts:
+			return true
+	return false
 
 func get_double_exp_channel_count(current_time: int = -1) -> int:
 	var now_ts: = current_time if current_time >= 0 else int(Time.get_unix_time_from_system())
@@ -1110,7 +1155,10 @@ func from_dict(data: Variant = {}):
 		double_exp_channels = normalized_channels
 	else:
 		double_exp_channels = {}
-	double_exp_auto_realm_enabled = coerce_bool(data.get("double_exp_auto_realm_enabled", false), false)
+	# 玩家本次会话亲手勾过/取消过就以本地为准：权威回包里的这一项通常是
+	# 勾选之前的旧快照（默认 false），照抄会让勾选几秒后自动消失。
+	# 第二参数 null 表示「这份存档里没有这一项」，见 apply_auto_realm_pref_once。
+	apply_auto_realm_pref_once(data.get("double_exp_auto_realm_enabled", null))
 	tower_floor = data.get("tower_floor", 1)
 	tower_highest = data.get("tower_highest", 0)
 	var old_sweep_used = data.get("tower_sweep_used", false)

@@ -36,6 +36,8 @@ static func _estimate_alert_line_count(message: String, chars_per_line: int = 16
 	return maxi(1, max_lines)
 
 static var _is_sweeping: bool = false
+## 服务端下发的今日扫荡上限（含 VIP 加成）；0 表示还没拿到，文案就不带分母。
+static var _sweep_cap: int = 0
 const BUTTON_COOLDOWN_SEC: = 3
 
 static func _find_existing_window_popup(popup_key: String) -> Window:
@@ -132,7 +134,7 @@ static func create_fullscreen(game_manager) -> Control:
 
 	var sweep_label = Label.new()
 	sweep_label.name = "sweep_label"
-	sweep_label.text = "今日可扫荡: %d 次" % game_manager.player.suit_dungeon_sweeps
+	sweep_label.text = _suit_sweep_label_text(int(game_manager.player.suit_dungeon_sweeps))
 	sweep_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	sweep_label.add_theme_font_size_override("font_size", 14)
 	sweep_label.add_theme_color_override("font_color", Color(0.6, 1, 0.6))
@@ -166,10 +168,20 @@ static func refresh_panel(game_manager, panel: Control) -> void :
 		return
 	if game_manager.player == null:
 		return
+	# 服务端权威进度可能比本地旧存档高（换设备、回档、早期版本压根没落库）。
+	# 客户端只增不减地跟上，否则通关过的层会被算成「未通关」，扫荡按钮出不来。
+	var net = game_manager.network
+	if net != null and int(net.suit_dungeon_server_progress) > int(game_manager.player.suit_dungeon_progress):
+		game_manager.player.suit_dungeon_progress = int(net.suit_dungeon_server_progress)
 	var progress_label: = panel.find_child("suit_progress_label", true, false) as Label
 	if progress_label and is_instance_valid(progress_label):
 		progress_label.text = "当前进度: 第 %d 层" % int(game_manager.player.suit_dungeon_progress)
 	_refresh_sweep_display(panel, game_manager)
+	# 次数按天重置：面板是缓存的，跨零点后本地那个「剩余 0 次」会一直卡着不让扫，
+	# 所以每次刷新都重新问一遍服务端（GET，很轻）。
+	var sweep_label: = panel.find_child("sweep_label", true, false) as Label
+	if sweep_label and is_instance_valid(sweep_label):
+		_bind_suit_dungeon_info_sync(game_manager, sweep_label)
 	var levels_box: = panel.find_child("suit_dungeon_levels", true, false) as VBoxContainer
 	if levels_box == null or not is_instance_valid(levels_box):
 		return
@@ -239,7 +251,7 @@ static func create_content(game_manager, parent_panel: Control) -> Control:
 
 	var sweep_label = Label.new()
 	sweep_label.name = "sweep_label"
-	sweep_label.text = "今日可扫荡: %d 次" % game_manager.player.suit_dungeon_sweeps
+	sweep_label.text = _suit_sweep_label_text(int(game_manager.player.suit_dungeon_sweeps))
 	sweep_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	sweep_label.add_theme_font_size_override("font_size", 14)
 	sweep_label.add_theme_color_override("font_color", Color(1, 0.85, 0.3))
@@ -709,19 +721,29 @@ static func _on_sweep(level: int, game_manager, parent_control: Control, trigger
 		var dvar: Variant = er.get("data", {})
 		var sweep_g: = 0
 		var server_data: Dictionary = {}
+		var progress_changed: = false
 		if dvar is Dictionary:
 			var d: Dictionary = dvar
 			server_data = d
 			if d.has("newGold"):
 				game_manager.player.gold = int(d.get("newGold", game_manager.player.gold))
 			if d.has("sweepsLeft"):
+				# 服务端这次扣了 1 次，回的是**剩余**次数（与 player.suit_dungeon_sweeps 同义）
 				game_manager.player.suit_dungeon_sweeps = int(d.get("sweepsLeft", 0))
-			sweep_g = int(d.get("goldGranted", 0))
+			if d.has("suitDungeonProgress"):
+				var server_progress: = int(d.get("suitDungeonProgress", -1))
+				if server_progress > int(game_manager.player.suit_dungeon_progress):
+					game_manager.player.suit_dungeon_progress = server_progress
+					progress_changed = true
+			sweep_g = int(d.get("goldGranted", d.get("goldGained", 0)))
 		game_manager.gold_changed.emit(game_manager.player.gold)
 		_perform_sweep(level, game_manager, parent_control, sweep_g, server_data)
 		_refresh_sweep_display(parent_control, game_manager)
+		if progress_changed:
+			refresh_panel(game_manager, parent_control)
 	else:
 		_show_game_alert(parent_control, str(er.get("err", "扫荡失败")), "扫荡失败")
+		_refresh_sweep_display(parent_control, game_manager)
 
 static func _perform_sweep(level: int, game_manager, parent_control: Control, gold_granted: int, server_data: Dictionary) -> void :
 
@@ -823,22 +845,36 @@ static func _show_game_alert(_parent_control: Control, message: String, title: S
 	scene_root.add_child(popup)
 	popup.popup_centered()
 
+static func _suit_sweep_label_text(sweeps_left: int) -> String:
+	if _sweep_cap > 0:
+		return "今日可扫荡: %d/%d 次" % [sweeps_left, _sweep_cap]
+	return "今日可扫荡: %d 次" % sweeps_left
+
 static func _bind_suit_dungeon_info_sync(game_manager, sweep_label: Label) -> void :
 	if not game_manager or not game_manager.network or not game_manager.network.is_logged_in():
 		return
-	game_manager.network.suit_dungeon_info_loaded.connect( func(sweeps_left: int, _max_sweeps: int):
+	var net = game_manager.network
+	net.suit_dungeon_info_loaded.connect( func(sweeps_left: int, max_sweeps: int):
+		if game_manager.player == null:
+			return
+		# 服务端回的是**剩余**次数（扣一次减一），本地直接对齐，别再自己算
 		game_manager.player.suit_dungeon_sweeps = sweeps_left
+		_sweep_cap = maxi(0, max_sweeps)
+		# 进度只增不减：服务端权威值更高时跟上（换设备 / 旧存档没落库）
+		var server_progress: = int(net.suit_dungeon_server_progress)
+		if server_progress > int(game_manager.player.suit_dungeon_progress):
+			game_manager.player.suit_dungeon_progress = server_progress
 		if is_instance_valid(sweep_label):
-			sweep_label.text = "今日可扫荡: %d 次" % sweeps_left
+			sweep_label.text = _suit_sweep_label_text(sweeps_left)
 	, CONNECT_ONE_SHOT)
-	game_manager.network.get_suit_dungeon_info()
+	net.get_suit_dungeon_info()
 
 static func _update_sweep_count_label(parent_control: Control, game_manager) -> void :
 	if not parent_control or not is_instance_valid(parent_control) or game_manager == null:
 		return
 	var sweep_label: = parent_control.find_child("sweep_label", true, false) as Label
 	if sweep_label and is_instance_valid(sweep_label):
-		sweep_label.text = "今日可扫荡: %d 次" % int(game_manager.player.suit_dungeon_sweeps)
+		sweep_label.text = _suit_sweep_label_text(int(game_manager.player.suit_dungeon_sweeps))
 
 static func _refresh_sweep_display(parent_control: Control, game_manager) -> void :
 	_update_sweep_count_label(parent_control, game_manager)
